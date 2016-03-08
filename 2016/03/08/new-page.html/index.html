@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans" prefix="og: http://ogp.me/ns#" class="han-init">
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Invoker</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <!--在这里倒入jquery 方便处理部分页面的jquery-->
+  <script src="http://lib.sinaapp.com/js/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+</head>
+
+<body>
+	
+  <header class="site-header site-color" id="site-header-id">
+
+  <div class="container">
+      <h1><a href="/" title="Invoker"><span class="octicon octicon-mark-github"></span> Invoker</a></h1>
+      <nav class="site-header-nav" role="navigation">
+        
+              
+              <a href="/"  class=" site-header-nav-item hvr-underline-from-center" title="Home">Home</a>
+        
+              
+              <a href="/subentry/Life/" target="target" class=" site-header-nav-item hvr-underline-from-center" title="Life">Life</a>
+        
+              
+              <a href="/open-source/"  class=" site-header-nav-item hvr-underline-from-center" title="Open-Source">Open-Source</a>
+        
+              
+              <a href="/blog/"  class=" site-header-nav-item hvr-underline-from-center" title="Blog">Blog</a>
+        
+              
+              <a href="/guestbook/"  class=" site-header-nav-item hvr-underline-from-center" title="Guestbook">Guestbook</a>
+        
+      </nav>
+  </div>
+</header>
+
+	
+    <section class="collection-head collection-head-scrolled geopattern" data-pattern-id="New Post" >
+
+    <div class="container">
+        <div class="collection-title">
+            <h1 class="collection-header">New Post</h1>
+            <div class="collection-info">
+                <span class="meta-info">
+                    
+                        <span class="octicon octicon-calendar"></span>
+                        <time datetime="2016-03-07T17:05:14.000Z" itemprop="datePublished">2016-03-08</time>
+                    
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+	
+
+    <section class="container content">
+
+    <div class="columns">
+        <div class="column three-fourths" >
+            <article class="article-content article-entry">
+                <h1 id="成组链接法"><a href="#成组链接法" class="headerlink" title="成组链接法"></a>成组链接法</h1><p> 成组链接法   即为空闲表和空间链里两种方法相结合。</p>
+<p> 将空闲块按100块为一组进行组织，利用空闲块每组的第0块来存放前一组的100块的地址，所以第0块既是可以分配的空闲块，同时也充当了数据结构。</p>
+<p> 具体来说，没100块分为一组（第一组为99快，这里s_free[0]是用来标识空闲块链的链尾标志，即表示下面已经没有索引表登记的空闲块了）</p>
+<p> s_nfree表示这个表中有多少空闲块，s_free表示这个表中的第几块空闲块</p>
+<p> <img src="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="Mou icon"></p>
+<p>每一组相当于一个栈，s_free[0]相当于栈底,s_free[99]相当于栈顶，在一个组存放到100之后，就开一个新组来存放，新组的栈底就是上一组的栈顶，这样就可以把这些组给连接起来，组间是链，组内是表。</p>
+<p>分配时，先分配栈顶的空闲块，直到s_free[0]内的值为0，说明已经到了空闲盘块链尾，没有盘块可以分配了，这是分配程序就将错误信息打印出来，并返回一个NULL给调用者，相当于出栈。</p>
+<p>回收时，把回收的空闲块放入栈顶，如果前一个栈已经放满，就再在这组之后开一个新组，放入新组栈顶，并置s_nfree:为1；如果前一个栈未放满，就填入原组表中第一个 占用的项，相当于压栈。</p>
+<p>这种后进先出的栈式管理和成组链接方法加快了磁盘的分配和释放的速度，减少了系统的时空开销，提高系统效率。</p>
+
+            </article>
+            
+                <div class="share">
+                    <!--开启分享-->
+<div class="share-component"></div>
+
+<script src="/js/share.min.js"></script>
+                </div>    
+            
+            
+                <div class="comment">
+                    
+<div class="ds-thread" data-thread-key="new-page.html" data-title="New Post" data-url="http://yoursite.com/2016/03/08/new-page.html/"></div>
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"George"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0]
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+</script>
+                </div>
+            
+        </div>
+        <div class="column one-fourth">
+            
+                <h3>Post Directory</h3>
+
+<div id="post-directory-module">
+	<section class="post-directory">
+		<p><strong class="toc-title">文章目录</strong></p>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#成组链接法"><span class="toc-text">成组链接法</span></a></li></ol>
+	</section>
+</div>
+            
+        </div>
+       
+    </div>
+</section>
+
+<footer class="container">
+    <div class="site-footer" role="contentinfo">
+        <div class="copyright left mobile-block">
+                
+                <span title="Hexo">由 <a href="hexo.io">Hexo</a> 强力驱动</span>
+                <a href="javascript:window.scrollTo(0,0)" class="right mobile-visible">TOP</a>
+        </div>
+
+        <ul class="site-footer-links right mobile-hidden">
+            <li>
+                <a href="javascript:window.scrollTo(0,0)" >TOP</a>
+            </li>
+        </ul>
+
+        <a href="https://github.com/huobingli" target="_blank" aria-label="view source code">
+            <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
+        </a>
+
+        <ul class="site-footer-links mobile-hidden">
+            
+             
+              
+              <li>
+                <a href="/"  title="Home">Home</a>
+              </li>
+            
+              
+              <li>
+                <a href="/subentry/Life/" target="target" title="Life">Life</a>
+              </li>
+            
+              
+              <li>
+                <a href="/open-source/"  title="Open-Source">Open-Source</a>
+              </li>
+            
+              
+              <li>
+                <a href="/blog/"  title="Blog">Blog</a>
+              </li>
+            
+              
+              <li>
+                <a href="/guestbook/"  title="Guestbook">Guestbook</a>
+              </li>
+            
+
+        </ul>
+
+    </div>
+</footer>
+
+		
+		<script src="/js/typer.js"></script>
+
+		<script src="/js/geopattern.js"></script>
+
+		<script src="/js/index.js"></script>
+
+		 <script src="/js/popular_repo.js"></script> 
+
+	</body>
+</html>

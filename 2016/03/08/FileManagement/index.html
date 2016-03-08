@@ -8,19 +8,24 @@
 
 <title>
   
-    Archive: 2016
+    文件管理之文件分配管理(外存)
   
 </title>
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Invoker">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+<meta name="description" content="文件管理">
+<meta property="og:type" content="article">
+<meta property="og:title" content="文件管理之文件分配管理(外存)">
+<meta property="og:url" content="http://yoursite.com/2016/03/08/FileManagement/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description">
+<meta property="og:description" content="文件管理">
+<meta property="og:image" content="http://img.blog.csdn.net/20150329031646299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta property="og:image" content="http://img.blog.csdn.net/20150329032531068?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20150329033748120?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2016-03-08T09:34:21.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Invoker">
-<meta name="twitter:description">
+<meta name="twitter:title" content="文件管理之文件分配管理(外存)">
+<meta name="twitter:description" content="文件管理">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150329031646299?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -123,51 +128,34 @@
       
         <div style="max-width: 1000px">
       
-          
-
+          <article id="post-FileManagement" class="article article-type-post">
+  
+    <h1 class="article-header">
+      文件管理之文件分配管理(外存)
+    </h1>
   
   
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
-        </div>
-        <div class="post-list">
-    
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/03/08/FileManagement/" >
-  文件管理之文件分配管理(外存)
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/03/08/FileManagement/"><span class="article-date">
+  <div class="article-info">
+    <span class="article-date">
   2016-03-08
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
 	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/文件管理/">文件管理</a></li></ul>
 	</span>
 
 
-        
+    
 	<span class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件管理/">文件管理</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="文件管理之文件分配管理-外存"><a href="#文件管理之文件分配管理-外存" class="headerlink" title="文件管理之文件分配管理(外存)"></a>文件管理之文件分配管理(外存)</h2><p>连续分配，看到就知道是连续的分配一些磁盘块来存储文件。</p>
+  </div>
+  <div class="article-entry">
+    <h2 id="文件管理之文件分配管理-外存"><a href="#文件管理之文件分配管理-外存" class="headerlink" title="文件管理之文件分配管理(外存)"></a>文件管理之文件分配管理(外存)</h2><p>连续分配，看到就知道是连续的分配一些磁盘块来存储文件。</p>
 <p>它的优点：访问速度快，而且访问比较容易。</p>
 <p>它的缺点：由于是要求有连续的磁盘块来存放，所以容易产生碎片，降低外存的空间利用，还需要在存取之前知道文件的长度。</p>
 <p>链接分配又分为，隐式链接和显式链接。</p>
@@ -186,61 +174,29 @@
 <p>混合索引分配：将多种索引方式结合形成的一种分配方式，里面包含直接地址，一次间接地址，多次间接地址。直接地址就相当于直接索引，一次间接地址相当于存放了一张索引表的地址，实质就是一级索引分配，多次间接地址，实质就是多级索引分配。</p>
 <p>它集成了上面的一些优点和特色，提高小文件的储存的磁盘利用率，同时也可以用来存放一些中型、大型文件。</p>
 
-        
-      </div>
-    </div>
-
-  
-
-  
-  
+  </div>
+  <footer class="article-footer">
     
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/03/08/GroupLink/" >
-  成组链接法
-</a>
-
-      </h3>
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
       
-
-      <div class="article-info">
-        <a href="/2016/03/08/GroupLink/"><span class="article-date">
-  2016-03-08
-</span>
-</a>
+          <img src="/images/cc/by.png">
         
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/文件管理/">文件管理</a></li></ul>
-	</span>
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
 
 
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/文件管理/">文件管理</a></li></ul>
-	</span>
+    
 
+  </footer>
+</article>
 
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="成组链接法"><a href="#成组链接法" class="headerlink" title="成组链接法"></a>成组链接法</h2><p> 成组链接法   即为空闲表和空间链里两种方法相结合。</p>
-<p> 将空闲块按100块为一组进行组织，利用空闲块每组的第0块来存放前一组的100块的地址，所以第0块既是可以分配的空闲块，同时也充当了数据结构。</p>
-<p> 具体来说，没100块分为一组（第一组为99快，这里s_free[0]是用来标识空闲块链的链尾标志，即表示下面已经没有索引表登记的空闲块了）</p>
-<p> s_nfree表示这个表中有多少空闲块，s_free表示这个表中的第几块空闲块</p>
-<p> <img src="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt="Mou icon"></p>
-<p>每一组相当于一个栈，s_free[0]相当于栈底,s_free[99]相当于栈顶，在一个组存放到100之后，就开一个新组来存放，新组的栈底就是上一组的栈顶，这样就可以把这些组给连接起来，组间是链，组内是表。</p>
-<p>分配时，先分配栈顶的空闲块，直到s_free[0]内的值为0，说明已经到了空闲盘块链尾，没有盘块可以分配了，这是分配程序就将错误信息打印出来，并返回一个NULL给调用者，相当于出栈。</p>
-<p>回收时，把回收的空闲块放入栈顶，如果前一个栈已经放满，就再在这组之后开一个新组，放入新组栈顶，并置s_nfree:为1；如果前一个栈未放满，就填入原组表中第一个 占用的项，相当于压栈。</p>
-<p>这种后进先出的栈式管理和成组链接方法加快了磁盘的分配和释放的速度，减少了系统的时空开销，提高系统效率。</p>
-
-        
-      </div>
-    </div>
-
-  
 
 
 

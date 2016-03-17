@@ -8,7 +8,7 @@
 
 <title>
   
-    分类: Socket TCP/IP
+    Category: Socket TCP/IP
   
 </title>
 
@@ -78,22 +78,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a><span class="category-list-count">1</span></li></ul>
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">1</span></li></ul>
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">5</span></li></ul>
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">6</span></li></ul>
               </li>
             
           
@@ -161,6 +161,16 @@
       <div class="article-entry">
         
           <h2 id="TCP-IP-与-Socket编程"><a href="#TCP-IP-与-Socket编程" class="headerlink" title="TCP/IP 与 Socket编程"></a>TCP/IP 与 Socket编程</h2><h3 id="TCP-IP协议"><a href="#TCP-IP协议" class="headerlink" title="TCP/IP协议"></a>TCP/IP协议</h3><h3 id="Socket编程"><a href="#Socket编程" class="headerlink" title="Socket编程"></a>Socket编程</h3><p>Socket是网络通信的基本单元，应用层到传输层的接口，可以将套接字看作不同个主机间的进程，进行双向通信的端点。<br>套接字之间的连接过程可以分为3个步骤：1、服务器监听；2、客户端请求；3、连接确认。</p>
+<p>socket有三个属性： 协议、 端口号、 IP地址。</p>
+<h4 id="Socket服务端"><a href="#Socket服务端" class="headerlink" title="Socket服务端"></a>Socket服务端</h4><h6 id="sockaddr结构"><a href="#sockaddr结构" class="headerlink" title="sockaddr结构"></a>sockaddr结构</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct sockaddr</span><br><span class="line">&#123;</span><br><span class="line">  unsigned short sa_family;</span><br><span class="line">  char sa_data[14];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>sa_family 表示2个字节的地址族，通常使用AF_INET</p>
+<h6 id="sockaddr-in结构"><a href="#sockaddr-in结构" class="headerlink" title="sockaddr_in结构"></a>sockaddr_in结构</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">struct sockaddr_in  </span><br><span class="line">&#123;  </span><br><span class="line">short sin_family;  </span><br><span class="line">unsigned short sin_port;  </span><br><span class="line">struct in_addr sin_addr;  </span><br><span class="line">unsigned char sin_zero[8];  </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>sin_family 表示地址族<br>sin_port 表示按网络顺序的16位端口号<br>sin_addr in_addr结构体，表示按网络顺序的32位的因特网地址<br>sin_zero 是为了让sockaddr与sockaddr_in两个数据结构保持大小相同而保留的空字节  </p>
+<p>in_addr用来表示32位的IPv4地址<br>in_addr结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct in_addr</span><br><span class="line">&#123;</span><br><span class="line">  in_addr_t s_addr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>sockaddr 和 sockaddr_in的区别</p>
+<p>两者的占用的内存大小是一致的，因此可以相互转化，从这个意义上说，他们并无区别。sockaddr 通常用在bind,connect,recvfrom,sendto等函数的参数，指明地址信息，是一种通用的套接字。sockaddr_in是internet环境下套接字的地址形式。所以在网络编程中我们会对sockaddr_in结构体进行操作。先使用sockaddr_in来建立所需的信息，最后使用类型转化就可以了。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;sys/socket.h&gt;</span><br><span class="line">#include &lt;netinet/in.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">int socket;</span><br><span class="line">struct sockaddr_in mysock;</span><br><span class="line"></span><br><span class="line">socket = socket(AF_INET,SOCK_STREAM,0);  //获得socket</span><br><span class="line"></span><br><span class="line">memset((void *)&amp;mysock, 0, sizeof(mysock));//windows 下使用memset赋值，初始化结构体</span><br><span class="line">(bzero(&amp;mysock,sizeof(mysock));  //linux下初始化结构体)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysock.sin_family = AF_INET;  //设置地址家族</span><br><span class="line">mysock.sin_port = htons(800);  //设置端口800</span><br><span class="line">mysock.sin_addr.s_addr = inet_addr(&quot;192.168.1.0&quot;);  //设置地址</span><br><span class="line">bind(sockfd,(struct sockaddr *)&amp;mysock,sizeof(struct sockaddr); /* bind的时候进行转化 */</span><br><span class="line"></span><br><span class="line">//... ...</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我在测试的时候，如果inet_addr()传入参数不是127.0.0.1，就无法执行bind()函数将套接口和本地地址绑定，是bind返回值为-1</p>
 
         
       </div>

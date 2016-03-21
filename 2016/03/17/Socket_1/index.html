@@ -8,22 +8,20 @@
 
 <title>
   
-    成组链接法
+    Socket编程
   
 </title>
 
-<meta name="description" content="存储">
+<meta name="description" content="Socket TCP/IP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="成组链接法">
-<meta property="og:url" content="http://yoursite.com/2016/03/08/GroupLink/index.html">
+<meta property="og:title" content="Socket编程">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/Socket_1/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="存储">
-<meta property="og:image" content="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-03-08T09:55:31.525Z">
+<meta property="og:description" content="Socket TCP/IP">
+<meta property="og:updated_time" content="2016-03-20T10:55:37.654Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="成组链接法">
-<meta name="twitter:description" content="存储">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta name="twitter:title" content="Socket编程">
+<meta name="twitter:description" content="Socket TCP/IP">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -126,43 +124,34 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-GroupLink" class="article article-type-post">
+          <article id="post-Socket_1" class="article article-type-post">
   
     <h1 class="article-header">
-      成组链接法
+      Socket编程
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-03-08
+  2016-03-17
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/File-Management/">File Management</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/File-Management/">File Management</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h2 id="成组链接法"><a href="#成组链接法" class="headerlink" title="成组链接法"></a>成组链接法</h2><p> 成组链接法   即为空闲表和空间链里两种方法相结合。</p>
-<p> 将空闲块按100块为一组进行组织，利用空闲块每组的第0块来存放前一组的100块的地址，所以第0块既是可以分配的空闲块，同时也充当了数据结构。</p>
-<p> 具体来说，没100块分为一组（第一组为99快，这里s_free[0]是用来标识空闲块链的链尾标志，即表示下面已经没有索引表登记的空闲块了）</p>
-<p> s_nfree表示这个表中有多少空闲块，s_free表示这个表中的第几块空闲块</p>
-<p> <img src="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>每一组相当于一个栈，s_free[0]相当于栈底,s_free[99]相当于栈顶，在一个组存放到100之后，就开一个新组来存放，新组的栈底就是上一组的栈顶，这样就可以把这些组给连接起来，组间是链，组内是表。</p>
-<p>分配时，先分配栈顶的空闲块，直到s_free[0]内的值为0，说明已经到了空闲盘块链尾，没有盘块可以分配了，这是分配程序就将错误信息打印出来，并返回一个NULL给调用者，相当于出栈。</p>
-<p>回收时，把回收的空闲块放入栈顶，如果前一个栈已经放满，就再在这组之后开一个新组，放入新组栈顶，并置s_nfree:为1；如果前一个栈未放满，就填入原组表中第一个 占用的项，相当于压栈。</p>
-<p>这种后进先出的栈式管理和成组链接方法加快了磁盘的分配和释放的速度，减少了系统的时空开销，提高系统效率。</p>
-
+    <h2 id="socket编程"><a href="#socket编程" class="headerlink" title="socket编程"></a>socket编程</h2><h3 id="socket服务器端"><a href="#socket服务器端" class="headerlink" title="socket服务器端"></a>socket服务器端</h3><h3 id="socket客户端"><a href="#socket客户端" class="headerlink" title="socket客户端"></a>socket客户端</h3>
   </div>
   <footer class="article-footer">
     

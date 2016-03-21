@@ -79,21 +79,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">6</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li></ul>
               </li>
             
           
@@ -140,6 +140,47 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/03/17/Socket_1/" >
+  Socket编程
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/03/17/Socket_1/"><span class="article-date">
+  2016-03-17
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2 id="socket编程"><a href="#socket编程" class="headerlink" title="socket编程"></a>socket编程</h2><h3 id="socket服务器端"><a href="#socket服务器端" class="headerlink" title="socket服务器端"></a>socket服务器端</h3><h3 id="socket客户端"><a href="#socket客户端" class="headerlink" title="socket客户端"></a>socket客户端</h3>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/03/15/Socket/" >
   初识Socket
 </a>
@@ -175,8 +216,7 @@
 <p>sin_family 表示地址族<br>sin_port 表示按网络顺序的16位端口号<br>sin_addr in_addr结构体，表示按网络顺序的32位的因特网地址<br>sin_zero 是为了让sockaddr与sockaddr_in两个数据结构保持大小相同而保留的空字节  </p>
 <p>in_addr用来表示32位的IPv4地址</p>
 <p>in_addr结构<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">struct in_addr</span><br><span class="line">&#123;</span><br><span class="line">  in_addr_t s_addr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>sockaddr 和 sockaddr_in的区别</p>
-<p>两者的占用的内存大小是一致的，因此可以相互转化，从这个意义上说，他们并无区别。sockaddr 通常用在bind,connect,recvfrom,sendto等函数的参数，指明地址信息，是一种通用的套接字。sockaddr_in是internet环境下套接字的地址形式。所以在网络编程中我们会对sockaddr_in结构体进行操作。先使用sockaddr_in来建立所需的信息，最后使用类型转化就可以了。</p>
+<p>sockaddr 和 sockaddr_in的区别<br><img src="D:\1.png" alt=""><br>两者的占用的内存大小是一致的，因此可以相互转化，从这个意义上说，他们并无区别。sockaddr 通常用在bind,connect,recvfrom,sendto等函数的参数，指明地址信息，是一种通用的套接字。sockaddr_in是internet环境下套接字的地址形式。所以在网络编程中我们会对sockaddr_in结构体进行操作。先使用sockaddr_in来建立所需的信息，最后使用类型转化就可以了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;sys/socket.h&gt;</span><br><span class="line">#include &lt;netinet/in.h&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">int main(int argc,char **argv)</span><br><span class="line">&#123;</span><br><span class="line">int socket;</span><br><span class="line">struct sockaddr_in mysock;</span><br><span class="line"></span><br><span class="line">socket = socket(AF_INET,SOCK_STREAM,0);  //获得socket</span><br><span class="line"></span><br><span class="line">memset((void *)&amp;mysock, 0, sizeof(mysock));//windows 下使用memset赋值，初始化结构体</span><br><span class="line">(bzero(&amp;mysock,sizeof(mysock));  //linux下初始化结构体)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysock.sin_family = AF_INET;  //设置地址家族</span><br><span class="line">mysock.sin_port = htons(800);  //设置端口800</span><br><span class="line">mysock.sin_addr.s_addr = inet_addr(&quot;192.168.1.0&quot;);  //设置地址</span><br><span class="line">bind(sockfd,(struct sockaddr *)&amp;mysock,sizeof(struct sockaddr); /* bind的时候进行转化 */</span><br><span class="line"></span><br><span class="line">//... ...</span><br><span class="line"></span><br><span class="line">return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我在测试的时候，如果inet_addr()传入参数不是127.0.0.1，就无法执行bind()函数将套接口和本地地址绑定，是bind返回值为-1</p>
 
@@ -267,26 +307,19 @@
 <h3 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h3><h4 id="建库工具DBCA"><a href="#建库工具DBCA" class="headerlink" title="建库工具DBCA"></a>建库工具DBCA</h4><p>使用Oracle的建库工且DBCA，这是一个图形界面工且，使用起来方便且很容易理解，因为它的界面友好、美观，而且提示也比较齐全。在 Ｗindows系统中，这个工具可以在Oracle程序组中打开（”开始”—“程序”—“ Oracle - OraDb10g_home1”—“ Configuration and Migration Tools”（配置和移植工具）—“ Database Configuration Assistant”)</p>
 <h4 id="手动建库"><a href="#手动建库" class="headerlink" title="手动建库"></a>手动建库</h4><p>手动建库步骤：<br>1）创建必要的相关目录<br>2）创建初始化参数文件<br>3）设置环境变量 ORACLE_SID<br>4）创建实例<br>5）启动数据库到NOMOUNT状态<br>7）执行建库脚本<br>8）执行catalog脚本创建数据字典<br>9）执行catproc创建package包<br>10）执行pupbld<br>11）由初始化参数文件创建spfile文件<br>12）执行scott脚本创建scott模式   </p>
 <p>完成以上步骤就可以使用数据库了。</p>
-<p>实验路径在C盘下，数据库名称为MYNEWDB<br>1、创建相关目录  </p>
-<p>C:>mkdir D:\oracle\product\10.2.0\admin\MYNEWDB<br>C:>mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\bdump<br>C:>mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\udump<br>C:>mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\cdump<br>C:>mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\pfile<br>C:>mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\create<br>C:>mkdir D:\oracle\product\10.2.0\oradata\MYNEWDB   </p>
+<p>实验路径在C盘下，数据库名称为MYNEWDB<br>1、创建相关目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;mkdir D:\oracle\product\10.2.0\admin\MYNEWDB   </span><br><span class="line">C:\&gt;mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\bdump   </span><br><span class="line">C:\&gt;mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\udump   </span><br><span class="line">C:\&gt;mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\cdump    </span><br><span class="line">C:\&gt;mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\pfile   </span><br><span class="line">C:\&gt;mkdir D:\oracle\product\10.2.0\admin\MYNEWDB\create   </span><br><span class="line">C:\&gt;mkdir D:\oracle\product\10.2.0\oradata\MYNEWDB</span><br></pre></td></tr></table></figure></p>
 <p>也可以将系统的已经创建的目录拷贝过去，将里面文件删除即可</p>
 <p>各个目录用途：<br>其中 C:\oracle\product\10.2.0\admin\MYNEWDB 目录下的几个子目录主要用于存放数据库运行过程中的跟踪信息。最重要的两上子目 录是bdump和udump目录，bdump目录存放的是数据库动行过程中的各个后台进程的跟踪信息，当中alert文件是警告文件，其文件名称为 alert_book.log，当数据库出现问题时，首先就可以去查看此文件以找出原因，手工创建过程中出现的各种问题往往也可以通过查看这个文件找到原 因。udump目录存放和特定会话相关的跟踪信息。C:\oracle\product\10.2.0\oradata\MYNEWDB目录存放各种数据库文 件，包括控制文件、数据文件、重做日志文件。</p>
 <p>2、创建初始化参数文件</p>
-<p>我们在安装Oracle的时候，系统已经为我们安装了一个名为orcl的数据库，于是我们可以从它哪里得到一份初始化参数文件。打开目录 C:\oracle\product\10.2.0\admin\orcl\pfile，找到init.ora文件，把它拷贝到 C:\oracle\product\10.2.0\bd_1\databse下，并将其改名为 initMYNEWDB.ora。接着用记事本的方式打开initMYNEWDB.ora。<br>修改以下的内容：<br>db_domain=””<br>db_name=book<br>control_files=(“C:\oracle\product\10.2.0\oradata\MYNEWDB\control01.ctl”, “C:\oracle\product\10.2.0\oradata\MYNEWDB\control02.ctl”, “C:\oracle\product\10.2.0\oradata\MYNEWDB\control03.ctl”)<br>undo_management=AUTO<br>undo_tablespace=UNDOTBS1　――注意此处的“UNDOTBS1”要和建库脚步本中对应<br>background_dump_dest=C:\oracle\product\10.2.0\admin\MYNEWDB\bdump<br>core_dump_dest=C:\oracle\product\10.2.0\admin\MYNEWDB\cdump<br>user_dump_dest=C:\oracle\product\10.2.0\admin\MYNEWDB\udump</p>
-<p>3、设置环境变量ORACLE_SID</p>
-<p>C:>SET ORACLE_SID = MYNEWDB</p>
-<p>4、创建实例（服务）</p>
-<p>C:>oradim -new -sid MYNEWDB     创建一个MYNEWDB的服务<br>C:>oradim -delete -sid XXXX     删除一个XXXX的服务</p>
+<p>我们在安装Oracle的时候，系统已经为我们安装了一个名为orcl的数据库，于是我们可以从它哪里得到一份初始化参数文件。打开目录 C:\oracle\product\10.2.0\admin\orcl\pfile，找到init.ora文件，把它拷贝到 C:\oracle\product\10.2.0\bd_1\databse下，并将其改名为 initMYNEWDB.ora。接着用记事本的方式打开initMYNEWDB.ora。<br>修改以下的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">db_domain=&quot;&quot;   </span><br><span class="line">db_name=book   </span><br><span class="line">control_files=(&quot;C:\oracle\product\10.2.0\oradata\MYNEWDB\control01.ctl&quot;, &quot;C:\oracle\product\10.2.0\oradata\MYNEWDB\control02.ctl&quot;, &quot;C:\oracle\product\10.2.0\oradata\MYNEWDB\control03.ctl&quot;)    </span><br><span class="line">undo_management=AUTO   </span><br><span class="line">undo_tablespace=UNDOTBS1　――注意此处的“UNDOTBS1”要和建库脚步本中对应  </span><br><span class="line">background_dump_dest=C:\oracle\product\10.2.0\admin\MYNEWDB\bdump   </span><br><span class="line">core_dump_dest=C:\oracle\product\10.2.0\admin\MYNEWDB\cdump   </span><br><span class="line">user_dump_dest=C:\oracle\product\10.2.0\admin\MYNEWDB\udump</span><br></pre></td></tr></table></figure></p>
+<p>3、设置环境变量ORACLE_SID<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;SET ORACLE_SID = MYNEWDB</span><br></pre></td></tr></table></figure></p>
+<p>4、创建实例（服务）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;oradim -new -sid MYNEWDB     //创建一个MYNEWDB的服务  </span><br><span class="line">C:\&gt;oradim -delete -sid XXXX     //删除一个XXXX的服务</span><br></pre></td></tr></table></figure></p>
 <p>可以通过在cmd中输入services.msc查询到改服务</p>
-<p>5、创建口令文件</p>
-<p>C:>orapwd file=C:\oracle\product\10.2.0\db_1\database\pwdMYNEWDB.ora password=MynewDB123 entries=5</p>
+<p>5、创建口令文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;orapwd file=C:\oracle\product\10.2.0\db_1\database\pwdMYNEWDB.ora password=MynewDB123 entries=5</span><br></pre></td></tr></table></figure></p>
 <p>orapwd是创建口令文件的命令，file参数指定口令文件所在的目录和文件名称，password参数指定sys用户的口令，entries参数指定数据库拥用DBA权限的用户的个数。  </p>
 <p>口令文件是专门存放sys用户的口令，因为sys用户要负责建库、启动数据库、关闭数据库等特殊任务，把以sys用户的中令单独存放于口令文件中，这样数据库末打开时也能进行口令验证。</p>
-<p>6、启动数据库到NOMOUNT（实例）状态</p>
-<p>C:>sqlplus /nolog   </p>
-<p>SQL&gt;connect sys/MynewDB123 as SYSDBA —这里是用sys连接数据库<br>已连接到空闲例程</p>
-<p>SQL&gt;startup nomount<br>ORACLE 例程已经启动</p>
-<p>SQL&gt;</p>
+<p>6、启动数据库到NOMOUNT（实例）状态<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\&gt;sqlplus /nolog</span><br></pre></td></tr></table></figure></p>
+<p>SQL&gt;connect sys/MynewDB123 as SYSDBA —这里是用sys连接数据库<br>已连接到空闲例程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">SQL&gt;startup nomount    </span><br><span class="line">ORACLE 例程已经启动</span><br><span class="line"></span><br><span class="line">SQL&gt;</span><br></pre></td></tr></table></figure></p>
 
         
       </div>

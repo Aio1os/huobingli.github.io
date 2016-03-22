@@ -8,20 +8,20 @@
 
 <title>
   
-    多线程
+    Socket编程_连接
   
 </title>
 
-<meta name="description" content="多线程">
+<meta name="description" content="Socket TCP/IP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="多线程">
-<meta property="og:url" content="http://yoursite.com/2016/03/15/multiThread/index.html">
+<meta property="og:title" content="Socket编程_连接">
+<meta property="og:url" content="http://yoursite.com/2016/03/21/Socket_2/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="多线程">
-<meta property="og:updated_time" content="2016-03-16T01:15:55.134Z">
+<meta property="og:description" content="Socket TCP/IP">
+<meta property="og:updated_time" content="2016-03-22T11:00:33.289Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="多线程">
-<meta name="twitter:description" content="多线程">
+<meta name="twitter:title" content="Socket编程_连接">
+<meta name="twitter:description" content="Socket TCP/IP">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -124,36 +124,37 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-multiThread" class="article article-type-post">
+          <article id="post-Socket_2" class="article article-type-post">
   
     <h1 class="article-header">
-      多线程
+      Socket编程_连接
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-03-15
+  2016-03-21
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/多线程/">多线程</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h2 id="线程与进程区别"><a href="#线程与进程区别" class="headerlink" title="线程与进程区别"></a>线程与进程区别</h2><p>进程：是一个被调入内存并准备执行的程序，一个进程具有4G私有虚拟空间，它由代码、数据和其他对它的执行线程可见的系统资源组成。一个子进程至少必须拥有一个线程。一个进程是由一个单一线程开始启动，开始的线程是根据需要创建的。创建之后的进程是一个环境，提供了各种应用程序必须的资源，包括虚拟地址空间、可执行程序、对象句柄和线程。</p>
-<p>线程：</p>
-
+    <h2 id="Socket-客户端如何发起连接"><a href="#Socket-客户端如何发起连接" class="headerlink" title="Socket 客户端如何发起连接"></a>Socket 客户端如何发起连接</h2><h3 id="对于UDP客户端"><a href="#对于UDP客户端" class="headerlink" title="对于UDP客户端"></a>对于UDP客户端</h3><p>有两种不同的方法来发起关联。   </p>
+<p>第一种方法，在运行时需要从同一个socket向不同的远程主机发送数据。这个方法采用sendto()函数，使用sendto()的优势是可以改变所发送的每个数据报的目标，它把sockaddr结构做为一个参数，这样在每次调用函数时，可以改变远程socket的名称。   </p>
+<p>第二种方法，发起关联的方法需要采取若干步骤，先初始化socket结构，接着调用connect()函数，建立远程目标，然后调用send()。人们通常在下列情况下采用这种方法，即UDP socket 在其生存周期中向同一个远程地址发送数据，当然并不要求需要这样做。这中方法还隐式地设置了一个针对该socket的数据报过滤器。于是，你的recv()就只能接收来自给定目标地址的数据包。如果需要向另一台主机发送，可以再次调用connect()来“动态地”改变接收目标，不过要先从前者断开（通过连接到INADDR_ANY）</p>
+<h4 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h4>
   </div>
   <footer class="article-footer">
     

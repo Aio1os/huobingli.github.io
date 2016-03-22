@@ -79,21 +79,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">7</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">8</span></li></ul>
               </li>
             
           
@@ -125,6 +125,52 @@
       
           <h1>Socket TCP/IP</h1>
 
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/03/21/Socket_2/" >
+  Socket编程_连接
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/03/21/Socket_2/"><span class="article-date">
+  2016-03-21
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2 id="Socket-客户端如何发起连接"><a href="#Socket-客户端如何发起连接" class="headerlink" title="Socket 客户端如何发起连接"></a>Socket 客户端如何发起连接</h2><h3 id="对于UDP客户端"><a href="#对于UDP客户端" class="headerlink" title="对于UDP客户端"></a>对于UDP客户端</h3><p>有两种不同的方法来发起关联。   </p>
+<p>第一种方法，在运行时需要从同一个socket向不同的远程主机发送数据。这个方法采用sendto()函数，使用sendto()的优势是可以改变所发送的每个数据报的目标，它把sockaddr结构做为一个参数，这样在每次调用函数时，可以改变远程socket的名称。   </p>
+<p>第二种方法，发起关联的方法需要采取若干步骤，先初始化socket结构，接着调用connect()函数，建立远程目标，然后调用send()。人们通常在下列情况下采用这种方法，即UDP socket 在其生存周期中向同一个远程地址发送数据，当然并不要求需要这样做。这中方法还隐式地设置了一个针对该socket的数据报过滤器。于是，你的recv()就只能接收来自给定目标地址的数据包。如果需要向另一台主机发送，可以再次调用connect()来“动态地”改变接收目标，不过要先从前者断开（通过连接到INADDR_ANY）</p>
+<h4 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h4>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
 
   
   
@@ -178,8 +224,8 @@
 <p>s：用于标识一个已经捆绑但未连接的套接口的描述字<br>buf：接受缓冲区，存放接收到的数据<br>len：缓冲区中数据的长度<br>flags：调用执行方式</p>
 <p>当应用程序调用recv函数时，recv先等待s的发送缓冲 中的数据被协议传送完毕，如果协议在传送s的发送缓冲中的数据时出现网络错误，那么recv函数返回SOCKET_ERROR，如果s的发送缓冲中没有数 据或者数据被协议成功发送完毕后，recv先检查套接字s的接收缓冲区，如果s接收缓冲区中没有数据或者协议正在接收数据，那么recv就一直等待，只到 协议把数据接收完毕。当协议把数据接收完毕，recv函数就把s的接收缓冲中的数据copy到buf中（注意协议接收到的数据可能大于buf的长度，所以 在这种情况下要调用几次recv函数才能把s的接收缓冲中的数据copy完。recv函数仅仅是copy数据，真正的接收数据是协议来完成的），recv函数返回其实际copy的字节数。如果recv在copy时出错，那么它返回SOCKET_ERROR；如果recv函数在等待协议接收数据时网络中断了，那么它返回0。</p>
 <p><a href="http://baike.baidu.com/view/569190.htm" target="_blank" rel="external">connect()</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int connect (</span><br><span class="line">  SOCKET s,</span><br><span class="line">  const struct sockaddr name,</span><br><span class="line">  int namelen</span><br><span class="line">  );</span><br></pre></td></tr></table></figure></p>
-<p>s：标识一个未连接socket<br>name：指向要连接套接字的sockaddr结构体的指针<br>namelen：sockaddr结构体的字节长度</p>
-<p>建立于指定socket的连接</p>
+<p>s：标识一个未连接socket<br>name：指向要连接套接字的sockaddr结构体的指针(对TCP/IP总是采用sockaddr_in 结构)<br>namelen：sockaddr结构体的字节长度</p>
+<p>建立于指定socket的连接。<br>connect()成功返回0，不成功返回SOCKET_ERROR。对于TCP socket，connect()调用失败后，WSAGetLastError() 函数返回的最常见的错误信息是WSAECONNREFUSED（10061）。引起此错误的只有这样几种情况：服务器没有运行、你在客户端（或服务端）对sin_port的初始化不正确或者IP地址不正确。在UDP socket上调用connect()并不对网络进行访问，对于UDP socket，最常见的错误是WSAEADDRINUSE(10048)，如果在同一个本地socket上，调用一次以上connect()函数，并且引用同一个远程socket名称时，就会产生这个错误。</p>
 
         
       </div>

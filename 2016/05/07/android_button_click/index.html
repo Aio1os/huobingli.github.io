@@ -8,22 +8,20 @@
 
 <title>
   
-    成组链接法
+    Android Note(1)
   
 </title>
 
-<meta name="description" content="存储">
+<meta name="description" content="Note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="成组链接法">
-<meta property="og:url" content="http://yoursite.com/2016/03/08/GroupLink/index.html">
+<meta property="og:title" content="Android Note(1)">
+<meta property="og:url" content="http://yoursite.com/2016/05/07/android_button_click/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="存储">
-<meta property="og:image" content="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
-<meta property="og:updated_time" content="2016-03-08T09:55:31.525Z">
+<meta property="og:description" content="Note">
+<meta property="og:updated_time" content="2016-05-07T13:46:24.773Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="成组链接法">
-<meta name="twitter:description" content="存储">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center">
+<meta name="twitter:title" content="Android Note(1)">
+<meta name="twitter:description" content="Note">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -126,42 +124,53 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-GroupLink" class="article article-type-post">
+          <article id="post-android_button_click" class="article article-type-post">
   
     <h1 class="article-header">
-      成组链接法
+      Android Note(1)
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-03-08
+  2016-05-07
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/File-Management/">File Management</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">Note</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/File-Management/">File Management</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h2 id="成组链接法"><a href="#成组链接法" class="headerlink" title="成组链接法"></a>成组链接法</h2><p> 成组链接法   即为空闲表和空间链里两种方法相结合。</p>
-<p> 将空闲块按100块为一组进行组织，利用空闲块每组的第0块来存放前一组的100块的地址，所以第0块既是可以分配的空闲块，同时也充当了数据结构。</p>
-<p> 具体来说，没100块分为一组（第一组为99快，这里s_free[0]是用来标识空闲块链的链尾标志，即表示下面已经没有索引表登记的空闲块了）</p>
-<p> s_nfree表示这个表中有多少空闲块，s_free表示这个表中的第几块空闲块</p>
-<p> <img src="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>每一组相当于一个栈，s_free[0]相当于栈底,s_free[99]相当于栈顶，在一个组存放到100之后，就开一个新组来存放，新组的栈底就是上一组的栈顶，这样就可以把这些组给连接起来，组间是链，组内是表。</p>
-<p>分配时，先分配栈顶的空闲块，直到s_free[0]内的值为0，说明已经到了空闲盘块链尾，没有盘块可以分配了，这是分配程序就将错误信息打印出来，并返回一个NULL给调用者，相当于出栈。</p>
-<p>回收时，把回收的空闲块放入栈顶，如果前一个栈已经放满，就再在这组之后开一个新组，放入新组栈顶，并置s_nfree:为1；如果前一个栈未放满，就填入原组表中第一个 占用的项，相当于压栈。</p>
-<p>这种后进先出的栈式管理和成组链接方法加快了磁盘的分配和释放的速度，减少了系统的时空开销，提高系统效率。</p>
+    <h3 id="按钮点击事件"><a href="#按钮点击事件" class="headerlink" title="按钮点击事件"></a>按钮点击事件</h3><p>1、使用内部类<br>2、使用匿名内部类<br>3、实现onclick接口<br>4、button 设置属性onclick,并在类中定义一个相同名称的public方法，需要传入一个view对象，view对象是出发方法执行的组建对象，多个对象可以使用通过方法，通过资源id来判断</p>
+<h3 id="内部存储和外部存储"><a href="#内部存储和外部存储" class="headerlink" title="内部存储和外部存储"></a>内部存储和外部存储</h3><p>内部存储 ：getFilesDir();</p>
+<p>外部存储 ：Environment.getExternalStorageDirectory();<br>必须检查外部存储是否存在 ：Environment.getExternalStorageState();</p>
+<p>SD卡状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_REMOVED ：SD卡移除（SD卡不存在）   </span><br><span class="line">MEDIA_UNMOUNTED : SD卡未挂载（SD卡存在，但未挂载）   </span><br><span class="line">MEDIA_CHECKING : SD卡正在遍历   </span><br><span class="line">MEDIA_MOUNTED : SD卡可读</span><br></pre></td></tr></table></figure></p>
+<h3 id="文件访问权限"><a href="#文件访问权限" class="headerlink" title="文件访问权限"></a>文件访问权限</h3><p>drwxrwxrwx   </p>
+<ul>
+<li>第一个字母<ul>
+<li>d表示文件夹</li>
+<li>-表示文件</li>
+</ul>
+</li>
+<li>第一组rwx 描述文件拥有者（owner）的权限<ul>
+<li>r读</li>
+<li>w写</li>
+<li>x可执行</li>
+</ul>
+</li>
+<li>第二组rwx：与文件拥有者同一用户组的用户（grouper）</li>
+<li>第三组rwx：其他用户（other）的权限</li>
+</ul>
 
   </div>
   <footer class="article-footer">

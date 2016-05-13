@@ -177,3 +177,30 @@
     padding: 5px 10px;
   }
 }
+.visitor {
+  float: right;
+  height: 24px;
+  line-height: 24px;
+  color: #838383;
+  padding-left: 0;
+}
+.visitor > li {
+  list-style: square;
+  margin-left: 0;
+}
+.visitor > li > a {
+  display: block;
+  padding: 5px 25px;
+  color: color-link-sidebar;
+  border-right: 5px solid transparent;
+}
+.visitortext {
+  line-height: 24px;
+  width: 100px;
+  float: left;
+}
+.visitornum {
+  width: 60px;
+  float: right;
+  margin-right: 20px;
+}

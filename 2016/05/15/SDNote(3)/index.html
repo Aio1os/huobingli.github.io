@@ -8,19 +8,19 @@
 
 <title>
   
-    Android Note(1)
+    软件设计师准备笔记 Note(3)
   
 </title>
 
 <meta name="description" content="Note">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Note(1)">
-<meta property="og:url" content="http://yoursite.com/2016/05/07/android_button_click/index.html">
+<meta property="og:title" content="软件设计师准备笔记 Note(3)">
+<meta property="og:url" content="http://yoursite.com/2016/05/15/SDNote(3)/index.html">
 <meta property="og:site_name" content="Invoker">
 <meta property="og:description" content="Note">
-<meta property="og:updated_time" content="2016-05-07T13:46:24.773Z">
+<meta property="og:updated_time" content="2016-05-17T12:29:30.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Note(1)">
+<meta name="twitter:title" content="软件设计师准备笔记 Note(3)">
 <meta name="twitter:description" content="Note">
 
 
@@ -144,17 +144,17 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-android_button_click" class="article article-type-post">
+          <article id="post-SDNote(3)" class="article article-type-post">
   
     <h1 class="article-header">
-      Android Note(1)
+      软件设计师准备笔记 Note(3)
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-05-07
+  2016-05-15
 </span>
 
     
@@ -171,26 +171,47 @@
 
   </div>
   <div class="article-entry">
-    <h3 id="按钮点击事件"><a href="#按钮点击事件" class="headerlink" title="按钮点击事件"></a>按钮点击事件</h3><p>1、使用内部类<br>2、使用匿名内部类<br>3、实现onclick接口<br>4、button 设置属性onclick,并在类中定义一个相同名称的public方法，需要传入一个view对象，view对象是出发方法执行的组建对象，多个对象可以使用通过方法，通过资源id来判断</p>
-<h3 id="内部存储和外部存储"><a href="#内部存储和外部存储" class="headerlink" title="内部存储和外部存储"></a>内部存储和外部存储</h3><p>内部存储 ：getFilesDir();</p>
-<p>外部存储 ：Environment.getExternalStorageDirectory();<br>必须检查外部存储是否存在 ：Environment.getExternalStorageState();</p>
-<p>SD卡状态：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_REMOVED ：SD卡移除（SD卡不存在）   </span><br><span class="line">MEDIA_UNMOUNTED : SD卡未挂载（SD卡存在，但未挂载）   </span><br><span class="line">MEDIA_CHECKING : SD卡正在遍历   </span><br><span class="line">MEDIA_MOUNTED : SD卡可读</span><br></pre></td></tr></table></figure></p>
-<h3 id="文件访问权限"><a href="#文件访问权限" class="headerlink" title="文件访问权限"></a>文件访问权限</h3><p>drwxrwxrwx   </p>
+    <h4 id="内存四区"><a href="#内存四区" class="headerlink" title="内存四区"></a>内存四区</h4><p>静态数据区（全局区）： 全局变量和静态变量存储时放在一块区域，初始化的全局变量和静态变量在一块区域，未初始化的全局变量和未初始化的静态变量在相邻的另外一块区域，该区域在程序结束后由OS回收。</p>
+<p>代码区： 存放函数体二进制的代码。</p>
+<p>栈区： 由编译器自动分配释放和存放函数的参数值、局部变量的值等，其操作方式类似于数据结构中的栈。</p>
+<p>堆区： 一般由程序员分配释放，若程序员不释放，程序结束时可能由OS回收。</p>
+<h4 id="公钥体系"><a href="#公钥体系" class="headerlink" title="公钥体系"></a>公钥体系</h4><p>私钥用于解密和签名，公钥用于加密和认证。</p>
+<h4 id="UML符号关系"><a href="#UML符号关系" class="headerlink" title="UML符号关系"></a>UML符号关系</h4><ul>
+<li><p>依赖关系 虚线箭头</p>
 <ul>
-<li>第一个字母<ul>
-<li>d表示文件夹</li>
-<li>-表示文件</li>
+<li>依赖关系是类与类之间的联结</li>
+<li>依赖总是单向的</li>
+<li>依赖关系在java或C++语言中体现为局部变量、方法的参数或者静态方法的调用</li>
 </ul>
 </li>
-<li>第一组rwx 描述文件拥有者（owner）的权限<ul>
-<li>r读</li>
-<li>w写</li>
-<li>x可执行</li>
+<li><p>关联关系 实线箭头</p>
+<ul>
+<li>关联关系是类与类之间的联结，它使一个类知道另一个类的属性和方法</li>
+<li>关联可以是双向的，也可以是单向的（#add还有自身关联）。双向的关联可以有两个箭头或者没有箭头，单向的关联有一个箭头。</li>
+<li>在 Java 或 c++ 中，关联关系是通过使用成员变量来实现的。</li>
 </ul>
 </li>
-<li>第二组rwx：与文件拥有者同一用户组的用户（grouper）</li>
-<li>第三组rwx：其他用户（other）的权限</li>
+<li><p>聚合关系 带空心菱形头实线表示</p>
+<ul>
+<li>聚合关系是关联关系的一种，是强的关联关系。</li>
+<li>聚合是整体和部分之间的关系，例如汽车由引擎、轮胎以及其它零件组成。</li>
+<li>聚合关系也是通过成员变量来实现的。但是，关联关系所涉及的两个类处在同一个层次上，而聚合关系中，两个类处于不同的层次上，一个代表整体，一个代表部分。</li>
+<li>关联与聚合仅仅从 Java 或 C++ 语法上是无法分辨的，必须考察所涉及的类之间的逻辑关系。</li>
 </ul>
+</li>
+<li><p>合成关系 带实心菱形头实线表示</p>
+<ul>
+<li>合成关系是关联关系的一种，是比聚合关系还要强的关系。</li>
+<li>它要求普通的聚合关系中代表整体的对象负责代表部分的对象的生命周期。</li>
+</ul>
+</li>
+<li><p>泛化关系 带空心箭头的实线表示</p>
+</li>
+<li><p>实线关系 带实心箭头的实线表示</p>
+</li>
+</ul>
+<p>表示类与类之间的继承关系，接口与接口之间的继承关系，或类对接口的实现关系。一般化关系是子类指向父类的，或从实现接口的类指向被实现的接口，与继承或实现的方向相反</p>
+<p>泛化是子类对父类的继承，是类与类之间的关系。<br>实现将继承来的父类接口实现成具体功能，是类和接口的关系。</p>
 
   </div>
   <footer class="article-footer">

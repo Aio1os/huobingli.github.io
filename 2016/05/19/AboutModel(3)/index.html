@@ -8,19 +8,20 @@
 
 <title>
   
-    Tag: Socket epoll
+    各种模式分析(3)
   
 </title>
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Invoker">
-<meta property="og:url" content="http://yoursite.com/tags/Socket-epoll/index.html">
+<meta name="description" content="设计模式笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="各种模式分析(3)">
+<meta property="og:url" content="http://yoursite.com/2016/05/19/AboutModel(3)/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description">
+<meta property="og:description" content="设计模式笔记">
+<meta property="og:updated_time" content="2016-05-19T08:05:15.726Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Invoker">
-<meta name="twitter:description">
+<meta name="twitter:title" content="各种模式分析(3)">
+<meta name="twitter:description" content="设计模式笔记">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -143,56 +144,63 @@
       
         <div style="max-width: 1000px">
       
-          <h1>Socket epoll</h1>
-
-
+          <article id="post-AboutModel(3)" class="article article-type-post">
+  
+    <h1 class="article-header">
+      各种模式分析(3)
+    </h1>
   
   
-    <div class="post-list">
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/04/12/Socket_epoll_2/" >
-  Socket编程_连接
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/04/12/Socket_epoll_2/"><span class="article-date">
-  2016-04-12
+  <div class="article-info">
+    <span class="article-date">
+  2016-05-19
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket-epoll/">Socket epoll</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">Note</a></li></ul>
 	</span>
 
 
-        
+    
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-epoll/">Socket epoll</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="epoll-中-LT-和-ET两种模式"><a href="#epoll-中-LT-和-ET两种模式" class="headerlink" title="epoll 中 LT 和 ET两种模式"></a>epoll 中 LT 和 ET两种模式</h3><h4 id="LT模式"><a href="#LT模式" class="headerlink" title="LT模式"></a>LT模式</h4><p>是缺省工作方式，并且同时支持block和no-block socket   </p>
-<p>-在LT模式中，内核通知一个文件描述符是否就绪了，然后可以对这个就绪的fd进行IO操作<br>-如果你不作任何操作，内核还是会继续通知你，所以这种模式编程出错误可能性较小</p>
-<h4 id="ET模式"><a href="#ET模式" class="headerlink" title="ET模式"></a>ET模式</h4><p>是高速工作方式，只支持no-block Socket   </p>
-<p>-在ET模式下，当描述符从未就绪变为就绪时，内核通过epoll告诉你。<br>-ET模式会假设你知道文件描述符已经就绪，并且不会再为那个文件描述符发送更多的就绪通知，知道你做了某些操作导致那个文件描述符不再为就绪状态了。<br>-如果一直不对这个fd作IO操作（从而导致它再次变成未就绪），内核不会发送更多的通知。</p>
-<h4 id="LT-和-ET-的区别"><a href="#LT-和-ET-的区别" class="headerlink" title="LT 和 ET 的区别"></a>LT 和 ET 的区别</h4><p>-LT事件不会丢弃，而是只要读buffer里面有数据可以让用户读，则不断的通知你<br>-ET则只在事件发生时通知，可以简单的理解为LT是水平触发，ET为边缘触发<br>-LT模式只要有事件未处理就会触发，ET只在高低电平变换时（即状态从0到1或者1到0）触发</p>
+  </div>
+  <div class="article-entry">
+    <h4 id="层次模型"><a href="#层次模型" class="headerlink" title="层次模型"></a>层次模型</h4><p>采用树形结构表示数据和数据间的联系，在层次模型中，每一个节点表示记录类型（实体），记录之间的联系用节点之间的连线表示，并且根节点以外的其他节点有且仅有一个双亲节点。层次模型不能直接表示多对多联系，若要表示多对多的联系，可采用如下两种方法</p>
+<ul>
+<li>冗余节点法——两个实体的多对多的联系转换为两个一对多的联系，该方法的优点是节点清晰，允许节点改变存储位置，缺点是需要额外的存储空间，有潜在的数据不一致性。</li>
+<li>虚拟节点分解法，将冗余节点转换为虚拟节点，虚拟节点是一个指引元，指向所代替的节点，该方法的有点事减少对存储空间的浪费，避免数据不一致性，缺点是改变存储位置可能引起虚拟节点中指针的修改。</li>
+</ul>
+<h4 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h4><p>多分支结构</p>
 
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
         
-      </div>
-    </div>
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
 
-  
-    </div>
-  
+
+    
+
+  </footer>
+</article>
+
 
 
 

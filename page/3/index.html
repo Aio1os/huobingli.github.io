@@ -8,14 +8,14 @@
 
 <title>
   
-    Tag: Socket epoll
+    Invoker
   
 </title>
 
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Invoker">
-<meta property="og:url" content="http://yoursite.com/tags/Socket-epoll/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="Invoker">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -143,8 +143,7 @@
       
         <div style="max-width: 1000px">
       
-          <h1>Socket epoll</h1>
-
+          
 
   
   
@@ -153,38 +152,42 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/04/12/Socket_epoll_2/" >
-  Socket编程_连接
+        <a href="/2016/03/08/GroupLink/" >
+  成组链接法
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2016/04/12/Socket_epoll_2/"><span class="article-date">
-  2016-04-12
+        <a href="/2016/03/08/GroupLink/"><span class="article-date">
+  2016-03-08
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket-epoll/">Socket epoll</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/File-Management/">File Management</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-epoll/">Socket epoll</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/File-Management/">File Management</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h3 id="epoll-中-LT-和-ET两种模式"><a href="#epoll-中-LT-和-ET两种模式" class="headerlink" title="epoll 中 LT 和 ET两种模式"></a>epoll 中 LT 和 ET两种模式</h3><h4 id="LT模式"><a href="#LT模式" class="headerlink" title="LT模式"></a>LT模式</h4><p>是缺省工作方式，并且同时支持block和no-block socket   </p>
-<p>-在LT模式中，内核通知一个文件描述符是否就绪了，然后可以对这个就绪的fd进行IO操作<br>-如果你不作任何操作，内核还是会继续通知你，所以这种模式编程出错误可能性较小</p>
-<h4 id="ET模式"><a href="#ET模式" class="headerlink" title="ET模式"></a>ET模式</h4><p>是高速工作方式，只支持no-block Socket   </p>
-<p>-在ET模式下，当描述符从未就绪变为就绪时，内核通过epoll告诉你。<br>-ET模式会假设你知道文件描述符已经就绪，并且不会再为那个文件描述符发送更多的就绪通知，知道你做了某些操作导致那个文件描述符不再为就绪状态了。<br>-如果一直不对这个fd作IO操作（从而导致它再次变成未就绪），内核不会发送更多的通知。</p>
-<h4 id="LT-和-ET-的区别"><a href="#LT-和-ET-的区别" class="headerlink" title="LT 和 ET 的区别"></a>LT 和 ET 的区别</h4><p>-LT事件不会丢弃，而是只要读buffer里面有数据可以让用户读，则不断的通知你<br>-ET则只在事件发生时通知，可以简单的理解为LT是水平触发，ET为边缘触发<br>-LT模式只要有事件未处理就会触发，ET只在高低电平变换时（即状态从0到1或者1到0）触发</p>
+          <h2 id="成组链接法"><a href="#成组链接法" class="headerlink" title="成组链接法"></a>成组链接法</h2><p> 成组链接法   即为空闲表和空间链里两种方法相结合。</p>
+<p> 将空闲块按100块为一组进行组织，利用空闲块每组的第0块来存放前一组的100块的地址，所以第0块既是可以分配的空闲块，同时也充当了数据结构。</p>
+<p> 具体来说，没100块分为一组（第一组为99快，这里s_free[0]是用来标识空闲块链的链尾标志，即表示下面已经没有索引表登记的空闲块了）</p>
+<p> s_nfree表示这个表中有多少空闲块，s_free表示这个表中的第几块空闲块</p>
+<p> <img src="http://img.blog.csdn.net/20150324212951901?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvUGhhbnRvbV9Bc3Nhc3Npbg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>每一组相当于一个栈，s_free[0]相当于栈底,s_free[99]相当于栈顶，在一个组存放到100之后，就开一个新组来存放，新组的栈底就是上一组的栈顶，这样就可以把这些组给连接起来，组间是链，组内是表。</p>
+<p>分配时，先分配栈顶的空闲块，直到s_free[0]内的值为0，说明已经到了空闲盘块链尾，没有盘块可以分配了，这是分配程序就将错误信息打印出来，并返回一个NULL给调用者，相当于出栈。</p>
+<p>回收时，把回收的空闲块放入栈顶，如果前一个栈已经放满，就再在这组之后开一个新组，放入新组栈顶，并置s_nfree:为1；如果前一个栈未放满，就填入原组表中第一个 占用的项，相当于压栈。</p>
+<p>这种后进先出的栈式管理和成组链接方法加快了磁盘的分配和释放的速度，减少了系统的时空开销，提高系统效率。</p>
 
         
       </div>
@@ -195,6 +198,10 @@
   
 
 
+
+  <div class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/">Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </div>
 
 
 

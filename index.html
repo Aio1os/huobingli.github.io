@@ -185,6 +185,7 @@
 <li>虚拟节点分解法，将冗余节点转换为虚拟节点，虚拟节点是一个指引元，指向所代替的节点，该方法的有点事减少对存储空间的浪费，避免数据不一致性，缺点是改变存储位置可能引起虚拟节点中指针的修改。</li>
 </ul>
 <h4 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h4><p>多分支结构</p>
+<h4 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h4><p>单例模式的构造函数要设置为私有</p>
 
         
       </div>
@@ -234,9 +235,14 @@
 <h4 id="无损连接"><a href="#无损连接" class="headerlink" title="无损连接"></a>无损连接</h4><h4 id="UML视图"><a href="#UML视图" class="headerlink" title="UML视图"></a>UML视图</h4><p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/gezhongshitu.png" alt=""></p>
 <h4 id="基于各个协议的应用"><a href="#基于各个协议的应用" class="headerlink" title="基于各个协议的应用"></a>基于各个协议的应用</h4><p>TCP——TELNET<br>UDP——TFTP<br>IP——OSPF<br>IMCP——PING</p>
 <h4 id="SPOOLing-技术"><a href="#SPOOLing-技术" class="headerlink" title="SPOOLing 技术"></a>SPOOLing 技术</h4><p>将独占设备改造成为共享设备，实现虚拟设备功能，提高独占设备的利用率。</p>
-<h4 id="DVD-ROM-比-CD-ROM-利用率高"><a href="#DVD-ROM-比-CD-ROM-利用率高" class="headerlink" title="DVD-ROM 比 CD-ROM 利用率高"></a>DVD-ROM 比 CD-ROM 利用率高</h4><p>降低了读取激光技术，提高了光学物镜数值孔径，所以提升了存储容量</p>
+<h4 id="DVD-ROM-比-CD-ROM-利用率高"><a href="#DVD-ROM-比-CD-ROM-利用率高" class="headerlink" title="DVD-ROM 比 CD-ROM 利用率高"></a>DVD-ROM 比 CD-ROM 利用率高</h4><p>降低了读取激光技术，提高了光学物镜数值孔径，所以提升了存储容量<br>单面DVD-ROM是4.7GB, 双面DVD-ROM17GB。</p>
 <h4 id="基本关系代数"><a href="#基本关系代数" class="headerlink" title="基本关系代数"></a>基本关系代数</h4><p>并、差、广义笛卡儿积、投影、选择</p>
 <h4 id="ATM"><a href="#ATM" class="headerlink" title="ATM"></a>ATM</h4><p>电路交换和分组交换的结合</p>
+<h4 id="常用端口"><a href="#常用端口" class="headerlink" title="常用端口"></a>常用端口</h4><ul>
+<li>BGP在传输层采用TCP来传送路由信息，使用的端口号179   </li>
+<li>ftp协议监听21（控制连接），20（数据连接）</li>
+</ul>
+<h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p>个数：count<br>总和：sum<br>外键：foreign key (外键名) references 表名(外键名)<br>视图：create view 视图名 (显示列表名)<br>          AS select查询语句<br>          with check option(强制视图上执行所有语句都必须符合准则);<br>索引：create unique index 索引名 on 表名(索引联系名)</p>
 
         
       </div>
@@ -284,6 +290,12 @@
 <p>Jackson方法： 是一种典型的面向数据结构的分析设计方法，从目标系统的输入、输出数据结构入手，导出程序框架结构，再补充其他细节，就可得到完整的程序结构图。</p>
 <p>Booch方法： 是一种面向对象的分析设计方法，包括以下步骤，在给定的抽象层次上识别类和对象，识别这些对象和类的语义，识别这些类和对象之间的关系，实现类和对象。</p>
 <p>UML： 是面向对象技术领域内占主导地位的标准建模语言。</p>
+<h4 id="死锁四个必要条件"><a href="#死锁四个必要条件" class="headerlink" title="死锁四个必要条件"></a>死锁四个必要条件</h4><ul>
+<li>互斥条件</li>
+<li>请求和保持条件</li>
+<li>不剥夺条件</li>
+<li>环路等待条件</li>
+</ul>
 <h4 id="银行家算法"><a href="#银行家算法" class="headerlink" title="银行家算法"></a>银行家算法</h4><p>银行家算法是一个著名的避免死锁的算法，在安全状态下系统接到一个资源请求后，就先判断这个资源请求是否超过了自己索要申请的总的资源数目，判断完毕后再继续进行下一个判断，即判断是否小于系统现有的可以分配的资源数目。如果这两个判断都通过，则系统把资源分配给该进程，系统检查现在的系统是否处于安全状态，如果安全则正式将资源分配给进程，完成此次分配，否则刚才的试分配作废。</p>
 <h4 id="CMM能力成熟度模型"><a href="#CMM能力成熟度模型" class="headerlink" title="CMM能力成熟度模型"></a>CMM能力成熟度模型</h4><p>1、初始级：软件过程是无序的，有时甚至是混乱的，对过程几乎没有定义，项目的成功取决于个人努力和英雄式核心人物。<br>2、可重复性：建立了基本的项目管理过程来跟踪费用、进度和功能特性，制订了必要的过程几率，能重复早先类似应用项目取得的成功。<br>3、已定义级：已将软件管理和工程两方面的过程文档化、标准化，并综合成该组织的标准软件过程，所有项目均使用经批准、剪裁的标准软件过程来开发和维护软件。<br>4、已定量管理级：收集对软件过程和产品质量的详细度量，对软件过程和产品有定量的理解和控制。<br>5、优化级：过程的量化反馈和先进的新思想、新技术促进过程不断改进。</p>
 <h4 id="xp极限编程的十二个有效实践"><a href="#xp极限编程的十二个有效实践" class="headerlink" title="xp极限编程的十二个有效实践"></a>xp极限编程的十二个有效实践</h4><ul>

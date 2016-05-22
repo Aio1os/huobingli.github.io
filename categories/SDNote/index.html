@@ -8,14 +8,14 @@
 
 <title>
   
-    Invoker
+    Category: SDNote
   
 </title>
 
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Invoker">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/categories/SDNote/index.html">
 <meta property="og:site_name" content="Invoker">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -143,7 +143,8 @@
       
         <div style="max-width: 1000px">
       
-          
+          <h1>SDNote</h1>
+
 
   
   
@@ -543,57 +544,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/05/13/Github_Unknown_Commited/" >
-  Github Unknown Commited
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/13/Github_Unknown_Commited/"><span class="article-date">
-  2016-05-13
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/github-issue/">github issue</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-issue/">github issue</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="Github-Unknown-Commited-问题"><a href="#Github-Unknown-Commited-问题" class="headerlink" title="Github Unknown Commited 问题"></a>Github Unknown Commited 问题</h3><p>问题如图，是通过同一个用户进行提交</p>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/commited.png" alt=""></p>
-<p>看到以前提交的commit都是有用户提交的，在我换了ssd和重装系统之后，重新将项目通过git bash 提交代码，就出现了Unknown Commited，这时发现我的Contribution 就不会增加，最近看着实在难受，就折腾了一下发现，我的git bash 提交不需要输入邮箱和密码，看了github的help，就重新设置了   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
-<p>然后再输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
-<p>屏幕上会打印出你的邮箱地址，在此进行提交发现已经用户名已经回来了。</p>
-<p>具体github help 点击以下网址。<br><a href="https://help.github.com/articles/setting-your-email-in-git/" target="_blank" rel="external">https://help.github.com/articles/setting-your-email-in-git/</a></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2016/05/12/AboutModel(2)/" >
   各种模式分析(2)
 </a>
@@ -713,35 +663,49 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/05/09/SQLite/" >
-  Android Note(2)
+        <a href="/2016/05/05/SDNote/" >
+  软件设计师准备笔记 Note(1)
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2016/05/09/SQLite/"><span class="article-date">
-  2016-05-09
+        <a href="/2016/05/05/SDNote/"><span class="article-date">
+  2016-05-05
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">Note</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/SDNote/">SDNote</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SDNote/">SDNote</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h3 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h3><p>不用androidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SQLiteDatabase db = oh.getWritableDatabase();  </span><br><span class="line"></span><br><span class="line">insert()  </span><br><span class="line">db.execSQL(sql语句, sql语句中的values值);</span><br><span class="line"></span><br><span class="line">delete()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">update()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">select()</span><br><span class="line">db.rawQuery(sql语句,sql语句中where查询条件);</span><br></pre></td></tr></table></figure></p>
-<p>使用AndroidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">insertApi()</span><br><span class="line">db.insert(表名, ,键值数组)</span><br><span class="line"></span><br><span class="line">deleteApi()</span><br><span class="line">db.delete(表名, where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">updateApi()</span><br><span class="line">db.update(表名，键值数组，where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">selectApi()</span><br><span class="line">//第一个表名</span><br><span class="line">//第三个查询字段</span><br><span class="line">//第四个查询where条件</span><br><span class="line">//第六个表示从该条开始查询</span><br><span class="line">//第七个表示查询条数</span><br><span class="line">db.query(&quot;person&quot;, null, null, null, null, null, null);</span><br></pre></td></tr></table></figure></p>
+          <h3 id="物理层互联设备：-中继器、集线器"><a href="#物理层互联设备：-中继器、集线器" class="headerlink" title="物理层互联设备： 中继器、集线器"></a>物理层互联设备： 中继器、集线器</h3><blockquote>
+<p>中继器可以把网络延长到任意的距离，但是，在局域网中介入的中继器的数量将受到时间和衰耗的影响<br>因此必须加以限制，例如在以太网中最多使用4个中继器。</p>
+<p>集线器可以看成一种特殊的多路中继器，也具有信号放大的功能。使用双绞线的以太网多用集线器扩大网络，同时也便于网络维护。集线器只负责把多端介质连接在一起，不会对信号做任何处理。</p>
+</blockquote>
+<h3 id="数据链路层互联设备：-网桥、交换机"><a href="#数据链路层互联设备：-网桥、交换机" class="headerlink" title="数据链路层互联设备： 网桥、交换机"></a>数据链路层互联设备： 网桥、交换机</h3><blockquote>
+<p>网桥用于连接两个局域网网段，确切的说，网桥工作于MAC子层,只要两个网络MAC子层以上的协议相同，都可以使用网桥互连。</p>
+<p>交换机是一种简化、低价、高性能和高端口密集特点的交换产品，它按照每一个包中的MAC地址相对简单地决策信息转发，这种转发决策一般不考虑包中隐藏的更深的其他信息。当交换机从某一个节点收到一个以太网帧后，立即在内存中的地址表中（端口号-MAC地址）进行查找，确认目的MAC的网卡连接在那个结点上，然后将这个帧进行转发，如果没在地址表总找到该MAC地址，说明该MAC地址首次出现，交换机就将数据包广播到所有节点，拥有该MAC地址的网卡在接收到该广播帧后，将立即做出应答，并把端口号和MAC地址添加到地址表中。</p>
+</blockquote>
+<h3 id="网络层互联设备-路由器"><a href="#网络层互联设备-路由器" class="headerlink" title="网络层互联设备 : 路由器"></a>网络层互联设备 : 路由器</h3><blockquote>
+<p>路由器用于连接多个逻辑上分开的网络。它具有很强的异种网互连的能力，互连的网络最低两层协议可以互不相同，通过驱动软件接口到第三层而得到统一。</p>
+<p>通常网络层地址信息叫做网络逻辑地址，把数据链路层地址信息叫做物理地址，路由器的主要功能是选择路径，在路由器的存储器中维护着一个路径表，，记录着各个网络的逻辑地址，用于识别其他网络。</p>
+</blockquote>
+<h3 id="应用层互联设备-：网关"><a href="#应用层互联设备-：网关" class="headerlink" title="应用层互联设备 ：网关"></a>应用层互联设备 ：网关</h3><blockquote>
+<p>网关在连接不同类型而协议差别又较大的网络时，则要选用网关设备，网关的功能体现在OSI模型的最高层，它将协议进行转换，将数据重新分组，一边在两个不同类型的网络系统之间进行通信。网关很难实现通用的协议转换。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/every.jpg" alt=""></p>
 
         
       </div>
@@ -752,10 +716,6 @@
   
 
 
-
-  <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next</a>
-  </div>
 
 
 

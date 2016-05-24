@@ -8,20 +8,20 @@
 
 <title>
   
-    Android Note(2)
+    Socket编程_连接
   
 </title>
 
-<meta name="description" content="Note">
+<meta name="description" content="Socket Epoll">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Note(2)">
-<meta property="og:url" content="http://yoursite.com/2016/05/09/SQLite/index.html">
+<meta property="og:title" content="Socket编程_连接">
+<meta property="og:url" content="http://yoursite.com/2016/05/24/Socket_epoll(3)/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="Note">
-<meta property="og:updated_time" content="2016-05-10T13:42:49.892Z">
+<meta property="og:description" content="Socket Epoll">
+<meta property="og:updated_time" content="2016-05-24T06:07:17.615Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Note(2)">
-<meta name="twitter:description" content="Note">
+<meta name="twitter:title" content="Socket编程_连接">
+<meta name="twitter:description" content="Socket Epoll">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -144,36 +144,34 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-SQLite" class="article article-type-post">
+          <article id="post-Socket_epoll(3)" class="article article-type-post">
   
     <h1 class="article-header">
-      Android Note(2)
+      Socket编程_连接
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-05-09
+  2016-05-24
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">Note</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket编程/">Socket编程</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-Epoll/">Socket Epoll</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h3 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h3><p>不用androidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SQLiteDatabase db = oh.getWritableDatabase();  </span><br><span class="line"></span><br><span class="line">insert()  </span><br><span class="line">db.execSQL(sql语句, sql语句中的values值);</span><br><span class="line"></span><br><span class="line">delete()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">update()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">select()</span><br><span class="line">db.rawQuery(sql语句,sql语句中where查询条件);</span><br></pre></td></tr></table></figure></p>
-<p>使用AndroidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">insertApi()</span><br><span class="line">db.insert(表名, ,键值数组)</span><br><span class="line"></span><br><span class="line">deleteApi()</span><br><span class="line">db.delete(表名, where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">updateApi()</span><br><span class="line">db.update(表名，键值数组，where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">selectApi()</span><br><span class="line">//第一个表名</span><br><span class="line">//第三个查询字段</span><br><span class="line">//第四个查询where条件</span><br><span class="line">//第六个表示从该条开始查询</span><br><span class="line">//第七个表示查询条数</span><br><span class="line">db.query(&quot;person&quot;, null, null, null, null, null, null);</span><br></pre></td></tr></table></figure></p>
-
+    <h4 id="Epoll"><a href="#Epoll" class="headerlink" title="Epoll"></a>Epoll</h4>
   </div>
   <footer class="article-footer">
     

@@ -8,7 +8,7 @@
 
 <title>
   
-    归档
+    Archive
   
 </title>
 
@@ -78,22 +78,22 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
+                <a href="javascript:;">Category</a>
                 <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
+                <a href="javascript:;">Tag</a>
                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket Epoll</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">22</span></li></ul>
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">23</span></li></ul>
               </li>
             
           
@@ -155,6 +155,49 @@
           <h1><a href="/archives/2016" class="archive-year">2016</a></h1>
         </div>
         <div class="post-list">
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/05/09/SQLite/" >
+  Android Note(2)
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/05/09/SQLite/"><span class="article-date">
+  2016-05-09
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">Note</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h3><p>不用androidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SQLiteDatabase db = oh.getWritableDatabase();  </span><br><span class="line"></span><br><span class="line">insert()  </span><br><span class="line">db.execSQL(sql语句, sql语句中的values值);</span><br><span class="line"></span><br><span class="line">delete()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">update()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">select()</span><br><span class="line">db.rawQuery(sql语句,sql语句中where查询条件);</span><br></pre></td></tr></table></figure></p>
+<p>使用AndroidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">insertApi()</span><br><span class="line">db.insert(表名, ,键值数组)</span><br><span class="line"></span><br><span class="line">deleteApi()</span><br><span class="line">db.delete(表名, where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">updateApi()</span><br><span class="line">db.update(表名，键值数组，where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">selectApi()</span><br><span class="line">//第一个表名</span><br><span class="line">//第三个查询字段</span><br><span class="line">//第四个查询where条件</span><br><span class="line">//第六个表示从该条开始查询</span><br><span class="line">//第七个表示查询条数</span><br><span class="line">db.query(&quot;person&quot;, null, null, null, null, null, null);</span><br></pre></td></tr></table></figure></p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
     
   
 
@@ -278,7 +321,93 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/04/12/Socket_epoll_2/" >
+        <a href="/2016/04/14/Socket_epoll/" >
+  
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/04/14/Socket_epoll/"><span class="article-date">
+  2016-04-14
+</span>
+</a>
+        
+
+        
+
+      </div>
+      <div class="article-entry">
+        
+          <hr>
+<p>title: Socket编程_连接<br>description: Socket TCP/IP<br>date: 2016<em> 04</em> 11 20:29:32 +08:00<br>tags: Socket Epoll<br>category: Socket编程</p>
+<hr>
+<h3 id="socket笔记"><a href="#socket笔记" class="headerlink" title="socket笔记"></a>socket笔记</h3><p>非阻塞socket 指调用立即返回</p>
+<p>非阻塞调用下<br>Accept() 没有连接 返回* 1 errno 值设置为EAGAINA或者EWOULDBLOKC 宏定义都为11</p>
+<p>recv()、recvfrom() 没有数据返回 * 1  errno 返回11 socket关闭返回0</p>
+<p>send() 对关闭的socket调用send() 引发一个SIGPIPE，进程捕捉这个信号，因为SIGPIPE系统默认处理是关闭进程</p>
+<p>fcntl() 判断文件或者socket描述符为阻塞还是非阻塞状态</p>
+<h3 id="epoll调用函数"><a href="#epoll调用函数" class="headerlink" title="epoll调用函数"></a>epoll调用函数</h3><h4 id="epoll-create"><a href="#epoll-create" class="headerlink" title="epoll_create()"></a>epoll_create()</h4><p>  创建一个epoll文件描述符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int epoll_create(int size);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>创建一个epoll的句柄  </li>
+<li>参数size指定epoll所支持的最大句柄数（类似于池）  </li>
+<li>函数会返回一个新的epoll句柄，之后的所有操作将通过这个句柄来进行操作。  </li>
+<li><p>在用完句柄之后，需要用close来关闭创建的句柄。  </p>
+</li>
+<li><p>当发生错误时会出现下列几个值</p>
+<ul>
+<li>EINVAL，参数size不是一个整数</li>
+<li>ENFILE，系统已经分配了最大限度地文件描述符个数了</li>
+<li>ENOMEM，无足够内存完成此操作</li>
+</ul>
+</li>
+</ul>
+<h4 id="epoll-ctl"><a href="#epoll-ctl" class="headerlink" title="epoll_ctl()"></a>epoll_ctl()</h4><p>  用来添加/修改/删除需要的侦听的文件描述符及其事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>参数epfd是epoll_create()的返回值  </li>
+<li>参数op表示动作，用三个宏表示：<br>  1、EPOLL_CTL_ADD:注册新的fd到epfd中<br>  2、EPOLL_CTL_MOD:修改已经注册的fd的监听事件<br>  3、EPOLL_CTL_DEL:从epfd中删除一个fd  </li>
+<li>参数fd是需要监听的socket描述符  </li>
+<li><p>参数event通知内核需要监听什么事件  </p>
+<p>struct epoll_event结构</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef union epoll_data &#123;  </span><br><span class="line">  void* ptr;  </span><br><span class="line">  int fd;  </span><br><span class="line">  __uint32_t u32;  </span><br><span class="line">  __uint64_t u64;  </span><br><span class="line">&#125;  epoll_data_t;</span><br><span class="line"></span><br><span class="line">struct epoll_event &#123;</span><br><span class="line">  __uint32_t events; //epoll events  </span><br><span class="line">  epoll_data_t data; //user data variable</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>events的定义</p>
+<ul>
+<li>EPOLLIN : 表示对应的文件描述符可读  </li>
+<li>EPOLLOUT : 表示对应的文件描述符可写  </li>
+<li>EPOLLPRI : 表示对应的文件描述符有紧急的数据可读（这里应该表示有带外数据到来）  </li>
+<li>EPOLLERR : 表示对应的文件描述符发生错误</li>
+<li>EPOLLHUP ：表示对应的文件描述符被挂断  </li>
+<li>EPOLLET : 将EPOLL设为边缘触发（edge triggered）模式， 这是相对于（level triggered）来说的  </li>
+<li>EPOLLONESHOT : 只监听一次时间，当监听完这次事件之后，如果还需要继续监听这个socket的话，需要再次把这个socket加入到EPOLL队列中。</li>
+</ul>
+<h4 id="epoll-wait"><a href="#epoll-wait" class="headerlink" title="epoll_wait()"></a>epoll_wait()</h4><p>  接受发生在被侦听的描述符上的用户感兴趣的IO事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>参数 epfd是epoll_create() 的返回值  </li>
+<li>参数events是一个epoll_event*的指针，当epoll_wait这个函数操作成功之后，epoll_events里面将储存所有的读些事件。  </li>
+<li>参数maxevents是当前需要监听的所有socket句柄数   </li>
+<li>参数timeout是epoll_wait的超时，为0的时候表示马上返回，为* 1的时候表示一直等下去，直到有事件返回，正整数表示等这么长的时间   </li>
+<li>一般如果网络主循环是单独的线程的话，可以与用* 1来等，这样可以保证一些效率，如果是和侏罗纪在同一个线程的话，则可以用0来保证主循环的效率。<br>注：epoll_wait范围之后应该是一个循环，遍历所有的事件。  </li>
+</ul>
+<p>epoll文件描述符用完后，需要close关闭</p>
+<p>每次添加/修改/删除/文件描述符都需要调用epoll_ctl，所以要尽量少的调用epoll_ctl.</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/04/12/Socket_epoll(2)/" >
   Socket编程_连接
 </a>
 
@@ -286,7 +415,7 @@
       
 
       <div class="article-info">
-        <a href="/2016/04/12/Socket_epoll_2/"><span class="article-date">
+        <a href="/2016/04/12/Socket_epoll(2)/"><span class="article-date">
   2016-04-12
 </span>
 </a>
@@ -310,63 +439,6 @@
 <h4 id="ET模式"><a href="#ET模式" class="headerlink" title="ET模式"></a>ET模式</h4><p>是高速工作方式，只支持no-block Socket   </p>
 <p>-在ET模式下，当描述符从未就绪变为就绪时，内核通过epoll告诉你。<br>-ET模式会假设你知道文件描述符已经就绪，并且不会再为那个文件描述符发送更多的就绪通知，知道你做了某些操作导致那个文件描述符不再为就绪状态了。<br>-如果一直不对这个fd作IO操作（从而导致它再次变成未就绪），内核不会发送更多的通知。</p>
 <h4 id="LT-和-ET-的区别"><a href="#LT-和-ET-的区别" class="headerlink" title="LT 和 ET 的区别"></a>LT 和 ET 的区别</h4><p>-LT事件不会丢弃，而是只要读buffer里面有数据可以让用户读，则不断的通知你<br>-ET则只在事件发生时通知，可以简单的理解为LT是水平触发，ET为边缘触发<br>-LT模式只要有事件未处理就会触发，ET只在高低电平变换时（即状态从0到1或者1到0）触发</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/04/11/Socket_epoll/" >
-  Socket编程_连接
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/04/11/Socket_epoll/"><span class="article-date">
-  2016-04-11
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket编程/">Socket编程</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-Epoll/">Socket Epoll</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="socket笔记"><a href="#socket笔记" class="headerlink" title="socket笔记"></a>socket笔记</h3><p>非阻塞socket 指调用立即返回</p>
-<p>非阻塞调用下<br>Accept() 没有连接 返回-1 errno 值设置为EAGAINA或者EWOULDBLOKC 宏定义都为11</p>
-<p>recv()、recvfrom() 没有数据返回 -1  errno 返回11 socket关闭返回0</p>
-<p>send() 对关闭的socket调用send() 引发一个SIGPIPE，进程捕捉这个信号，因为SIGPIPE系统默认处理是关闭进程</p>
-<p>fcntl() 判断文件或者socket描述符为阻塞还是非阻塞状态</p>
-<h3 id="epoll调用函数"><a href="#epoll调用函数" class="headerlink" title="epoll调用函数"></a>epoll调用函数</h3><h4 id="epoll-create"><a href="#epoll-create" class="headerlink" title="epoll_create()"></a>epoll_create()</h4><p>  创建一个epoll文件描述符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-int epoll_create(int size);</span><br></pre></td></tr></table></figure></p>
-<p>  -创建一个epoll的句柄<br>  -参数size指定epoll所支持的最大句柄数（类似于池）<br>  -函数会返回一个新的epoll句柄，之后的所有操作将通过这个句柄来进行操作。<br>  -在用完句柄之后，需要用close来关闭创建的句柄。  </p>
-<h4 id="epoll-ctl"><a href="#epoll-ctl" class="headerlink" title="epoll_ctl()"></a>epoll_ctl()</h4><p>  用来添加/修改/删除需要的侦听的文件描述符及其事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);</span><br></pre></td></tr></table></figure></p>
-<p>  -参数epfd是epoll_create()的返回值<br>  -参数op表示动作，用三个宏表示：<br>      1、EPOLL_CTL_ADD:注册新的fd到epfd中<br>      2、EPOLL_CTL_MOD:修改已经注册的fd的监听事件<br>      3、EPOLL_CTL_DEL:从epfd中删除一个fd<br>  -参数fd是需要监听的socket描述符<br>  -参数event通知内核需要监听什么事件  </p>
-<p>  struct epoll_event结构</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef union epoll_data &#123;  </span><br><span class="line">  void \* ptr;  </span><br><span class="line">  int fd;  </span><br><span class="line">  __uint32_t u32;  </span><br><span class="line">  __uint64_t u64;  </span><br><span class="line">&#125;  epoll_data_t;</span><br><span class="line"></span><br><span class="line">struct epoll_event &#123;</span><br><span class="line">  __uint32_t events; //epoll events  </span><br><span class="line">  epoll_data_t data; //user data variable</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>events的定义<br>-EPOLLIN : 表示对应的文件描述符可读<br>-EPOLLOUT : 表示对应的文件描述符可写<br>-EPOLLPRI : 表示对应的文件描述符有紧急的数据可读（这里应该表示有带外数据到来）<br>-EPOLLERR : 表示对应的文件描述符发生错误<br>-EPOLLHUP ：表示对应的文件描述符被挂断<br>-EPOLLET : 将EPOLL设为边缘触发（edge triggered）模式， 这是相对于（level triggered）来说的<br>-EPOLLONESHOT : 只监听一次时间，当监听完这次事件之后，如果还需要继续监听这个socket的话，需要再次把这个socket加入到EPOLL队列中。</p>
-<h4 id="epoll-wait"><a href="#epoll-wait" class="headerlink" title="epoll_wait()"></a>epoll_wait()</h4><p>  接受发生在被侦听的描述符上的用户感兴趣的IO事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);</span><br></pre></td></tr></table></figure></p>
-<p>-参数 epfd是epoll_create() 的返回值<br>-参数events是一个epoll_event*的指针，当epoll_wait这个函数操作成功之后，epoll_events里面将储存所有的读些事件。<br>-参数maxevents是当前需要监听的所有socket句柄数<br>-参数timeout是epoll_wait的超时，为0的时候表示马上返回，为-1的时候表示一直等下去，直到有事件返回，正整数表示等这么长的时间<br>-一般如果网络主循环是单独的线程的话，可以与用-1来等，这样可以保证一些效率，如果是和侏罗纪在同一个线程的话，则可以用0来保证主循环的效率。<br>注：epoll_wait范围之后应该是一个循环，遍历所有的事件。  </p>
-<p>epoll文件描述符用完后，需要close关闭</p>
-<p>每次添加/修改/删除/文件描述符都需要调用epoll_ctl，所以要尽量少的调用epoll_ctl.</p>
 
         
       </div>
@@ -633,57 +705,10 @@
 
   
 
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/03/08/SPMNote_1/" >
-  Software Project Management Note(1)
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/03/08/SPMNote_1/"><span class="article-date">
-  2016-03-08
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">Note</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="软件项目管理笔记"><a href="#软件项目管理笔记" class="headerlink" title="软件项目管理笔记"></a>软件项目管理笔记</h2><h3 id="项目："><a href="#项目：" class="headerlink" title="项目："></a>项目：</h3><p>为了创建一个唯一的产品或提供一个唯一的服务而进行的临时性努力。</p>
-<h3 id="项目特征："><a href="#项目特征：" class="headerlink" title="项目特征："></a>项目特征：</h3><p>1、有明确的目标<br>2、项目之间的活动具有相关性<br>3、限定的周期<br>4、有独特性<br>5、资源成本的约束性<br>6、项目的不确定性</p>
-<h3 id="软件项目的特殊性："><a href="#软件项目的特殊性：" class="headerlink" title="软件项目的特殊性："></a>软件项目的特殊性：</h3><p>1、逻辑实体<br>2、相互作用的系统<br>3、变更<br>4、渐进明细</p>
-<h3 id="项目管理："><a href="#项目管理：" class="headerlink" title="项目管理："></a>项目管理：</h3><p>项目管理是一系列的伴随着项目的进行而进行的，目的是为了确保项目能够达到期望结果的一系列管理。</p>
-<h3 id="软件开发项目管理："><a href="#软件开发项目管理：" class="headerlink" title="软件开发项目管理："></a>软件开发项目管理：</h3><p>软件项目管理师为了使软件项目能够按照成本、进度、质量顺利完成，而对成本、人员、进度、质量、风险等进行分析和管理的活动。</p>
-<h3 id="项目管理的5要素："><a href="#项目管理的5要素：" class="headerlink" title="项目管理的5要素："></a>项目管理的5要素：</h3><p>1、技术<br>2、方法<br>3、团队建设<br>4、信息<br>5、沟通</p>
-
-        
-      </div>
-    </div>
-
-  
-
 
 
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/">上一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/archives/">Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next</a>
   </div>
 
 

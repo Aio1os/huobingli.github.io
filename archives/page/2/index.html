@@ -8,7 +8,7 @@
 
 <title>
   
-    归档
+    Archive
   
 </title>
 
@@ -78,21 +78,21 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">分类</a>
+                <a href="javascript:;">Category</a>
                 <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">标签</a>
+                <a href="javascript:;">Tag</a>
                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">归档</a>
+                <a href="javascript:;">Archive</a>
                 <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">23</span></li></ul>
               </li>
             
@@ -395,8 +395,8 @@
       <div class="article-entry">
         
           <h3 id="socket笔记"><a href="#socket笔记" class="headerlink" title="socket笔记"></a>socket笔记</h3><p>非阻塞socket 指调用立即返回</p>
-<p>非阻塞调用下<br>Accept() 没有连接 返回* 1 errno 值设置为EAGAINA或者EWOULDBLOKC 宏定义都为11</p>
-<p>recv()、recvfrom() 没有数据返回 * 1  errno 返回11 socket关闭返回0</p>
+<p>非阻塞调用下<br>Accept() 没有连接 返回-1 errno 值设置为EAGAINA或者EWOULDBLOKC 宏定义都为11</p>
+<p>recv()、recvfrom() 没有数据返回 -1  errno 返回11 socket关闭返回0</p>
 <p>send() 对关闭的socket调用send() 引发一个SIGPIPE，进程捕捉这个信号，因为SIGPIPE系统默认处理是关闭进程</p>
 <p>fcntl() 判断文件或者socket描述符为阻塞还是非阻塞状态</p>
 <h3 id="epoll调用函数"><a href="#epoll调用函数" class="headerlink" title="epoll调用函数"></a>epoll调用函数</h3><h4 id="epoll-create"><a href="#epoll-create" class="headerlink" title="epoll_create()"></a>epoll_create()</h4><p>  创建一个epoll文件描述符<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int epoll_create(int size);</span><br></pre></td></tr></table></figure></p>
@@ -406,7 +406,7 @@
 <li>函数会返回一个新的epoll句柄，之后的所有操作将通过这个句柄来进行操作。  </li>
 <li><p>在用完句柄之后，需要用close来关闭创建的句柄。  </p>
 </li>
-<li><p>当发生错误时会出现下列几个值</p>
+<li><p>当create发生错误</p>
 <ul>
 <li>EINVAL，参数size不是一个整数</li>
 <li>ENFILE，系统已经分配了最大限度地文件描述符个数了</li>
@@ -419,12 +419,11 @@
 <li>参数epfd是epoll_create()的返回值  </li>
 <li>参数op表示动作，用三个宏表示：<br>  1、EPOLL_CTL_ADD:注册新的fd到epfd中<br>  2、EPOLL_CTL_MOD:修改已经注册的fd的监听事件<br>  3、EPOLL_CTL_DEL:从epfd中删除一个fd  </li>
 <li>参数fd是需要监听的socket描述符  </li>
-<li><p>参数event通知内核需要监听什么事件  </p>
-<p>struct epoll_event结构</p>
-</li>
+<li>参数event通知内核需要监听什么事件  </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef union epoll_data &#123;  </span><br><span class="line">  void* ptr;  </span><br><span class="line">  int fd;  </span><br><span class="line">  __uint32_t u32;  </span><br><span class="line">  __uint64_t u64;  </span><br><span class="line">&#125;  epoll_data_t;</span><br><span class="line"></span><br><span class="line">struct epoll_event &#123;</span><br><span class="line">  __uint32_t events; //epoll events  </span><br><span class="line">  epoll_data_t data; //user data variable</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>events的定义</p>
+<p><b>struct epoll_event结构</b></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">typedef union epoll_data &#123;  </span><br><span class="line">  void \* ptr;  </span><br><span class="line">  int fd;  </span><br><span class="line">  __uint32_t u32;  </span><br><span class="line">  __uint64_t u64;  </span><br><span class="line">&#125;  epoll_data_t;</span><br><span class="line"></span><br><span class="line">struct epoll_event &#123;</span><br><span class="line">  __uint32_t events; //epoll events  </span><br><span class="line">  epoll_data_t data; //user data variable</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><b>events的定义</b></p>
 <ul>
 <li>EPOLLIN : 表示对应的文件描述符可读  </li>
 <li>EPOLLOUT : 表示对应的文件描述符可写  </li>
@@ -434,13 +433,13 @@
 <li>EPOLLET : 将EPOLL设为边缘触发（edge triggered）模式， 这是相对于（level triggered）来说的  </li>
 <li>EPOLLONESHOT : 只监听一次时间，当监听完这次事件之后，如果还需要继续监听这个socket的话，需要再次把这个socket加入到EPOLL队列中。</li>
 </ul>
-<h4 id="epoll-wait"><a href="#epoll-wait" class="headerlink" title="epoll_wait()"></a>epoll_wait()</h4><p>  接受发生在被侦听的描述符上的用户感兴趣的IO事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);</span><br></pre></td></tr></table></figure></p>
+<h4 id="epoll-wait"><a href="#epoll-wait" class="headerlink" title="epoll_wait()"></a>epoll_wait()</h4><p>  接受发生在被侦听的描述符上的用户感兴趣的IO事件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);</span><br></pre></td></tr></table></figure></p>
 <ul>
 <li>参数 epfd是epoll_create() 的返回值  </li>
 <li>参数events是一个epoll_event*的指针，当epoll_wait这个函数操作成功之后，epoll_events里面将储存所有的读些事件。  </li>
 <li>参数maxevents是当前需要监听的所有socket句柄数   </li>
-<li>参数timeout是epoll_wait的超时，为0的时候表示马上返回，为* 1的时候表示一直等下去，直到有事件返回，正整数表示等这么长的时间   </li>
-<li>一般如果网络主循环是单独的线程的话，可以与用* 1来等，这样可以保证一些效率，如果是和侏罗纪在同一个线程的话，则可以用0来保证主循环的效率。<br>注：epoll_wait范围之后应该是一个循环，遍历所有的事件。  </li>
+<li>参数timeout是epoll_wait的超时，为0的时候表示马上返回，为-1的时候表示一直等下去，直到有事件返回，正整数表示等这么长的时间   </li>
+<li>一般如果网络主循环是单独的线程的话，可以与用-1来等，这样可以保证一些效率，如果是和侏罗纪在同一个线程的话，则可以用0来保证主循环的效率。<br>注：epoll_wait范围之后应该是一个循环，遍历所有的事件。  </li>
 </ul>
 <p>epoll文件描述符用完后，需要close关闭</p>
 <p>每次添加/修改/删除/文件描述符都需要调用epoll_ctl，所以要尽量少的调用epoll_ctl.</p>
@@ -713,7 +712,7 @@
 
 
   <div class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/">上一页</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/archives/">Prev</a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/">Next</a>
   </div>
 
 

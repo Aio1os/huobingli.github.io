@@ -8,7 +8,7 @@
 
 <title>
   
-    Archive
+    归档
   
 </title>
 
@@ -78,21 +78,21 @@
           
             
               <li class="category-list-container">
-                <a href="javascript:;">Category</a>
+                <a href="javascript:;">分类</a>
                 <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
-                <a href="javascript:;">Tag</a>
+                <a href="javascript:;">标签</a>
                 <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
-                <a href="javascript:;">Archive</a>
+                <a href="javascript:;">归档</a>
                 <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">24</span></li></ul>
               </li>
             
@@ -187,7 +187,9 @@
       </div>
       <div class="article-entry">
         
-          <h4 id="服务器不是很了解，随便想想"><a href="#服务器不是很了解，随便想想" class="headerlink" title="服务器不是很了解，随便想想"></a>服务器不是很了解，随便想想</h4><p>一个服务器肯定需要有接收，发送，处理功能，然后，这些都可以做成多线程，然后还可以加上线程池</p>
+          <h4 id="服务器不是很了解，随便想想"><a href="#服务器不是很了解，随便想想" class="headerlink" title="服务器不是很了解，随便想想"></a>服务器不是很了解，随便想想</h4><p>一个服务器肯定需要有接收，发送，处理功能，然后，这些都可以做成多线程，然后还可以加上线程池。客户端和服务器之间通讯，服务器端肯定不止到什么时候客户端会发送信息过来，所以在服务器中的接收客户端信息的方法就直接开始就使用一个线程等待接收好了，然后服务器端发送到客户端的线程和服务器端处理线程就直接在线程池中动态分配好了，等到接收队列和发送队列中有需要处理和发送的数据的时候在进行分配线程，来运行函数。</p>
+<h4 id="回调函数-callback"><a href="#回调函数-callback" class="headerlink" title="回调函数 callback"></a>回调函数 callback</h4><p>这个东西搞了我好久，就是把需要调用的函数的指针传进去，然后在满足条件了之后，在另外一个函数中调用该函数指针来实现回调。<br>回调函数相当于就是在主函数和调用函数中间多了一层，相当于一个接口，连接主函数和调用函数，主函数和调用函数可以很好的区分开，主函数可以不需要管调用函数，调用函数的实现留给别人。</p>
+<h4 id="线程池-threadPool"><a href="#线程池-threadPool" class="headerlink" title="线程池 threadPool"></a>线程池 threadPool</h4><p>线程池中的线程在初始化之后进入等待状态，即跑一个等待线程，pthread_cond_wait(条件变量,互斥变量)<br>在这个函数中进行阻塞，然后再有需要线程调用的时候使用pthread_cond_signal(条件变量)，然后可以执行pthread_cond_wait后面的语句，这样线程就可以成功分配了。</p>
 
         
       </div>
@@ -716,7 +718,7 @@
 
 
   <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">Next</a>
+    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/2/">下一页</a>
   </div>
 
 

@@ -8,20 +8,22 @@
 
 <title>
   
-    Android Note(2)
+    mongoDB 初始
   
 </title>
 
-<meta name="description" content="Note">
+<meta name="description" content="NoSQL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Note(2)">
-<meta property="og:url" content="http://yoursite.com/2016/05/09/SQLite/index.html">
+<meta property="og:title" content="mongoDB 初始">
+<meta property="og:url" content="http://yoursite.com/2016/06/24/mongodb_2/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="Note">
-<meta property="og:updated_time" content="2016-05-10T13:42:49.892Z">
+<meta property="og:description" content="NoSQL">
+<meta property="og:image" content="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/explain.png">
+<meta property="og:updated_time" content="2016-06-24T05:13:19.959Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Note(2)">
-<meta name="twitter:description" content="Note">
+<meta name="twitter:title" content="mongoDB 初始">
+<meta name="twitter:description" content="NoSQL">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/explain.png">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -144,35 +146,50 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-SQLite" class="article article-type-post">
+          <article id="post-mongodb_2" class="article article-type-post">
   
     <h1 class="article-header">
-      Android Note(2)
+      mongoDB 初始
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-05-09
+  2016-06-24
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Note/">Note</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/NoSQL/">NoSQL</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h3 id="SQLite"><a href="#SQLite" class="headerlink" title="SQLite"></a>SQLite</h3><p>不用androidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">SQLiteDatabase db = oh.getWritableDatabase();  </span><br><span class="line"></span><br><span class="line">insert()  </span><br><span class="line">db.execSQL(sql语句, sql语句中的values值);</span><br><span class="line"></span><br><span class="line">delete()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">update()</span><br><span class="line">db.execSQL(sql语句，sql语句中where查询条件);</span><br><span class="line"></span><br><span class="line">select()</span><br><span class="line">db.rawQuery(sql语句,sql语句中where查询条件);</span><br></pre></td></tr></table></figure></p>
-<p>使用AndroidAPI<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">insertApi()</span><br><span class="line">db.insert(表名, ,键值数组)</span><br><span class="line"></span><br><span class="line">deleteApi()</span><br><span class="line">db.delete(表名, where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">updateApi()</span><br><span class="line">db.update(表名，键值数组，where条件，where条件键值)</span><br><span class="line"></span><br><span class="line">selectApi()</span><br><span class="line">//第一个表名</span><br><span class="line">//第三个查询字段</span><br><span class="line">//第四个查询where条件</span><br><span class="line">//第六个表示从该条开始查询</span><br><span class="line">//第七个表示查询条数</span><br><span class="line">db.query(&quot;person&quot;, null, null, null, null, null, null);</span><br></pre></td></tr></table></figure></p>
+    <h4 id="MongoDB原子操作"><a href="#MongoDB原子操作" class="headerlink" title="MongoDB原子操作"></a>MongoDB原子操作</h4><p>原子操作，要么成功，要么失败，执行成功完成既定任务，失败则还原执行前的状态。</p>
+<p>$set ： 用来指定一个键并更新键值，若键不存在则创建<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $set : &#123; field : value &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$unset ： 删除一个键<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $unset : &#123; field : 1&#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$inc ：可以对文档的某个值为数字型（只能为满足要求的数字）的键进行增减的操作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $inc : &#123; field : value &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$push ：把value追加到field里面去，field一定要是数组类型才行，如果field不存在，会新增一个数组类型加进去<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $push : &#123; field : value &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$pushAll ：同push，可以一次增加多个值到一个数组字段<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $pushAll : &#123; field : value_array &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$pull ：从数组内删除一个等于value的值<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $pull : &#123; field : _value &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$addToSet ：增加一个值到数组内，而且只有当这个值不在数组内才增加</p>
+<p>$pop ：删除数组的第一个或最后一个元素<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $pop : &#123; field : 1 &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$rename ：修改字段名称<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123; $rename : &#123; old_field_name : new_field_name &#125; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>$bit ：位操作，integer类型<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;$bit : &#123; field : &#123;and : 5&#125;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="explain-用于查询分析-hint-强制指定使用的索引"><a href="#explain-用于查询分析-hint-强制指定使用的索引" class="headerlink" title="explain() 用于查询分析 hint()强制指定使用的索引"></a>explain() 用于查询分析 hint()强制指定使用的索引</h4><p>MongoDB采用B树索引</p>
+<p>在user数据库中有users<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;use user</span><br><span class="line">&gt; db.users.ensureIndex(&#123;gender:1,user_name:1&#125;)</span><br><span class="line">&gt; db.users.find(&#123;gender:&quot;M&quot;&#125;,&#123;user_name:1,_id:0&#125;).explain()</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/explain.png" alt="">  </p>
+<p>indexOnly：true，表示我们使用了索引。<br>cursor：因为这个查询使用了索引，如果没使用索引游标类型是BasicVursor。<br>n：表示查询返回的文档数量。<br>nscanned/nscannedObjects：表明当前这次查询一共扫描了集合中多少个文档，我们的目的是，让这个数值和返回文档的数量越接近越好。<br>millis：当前查询所需时间，单位毫秒。<br>indexBounds：当前查询具体使用的索引。   </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.users.find(&#123;gender:&quot;M&quot;&#125;,&#123;user_name:1,_id:0&#125;).hint(&#123;gender:1,user_name:1&#125;)   </span><br><span class="line">&gt; db.users.find(&#123;gender:&quot;M&quot;&#125;,&#123;user_name:1,_id:0&#125;).hint(&#123;gender:1,user_name:1&#125;).explain()</span><br></pre></td></tr></table></figure>
+<p>hint来强迫MongoDB使用一个指定的索引,在某些情况下会提升性能。</p>
 
   </div>
   <footer class="article-footer">

@@ -8,20 +8,20 @@
 
 <title>
   
-    Socket编程_连接
+    Github Upload
   
 </title>
 
-<meta name="description" content="Socket Epoll">
+<meta name="description" content="github issue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Socket编程_连接">
-<meta property="og:url" content="http://yoursite.com/2016/04/12/Socket_epoll(2)/index.html">
+<meta property="og:title" content="Github Upload">
+<meta property="og:url" content="http://yoursite.com/2016/07/10/Github_Upload/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="Socket Epoll">
-<meta property="og:updated_time" content="2016-05-24T06:22:34.768Z">
+<meta property="og:description" content="github issue">
+<meta property="og:updated_time" content="2016-07-10T07:13:13.934Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Socket编程_连接">
-<meta name="twitter:description" content="Socket Epoll">
+<meta name="twitter:title" content="Github Upload">
+<meta name="twitter:description" content="github issue">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -144,38 +144,37 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-Socket_epoll(2)" class="article article-type-post">
+          <article id="post-Github_Upload" class="article article-type-post">
   
     <h1 class="article-header">
-      Socket编程_连接
+      Github Upload
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-04-12
+  2016-07-10
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Socket编程/">Socket编程</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/github-issue/">github issue</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-issue/">github issue</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h3 id="epoll-中-LT-和-ET两种模式"><a href="#epoll-中-LT-和-ET两种模式" class="headerlink" title="epoll 中 LT 和 ET两种模式"></a>epoll 中 LT 和 ET两种模式</h3><h4 id="LT模式"><a href="#LT模式" class="headerlink" title="LT模式"></a>LT模式</h4><p>是缺省工作方式，并且同时支持block和no-block socket   </p>
-<p>-在LT模式中，内核通知一个文件描述符是否就绪了，然后可以对这个就绪的fd进行IO操作<br>-如果你不作任何操作，内核还是会继续通知你，所以这种模式编程出错误可能性较小</p>
-<h4 id="ET模式"><a href="#ET模式" class="headerlink" title="ET模式"></a>ET模式</h4><p>是高速工作方式，只支持no-block Socket   </p>
-<p>-在ET模式下，当描述符从未就绪变为就绪时，内核通过epoll告诉你。<br>-ET模式会假设你知道文件描述符已经就绪，并且不会再为那个文件描述符发送更多的就绪通知，知道你做了某些操作导致那个文件描述符不再为就绪状态了。<br>-如果一直不对这个fd作IO操作（从而导致它再次变成未就绪），内核不会发送更多的通知。</p>
-<h4 id="LT-和-ET-的区别"><a href="#LT-和-ET-的区别" class="headerlink" title="LT 和 ET 的区别"></a>LT 和 ET 的区别</h4><p>-LT事件不会丢弃，而是只要读buffer里面有数据可以让用户读，则不断的通知你<br>-ET则只在事件发生时通知，可以简单的理解为LT是水平触发，ET为边缘触发<br>-LT模式只要有事件未处理就会触发，ET只在高低电平变换时（即状态从0到1或者1到0）触发</p>
+    <h4 id="把代码提交到github"><a href="#把代码提交到github" class="headerlink" title="把代码提交到github"></a>把代码提交到github</h4><p>1、首先需要安装git客户端</p>
+<p>2、配置信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br><span class="line">git config --global user.email &quot;your email&quot;</span><br></pre></td></tr></table></figure></p>
+<p>3、在github上创建一个仓库test</p>
+<p>4、在本地创建项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git commit -m</span><br><span class="line">git remote add origin git@github.com:username/test.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
 
   </div>
   <footer class="article-footer">

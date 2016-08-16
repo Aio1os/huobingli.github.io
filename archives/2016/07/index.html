@@ -198,54 +198,6 @@
 
   
 
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/07/10/shell_1/" >
-  shell program
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/07/10/shell_1/"><span class="article-date">
-  2016-07-10
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/shell-program/">shell program</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell-program/">shell program</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="shell-编程"><a href="#shell-编程" class="headerlink" title="shell 编程"></a>shell 编程</h3><p>shell脚本需要调用其它语言需要加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br></pre></td></tr></table></figure></p>
-<p>所以开头最好加上这句话</p>
-<h4 id="echo-输出"><a href="#echo-输出" class="headerlink" title="echo 输出"></a>echo 输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\a 警告音</span><br><span class="line">\b 退格键</span><br><span class="line">\n 换行</span><br><span class="line">\r 回车键</span><br><span class="line">\t 制表符 TAB键</span><br><span class="line">\v 垂直制表符</span><br><span class="line">\0nnn 按照八进制ASCII码表输出字符，其中0为数字零，nnn为三位八进制数</span><br><span class="line">\xhh  按照十六进制ASCII码表输出字符，其中hh是两位十六进制数</span><br></pre></td></tr></table></figure>
-<p>echo -n 不换行输出<br>echo -e 处理特殊字符   </p>
-<p>echo开启颜色显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#30m = 黑色， #31m = 红色， #32m = 绿色， #33m = 黄色</span><br><span class="line">#34m = 蓝色， #35m = 洋红， #36m = 青色， #37m = 白色</span><br><span class="line"></span><br><span class="line">格式：开头\e[1;(颜色代码m)    结尾\e[0m  </span><br><span class="line">举个例子： echo &quot;\e[1;31m  hello echo \e[0m&quot;</span><br></pre></td></tr></table></figure></p>
-<h4 id="脚本执行"><a href="#脚本执行" class="headerlink" title="脚本执行"></a>脚本执行</h4><p>1、可以通过赋予执行权限，直接运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> chmod 755 脚本名.sh</span><br><span class="line">./脚本名.sh</span><br></pre></td></tr></table></figure></p>
-<p>2、通过bash执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash 脚本名.sh</span><br></pre></td></tr></table></figure></p>
-
-        
-      </div>
-    </div>
-
-  
-
 
 
 

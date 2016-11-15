@@ -152,6 +152,59 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/11/15/Install_Erlang/" >
+  CENTOS7 安装erlang
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/15/Install_Erlang/"><span class="article-date">
+  2016-11-15
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CENTOS/">CENTOS</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CENTOS/">CENTOS</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="install-erlang"><a href="#install-erlang" class="headerlink" title="install erlang"></a>install erlang</h3><p>environment : CENTOS7</p>
+<p>首先下载 安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>解压安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>转到解压的文件夹下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>最好在root下运行，without-javac 不用javac编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/erlang   --without-javac</span><br></pre></td></tr></table></figure></p>
+<p>进行make<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>最后加一个软连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/erlang/bin/erl /usr/local/bin/erl</span><br></pre></td></tr></table></figure></p>
+<p>最后测试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">erl</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/installerlang.png" alt="">   </p>
+<p>Done!!</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/11/14/change_yum/" >
   CENTOS7 更换源
 </a>
@@ -182,59 +235,6 @@
           <h3 id="把-yum源-CENTOS-更换成网易-yum源"><a href="#把-yum源-CENTOS-更换成网易-yum源" class="headerlink" title="把 yum源 CENTOS 更换成网易 yum源"></a>把 yum源 CENTOS 更换成网易 yum源</h3><p>1、备份你的原镜像文件，以免出错后可以恢复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure></p>
 <p>2、下载新的CentOS-Base.repo 到/etc/yum.repos.d/<br>CentOS 5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d/</span><br><span class="line">wget http://mirrors.163.com/.help/CentOS7-Base-163.repo</span><br></pre></td></tr></table></figure></p>
 <p>3、运行yum makecache生成缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/11/14/Install_Erlang/" >
-  CENTOS7 安装erlang
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/11/14/Install_Erlang/"><span class="article-date">
-  2016-11-14
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CENTOS/">CENTOS</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CENTOS/">CENTOS</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="install-erlang"><a href="#install-erlang" class="headerlink" title="install erlang"></a>install erlang</h3><p>environment : CENTOS7</p>
-<p>首先下载 安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>解压安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>转到解压的文件夹下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>最好在root下运行，without-javac 不用javac编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/erlang   --without-javac</span><br></pre></td></tr></table></figure></p>
-<p>进行make<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
-<p>最后加一个软连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/erlang/bin/erl /usr/local/bin/erl</span><br></pre></td></tr></table></figure></p>
-<p>最后测试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">erl</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/installerlang.png" alt="">   </p>
-<p>Done!!</p>
 
         
       </div>

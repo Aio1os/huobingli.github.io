@@ -8,19 +8,20 @@
 
 <title>
   
-    類別: 服务器
+    CENTOS7 安装编译Boost库
   
 </title>
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Invoker">
-<meta property="og:url" content="http://yoursite.com/categories/服务器/index.html">
+<meta name="description" content="CENTOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CENTOS7 安装编译Boost库">
+<meta property="og:url" content="http://yoursite.com/2016/11/15/make_boost/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description">
+<meta property="og:description" content="CENTOS">
+<meta property="og:updated_time" content="2016-11-18T02:01:29.764Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Invoker">
-<meta name="twitter:description">
+<meta name="twitter:title" content="CENTOS7 安装编译Boost库">
+<meta name="twitter:description" content="CENTOS">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -143,54 +144,61 @@
       
         <div style="max-width: 1000px">
       
-          <h1>服务器</h1>
-
-
+          <article id="post-make_boost" class="article article-type-post">
+  
+    <h1 class="article-header">
+      CENTOS7 安装编译Boost库
+    </h1>
   
   
-    <div class="post-list">
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/30/thinkServer/" >
-  服务器架构思考
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/05/30/thinkServer/"><span class="article-date">
-  2016-05-30
+  <div class="article-info">
+    <span class="article-date">
+  2016-11-15
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/服务器/">服务器</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CENTOS/">CENTOS</a></li></ul>
 	</span>
 
 
-        
+    
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/服务器/">服务器</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CENTOS/">CENTOS</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <h4 id="服务器不是很了解，随便想想"><a href="#服务器不是很了解，随便想想" class="headerlink" title="服务器不是很了解，随便想想"></a>服务器不是很了解，随便想想</h4><p>一个服务器肯定需要有接收，发送，处理功能，然后，这些都可以做成多线程，然后还可以加上线程池。客户端和服务器之间通讯，服务器端肯定不止到什么时候客户端会发送信息过来，所以在服务器中的接收客户端信息的方法就直接开始就使用一个线程等待接收好了，然后服务器端发送到客户端的线程和服务器端处理线程就直接在线程池中动态分配好了，等到接收队列和发送队列中有需要处理和发送的数据的时候在进行分配线程，来运行函数。</p>
-<h4 id="回调函数-callback"><a href="#回调函数-callback" class="headerlink" title="回调函数 callback"></a>回调函数 callback</h4><p>这个东西搞了我好久，就是把需要调用的函数的指针传进去，然后在满足条件了之后，在另外一个函数中调用该函数指针来实现回调。<br>回调函数相当于就是在主函数和调用函数中间多了一层，相当于一个接口，连接主函数和调用函数，主函数和调用函数可以很好的区分开，主函数可以不需要管调用函数，调用函数的实现留给别人。</p>
-<h4 id="线程池-threadPool"><a href="#线程池-threadPool" class="headerlink" title="线程池 threadPool"></a>线程池 threadPool</h4><p>线程池中的线程在初始化之后进入等待状态，即跑一个等待线程，pthread_cond_wait(条件变量,互斥变量)<br>在这个函数中进行阻塞，然后再有需要线程调用的时候使用pthread_cond_signal(条件变量)，然后可以执行pthread_cond_wait后面的语句，这样线程就可以成功分配了。</p>
+  </div>
+  <div class="article-entry">
+    <h3 id="linux-下编译Boost库"><a href="#linux-下编译Boost库" class="headerlink" title="linux 下编译Boost库"></a>linux 下编译Boost库</h3><p>1、下载Boost库</p>
+<p>2、解压压缩文件</p>
+<p>3、./bootstrap.sh; ./b2<br>./bootstrap.sh 是编译前的配置工作<br>./b2 开始编译</p>
+<p>4、/b2 –buildtype=complete stage<br>将对Boost库进行完整编译，生成所有调试版、发行版的静态库和动态库<br>buildtype选项是编译类型，如不指定就是release模式<br>stage选项指定Boost使用本地构建。如果使用install选项则编译后会把Boost安装到默认路径下（/usr/local）</p>
 
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="姓名標示-相同方式分享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
         
-      </div>
-    </div>
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本著作係採用創用 CC 姓名標示-相同方式分享 4.0 國際 授權條款授權.
+      </span>
+    </a>
+  </div>
 
-  
-    </div>
-  
+
+    
+
+  </footer>
+</article>
+
 
 
 

@@ -354,60 +354,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/06/23/mongodb_1/" >
-  mongoDB 初始
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/06/23/mongodb_1/"><span class="article-date">
-  2016-06-23
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/NoSQL/">NoSQL</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="初始MongoDB"><a href="#初始MongoDB" class="headerlink" title="初始MongoDB"></a>初始MongoDB</h3><h4 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service mongodb start</span><br></pre></td></tr></table></figure>
-<h4 id="进入mongodb"><a href="#进入mongodb" class="headerlink" title="进入mongodb"></a>进入mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodb</span><br></pre></td></tr></table></figure>
-<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use [database name]   //切换数据库，使用数据库</span><br></pre></td></tr></table></figure>
-<h4 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db                    //查看当前数据库</span><br><span class="line">show dbs              //查看所有数据库，不显示没有数据的数据库</span><br></pre></td></tr></table></figure>
-<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use [need drop database name]  //切换到需要删除的数据库中</span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
-<h4 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;[collection name]&quot;)</span><br></pre></td></tr></table></figure>
-<h4 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[need drop collection name].drop()</span><br></pre></td></tr></table></figure>
-<h4 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdoc1 = (&#123;&quot;user_id&quot;:1, &quot;name&quot;:&quot;huobingli&quot;, &quot;state&quot;:&quot;active&quot;, &quot;email&quot;:&quot;huobingli@outlook.com&quot;&#125;)</span><br><span class="line">db.[insert collection].insert(userdoc1)</span><br></pre></td></tr></table></figure>
-<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[update collection].update(&#123;&quot;user_id&quot;:1, &quot;name&quot;:&quot;huobingli&quot;&#125;, &#123;$set&#123;&quot;state&quot;:&quot;nagetive&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
-<p>第一个大括号表示查找条件<br>第二个大括号表示替换内容<br>默认是对一个文档进行修改，想要对多个文档进行修改需要写成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.[update collection].update(&#123;&quot;user_id&quot;:1, &quot;name&quot;:&quot;huobingli&quot;&#125;, &#123;</span><br><span class="line">  &quot;state&quot;:&quot;nagetive&quot; &#125;)</span><br></pre></td></tr></table></figure></p>
-<h4 id="替换文档"><a href="#替换文档" class="headerlink" title="替换文档"></a>替换文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[save collection].save(&#123;&quot;user_id&quot;:1,&quot;name&quot;:&quot;george&quot;&#125;)</span><br></pre></td></tr></table></figure>
-<p>save 和insert区别，存在主键，insert报错，save可以<br>没有主键，都相当于增加一条数据</p>
-<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[remove collection].remove(&#123;&quot;name&quot;:&quot;huobingli&quot;&#125;)</span><br></pre></td></tr></table></figure>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2016/06/23/LinuxNote_1/" >
   linux 常用监控命令
 </a>
@@ -449,6 +395,60 @@
 <p>wt ： 等待IO CPU时间。</p>
 <h4 id="netstat是一个用于监控进出网络的包和网络接口统计的命令行工具。它是一个非常有用的工具，系统管理员可以用来监控网络性能，定位并解决网络相关问题。"><a href="#netstat是一个用于监控进出网络的包和网络接口统计的命令行工具。它是一个非常有用的工具，系统管理员可以用来监控网络性能，定位并解决网络相关问题。" class="headerlink" title="netstat是一个用于监控进出网络的包和网络接口统计的命令行工具。它是一个非常有用的工具，系统管理员可以用来监控网络性能，定位并解决网络相关问题。"></a>netstat是一个用于监控进出网络的包和网络接口统计的命令行工具。它是一个非常有用的工具，系统管理员可以用来监控网络性能，定位并解决网络相关问题。</h4><h4 id="iostat是一个用于收集显示系统存储设备输入和输出状态统计的简单工具。这个工具常常用来追踪存储设备的性能问题，其中存储设备包括设备、本地磁盘，以及诸如使用NFS等的远端磁盘。"><a href="#iostat是一个用于收集显示系统存储设备输入和输出状态统计的简单工具。这个工具常常用来追踪存储设备的性能问题，其中存储设备包括设备、本地磁盘，以及诸如使用NFS等的远端磁盘。" class="headerlink" title="iostat是一个用于收集显示系统存储设备输入和输出状态统计的简单工具。这个工具常常用来追踪存储设备的性能问题，其中存储设备包括设备、本地磁盘，以及诸如使用NFS等的远端磁盘。"></a>iostat是一个用于收集显示系统存储设备输入和输出状态统计的简单工具。这个工具常常用来追踪存储设备的性能问题，其中存储设备包括设备、本地磁盘，以及诸如使用NFS等的远端磁盘。</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install sysstat</span><br><span class="line">$ iostat</span><br></pre></td></tr></table></figure>
 <p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/linux_iostat.png" alt=""><br><b>avg-cpu</b><br>%user: 在用户级别运行所使用的CPU的百分比.<br>%nice:优先进程消耗的CPU时间，占所有CPU的百分比.<br>%system: 在系统级别(kernel)运行所使用CPU的百分比.<br>%iowait: CPU等待硬件I/O时,所占用CPU百分比.<br>%steal: 管理程序维护另一个虚拟处理器时，虚拟CPU的无意识等待时间百分比.<br>%idle: CPU空闲时间的百分比.<br><b>Device</b><br>tps: 每秒钟发送到的I/O请求数.<br>KB_read /s: 每秒读取的block数.<br>KB_wrtn/s: 每秒写入的block数.<br>KB_read:  启动到现在 读入的block总数.<br>KB_wrtn:  启动到现在写入的block总数.</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/06/23/mongodb_1/" >
+  mongoDB 初始
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/06/23/mongodb_1/"><span class="article-date">
+  2016-06-23
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/NoSQL/">NoSQL</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NoSQL/">NoSQL</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h3 id="初始MongoDB"><a href="#初始MongoDB" class="headerlink" title="初始MongoDB"></a>初始MongoDB</h3><h4 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo service mongodb start</span><br></pre></td></tr></table></figure>
+<h4 id="进入mongodb"><a href="#进入mongodb" class="headerlink" title="进入mongodb"></a>进入mongodb</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongodb</span><br></pre></td></tr></table></figure>
+<h4 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use [database name]   //切换数据库，使用数据库</span><br></pre></td></tr></table></figure>
+<h4 id="查看数据库"><a href="#查看数据库" class="headerlink" title="查看数据库"></a>查看数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db                    //查看当前数据库</span><br><span class="line">show dbs              //查看所有数据库，不显示没有数据的数据库</span><br></pre></td></tr></table></figure>
+<h4 id="删除数据库"><a href="#删除数据库" class="headerlink" title="删除数据库"></a>删除数据库</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use [need drop database name]  //切换到需要删除的数据库中</span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure>
+<h4 id="创建集合"><a href="#创建集合" class="headerlink" title="创建集合"></a>创建集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.createCollection(&quot;[collection name]&quot;)</span><br></pre></td></tr></table></figure>
+<h4 id="删除集合"><a href="#删除集合" class="headerlink" title="删除集合"></a>删除集合</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[need drop collection name].drop()</span><br></pre></td></tr></table></figure>
+<h4 id="插入文档"><a href="#插入文档" class="headerlink" title="插入文档"></a>插入文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">userdoc1 = (&#123;&quot;user_id&quot;:1, &quot;name&quot;:&quot;huobingli&quot;, &quot;state&quot;:&quot;active&quot;, &quot;email&quot;:&quot;huobingli@outlook.com&quot;&#125;)</span><br><span class="line">db.[insert collection].insert(userdoc1)</span><br></pre></td></tr></table></figure>
+<h4 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[update collection].update(&#123;&quot;user_id&quot;:1, &quot;name&quot;:&quot;huobingli&quot;&#125;, &#123;$set&#123;&quot;state&quot;:&quot;nagetive&quot;&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<p>第一个大括号表示查找条件<br>第二个大括号表示替换内容<br>默认是对一个文档进行修改，想要对多个文档进行修改需要写成<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.[update collection].update(&#123;&quot;user_id&quot;:1, &quot;name&quot;:&quot;huobingli&quot;&#125;, &#123;</span><br><span class="line">  &quot;state&quot;:&quot;nagetive&quot; &#125;)</span><br></pre></td></tr></table></figure></p>
+<h4 id="替换文档"><a href="#替换文档" class="headerlink" title="替换文档"></a>替换文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[save collection].save(&#123;&quot;user_id&quot;:1,&quot;name&quot;:&quot;george&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p>save 和insert区别，存在主键，insert报错，save可以<br>没有主键，都相当于增加一条数据</p>
+<h4 id="删除文档"><a href="#删除文档" class="headerlink" title="删除文档"></a>删除文档</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.[remove collection].remove(&#123;&quot;name&quot;:&quot;huobingli&quot;&#125;)</span><br></pre></td></tr></table></figure>
 
         
       </div>

@@ -199,6 +199,52 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2016/06/24/Nginx_1/" >
+  Nginx
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/06/24/Nginx_1/"><span class="article-date">
+  2016-06-24
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p>开启命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure></p>
+<p>关闭命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx stop</span><br></pre></td></tr></table></figure></p>
+<p>重新载入nginx配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t -c /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure></p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2016/06/24/mongodb_2/" >
   mongoDB 初始
 </a>
@@ -243,52 +289,6 @@
 <p>indexOnly：true，表示我们使用了索引。<br>cursor：因为这个查询使用了索引，如果没使用索引游标类型是BasicVursor。<br>n：表示查询返回的文档数量。<br>nscanned/nscannedObjects：表明当前这次查询一共扫描了集合中多少个文档，我们的目的是，让这个数值和返回文档的数量越接近越好。<br>millis：当前查询所需时间，单位毫秒。<br>indexBounds：当前查询具体使用的索引。   </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.users.find(&#123;gender:&quot;M&quot;&#125;,&#123;user_name:1,_id:0&#125;).hint(&#123;gender:1,user_name:1&#125;)   </span><br><span class="line">&gt; db.users.find(&#123;gender:&quot;M&quot;&#125;,&#123;user_name:1,_id:0&#125;).hint(&#123;gender:1,user_name:1&#125;).explain()</span><br></pre></td></tr></table></figure>
 <p>hint来强迫MongoDB使用一个指定的索引,在某些情况下会提升性能。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/06/24/Nginx_1/" >
-  Nginx
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/06/24/Nginx_1/"><span class="article-date">
-  2016-06-24
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Linux/">Linux</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/">Linux</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>开启命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx start</span><br></pre></td></tr></table></figure></p>
-<p>关闭命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx stop</span><br></pre></td></tr></table></figure></p>
-<p>重新载入nginx配置文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t -c /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure></p>
 
         
       </div>

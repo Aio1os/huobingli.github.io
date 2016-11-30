@@ -8,20 +8,20 @@
 
 <title>
   
-    CENTOS7 更换源
+    linux
   
 </title>
 
-<meta name="description" content="CENTOS">
+<meta name="description" content="CMakeList.txt的写法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CENTOS7 更换源">
-<meta property="og:url" content="http://yoursite.com/2016/11/14/change_yum/index.html">
+<meta property="og:title" content="linux">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/CMakeList/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="CENTOS">
-<meta property="og:updated_time" content="2016-11-14T06:45:20.906Z">
+<meta property="og:description" content="CMakeList.txt的写法">
+<meta property="og:updated_time" content="2016-11-30T08:58:17.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CENTOS7 更换源">
-<meta name="twitter:description" content="CENTOS">
+<meta name="twitter:title" content="linux">
+<meta name="twitter:description" content="CMakeList.txt的写法">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -144,36 +144,34 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-change_yum" class="article article-type-post">
+          <article id="post-CMakeList" class="article article-type-post">
   
     <h1 class="article-header">
-      CENTOS7 更换源
+      linux
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-11-14
+  2016-11-30
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CENTOS/">CENTOS</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CENTOS/">CENTOS</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h3 id="把-yum源-CENTOS-更换成网易-yum源"><a href="#把-yum源-CENTOS-更换成网易-yum源" class="headerlink" title="把 yum源 CENTOS 更换成网易 yum源"></a>把 yum源 CENTOS 更换成网易 yum源</h3><p>1、备份你的原镜像文件，以免出错后可以恢复。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br></pre></td></tr></table></figure></p>
-<p>2、下载新的CentOS-Base.repo 到/etc/yum.repos.d/<br>CentOS 5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/yum.repos.d/</span><br><span class="line">wget http://mirrors.163.com/.help/CentOS7-Base-163.repo</span><br></pre></td></tr></table></figure></p>
-<p>3、运行yum makecache生成缓存<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure></p>
+    <h3 id="CMakeList"><a href="#CMakeList" class="headerlink" title="CMakeList"></a>CMakeList</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">CMakeList 总入口</span><br><span class="line"></span><br><span class="line">PROJECT(项目名称)</span><br><span class="line">SET(PROJECT_ROOT_PATH &quot;$&#123;CMAKE_SOURCE_DIR&#125;/../&quot;)           #工程的根目录，即test</span><br><span class="line">SET(EXECUTABLE_OUTPUT_PATH &quot;$&#123;CMAKE_SOURCE_DIR&#125;/bin/&quot;)     #可执行生成后存放的目录</span><br><span class="line">SET(LIBRARY_OUTPUT_PATH &quot;$&#123;CMAKE_SOURCE_DIR&#125;/lib/&quot;)        #静态库生成后存放的目录</span><br><span class="line">INCLUDE_DIRECTORIES(&quot;$&#123;PROJECT_ROOT_PATH&#125;/include/&quot;)       #告诉CMake头文件在哪里？</span><br><span class="line">LINK_DIRECTORIES(&quot;$&#123;CMAKE_SOURCE_DIR&#125;/lib/&quot;)               #告诉CMake静态库在哪里？</span><br><span class="line">ADD_SUBDIRECTORY(src)                                      #多目录，把src目录加进来，src</span><br><span class="line"></span><br><span class="line">#src目录下的CMakeList.txt，这个CMake只是简单地把main目录和hello目录链接起来：</span><br><span class="line">ADD_SUBDIRECTORY(main)</span><br><span class="line">ADD_SUBDIRECTORY(hello)</span><br><span class="line"></span><br><span class="line">hello静态库：</span><br><span class="line">FILE(GLOB SOURCE_1 &quot;$&#123;PROJECT_ROOT_PATH&#125;/hello/*.cpp&quot;)     #告诉CMake源文件在哪里？</span><br><span class="line">ADD_LIBRARY(hello STATIC $&#123;SOURCE_1&#125;)                      #告诉CMake生成的是一个静态库</span><br><span class="line"></span><br><span class="line">main可执行文件：</span><br><span class="line">FILE(GLOB SOURCE_1 &quot;$&#123;PROJECT_ROOT_PATH&#125;/main/*.cpp&quot;)      #告诉CMake源文件在哪里？</span><br><span class="line">ADD_EXECUTABLE(main $&#123;SOURCE_1&#125;)                           #告诉CMake生成一个main可执行文件</span><br><span class="line">TARGET_LINK_LIBRARIES(main hello)                          #告诉CMake静态库在哪里？</span><br></pre></td></tr></table></figure>
 
   </div>
   <footer class="article-footer">

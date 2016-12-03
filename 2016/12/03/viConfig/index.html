@@ -8,19 +8,20 @@
 
 <title>
   
-    Tag: github issue
+    vim 中自动添加头注释
   
 </title>
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Invoker">
-<meta property="og:url" content="http://yoursite.com/tags/github-issue/index.html">
+<meta name="description" content="linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vim 中自动添加头注释">
+<meta property="og:url" content="http://yoursite.com/2016/12/03/viConfig/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description">
+<meta property="og:description" content="linux">
+<meta property="og:updated_time" content="2016-12-03T10:47:11.700Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Invoker">
-<meta name="twitter:description">
+<meta name="twitter:title" content="vim 中自动添加头注释">
+<meta name="twitter:description" content="linux">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -143,108 +144,59 @@
       
         <div style="max-width: 1000px">
       
-          <h1>github issue</h1>
-
-
+          <article id="post-viConfig" class="article article-type-post">
+  
+    <h1 class="article-header">
+      vim 中自动添加头注释
+    </h1>
   
   
-    <div class="post-list">
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/12/01/Github_Upload/" >
-  Github Upload
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/12/01/Github_Upload/"><span class="article-date">
-  2016-12-01
+  <div class="article-info">
+    <span class="article-date">
+  2016-12-03
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/github-issue/">github issue</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a></li></ul>
 	</span>
 
 
-        
+    
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-issue/">github issue</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          <h4 id="把代码提交到github"><a href="#把代码提交到github" class="headerlink" title="把代码提交到github"></a>把代码提交到github</h4><p>1、首先需要安装git客户端</p>
-<p>2、配置信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;your name&quot;</span><br><span class="line">git config --global user.email &quot;your email&quot;</span><br></pre></td></tr></table></figure></p>
-<p>3、在github上创建一个仓库test</p>
-<p>4、在本地创建项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git commit -m</span><br><span class="line">git remote add origin git@github.com:username/test.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure></p>
-<h4 id="将代码从github上pull下来"><a href="#将代码从github上pull下来" class="headerlink" title="将代码从github上pull下来"></a>将代码从github上pull下来</h4><p>同样需要创建本地项目<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin git@github.com:username/test.git</span><br></pre></td></tr></table></figure></p>
-<p>git pull<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure></p>
+  </div>
+  <div class="article-entry">
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&quot;SET Comment START</span><br><span class="line">autocmd BufNewFile *.cpp exec &quot;:call SetComment()&quot; |normal 10Go</span><br><span class="line"></span><br><span class="line">func SetComment()</span><br><span class="line">        call append(1, &apos;#********************************************************&apos;)</span><br><span class="line">        call append(2, &apos;#&apos;)</span><br><span class="line">        call append(3, &apos;#       FileName:      &apos;.expand(&quot;%&quot;))</span><br><span class="line">        call append(4, &apos;#&apos;)</span><br><span class="line">        call append(5, &apos;#       Author:         &apos;)</span><br><span class="line">        call append(6, &apos;#       Description:    &apos;)</span><br><span class="line">        call append(7, &apos;#       Create:        &apos;.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;))</span><br><span class="line">        call append(8, &apos;#       Last Modified: &apos;.strftime(&quot;%Y-%m-%d %H:%M:%S&quot;))</span><br><span class="line">        call append(9, &apos;#********************************************************&apos;)</span><br><span class="line">&quot;       call append(10, &apos;&apos;)</span><br><span class="line">endfunc</span><br><span class="line"></span><br><span class="line">map &lt;F2&gt; :call SetComment()&lt;CR&gt;:10&lt;CR&gt;o</span><br><span class="line">&quot;Set Comment END</span><br></pre></td></tr></table></figure>
+<p>然后再编辑器中按下<f2>，就回自动出现这些注释。</f2></p>
 
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2016/05/13/Github_Unknown_Commited/" >
-  Github Unknown Commited
-</a>
-
-      </h3>
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
       
-
-      <div class="article-info">
-        <a href="/2016/05/13/Github_Unknown_Commited/"><span class="article-date">
-  2016-05-13
-</span>
-</a>
+          <img src="/images/cc/by.png">
         
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/github-issue/">github issue</a></li></ul>
-	</span>
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
 
 
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-issue/">github issue</a></li></ul>
-	</span>
+    
 
+  </footer>
+</article>
 
-      </div>
-      <div class="article-entry">
-        
-          <h3 id="Github-Unknown-Commited-问题"><a href="#Github-Unknown-Commited-问题" class="headerlink" title="Github Unknown Commited 问题"></a>Github Unknown Commited 问题</h3><p>问题如图，是通过同一个用户进行提交</p>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/commited.png" alt=""></p>
-<p>看到以前提交的commit都是有用户提交的，在我换了ssd和重装系统之后，重新将项目通过git bash 提交代码，就出现了Unknown Commited，这时发现我的Contribution 就不会增加，最近看着实在难受，就折腾了一下发现，我的git bash 提交不需要输入邮箱和密码，看了github的help，就重新设置了   </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
-<p>然后再输入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.email</span><br></pre></td></tr></table></figure>
-<p>屏幕上会打印出你的邮箱地址，在此进行提交发现已经用户名已经回来了。</p>
-<p>具体github help 点击以下网址。<br><a href="https://help.github.com/articles/setting-your-email-in-git/" target="_blank" rel="external">https://help.github.com/articles/setting-your-email-in-git/</a></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
 
 
 

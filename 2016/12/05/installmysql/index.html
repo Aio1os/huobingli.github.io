@@ -8,20 +8,20 @@
 
 <title>
   
-    shell program
+    不能连接到mysql.sock  linux下安装MySQL
   
 </title>
 
-<meta name="description" content="shell program">
+<meta name="description" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell program">
-<meta property="og:url" content="http://yoursite.com/2016/08/15/shell_1/index.html">
+<meta property="og:title" content="不能连接到mysql.sock  linux下安装MySQL">
+<meta property="og:url" content="http://yoursite.com/2016/12/05/installmysql/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description" content="shell program">
-<meta property="og:updated_time" content="2016-08-16T04:31:29.912Z">
+<meta property="og:description" content="linux">
+<meta property="og:updated_time" content="2016-12-07T04:53:05.986Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell program">
-<meta name="twitter:description" content="shell program">
+<meta name="twitter:title" content="不能连接到mysql.sock  linux下安装MySQL">
+<meta name="twitter:description" content="linux">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -144,40 +144,47 @@
       
         <div style="max-width: 1000px">
       
-          <article id="post-shell_1" class="article article-type-post">
+          <article id="post-installmysql" class="article article-type-post">
   
     <h1 class="article-header">
-      shell program
+      不能连接到mysql.sock  linux下安装MySQL
     </h1>
   
   
 
   <div class="article-info">
     <span class="article-date">
-  2016-08-15
+  2016-12-05
 </span>
 
     
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/shell-program/">shell program</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/linux/">linux</a></li></ul>
 	</span>
 
 
     
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell-program/">shell program</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 	</span>
 
 
   </div>
   <div class="article-entry">
-    <h3 id="shell-编程"><a href="#shell-编程" class="headerlink" title="shell 编程"></a>shell 编程</h3><p>shell脚本需要调用其它语言需要加入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br></pre></td></tr></table></figure></p>
-<p>所以开头最好加上这句话</p>
-<h4 id="echo-输出"><a href="#echo-输出" class="headerlink" title="echo 输出"></a>echo 输出</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\a 警告音</span><br><span class="line">\b 退格键</span><br><span class="line">\n 换行</span><br><span class="line">\r 回车键</span><br><span class="line">\t 制表符 TAB键</span><br><span class="line">\v 垂直制表符</span><br><span class="line">\0nnn 按照八进制ASCII码表输出字符，其中0为数字零，nnn为三位八进制数</span><br><span class="line">\xhh  按照十六进制ASCII码表输出字符，其中hh是两位十六进制数</span><br></pre></td></tr></table></figure>
-<p>echo -n 不换行输出<br>echo -e 处理特殊字符   </p>
-<p>echo开启颜色显示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#30m = 黑色， #31m = 红色， #32m = 绿色， #33m = 黄色</span><br><span class="line">#34m = 蓝色， #35m = 洋红， #36m = 青色， #37m = 白色</span><br><span class="line"></span><br><span class="line">格式：开头\e[1;(颜色代码m)    结尾\e[0m  </span><br><span class="line">举个例子： echo &quot;\e[1;31m  hello echo \e[0m&quot;</span><br></pre></td></tr></table></figure></p>
-<h4 id="脚本执行"><a href="#脚本执行" class="headerlink" title="脚本执行"></a>脚本执行</h4><p>1、可以通过赋予执行权限，直接运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> chmod 755 脚本名.sh</span><br><span class="line">./脚本名.sh</span><br></pre></td></tr></table></figure></p>
-<p>2、通过bash执行脚本<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash 脚本名.sh</span><br></pre></td></tr></table></figure></p>
+    <h3 id="ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-‘-var-lib-mysql-mysql-sock’-2"><a href="#ERROR-2002-HY000-Can’t-connect-to-local-MySQL-server-through-socket-‘-var-lib-mysql-mysql-sock’-2" class="headerlink" title="ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)"></a>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/mysql/mysql.sock’ (2)</h3><h4 id="ubuntu-下安装MySQL"><a href="#ubuntu-下安装MySQL" class="headerlink" title="ubuntu 下安装MySQL"></a>ubuntu 下安装MySQL</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server</span><br><span class="line"></span><br><span class="line">apt-get isntall mysql-client</span><br><span class="line"></span><br><span class="line">sudo apt-get install libmysqlclient-dev</span><br></pre></td></tr></table></figure>
+<h4 id="CentOS7下安装MySQL"><a href="#CentOS7下安装MySQL" class="headerlink" title="CentOS7下安装MySQL"></a>CentOS7下安装MySQL</h4><p>因为CentOS7已经默认集成了mariadb,其实mariadb是mysql的一个分支， <a href="http://baike.baidu.com/item/mariaDB" target="_blank" rel="external">大传送门</a>   </p>
+<p>因为MySQL已经被甲骨文收购，MySQL的所有权也落到Oracle手中，MariaDB现在主要有开源社区维护</p>
+<p>之前在启动MySQL时报错</p>
+<p>ERROR 2002 (HY000): Can’t connect to local MySQL server through socket ‘/var/lib/</p>
+<p>安装MySQL需要将MariaDB的所有东西删除干净</p>
+<p>1、查看MariaDB是否被安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mariadb</span><br><span class="line">rpm -e mariadb</span><br></pre></td></tr></table></figure></p>
+<p>2、卸载MariaDB的各种包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum remove -y mariaDB(代表包名)</span><br></pre></td></tr></table></figure></p>
+<p>3、获取MySQL yum源<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</span><br></pre></td></tr></table></figure></p>
+<p>4、安装MySQL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm</span><br><span class="line">sudo yum install mysql-server</span><br></pre></td></tr></table></figure></p>
+<p>5、启动MySQL服务,并设置开机启动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl start mysql</span><br><span class="line">systemctl enable mysql</span><br></pre></td></tr></table></figure></p>
+<p>6、进入MySQL<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p（刚进去是没有密码的直接回车）</span><br><span class="line">update user set password=PASSWORD（’passwd’） where User=’root’;</span><br><span class="line">flush privileges;(刷新权限)</span><br></pre></td></tr></table></figure></p>
+<p>简单MySQL使用<br>(分号！分号！分号！)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br><span class="line">show tables;</span><br><span class="line">select * from (table);</span><br><span class="line">insert into (table) (数据表列表) values (插入数据表值)</span><br><span class="line">update ...</span><br><span class="line">delete ...</span><br></pre></td></tr></table></figure></p>
+<p><a href="http://blog.csdn.net/qq_26446443/article/details/53491926" target="_blank" rel="external">小传送门</a></p>
 
   </div>
   <footer class="article-footer">

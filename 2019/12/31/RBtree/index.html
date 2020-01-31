@@ -8,19 +8,22 @@
 
 <title>
   
-    Archive: 2024
+    红黑树
   
 </title>
 
-<meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Invoker">
-<meta property="og:url" content="http://yoursite.com/archives/2024/index.html">
+<meta name="description" content="数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="红黑树">
+<meta property="og:url" content="http://yoursite.com/2019/12/31/RBtree/index.html">
 <meta property="og:site_name" content="Invoker">
-<meta property="og:description">
+<meta property="og:description" content="数据结构">
+<meta property="og:image" content="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/RBtree_1.png">
+<meta property="og:updated_time" content="2020-01-31T05:56:27.205Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Invoker">
-<meta name="twitter:description">
+<meta name="twitter:title" content="红黑树">
+<meta name="twitter:description" content="数据结构">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/RBtree_1.png">
 
 
   <link rel="alternative" href="/atom.xml" title="Invoker" type="application/atom+xml">
@@ -145,56 +148,66 @@
       
         <div style="max-width: 1000px">
       
-          
-
+          <article id="post-RBtree" class="article article-type-post">
+  
+    <h1 class="article-header">
+      红黑树
+    </h1>
   
   
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <h1><a href="/archives/2024" class="archive-year">2024</a></h1>
-        </div>
-        <div class="post-list">
-    
-  
 
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2024/12/31/skillTree/" >
-  如何让技能树成长
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2024/12/31/skillTree/"><span class="article-date">
-  2024-12-31
+  <div class="article-info">
+    <span class="article-date">
+  2019-12-31
 </span>
-</a>
-        
+
+    
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
 	</span>
 
 
-        
+    
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 	</span>
 
 
-      </div>
-      <div class="article-entry">
-        
-          
-        
-      </div>
-    </div>
+  </div>
+  <div class="article-entry">
+      <h2 id="&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x521D;&#x8877;"><a href="#&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x521D;&#x8877;" class="headerlink" title="&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x521D;&#x8877;"></a>&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x7684;&#x521D;&#x8877;</h2><p>&#x89E3;&#x51B3;&#x666E;&#x901A;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x5728;&#x9891;&#x7E41;&#x7684;&#x63D2;&#x5165;&#x3001;&#x5220;&#x9664;&#x7B49;&#x52A8;&#x6001;&#x66F4;&#x65B0;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x51FA;&#x73B0;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;<font color="red">&#x9000;&#x5316;</font>&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<h2 id="&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;avl&#x6811;"><a href="#&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;-AVL&#x6811;" class="headerlink" title="&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;(AVL&#x6811;)"></a>&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;(AVL&#x6811;)</h2><p>&#x5E73;&#x8861;&#x56E0;&#x5B50;&#xFF1A;&#x5E73;&#x8861;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x6709;&#x4E00;&#x4E2A;&#x5E73;&#x8861;&#x56E0;&#x5B50;, &#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x5E73;&#x8861;&#x56E0;&#x5B50;&#x662F;&#x8BE5;&#x8282;&#x70B9;&#x5DE6;&#x5B50;&#x6811;&#x7684;&#x9AD8;&#x5EA6;&#x51CF;&#x53BB;&#x53F3;&#x5B50;&#x6811;&#x7684;&#x9AD8;&#x5EA6;, &#x5E73;&#x8861;&#x56E0;&#x5B50;&#x7684;&#x7EDD;&#x5BF9;&#x503C;&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;1, &#x6240;&#x4EE5;&#x5E73;&#x8861;&#x56E0;&#x5B50;&#x53D6;&#x503C;&#x4E3A;(-1, 0, 1)</p>
+<h2 id="&#x7EA2;&#x9ED1;&#x6811;"><a href="#&#x7EA2;&#x9ED1;&#x6811;" class="headerlink" title="&#x7EA2;&#x9ED1;&#x6811;"></a>&#x7EA2;&#x9ED1;&#x6811;</h2><ul>
+<li>&#x6839;&#x8282;&#x70B9;&#x662F;&#x9ED1;&#x8272;&#x7684; </li>
+<li>&#x6BCF;&#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x90FD;&#x662F;&#x9ED1;&#x8272;&#x7684;&#x7A7A;&#x8282;&#x70B9;&#xFF08;NIL&#xFF09;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x53F6;&#x5B50;&#x8282;&#x70B9;&#x4E0D;&#x5B58;&#x50A8;&#x6570;&#x636E;</li>
+<li>&#x4EFB;&#x4F55;&#x76F8;&#x90BB;&#x7684;&#x8282;&#x70B9;&#x90FD;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x4E3A;&#x7EA2;&#x8272;, &#x4E5F;&#x5C31;&#x662F;&#x8BF4;, &#x7EA2;&#x8272;&#x8282;&#x70B9;&#x662F;&#x88AB;&#x9ED1;&#x8272;&#x8282;&#x70B9;&#x9694;&#x5F00;&#x7684;</li>
+<li>&#x6BCF;&#x4E2A;&#x8282;&#x70B9;, &#x4ECE;&#x8BE5;&#x8282;&#x70B9;&#x5230;&#x8FBE;&#x5176;&#x53EF;&#x8FBE;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;&#x8DEF;&#x5F84;, &#x90FD;&#x5305;&#x542B;&#x76F8;&#x540C;&#x6570;&#x76EE;&#x7684;&#x9ED1;&#x8272;&#x8282;&#x70B9;<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/RBtree_1.png" alt=""></li>
+</ul>
 
-  
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
 
 
 

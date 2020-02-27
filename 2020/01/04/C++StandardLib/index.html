@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    C++ 标准库算法整理
+  
+</title>
+
+<meta name="description" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 标准库算法整理">
+<meta property="og:url" content="http://yoursite.com/2020/01/04/C++StandardLib/index.html">
+<meta property="og:site_name" content="Invoker">
+<meta property="og:description" content="C++">
+<meta property="og:updated_time" content="2020-02-27T07:09:49.558Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ 标准库算法整理">
+<meta name="twitter:description" content="C++">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Invoker</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Invoker</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <img src="https://avatars2.githubusercontent.com/u/9897252?v=3&amp;s=460">
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="clock">
+    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+  </div>
+
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Boost/">Boost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CENTOS/">CENTOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MFC/">MFC</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/memory/">memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell-program/">shell program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wait/">wait</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学/">学</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载の/">转载の</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维管理/">运维管理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/进程间通讯/">进程间通讯</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boost/">Boost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CENTOS/">CENTOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/program/">program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-program/">shell program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wait/">wait</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学/">学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载の/">转载の</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维管理/">运维管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进程间通讯/">进程间通讯</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">37</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">48</span></li></ul>
+              </li>
+            
+          
+        </ul>
+
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/huobingli" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://FaceBook.com/bingli.huo" title="FaceBook" target="_blank" rel="external">FaceBook</a>
+              </li>
+            
+          
+        </ul>
+
+      
+
+      <!-- del by huobingli on 2020.2.1 -->
+      <!-- <div class="visitor" >
+        <div class="visitortext">
+          Visitors
+        </div>
+        <div class="visitornum" > -->
+          <!-- GoStats JavaScript Based Code -->
+          <!-- <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+          <script type="text/javascript">_gos='monster.gostats.cn';_goa=479834;
+          _got=4;_goi=1;_goz=0;_god='hits';_gol='流量统计';_GoStatsRun();</script>
+          <noscript><a target="_blank" title="流量统计"
+          href="http://gostats.cn"><img alt="流量统计"
+          src="http://monster.gostats.cn/bin/count/a_479834/t_4/i_1/z_0/show_hits/counter.png"
+          style="border-width:0" /></a></noscript> -->
+          <!-- End GoStats JavaScript Based Code -->
+        <!-- </div>
+      </div> -->
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-C++StandardLib" class="article article-type-post">
+  
+    <h1 class="article-header">
+      C++ 标准库算法整理
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2020-01-04
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+      <h2 id="c-&#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;"><a href="#C-&#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;" class="headerlink" title="C++ &#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;"></a>C++ &#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;</h2><h3 id="&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;"><a href="#&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;" class="headerlink" title="&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;"></a>&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;</h3><h4 id="1-&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;"><a href="#1&#x3001;&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;" class="headerlink" title="1&#x3001;&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;"></a>1&#x3001;&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;</h4><table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x7528;&#x6CD5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find(beg, end, val)</td>
+<td>&#x67E5;&#x627E;&#x7279;&#x5B9A;&#x5143;&#x7D20;&#xFF0C;&#x8FD4;&#x56DE;&#x5F15;&#x7528;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5143;&#x7D20;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x8FD4;&#x56DE;end</td>
+</tr>
+<tr>
+<td>count(beg, end, val)</td>
+<td>&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x51FA;&#x73B0;&#x6B21;&#x6570;</td>
+</tr>
+<tr>
+<td>find_if(beg, end, unaryPred)</td>
+<td>&#x5728;beg&#x5230;end&#x4E2D;&#x627E;&#x6EE1;&#x8DB3;unaryPred(&#x53C2;&#x6570;)&#x4E3A;&#x771F;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>count_if(beg, end, unaryPred)</td>
+<td>&#x5728;beg&#x5230;end&#x4E2D;&#x627E;&#x6EE1;&#x8DB3;unaryPred(&#x53C2;&#x6570;)&#x4E3A;&#x771F;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x4E2A;&#x6570;</td>
+</tr>
+</tbody>
+</table>
+<p>unaryPred &#x4E3A;&#x51FD;&#x6570;&#x9002;&#x914D;&#x5668;&#xFF0C;</p>
+<h4 id="2-&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;"><a href="#2&#x3001;&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;" class="headerlink" title="2&#x3001;&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;"></a>2&#x3001;&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;</h4><p>&#x8981;&#x6C42;beg1 end1&#x548C; beg2 end2 &#x7684;&#x7C7B;&#x578B;&#x5B8C;&#x5168;&#x5339;&#x914D;&#xFF0C;&#x4E0D;&#x8981;&#x6C42;beg1 &#x548C;beg2&#x7C7B;&#x578B;&#x5B8C;&#x5168;&#x5339;&#x914D;</p>
+<table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x7528;&#x6CD5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find_first_of(beg1, end1, beg2, end2)</td>
+<td>&#x5728;(beg1,end1)&#x4E2D;&#x627E;(beg2,end2)&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x5143;&#x7D20;&#xFF0C;&#x672A;&#x627E;&#x5230;&#x8FD4;&#x56DE;end1</td>
+</tr>
+<tr>
+<td>find_first_of(beg1, end1, beg2, end2, binaryPred)</td>
+<td>&#x5728;(beg1,end1)&#x4E2D;&#x627E;(beg2,end2)&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x5143;&#x7D20;&#xFF0C;&#x672A;&#x627E;&#x5230;&#x8FD4;&#x56DE;end1</td>
+</tr>
+<tr>
+<td>find_end(beg1, end1, beg2, end2)</td>
+<td>&#x5728;(beg1,end1)&#x4E2D;&#x67E5;&#x627E;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x548C;(beg2,end2)&#x4E2D;&#x5339;&#x914D;&#x7684;&#x5339;&#x914D;&#x9879;</td>
+</tr>
+<tr>
+<td>find_end(beg1, end1, beg2, end2, binaryPred)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;"><a href="#3&#x3001;&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;" class="headerlink" title="3&#x3001;&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;"></a>3&#x3001;&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;</h4><table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x7528;&#x6CD5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adjacent_find(beg, end)</td>
+<td>&#x641C;&#x7D22;&#x5E8F;&#x5217;&#x4E2D;&#x4E24;&#x4E2A;&#x8FDE;&#x7EED;&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>adjacent_find(beg, end, binaryPred)</td>
+<td>&#x641C;&#x7D22;&#x5E8F;&#x5217;&#x4E2D;&#x4E24;&#x4E2A;&#x8FDE;&#x7EED;&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;</td>
+</tr>
+<tr>
+<td>search(beg1, end1, beg2, end2)</td>
+<td>&#x627E;&#x7B2C;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x4E2D;&#x7B2C;&#x4E8C;&#x4E2A;&#x5B50;&#x5E8F;&#x5217;</td>
+</tr>
+<tr>
+<td>search(beg1, end1, beg2, end2, binaryPred)</td>
+<td>&#x627E;&#x7B2C;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x4E2D;&#x7B2C;&#x4E8C;&#x4E2A;&#x5B50;&#x5E8F;&#x5217;, &#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;</td>
+</tr>
+<tr>
+<td>search_n(beg, end, count, val)</td>
+<td>&#x627E;&#x5E8F;&#x5217;&#x4E2D;&#x627E;&#x7ED9;&#x5B9A;val&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x9879;</td>
+</tr>
+<tr>
+<td>search_n(beg, end, count, val, binaryPred)</td>
+<td>&#x627E;&#x5E8F;&#x5217;&#x4E2D;&#x627E;&#x7ED9;&#x5B9A;val&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x9879;, &#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;"><a href="#&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;"></a>&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;</h3><table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x7528;&#x6CD5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>for_each(beg, end, f)</td>
+<td></td>
+</tr>
+<tr>
+<td>mismatch(beg1, end1, beg2)</td>
+<td>&#x8FD4;&#x56DE;&#x4E0D;&#x5339;&#x914D;&#x7684;&#x8FED;&#x4EE3;&#x5668; &#x5168;&#x90E8;&#x5339;&#x914D;&#x8FD4;&#x56DE;end1</td>
+</tr>
+<tr>
+<td>mismatch(beg1, end1, beg2, binaryPred)</td>
+<td>&#x8FD4;&#x56DE;&#x4E0D;&#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;&#x7684;&#x8FED;&#x4EE3;&#x5668; &#x5168;&#x90E8;&#x5339;&#x914D;&#x8FD4;&#x56DE;end1</td>
+</tr>
+<tr>
+<td>equal(beg1, end1, beg2)</td>
+<td>&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF0C;&#x76F8;&#x7B49;&#x8FD4;&#x56DE;true</td>
+</tr>
+<tr>
+<td>equal(beg1, end1, beg2, binaryPred)</td>
+<td>&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;&#xFF0C;&#x76F8;&#x7B49;&#x8FD4;&#x56DE;true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x4E8C;&#x5206;&#x67E5;&#x627E;"><a href="#&#x4E8C;&#x5206;&#x67E5;&#x627E;" class="headerlink" title="&#x4E8C;&#x5206;&#x67E5;&#x627E;"></a>&#x4E8C;&#x5206;&#x67E5;&#x627E;</h3><p>&#x5E8F;&#x5217;&#x6709;&#x5E8F;</p>
+<table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x7528;&#x6CD5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lower_bound(beg, end, val)</td>
+<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x4E0D;&#x5C0F;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>lower_bound(beg, end, val, comp)</td>
+<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x4E0D;&#x5C0F;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;&#x3002;</td>
+</tr>
+<tr>
+<td>upper_bound(beg, end, val)</td>
+<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x5927;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>upper_bound(beg, end, val, comp)</td>
+<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x5927;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+</tr>
+<tr>
+<td>equal_range(beg, end, val)</td>
+<td>&#x627E;&#x51FA;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x4E2D;&#x6240;&#x6709;&#x548C;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>equal_range(beg, end, val, comp)</td>
+<td>&#x627E;&#x51FA;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x4E2D;&#x6240;&#x6709;&#x548C;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+</tr>
+<tr>
+<td>binary_search(beg, end, val)</td>
+<td>&#x5E8F;&#x5217;&#x662F;&#x5426;&#x5305;&#x542B;&#x4E0E;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;</td>
+</tr>
+<tr>
+<td>binary_search(beg, end, val, comp)</td>
+<td>&#x5E8F;&#x5217;&#x662F;&#x5426;&#x5305;&#x542B;&#x4E0E;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+</tr>
+</tbody>
+</table>
+<h3 id="&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"><a href="#&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"></a>&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;</h3><h4 id="1-&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;"><a href="#1&#x3001;&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;" class="headerlink" title="1&#x3001;&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;"></a>1&#x3001;&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;</h4><table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x7528;&#x6CD5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fill_n(dest, cnt, val)</td>
+<td>&#x4EE5;&#x7ED9;&#x5B9A;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E3A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E3A;cnt&#x4E2A;&#x6570;&#x7684;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x503C;val</td>
+</tr>
+<tr>
+<td>generate_n(dest, cnt, Gen)</td>
+<td>&#x4EE5;&#x7ED9;&#x5B9A;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E3A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E3A;cnt&#x4E2A;&#x6570;&#x7684;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x7531;Gen&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2-&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"><a href="#2&#x3001;&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;" class="headerlink" title="2&#x3001;&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"></a>2&#x3001;&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;</h4><table>
+<thead>
+<tr>
+<th>&#x51FD;&#x6570;</th>
+<th>&#x7528;&#x6CD5;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>copy(beg, end, dest)</td>
+<td>(beg,end) &#x590D;&#x5236;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;</td>
+</tr>
+<tr>
+<td>transfrom(beg, end, dest, unaryOp)</td>
+<td>(beg,end) &#x901A;&#x8FC7;unaryOp&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;</td>
+</tr>
+<tr>
+<td>transfrom(beg, end, beg2, dest, unaryOp)</td>
+<td>(beg,end) &#x901A;&#x8FC7;unaryOp&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;</td>
+</tr>
+<tr>
+<td>replace_copy(beg, end, dest, old_val, new_val)</td>
+<td>(beg,end) &#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;,oldval&#x66FF;&#x6362;&#x4E3A;new_val</td>
+</tr>
+<tr>
+<td>replace_copy_if(beg, end, dest, unaryPred, new_val)</td>
+<td>(beg,end) &#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;,&#x7B26;&#x5408;unaryPred&#x6761;&#x4EF6;&#x7684;&#x5143;&#x7D20;&#x66FF;&#x6362;&#x4E3A;new_val</td>
+</tr>
+<tr>
+<td>merge(beg1, end1, beg2, end2, dest)</td>
+<td>&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x540E;&#x5199;&#x5165;&#x5230;dest</td>
+</tr>
+<tr>
+<td>merge(beg1, end1, beg2, end2, dest, comp)</td>
+<td>&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x540E;&#x5199;&#x5165;&#x5230;dest&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="3-&#x4F7F;&#x7528;&#x524D;"><a href="#3&#x3001;&#x4F7F;&#x7528;&#x524D;" class="headerlink" title="3&#x3001;&#x4F7F;&#x7528;&#x524D;"></a>3&#x3001;&#x4F7F;&#x7528;&#x524D;</h4>
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Invoker - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+<!-- mod by huobingli 鼠标特效  -->
+<script src="/scripts/love.js"></script>
+
+<script>
+    /* 鼠标特效 */
+    // (function () {
+    //     var index = 0;
+    //     $("body").click(function (e) {
+    //         var array = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+    //         var $this = $("<span></span>").text(array[indloveex]);
+    //         index = (index + 1) % array.length;
+    //         var x = e.pageX,
+    //             y = e.pageY;
+    //         $this.css({
+    //             "z-index": 99999,
+    //             "top": y - 25,
+    //             "left": x,
+    //             "position": "absolute",
+    //             "font-size":"initial",
+    //             "font-weight": "bold",
+    //             "font-family": "cursive",
+    //             "color": `rgb(${(255 * Math.random())},${(255 * Math.random())},${(255 * Math.random())})`
+    //         });
+    //         $("body").append($this);
+    //         $this.animate({
+    //             "top": y - 150,
+    //             "opacity": 0
+    //         },
+    //             1200,
+    //             function () {
+    //                 $this.remove();
+    //             });
+    //     });
+    // })(jQuery)
+
+    // onload = function () {
+    //     //var click_cnt = 0;
+    //     var $html = document.getElementsByTagName("html")[0];
+    //     var $body = document.getElementsByTagName("body")[0];
+    //     $html.onclick = function (e) {
+    //         var $elem = document.createElement("b");
+    //         $elem.style.color = "#" + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16);
+    //         //"#" + parseInt((172 * Math.random()), 16) + parseInt((172 * Math.random()), 16) + parseInt((172 * Math.random()), 16);
+    //         $elem.style.zIndex = 9999;
+    //         $elem.style.position = "absolute";
+    //         $elem.style.select = "none";
+    //         var x = e.pageX;
+    //         var y = e.pageY;
+    //         $elem.style.left = (x - 10) + "px";
+    //         $elem.style.top = (y - 20) + "px";
+    //         clearInterval(anim);
+    //         var click_cnt = parseInt((100 * Math.random()), 10)
+    //         switch (click_cnt) {
+    //             case 10:
+    //                 $elem.innerText = "OωO";
+    //                 break;
+    //             case 20:
+    //                 $elem.innerText = "(๑•́ ∀ •̀๑)";
+    //                 break;
+    //             case 30:
+    //                 $elem.innerText = "(๑•́ ₃ •̀๑)";
+    //                 break;
+    //             case 40:
+    //                 $elem.innerText = "(๑•̀_•́๑)";
+    //                 break;
+    //             case 50:
+    //                 $elem.innerText = "（￣へ￣）";
+    //                 break;
+    //             case 60:
+    //                 $elem.innerText = "(╯°口°)╯(┴—┴";
+    //                 break;
+    //             case 70:
+    //                 $elem.innerText = "૮( ᵒ̌皿ᵒ̌ )ა";
+    //                 break;
+    //             case 80:
+    //                 $elem.innerText = "╮(｡>口<｡)╭";
+    //                 break;
+    //             case 90:
+    //                 $elem.innerText = "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃";
+    //                 break;
+    //             case 100:
+    //                 $elem.innerText = "(ꐦ°᷄д°᷅)";
+    //                 break;
+    //             default:
+    //                 $elem.innerText = "❤";
+    //                 break;
+    //         }
+    //         $elem.style.fontSize = 16 + "px"; //parseInt((Math.random() * 10), 10) + 10 + "px";
+    //         var increase = 0;
+    //         var anim;
+    //         setTimeout(function () {
+    //             anim = setInterval(function () {
+    //                 if (++increase == 150) {
+    //                     clearInterval(anim);
+    //                     $body.removeChild($elem);
+    //                 }
+    //                 $elem.style.top = y - 20 - increase + "px";
+    //                 $elem.style.opacity = (150 - increase) / 120;
+    //             }, 8);
+    //         }, 70);
+    //         $body.appendChild($elem);
+
+    //         //console.log("#" + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16));
+    //     };
+    // };
+
+    
+
+</script>
+
+<!-- mod end by huobingli  -->
+</body>
+</html>

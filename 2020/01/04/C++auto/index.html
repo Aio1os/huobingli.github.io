@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    C++ 11 auto
+  
+</title>
+
+<meta name="description" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++ 11 auto">
+<meta property="og:url" content="http://yoursite.com/2020/01/04/C++auto/index.html">
+<meta property="og:site_name" content="Invoker">
+<meta property="og:description" content="C++">
+<meta property="og:updated_time" content="2020-02-27T07:09:49.559Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++ 11 auto">
+<meta name="twitter:description" content="C++">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Invoker</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Invoker</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <img src="https://avatars2.githubusercontent.com/u/9897252?v=3&amp;s=460">
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="clock">
+    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+  </div>
+
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">Category</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Algorithm/">Algorithm</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Boost/">Boost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">23</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CENTOS/">CENTOS</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MFC/">MFC</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/memory/">memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell-program/">shell program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wait/">wait</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学/">学</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">24</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载の/">转载の</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维管理/">运维管理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/进程间通讯/">进程间通讯</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题记录/">问题记录</a><span class="category-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">Tag</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boost/">Boost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">23</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CENTOS/">CENTOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/program/">program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-program/">shell program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wait/">wait</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学/">学</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">24</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载の/">转载の</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维管理/">运维管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进程间通讯/">进程间通讯</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a><span class="tag-list-count">1</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">Archive</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">26</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">37</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">48</span></li></ul>
+              </li>
+            
+          
+        </ul>
+
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/huobingli" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://FaceBook.com/bingli.huo" title="FaceBook" target="_blank" rel="external">FaceBook</a>
+              </li>
+            
+          
+        </ul>
+
+      
+
+      <!-- del by huobingli on 2020.2.1 -->
+      <!-- <div class="visitor" >
+        <div class="visitortext">
+          Visitors
+        </div>
+        <div class="visitornum" > -->
+          <!-- GoStats JavaScript Based Code -->
+          <!-- <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+          <script type="text/javascript">_gos='monster.gostats.cn';_goa=479834;
+          _got=4;_goi=1;_goz=0;_god='hits';_gol='流量统计';_GoStatsRun();</script>
+          <noscript><a target="_blank" title="流量统计"
+          href="http://gostats.cn"><img alt="流量统计"
+          src="http://monster.gostats.cn/bin/count/a_479834/t_4/i_1/z_0/show_hits/counter.png"
+          style="border-width:0" /></a></noscript> -->
+          <!-- End GoStats JavaScript Based Code -->
+        <!-- </div>
+      </div> -->
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-C++auto" class="article article-type-post">
+  
+    <h1 class="article-header">
+      C++ 11 auto
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2020-01-04
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+      <h1 id="auto-&#x7C7B;&#x578B;&#x63A8;&#x5BFC;"><a href="#auto-&#x7C7B;&#x578B;&#x63A8;&#x5BFC;" class="headerlink" title="auto &#x7C7B;&#x578B;&#x63A8;&#x5BFC;"></a>auto &#x7C7B;&#x578B;&#x63A8;&#x5BFC;</h1><p>&#x81EA;&#x52A8;&#x63A8;&#x5BFC;&#x7C7B;&#x578B;, <font color="red">&#x5FC5;&#x987B;&#x521D;&#x59CB;&#x5316;</font></p>
+<p>&#x4F7F;&#x7528;auto&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x5728;<font color="red">&#x7F16;&#x8BD1;&#x671F;&#x95F4;</font>&#x81EA;&#x52A8;&#x63A8;&#x5BFC;&#x51FA;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4E0D;&#x7528;&#x6211;&#x4EEC;&#x624B;&#x52A8;&#x6307;&#x660E;&#x53D8;&#x91CF;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> name = value;</span><br></pre></td></tr></table></figure></p>
+<p>auto &#x4EC5;&#x4EC5;&#x662F;&#x4E00;&#x4E2A;&#x5360;&#x4F4D;&#x7B26;&#xFF0C;&#x5728;&#x7F16;&#x8BD1;&#x5668;&#x671F;&#x95F4;&#x5B83;&#x4F1A;&#x88AB;&#x771F;&#x6B63;&#x7684;&#x7C7B;&#x578B;&#x6240;&#x66FF;&#x4EE3;&#x3002;</p>
+<h2 id="&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;"><a href="#&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;" class="headerlink" title="&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;"></a>&#x9AD8;&#x7EA7;&#x7528;&#x6CD5;</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>  x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span>  <span class="keyword">auto</span> n = x;  <span class="comment">//n &#x4E3A; const int &#xFF0C;auto &#x88AB;&#x63A8;&#x5BFC;&#x4E3A; int</span></span><br><span class="line"><span class="keyword">auto</span> f = n;      <span class="comment">//f &#x4E3A; const int&#xFF0C;auto &#x88AB;&#x63A8;&#x5BFC;&#x4E3A; int&#xFF08;const &#x5C5E;&#x6027;&#x88AB;&#x629B;&#x5F03;&#xFF09;</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> &amp;r1 = x;  <span class="comment">//r1 &#x4E3A; const int&amp; &#x7C7B;&#x578B;&#xFF0C;auto &#x88AB;&#x63A8;&#x5BFC;&#x4E3A; int</span></span><br><span class="line"><span class="keyword">auto</span> &amp;r2 = r1;  <span class="comment">//r1 &#x4E3A; const int&amp; &#x7C7B;&#x578B;&#xFF0C;auto &#x88AB;&#x63A8;&#x5BFC;&#x4E3A; const int &#x7C7B;&#x578B;</span></span><br></pre></td></tr></table></figure>
+<p>&#x603B;&#x7ED3; auto &#x548C; const</p>
+<ul>
+<li>&#x5F53;&#x7C7B;&#x578B;&#x4E0D;&#x4E3A;&#x5F15;&#x7528;&#x65F6;&#xFF0C;auto &#x7684;&#x63A8;&#x5BFC;&#x7ED3;&#x679C;&#x5C06;&#x4E0D;&#x4FDD;&#x7559;&#x8868;&#x8FBE;&#x5F0F;&#x7684; const &#x5C5E;&#x6027;</li>
+<li>&#x5F53;&#x7C7B;&#x578B;&#x4E3A;&#x5F15;&#x7528;&#x65F6;&#xFF0C;auto &#x7684;&#x63A8;&#x5BFC;&#x7ED3;&#x679C;&#x5C06;&#x4FDD;&#x7559;&#x8868;&#x8FBE;&#x5F0F;&#x7684; const &#x5C5E;&#x6027;&#x3002;</li>
+</ul>
+<h2 id="auto-&#x7684;&#x9650;&#x5236;"><a href="#auto-&#x7684;&#x9650;&#x5236;" class="headerlink" title="auto &#x7684;&#x9650;&#x5236;"></a>auto &#x7684;&#x9650;&#x5236;</h2><ul>
+<li>auto &#x4E0D;&#x80FD;&#x5728;&#x51FD;&#x6570;&#x7684;&#x53C2;&#x6570;&#x4E2D;&#x4F7F;&#x7528; (&#x53C2;&#x6570;&#x53EA;&#x662F;&#x58F0;&#x660E;&#xFF0C;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#xFF0C;&#x65E0;&#x6CD5;&#x81EA;&#x52A8;&#x63A8;&#x5BFC;&#x7C7B;&#x578B;)</li>
+<li>auto &#x4E0D;&#x80FD;&#x4F5C;&#x7528;&#x4E8E;&#x7C7B;&#x7684;&#x975E;&#x9759;&#x6001;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x6CA1;&#x6709; static &#x5173;&#x952E;&#x5B57;&#x4FEE;&#x9970;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF09;&#x4E2D;</li>
+<li><p>auto &#x5173;&#x952E;&#x5B57;&#x4E0D;&#x80FD;&#x5B9A;&#x4E49;&#x6570;&#x7EC4;</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[] = <span class="string">&quot;testauto&quot;</span>;</span><br><span class="line"><span class="keyword">auto</span> str1[] = str;  <span class="comment">//arr &#x4E3A;&#x6570;&#x7EC4;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x80FD;&#x4F7F;&#x7528; auto</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>auto &#x4E0D;&#x80FD;&#x4F5C;&#x7528;&#x4E8E;&#x6A21;&#x677F;&#x53C2;&#x6570;</p>
+</li>
+</ul>
+<h2 id="auto-&#x7684;&#x5F15;&#x7528;&#x573A;&#x666F;"><a href="#auto-&#x7684;&#x5F15;&#x7528;&#x573A;&#x666F;" class="headerlink" title="auto &#x7684;&#x5F15;&#x7528;&#x573A;&#x666F;"></a>auto &#x7684;&#x5F15;&#x7528;&#x573A;&#x666F;</h2><p>&#x4E3B;&#x8981;&#x7528;&#x4E86;auto&#x81EA;&#x52A8;&#x63A8;&#x5BFC;&#x7C7B;&#x578B;&#x7684;&#x7279;&#x70B9;</p>
+<ul>
+<li>auto &#x5B9A;&#x4E49;&#x8FED;&#x4EE3;&#x5668; &#x7B80;&#x5316;&#x590D;&#x6742;&#x8FED;&#x4EE3;&#x5668;&#x7684;&#x4E66;&#x5199;</li>
+<li>&#x6CDB;&#x578B;&#x7F16;&#x7A0B;</li>
+</ul>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="Attribution-ShareAlike">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Invoker - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+<!-- mod by huobingli 鼠标特效  -->
+<script src="/scripts/love.js"></script>
+
+<script>
+    /* 鼠标特效 */
+    // (function () {
+    //     var index = 0;
+    //     $("body").click(function (e) {
+    //         var array = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+    //         var $this = $("<span></span>").text(array[indloveex]);
+    //         index = (index + 1) % array.length;
+    //         var x = e.pageX,
+    //             y = e.pageY;
+    //         $this.css({
+    //             "z-index": 99999,
+    //             "top": y - 25,
+    //             "left": x,
+    //             "position": "absolute",
+    //             "font-size":"initial",
+    //             "font-weight": "bold",
+    //             "font-family": "cursive",
+    //             "color": `rgb(${(255 * Math.random())},${(255 * Math.random())},${(255 * Math.random())})`
+    //         });
+    //         $("body").append($this);
+    //         $this.animate({
+    //             "top": y - 150,
+    //             "opacity": 0
+    //         },
+    //             1200,
+    //             function () {
+    //                 $this.remove();
+    //             });
+    //     });
+    // })(jQuery)
+
+    // onload = function () {
+    //     //var click_cnt = 0;
+    //     var $html = document.getElementsByTagName("html")[0];
+    //     var $body = document.getElementsByTagName("body")[0];
+    //     $html.onclick = function (e) {
+    //         var $elem = document.createElement("b");
+    //         $elem.style.color = "#" + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16);
+    //         //"#" + parseInt((172 * Math.random()), 16) + parseInt((172 * Math.random()), 16) + parseInt((172 * Math.random()), 16);
+    //         $elem.style.zIndex = 9999;
+    //         $elem.style.position = "absolute";
+    //         $elem.style.select = "none";
+    //         var x = e.pageX;
+    //         var y = e.pageY;
+    //         $elem.style.left = (x - 10) + "px";
+    //         $elem.style.top = (y - 20) + "px";
+    //         clearInterval(anim);
+    //         var click_cnt = parseInt((100 * Math.random()), 10)
+    //         switch (click_cnt) {
+    //             case 10:
+    //                 $elem.innerText = "OωO";
+    //                 break;
+    //             case 20:
+    //                 $elem.innerText = "(๑•́ ∀ •̀๑)";
+    //                 break;
+    //             case 30:
+    //                 $elem.innerText = "(๑•́ ₃ •̀๑)";
+    //                 break;
+    //             case 40:
+    //                 $elem.innerText = "(๑•̀_•́๑)";
+    //                 break;
+    //             case 50:
+    //                 $elem.innerText = "（￣へ￣）";
+    //                 break;
+    //             case 60:
+    //                 $elem.innerText = "(╯°口°)╯(┴—┴";
+    //                 break;
+    //             case 70:
+    //                 $elem.innerText = "૮( ᵒ̌皿ᵒ̌ )ა";
+    //                 break;
+    //             case 80:
+    //                 $elem.innerText = "╮(｡>口<｡)╭";
+    //                 break;
+    //             case 90:
+    //                 $elem.innerText = "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃";
+    //                 break;
+    //             case 100:
+    //                 $elem.innerText = "(ꐦ°᷄д°᷅)";
+    //                 break;
+    //             default:
+    //                 $elem.innerText = "❤";
+    //                 break;
+    //         }
+    //         $elem.style.fontSize = 16 + "px"; //parseInt((Math.random() * 10), 10) + 10 + "px";
+    //         var increase = 0;
+    //         var anim;
+    //         setTimeout(function () {
+    //             anim = setInterval(function () {
+    //                 if (++increase == 150) {
+    //                     clearInterval(anim);
+    //                     $body.removeChild($elem);
+    //                 }
+    //                 $elem.style.top = y - 20 - increase + "px";
+    //                 $elem.style.opacity = (150 - increase) / 120;
+    //             }, 8);
+    //         }, 70);
+    //         $body.appendChild($elem);
+
+    //         //console.log("#" + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16));
+    //     };
+    // };
+
+    
+
+</script>
+
+<!-- mod end by huobingli  -->
+</body>
+</html>

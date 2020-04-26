@@ -260,51 +260,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/11/30/MFCSeralize/" >
-  MFC 序列化Serialize
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/11/30/MFCSeralize/"><span class="article-date">
-  2019-11-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1 id="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;persistence-&#x5E8F;&#x5217;&#x5316;"><a href="#&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;-Persistence-&#x5E8F;&#x5217;&#x5316;" class="headerlink" title="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;"></a>&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;</h1><p>MFC&#x6709;&#x4E00;&#x5957;Serialize&#x673A;&#x5236;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x628A;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x9009;&#x62E9;&#x3001;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5173;&#x3001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5EFA;&#x7ACB;&#x3001;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x5199;&#x3001;&#x63D0;&#x53D6;&#x8FD0;&#x7B97;&#x7B26;(&gt;&gt;)&#x548C;&#x63D2;&#x5165;&#x8FD0;&#x7B97;&#x7B26;(&lt;&lt;)&#x7684;&#x91CD;&#x8F7D;&#x3001;&#x5BF9;&#x8C61;&#x7684;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x7B49;&#x90FD;&#x5305;&#x88C5;&#x8D77;&#x6765;&#x3002;</p>
-<h2 id="serialize&#x6570;&#x636E;&#x8BFB;&#x5199;"><a href="#Serialize-&#x6570;&#x636E;&#x8BFB;&#x5199;" class="headerlink" title="Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)"></a>Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)</h2><p>CArchive &#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7F13;&#x51B2;&#x673A;&#x5236;, &#x652F;&#x6301;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF08;&#x5373;&#x5199;&#x5165;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x5316;&#xFF09;&#x548C;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF08;&#x5373;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#xFF09;</p>
-<p>&#x7C7B;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x62E5;&#x6709;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x80FD;&#x529B;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x4E0B;&#x4E24;&#x4E2A;&#x5B8F;</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DECLARE_SERIAL(class_name) \</span><br><span class="line">    DECLARE_DYNCREATE(class_name)\</span><br><span class="line">    friend CArchive&amp; AFXAPI operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb);</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IMPLEMENT_SERIAL(class_name, base_class_name, wSchema) \</span><br><span class="line">    CObject* PASCAL class_name::CreateObject() \</span><br><span class="line">        { return new class_name; } \</span><br><span class="line">    _IMPLEMENT_RUNTIMECLASS(class_name, base_class_name, wSchema, \</span><br><span class="line">        class_name::CreateObject) \</span><br><span class="line">    CArchive&amp; AfxApi operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb) \</span><br><span class="line">        { pOb = (class_name*) ar.ReadObject(RUNTIME_CLASS(class_name)); \</span><br><span class="line">            return ar; }</span></span><br></pre></td></tr></table></figure>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2019/11/30/MFCBegin/" >
   MFC start
 </a>
@@ -367,6 +322,51 @@
 <p>&#x5B8F;&#x8FDB;&#x884C;&#x5C55;&#x5F00;&#x5F97;&#x5230;&#x5982;&#x4E0B;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5934;&#x6587;&#x4EF6;&#x4E2D;</span></span><br><span class="line"><span class="keyword">class</span> CView : <span class="keyword">public</span> CWnd</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">static</span> CRuntimeClass classCView;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> CRuntimeClass* <span class="title">GetRuntimeClass</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">/// &#x6E90;&#x6587;&#x4EF6;&#x4E2D;</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> _lpszCView[] = <span class="string">&quot;CView&quot;</span>;</span><br><span class="line">CRuntimeClass CView::classCView = {</span><br><span class="line">    _lpszCView, <span class="keyword">sizeof</span>(CView), <span class="number">0xFFFF</span>, <span class="literal">NULL</span>&#xFF0C;</span><br><span class="line">        &amp;CWnd::classCWnd, <span class="literal">NULL</span>};</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> AFX_CLASSINIT _init_CView(&amp;CView::classCView);</span><br><span class="line">CRuntimeClass* CView::GetRuntimeClass() <span class="keyword">const</span></span><br><span class="line">    { <span class="keyword">return</span> &amp;CView::classView; }</span><br></pre></td></tr></table></figure></p>
 <h3 id="&#x7C7B;&#x578B;&#x8BC6;&#x522B;-iskindof"><a href="#&#x7C7B;&#x578B;&#x8BC6;&#x522B;-IsKindOf" class="headerlink" title="&#x7C7B;&#x578B;&#x8BC6;&#x522B; (IsKindOf)"></a>&#x7C7B;&#x578B;&#x8BC6;&#x522B; (IsKindOf)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5934;&#x6587;&#x4EF6;</span></span><br><span class="line"><span class="keyword">class</span> CObject</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="function">BOOL <span class="title">IsKindOf</span><span class="params">(<span class="keyword">const</span> CRuntimeClass* pClass)</span> <span class="keyword">const</span></span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x6E90;&#x6587;&#x4EF6;</span></span><br><span class="line">BOOL CObject::IsKindOf(<span class="keyword">const</span> CRuntimeClass* pClass) <span class="keyword">const</span></span><br><span class="line">{</span><br><span class="line">    CRuntimeClass* pClassThis = GetRunTimeClass();</span><br><span class="line">    <span class="keyword">while</span> (pClassThis != <span class="literal">NULL</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (pClassThis == pClass)</span><br><span class="line">            <span class="keyword">return</span> TRUE;</span><br><span class="line">        </span><br><span class="line">        pClassThis = pClass-&gt;m_pBaseClass; <span class="comment">//  &#x5411;&#x4E0A;&#x627E;</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> FALSE;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/11/30/MFCSeralize/" >
+  MFC 序列化Serialize
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/11/30/MFCSeralize/"><span class="article-date">
+  2019-11-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;persistence-&#x5E8F;&#x5217;&#x5316;"><a href="#&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;-Persistence-&#x5E8F;&#x5217;&#x5316;" class="headerlink" title="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;"></a>&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;</h1><p>MFC&#x6709;&#x4E00;&#x5957;Serialize&#x673A;&#x5236;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x628A;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x9009;&#x62E9;&#x3001;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5173;&#x3001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5EFA;&#x7ACB;&#x3001;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x5199;&#x3001;&#x63D0;&#x53D6;&#x8FD0;&#x7B97;&#x7B26;(&gt;&gt;)&#x548C;&#x63D2;&#x5165;&#x8FD0;&#x7B97;&#x7B26;(&lt;&lt;)&#x7684;&#x91CD;&#x8F7D;&#x3001;&#x5BF9;&#x8C61;&#x7684;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x7B49;&#x90FD;&#x5305;&#x88C5;&#x8D77;&#x6765;&#x3002;</p>
+<h2 id="serialize&#x6570;&#x636E;&#x8BFB;&#x5199;"><a href="#Serialize-&#x6570;&#x636E;&#x8BFB;&#x5199;" class="headerlink" title="Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)"></a>Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)</h2><p>CArchive &#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7F13;&#x51B2;&#x673A;&#x5236;, &#x652F;&#x6301;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF08;&#x5373;&#x5199;&#x5165;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x5316;&#xFF09;&#x548C;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF08;&#x5373;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#xFF09;</p>
+<p>&#x7C7B;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x62E5;&#x6709;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x80FD;&#x529B;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x4E0B;&#x4E24;&#x4E2A;&#x5B8F;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DECLARE_SERIAL(class_name) \</span><br><span class="line">    DECLARE_DYNCREATE(class_name)\</span><br><span class="line">    friend CArchive&amp; AFXAPI operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IMPLEMENT_SERIAL(class_name, base_class_name, wSchema) \</span><br><span class="line">    CObject* PASCAL class_name::CreateObject() \</span><br><span class="line">        { return new class_name; } \</span><br><span class="line">    _IMPLEMENT_RUNTIMECLASS(class_name, base_class_name, wSchema, \</span><br><span class="line">        class_name::CreateObject) \</span><br><span class="line">    CArchive&amp; AfxApi operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb) \</span><br><span class="line">        { pOb = (class_name*) ar.ReadObject(RUNTIME_CLASS(class_name)); \</span><br><span class="line">            return ar; }</span></span><br></pre></td></tr></table></figure>
         
       </div>
     </div>

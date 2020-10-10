@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<title>
+  
+    MySQL 事务ACID
+  
+</title>
+
+<meta name="description" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL 事务ACID">
+<meta property="og:url" content="http://yoursite.com/2020/10/10/mysqlACID/index.html">
+<meta property="og:site_name" content="Invoker">
+<meta property="og:description" content="mysql">
+<meta property="og:updated_time" content="2020-10-10T05:04:21.421Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MySQL 事务ACID">
+<meta name="twitter:description" content="mysql">
+
+
+
+
+  <link rel="icon" href="/favicon.png">
+
+
+<link rel="stylesheet" href="/styles/main.css">
+
+
+
+
+
+
+</head>
+<body
+  
+    class="monochrome"
+  
+  >
+  <div class="mobile-header">
+  <button class="sidebar-toggle" type="button">
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="title" href="/">Invoker</a>
+</div>
+
+  <div class="main-container">
+    <div class="sidebar">
+  <div class="header">
+    <h1 class="title"><a href="/">Invoker</a></h1>
+    
+    <div class="info">
+      <div class="content">
+        
+        
+      </div>
+      
+        <div class="avatar">
+          
+            <img src="https://avatars2.githubusercontent.com/u/9897252?v=3&amp;s=460">
+          
+        </div>
+      
+    </div>
+  </div>
+  <div class="clock">
+    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
+  </div>
+
+  <div class="body">
+    
+      
+        <ul class="nav">
+          
+            
+              <li class="category-list-container">
+                <a href="javascript:;">分类</a>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Boost/">Boost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CENTOS/">CENTOS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JAVA/">JAVA</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MFC/">MFC</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/boost/">boost</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/memory/">memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell-program/">shell program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wait/">wait</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学/">学</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/性能优化/">性能优化</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络协议/">网络协议</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载の/">转载の</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维管理/">运维管理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/进程间通讯/">进程间通讯</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题记录/">问题记录</a><span class="category-list-count">2</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="tag-list-container">
+                <a href="javascript:;">标签</a>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boost/">Boost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CENTOS/">CENTOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mylsam/">Mylsam</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boost/">boost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/program/">program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-program/">shell program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wait/">wait</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学/">学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络协议/">网络协议</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载の/">转载の</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维管理/">运维管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进程间通讯/">进程间通讯</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a><span class="tag-list-count">2</span></li></ul>
+              </li>
+            
+          
+            
+              <li class="archive-list-container">
+                <a href="javascript:;">归档</a>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2030/">2030</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">77</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">49</span></li></ul>
+              </li>
+            
+          
+        </ul>
+
+      
+        <ul class="nav">
+          
+            
+              <li>
+                <a href="https://github.com/huobingli" title="Github" target="_blank" rel="external">Github</a>
+              </li>
+            
+          
+            
+              <li>
+                <a href="https://FaceBook.com/bingli.huo" title="FaceBook" target="_blank" rel="external">FaceBook</a>
+              </li>
+            
+          
+        </ul>
+
+      
+
+      <!-- del by huobingli on 2020.2.1 -->
+      <!-- <div class="visitor" >
+        <div class="visitortext">
+          Visitors
+        </div>
+        <div class="visitornum" > -->
+          <!-- GoStats JavaScript Based Code -->
+          <!-- <script type="text/javascript" src="http://gostats.cn/js/counter.js"></script>
+          <script type="text/javascript">_gos='monster.gostats.cn';_goa=479834;
+          _got=4;_goi=1;_goz=0;_god='hits';_gol='流量统计';_GoStatsRun();</script>
+          <noscript><a target="_blank" title="流量统计"
+          href="http://gostats.cn"><img alt="流量统计"
+          src="http://monster.gostats.cn/bin/count/a_479834/t_4/i_1/z_0/show_hits/counter.png"
+          style="border-width:0" /></a></noscript> -->
+          <!-- End GoStats JavaScript Based Code -->
+        <!-- </div>
+      </div> -->
+    
+  </div>
+</div>
+
+    <div class="main-content">
+      
+        <div style="max-width: 1000px">
+      
+          <article id="post-mysqlACID" class="article article-type-post">
+  
+    <h1 class="article-header">
+      MySQL 事务ACID
+    </h1>
+  
+  
+
+  <div class="article-info">
+    <span class="article-date">
+  2020-10-10
+</span>
+
+    
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/mysql/">mysql</a></li></ul>
+	</span>
+
+
+    
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</span>
+
+
+  </div>
+  <div class="article-entry">
+      <h2 id="&#x4E8B;&#x52A1;&#x7684;acid&#x7279;&#x6027;"><a href="#&#x4E8B;&#x52A1;&#x7684;ACID&#x7279;&#x6027;" class="headerlink" title="&#x4E8B;&#x52A1;&#x7684;ACID&#x7279;&#x6027;"></a>&#x4E8B;&#x52A1;&#x7684;ACID&#x7279;&#x6027;</h2><h2 id="1-&#x539F;&#x5B50;&#x6027;atomicity"><a href="#1&#x3001;&#x539F;&#x5B50;&#x6027;&#xFF08;atomicity" class="headerlink" title="1&#x3001;&#x539F;&#x5B50;&#x6027;&#xFF08;atomicity)"></a>1&#x3001;&#x539F;&#x5B50;&#x6027;&#xFF08;atomicity)</h2><p>&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x8981;&#x4E48;&#x5168;&#x90E8;&#x63D0;&#x4EA4;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x5168;&#x90E8;&#x5931;&#x8D25;&#x56DE;&#x6EDA;&#xFF0C;&#x4E0D;&#x80FD;&#x53EA;&#x6267;&#x884C;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x64CD;&#x4F5C;&#x3002;</p>
+<h2 id="2-&#x4E00;&#x81F4;&#x6027;consistency"><a href="#2&#x3001;&#x4E00;&#x81F4;&#x6027;&#xFF08;consistency" class="headerlink" title="2&#x3001;&#x4E00;&#x81F4;&#x6027;&#xFF08;consistency)"></a>2&#x3001;&#x4E00;&#x81F4;&#x6027;&#xFF08;consistency)</h2><p>&#x4E8B;&#x52A1;&#x7684;&#x6267;&#x884C;&#x4E0D;&#x80FD;&#x7834;&#x574F;&#x6570;&#x636E;&#x5E93;&#x6570;&#x636E;&#x7684;&#x5B8C;&#x6574;&#x6027;&#x548C;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x5728;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x548C;&#x6267;&#x884C;&#x4E4B;&#x540E;&#xFF0C;&#x6570;&#x636E;&#x5E93;&#x90FD;&#x5FC5;&#x987B;&#x5904;&#x4E8E;&#x4E00;&#x81F4;&#x6027;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6570;&#x636E;&#x5E93;&#x7CFB;&#x7EDF;&#x5728;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x751F;&#x6545;&#x969C;&#xFF0C;&#x6709;&#x4E9B;&#x4E8B;&#x52A1;&#x5C1A;&#x672A;&#x5B8C;&#x6210;&#x5C31;&#x88AB;&#x8FEB;&#x4E2D;&#x65AD;&#xFF0C;&#x8FD9;&#x4E9B;&#x672A;&#x5B8C;&#x6210;&#x7684;&#x4E8B;&#x52A1;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x6240;&#x4F5C;&#x7684;&#x4FEE;&#x6539;&#x6709;&#x4E00;&#x90E8;&#x5206;&#x5DF2;&#x5199;&#x5165;&#x7269;&#x7406;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x8FD9;&#x662F;&#x6570;&#x636E;&#x5E93;&#x5C31;&#x5904;&#x4E8E;&#x4E00;&#x79CD;&#x4E0D;&#x6B63;&#x786E;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<h2 id="3-&#x9694;&#x79BB;&#x6027;isolation"><a href="#3&#x3001;&#x9694;&#x79BB;&#x6027;&#xFF08;isolation&#xFF09;" class="headerlink" title="3&#x3001;&#x9694;&#x79BB;&#x6027;&#xFF08;isolation&#xFF09;"></a>3&#x3001;&#x9694;&#x79BB;&#x6027;&#xFF08;isolation&#xFF09;</h2><p>&#x4E8B;&#x52A1;&#x7684;&#x9694;&#x79BB;&#x6027;&#x662F;&#x6307;&#x5728;<font color="#EE0000">&#x5E76;&#x53D1;&#x73AF;&#x5883;</font>&#x4E2D;&#xFF0C;&#x5E76;&#x53D1;&#x7684;&#x4E8B;&#x52A1;&#x65F6;&#x76F8;&#x4E92;&#x9694;&#x79BB;&#x7684;&#xFF0C;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x7684;&#x6267;&#x884C;&#x4E0D;&#x80FD;&#x4E0D;&#x88AB;&#x5176;&#x4ED6;&#x4E8B;&#x52A1;&#x5E72;&#x6270;&#x3002;&#x4E0D;&#x540C;&#x7684;&#x4E8B;&#x52A1;&#x5E76;&#x53D1;&#x64CD;&#x4F5C;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;&#x4E8B;&#x52A1;&#x90FD;&#x6709;&#x5404;&#x81EA;&#x5B8C;&#x6210;&#x7684;&#x6570;&#x636E;&#x7A7A;&#x95F4;&#xFF0C;&#x5373;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x5185;&#x90E8;&#x7684;&#x64CD;&#x4F5C;&#x53CA;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x5BF9;&#x5176;&#x4ED6;&#x5E76;&#x53D1;&#x4E8B;&#x52A1;&#x65F6;&#x9694;&#x79BB;&#x7684;&#xFF0C;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x7684;&#x5404;&#x4E2A;&#x4E8B;&#x52A1;&#x4E4B;&#x95F4;&#x4E0D;&#x80FD;&#x76F8;&#x4E92;&#x5E72;&#x6270;&#x3002;</p>
+<p>&#x5728;&#x6807;&#x51C6;SQL&#x89C4;&#x8303;&#x4E2D;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;4&#x4E2A;&#x4E8B;&#x52A1;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x5BF9;&#x4E8B;&#x52A1;&#x7684;&#x5904;&#x7406;&#x4E0D;&#x540C;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;<font color="#EE0000">&#x672A;&#x6388;&#x6743;&#x8BFB;&#x53D6;&#xFF0C;&#x6388;&#x6743;&#x8BFB;&#x53D6;&#xFF0C;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x53D6;&#x548C;&#x4E32;&#x884C;&#x5316;</font></p>
+<h3 id="&#x8BFB;&#x672A;&#x63D0;&#x4EA4;read-uncommited"><a href="#&#x8BFB;&#x672A;&#x63D0;&#x4EA4;&#xFF08;Read-Uncommited&#xFF09;" class="headerlink" title="&#x8BFB;&#x672A;&#x63D0;&#x4EA4;&#xFF08;Read Uncommited&#xFF09;"></a>&#x8BFB;&#x672A;&#x63D0;&#x4EA4;&#xFF08;Read Uncommited&#xFF09;</h3><p>&#x8BE5;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x5141;&#x8BB8;<font color="#EE0000">&#x810F;&#x8BFB;&#x53D6;</font>&#xFF0C;&#x5176;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x6700;&#x4F4E;</p>
+<p>&#x6BD4;&#x5982;&#x4E8B;&#x52A1;A&#x548C;&#x4E8B;&#x52A1;B&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF0C;&#x4E8B;&#x52A1;A&#x5728;&#x6574;&#x4E2A;&#x6267;&#x884C;&#x9636;&#x6BB5;&#xFF0C;&#x4F1A;&#x5C06;&#x67D0;&#x6570;&#x636E;&#x7684;&#x503C;&#x4ECE;1&#x5F00;&#x59CB;&#x4E00;&#x76F4;&#x52A0;&#x5230;10&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x4E8B;&#x52A1;B&#x80FD;&#x591F;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x9879;&#x5728;&#x4E8B;&#x52A1;A&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4E2D;&#x95F4;&#x503C;&#xFF08;&#x5982;1&#x53D8;&#x6210;2&#xFF0C;2&#x53D8;&#x6210;3&#x7B49;&#xFF09;&#xFF0C;&#x800C;&#x5BF9;&#x8FD9;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x4E2D;&#x95F4;&#x503C;&#x7684;&#x8BFB;&#x53D6;&#x5C31;&#x662F;&#x672A;&#x6388;&#x6743;&#x8BFB;&#x53D6;</p>
+<h3 id="&#x6388;&#x6743;&#x8BFB;&#x53D6;&#x5DF2;&#x63D0;&#x4EA4;&#x8BFB;read-commited"><a href="#&#x6388;&#x6743;&#x8BFB;&#x53D6;-&#x5DF2;&#x63D0;&#x4EA4;&#x8BFB;&#xFF08;Read-Commited&#xFF09;&#xFF0C;" class="headerlink" title="&#x6388;&#x6743;&#x8BFB;&#x53D6;/&#x5DF2;&#x63D0;&#x4EA4;&#x8BFB;&#xFF08;Read Commited&#xFF09;&#xFF0C;"></a>&#x6388;&#x6743;&#x8BFB;&#x53D6;/&#x5DF2;&#x63D0;&#x4EA4;&#x8BFB;&#xFF08;Read Commited&#xFF09;&#xFF0C;</h3><p>&#x6388;&#x6743;&#x8BFB;&#x53D6;&#x53EA;&#x5141;&#x8BB8;&#x83B7;&#x53D6;&#x5DF2;&#x7ECF;&#x63D0;&#x4EA4;&#x7684;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x4E8B;&#x52A1;A&#x548C;&#x4E8B;&#x52A1;B&#x540C;&#x65F6;&#x8FDB;&#x884C;&#xFF0C;&#x4E8B;&#x52A1;A&#x8FDB;&#x884C;+1&#x64CD;&#x4F5C;&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x4E8B;&#x52A1;B&#x65E0;&#x6CD5;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x9879;&#x5728;&#x4E8B;&#x52A1;A&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x4E2D;&#x95F4;&#x503C;&#xFF0C;&#x53EA;&#x80FD;&#x770B;&#x5230;&#x6700;&#x7EC8;&#x7684;10&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x8BF4;&#x6709;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;C&#xFF0C;&#x548C;&#x4E8B;&#x52A1;A&#x8FDB;&#x884C;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x662F;&#x4E8B;&#x52A1;C&#x662F;&#x5C06;&#x6570;&#x636E;&#x9879;&#x4ECE;10&#x52A0;&#x5230;20&#xFF0C;&#x6B64;&#x65F6;&#x4E8B;&#x52A1;B&#x4E5F;&#x540C;&#x6837;&#x53EF;&#x4EE5;&#x8BFB;&#x53D6;&#x5230;20&#xFF0C;&#x5373;&#x6388;&#x6743;&#x8BFB;&#x53D6;&#x5141;&#x8BB8;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x53D6;&#x3002;</p>
+<h3 id="&#x53EF;&#x91CD;&#x590D;&#x8BFB;repeatable-read"><a href="#&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#xFF08;Repeatable-Read" class="headerlink" title="&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#xFF08;Repeatable Read)"></a>&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#xFF08;Repeatable Read)</h3><p>&#x5C31;&#x662F;&#x4FDD;&#x8BC1;&#x5728;&#x4E8B;&#x52A1;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x591A;&#x6B21;&#x8BFB;&#x53D6;&#x540C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x65F6;&#xFF0C;&#x5176;&#x503C;&#x90FD;&#x548C;&#x4E8B;&#x52A1;&#x5F00;&#x59CB;&#x65F6;&#x523B;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x8BE5;&#x4E8B;&#x52A1;&#x7EA7;&#x522B;&#x7981;&#x6B62;&#x4E0D;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x53D6;&#x548C;&#x810F;&#x8BFB;&#x53D6;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x5E7B;&#x5F71;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x6240;&#x8C13;&#x5E7B;&#x5F71;&#x6570;&#x636E;&#xFF0C;&#x5C31;&#x662F;&#x6307;&#x540C;&#x6837;&#x7684;&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;&#xFF0C;&#x5728;&#x524D;&#x540E;&#x4E24;&#x4E2A;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x6267;&#x884C;&#x5BF9;&#x540C;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x9879;&#x7684;&#x8BFB;&#x53D6;&#xFF0C;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x7ED3;&#x679C;&#x3002;</p>
+<p><del>&#x5728;&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x53EF;&#x91CD;&#x590D;&#x8BFB;&#x53D6;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#x80FD;&#x591F;&#x4FDD;&#x8BC1;&#x4E8B;&#x52A1;B&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x59CB;&#x7EC8;&#x5BF9;&#x6570;&#x636E;&#x9879;&#x8BFB;&#x53D6;&#x5230;1&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;&#x4E2D;&#xFF0C;&#x5373;&#x4F7F;&#x4E8B;&#x52A1;B&#xFF08;&#x6CE8;&#x610F;&#xFF0C;&#x4E8B;&#x52A1;&#x540D;&#x5B57;&#x867D;&#x7136;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x662F;&#x6307;&#x7684;&#x662F;&#x53E6;&#x4E00;&#x4E2A;&#x4E8B;&#x52A1;&#x64CD;&#x4F5C;&#xFF09;&#x91C7;&#x7528;&#x540C;&#x6837;&#x7684;&#x67E5;&#x8BE2;&#x65B9;&#x5F0F;&#xFF0C;&#x5C31;&#x53EF;&#x80FD;&#x8BFB;&#x53D6;&#x5230;10&#x6216;20</del></p>
+<h3 id="&#x4E32;&#x884C;&#x5316;"><a href="#&#x4E32;&#x884C;&#x5316;" class="headerlink" title="&#x4E32;&#x884C;&#x5316;"></a>&#x4E32;&#x884C;&#x5316;</h3><p>&#x662F;&#x6700;&#x4E25;&#x683C;&#x7684;&#x4E8B;&#x52A1;&#x9694;&#x79BB;&#x7EA7;&#x522B;&#xFF0C;&#x5B83;&#x8981;&#x6C42;&#x6240;&#x6709;&#x4E8B;&#x52A1;&#x88AB;&#x4E32;&#x884C;&#x6267;&#x884C;&#xFF0C;&#x5373;&#x4E8B;&#x52A1;&#x53EA;&#x80FD;&#x4E00;&#x4E2A;&#x63A5;&#x4E00;&#x4E2A;&#x7684;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x4E0D;&#x80FD;&#x5E76;&#x53D1;&#x6267;&#x884C;&#x3002;</p>
+<h2 id="4-&#x6301;&#x4E45;&#x6027;durability"><a href="#4&#x3001;&#x6301;&#x4E45;&#x6027;&#xFF08;durability&#xFF09;" class="headerlink" title="4&#x3001;&#x6301;&#x4E45;&#x6027;&#xFF08;durability&#xFF09;"></a>4&#x3001;&#x6301;&#x4E45;&#x6027;&#xFF08;durability&#xFF09;</h2><p>&#x4E00;&#x65E6;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5BF9;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x5BF9;&#x5E94;&#x6570;&#x636E;&#x7684;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x66F4;&#x5C31;&#x4F1A;&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x5230;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x3002;&#x5373;&#x4F7F;&#x53D1;&#x751F;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;&#x6216;&#x673A;&#x5668;&#x5B95;&#x673A;&#x7B49;&#x6545;&#x969C;&#xFF0C;&#x53EA;&#x8981;&#x6570;&#x636E;&#x5E93;&#x80FD;&#x591F;&#x91CD;&#x65B0;&#x542F;&#x52A8;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x5B9A;&#x80FD;&#x591F;&#x5C06;&#x5176;&#x6062;&#x590D;&#x5230;&#x4E8B;&#x52A1;&#x6210;&#x529F;&#x7ED3;&#x675F;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+
+  </div>
+  <footer class="article-footer">
+    
+  <div class="cc">
+    <a href="http://creativecommons.org/licenses/by-sa/4.0/deed.en" target="_blank" title="署名-相同方式共享">
+      <img src="/images/cc/cc.png">
+      
+          <img src="/images/cc/by.png">
+        
+          <img src="/images/cc/sa.png">
+      
+      <span>
+        本作品采用知识共享 署名-相同方式共享 4.0 国际许可协议进行许可。
+      </span>
+    </a>
+  </div>
+
+
+    
+
+  </footer>
+</article>
+
+
+
+
+
+
+
+
+          <div class="main-footer">
+  
+    © 2020 Invoker - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+  
+</div>
+
+      
+        </div>
+      
+    </div>
+  </div>
+  <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="/PhotoSwipe/photoswipe.css">
+  <link rel="stylesheet" href="/PhotoSwipe/default-skin/default-skin.css">
+
+  <!-- Root element of PhotoSwipe. Must have class pswp. -->
+  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe.
+             It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+      <!-- Container that holds slides.
+                PhotoSwipe keeps only 3 of them in the DOM to save memory.
+                Don't modify these 3 pswp__item elements, data is added later on. -->
+      <div class="pswp__container">
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+        <div class="pswp__item"></div>
+      </div>
+
+      <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+      <div class="pswp__ui pswp__ui--hidden">
+
+        <div class="pswp__top-bar">
+
+          <!--  Controls are self-explanatory. Order can be changed. -->
+
+          <div class="pswp__counter"></div>
+
+          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+          <button class="pswp__button pswp__button--share" title="Share"></button>
+
+          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+          <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+          <!-- element will get class pswp__preloader--active when preloader is running -->
+          <div class="pswp__preloader">
+            <div class="pswp__preloader__icn">
+              <div class="pswp__preloader__cut">
+                <div class="pswp__preloader__donut"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+          <div class="pswp__share-tooltip"></div>
+        </div>
+
+        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+
+        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+        <div class="pswp__caption">
+          <div class="pswp__caption__center"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/PhotoSwipe/photoswipe.js"></script>
+  <script src="/PhotoSwipe/photoswipe-ui-default.js"></script>
+
+
+<script src="/scripts/main.js"></script>
+<!-- mod by huobingli 鼠标特效  -->
+<script src="/scripts/love.js"></script>
+
+<script>
+    /* 鼠标特效 */
+    // (function () {
+    //     var index = 0;
+    //     $("body").click(function (e) {
+    //         var array = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+    //         var $this = $("<span></span>").text(array[indloveex]);
+    //         index = (index + 1) % array.length;
+    //         var x = e.pageX,
+    //             y = e.pageY;
+    //         $this.css({
+    //             "z-index": 99999,
+    //             "top": y - 25,
+    //             "left": x,
+    //             "position": "absolute",
+    //             "font-size":"initial",
+    //             "font-weight": "bold",
+    //             "font-family": "cursive",
+    //             "color": `rgb(${(255 * Math.random())},${(255 * Math.random())},${(255 * Math.random())})`
+    //         });
+    //         $("body").append($this);
+    //         $this.animate({
+    //             "top": y - 150,
+    //             "opacity": 0
+    //         },
+    //             1200,
+    //             function () {
+    //                 $this.remove();
+    //             });
+    //     });
+    // })(jQuery)
+
+    // onload = function () {
+    //     //var click_cnt = 0;
+    //     var $html = document.getElementsByTagName("html")[0];
+    //     var $body = document.getElementsByTagName("body")[0];
+    //     $html.onclick = function (e) {
+    //         var $elem = document.createElement("b");
+    //         $elem.style.color = "#" + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16);
+    //         //"#" + parseInt((172 * Math.random()), 16) + parseInt((172 * Math.random()), 16) + parseInt((172 * Math.random()), 16);
+    //         $elem.style.zIndex = 9999;
+    //         $elem.style.position = "absolute";
+    //         $elem.style.select = "none";
+    //         var x = e.pageX;
+    //         var y = e.pageY;
+    //         $elem.style.left = (x - 10) + "px";
+    //         $elem.style.top = (y - 20) + "px";
+    //         clearInterval(anim);
+    //         var click_cnt = parseInt((100 * Math.random()), 10)
+    //         switch (click_cnt) {
+    //             case 10:
+    //                 $elem.innerText = "OωO";
+    //                 break;
+    //             case 20:
+    //                 $elem.innerText = "(๑•́ ∀ •̀๑)";
+    //                 break;
+    //             case 30:
+    //                 $elem.innerText = "(๑•́ ₃ •̀๑)";
+    //                 break;
+    //             case 40:
+    //                 $elem.innerText = "(๑•̀_•́๑)";
+    //                 break;
+    //             case 50:
+    //                 $elem.innerText = "（￣へ￣）";
+    //                 break;
+    //             case 60:
+    //                 $elem.innerText = "(╯°口°)╯(┴—┴";
+    //                 break;
+    //             case 70:
+    //                 $elem.innerText = "૮( ᵒ̌皿ᵒ̌ )ა";
+    //                 break;
+    //             case 80:
+    //                 $elem.innerText = "╮(｡>口<｡)╭";
+    //                 break;
+    //             case 90:
+    //                 $elem.innerText = "( ง ᵒ̌皿ᵒ̌)ง⁼³₌₃";
+    //                 break;
+    //             case 100:
+    //                 $elem.innerText = "(ꐦ°᷄д°᷅)";
+    //                 break;
+    //             default:
+    //                 $elem.innerText = "❤";
+    //                 break;
+    //         }
+    //         $elem.style.fontSize = 16 + "px"; //parseInt((Math.random() * 10), 10) + 10 + "px";
+    //         var increase = 0;
+    //         var anim;
+    //         setTimeout(function () {
+    //             anim = setInterval(function () {
+    //                 if (++increase == 150) {
+    //                     clearInterval(anim);
+    //                     $body.removeChild($elem);
+    //                 }
+    //                 $elem.style.top = y - 20 - increase + "px";
+    //                 $elem.style.opacity = (150 - increase) / 120;
+    //             }, 8);
+    //         }, 70);
+    //         $body.appendChild($elem);
+
+    //         //console.log("#" + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16) + parseInt((172 * Math.random()), 10).toString(16));
+    //     };
+    // };
+
+    
+
+</script>
+
+<!-- mod end by huobingli  -->
+</body>
+</html>

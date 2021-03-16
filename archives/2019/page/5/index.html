@@ -316,51 +316,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/11/30/MFCSeralize/" >
-  MFC 序列化Serialize
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/11/30/MFCSeralize/"><span class="article-date">
-  2019-11-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1 id="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;persistence-&#x5E8F;&#x5217;&#x5316;"><a href="#&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;-Persistence-&#x5E8F;&#x5217;&#x5316;" class="headerlink" title="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;"></a>&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;</h1><p>MFC&#x6709;&#x4E00;&#x5957;Serialize&#x673A;&#x5236;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x628A;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x9009;&#x62E9;&#x3001;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5173;&#x3001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5EFA;&#x7ACB;&#x3001;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x5199;&#x3001;&#x63D0;&#x53D6;&#x8FD0;&#x7B97;&#x7B26;(&gt;&gt;)&#x548C;&#x63D2;&#x5165;&#x8FD0;&#x7B97;&#x7B26;(&lt;&lt;)&#x7684;&#x91CD;&#x8F7D;&#x3001;&#x5BF9;&#x8C61;&#x7684;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x7B49;&#x90FD;&#x5305;&#x88C5;&#x8D77;&#x6765;&#x3002;</p>
-<h2 id="serialize&#x6570;&#x636E;&#x8BFB;&#x5199;"><a href="#Serialize-&#x6570;&#x636E;&#x8BFB;&#x5199;" class="headerlink" title="Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)"></a>Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)</h2><p>CArchive &#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7F13;&#x51B2;&#x673A;&#x5236;, &#x652F;&#x6301;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF08;&#x5373;&#x5199;&#x5165;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x5316;&#xFF09;&#x548C;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF08;&#x5373;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#xFF09;</p>
-<p>&#x7C7B;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x62E5;&#x6709;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x80FD;&#x529B;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x4E0B;&#x4E24;&#x4E2A;&#x5B8F;</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DECLARE_SERIAL(class_name) \</span><br><span class="line">    DECLARE_DYNCREATE(class_name)\</span><br><span class="line">    friend CArchive&amp; AFXAPI operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb);</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IMPLEMENT_SERIAL(class_name, base_class_name, wSchema) \</span><br><span class="line">    CObject* PASCAL class_name::CreateObject() \</span><br><span class="line">        { return new class_name; } \</span><br><span class="line">    _IMPLEMENT_RUNTIMECLASS(class_name, base_class_name, wSchema, \</span><br><span class="line">        class_name::CreateObject) \</span><br><span class="line">    CArchive&amp; AfxApi operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb) \</span><br><span class="line">        { pOb = (class_name*) ar.ReadObject(RUNTIME_CLASS(class_name)); \</span><br><span class="line">            return ar; }</span></span><br></pre></td></tr></table></figure>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2019/11/30/MFCMessage/" >
   MFC 消息
 </a>
@@ -459,6 +414,51 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2019/11/30/MFCSeralize/" >
+  MFC 序列化Serialize
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/11/30/MFCSeralize/"><span class="article-date">
+  2019-11-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;persistence-&#x5E8F;&#x5217;&#x5316;"><a href="#&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;-Persistence-&#x5E8F;&#x5217;&#x5316;" class="headerlink" title="&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;"></a>&#x6C38;&#x4E45;&#x4FDD;&#x5B58;&#x673A;&#x5236;(Persistence) &#x5E8F;&#x5217;&#x5316;</h1><p>MFC&#x6709;&#x4E00;&#x5957;Serialize&#x673A;&#x5236;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x628A;&#x6587;&#x4EF6;&#x540D;&#x7684;&#x9009;&#x62E9;&#x3001;&#x6587;&#x4EF6;&#x7684;&#x5F00;&#x5173;&#x3001;&#x7F13;&#x51B2;&#x533A;&#x7684;&#x5EFA;&#x7ACB;&#x3001;&#x6570;&#x636E;&#x7684;&#x8BFB;&#x5199;&#x3001;&#x63D0;&#x53D6;&#x8FD0;&#x7B97;&#x7B26;(&gt;&gt;)&#x548C;&#x63D2;&#x5165;&#x8FD0;&#x7B97;&#x7B26;(&lt;&lt;)&#x7684;&#x91CD;&#x8F7D;&#x3001;&#x5BF9;&#x8C61;&#x7684;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x7B49;&#x90FD;&#x5305;&#x88C5;&#x8D77;&#x6765;&#x3002;</p>
+<h2 id="serialize&#x6570;&#x636E;&#x8BFB;&#x5199;"><a href="#Serialize-&#x6570;&#x636E;&#x8BFB;&#x5199;" class="headerlink" title="Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)"></a>Serialize(&#x6570;&#x636E;&#x8BFB;&#x5199;)</h2><p>CArchive &#x5BF9;&#x8C61;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7F13;&#x51B2;&#x673A;&#x5236;, &#x652F;&#x6301;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF08;&#x5373;&#x5199;&#x5165;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x5316;&#xFF09;&#x548C;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF08;&#x5373;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x6216;&#x5C06;&#x6570;&#x636E;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#xFF09;</p>
+<p>&#x7C7B;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x62E5;&#x6709;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x80FD;&#x529B;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x4E0B;&#x4E24;&#x4E2A;&#x5B8F;</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DECLARE_SERIAL(class_name) \</span><br><span class="line">    DECLARE_DYNCREATE(class_name)\</span><br><span class="line">    friend CArchive&amp; AFXAPI operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb);</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IMPLEMENT_SERIAL(class_name, base_class_name, wSchema) \</span><br><span class="line">    CObject* PASCAL class_name::CreateObject() \</span><br><span class="line">        { return new class_name; } \</span><br><span class="line">    _IMPLEMENT_RUNTIMECLASS(class_name, base_class_name, wSchema, \</span><br><span class="line">        class_name::CreateObject) \</span><br><span class="line">    CArchive&amp; AfxApi operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb) \</span><br><span class="line">        { pOb = (class_name*) ar.ReadObject(RUNTIME_CLASS(class_name)); \</span><br><span class="line">            return ar; }</span></span><br></pre></td></tr></table></figure>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2019/01/01/zqzb/" >
   学投资
 </a>
@@ -491,7 +491,7 @@
 <p>&#x76F8;&#x5173;&#x4E0A;&#x5E02;&#x516C;&#x53F8;&#x4E3B;&#x8981;&#x6709;&#xFF1A;<strong>&#x591A;&#x6C1F;&#x591A;&#x3001;&#x6676;&#x745E;&#x80A1;&#x4EFD;&#x3001;&#x5DE8;&#x5316;&#x80A1;&#x4EFD;&#x3001;&#x5609;&#x5316;&#x80FD;&#x6E90;&#x3001;&#x6EE8;&#x5316;&#x80A1;&#x4EFD;&#x3001; &#x4E09;&#x7F8E;&#x80A1;&#x4EFD;&#x3001;&#x6C5F;&#x5316;&#x5FAE;&#x3001;&#x6F84;&#x661F;&#x80A1;&#x4EFD;&#x3001;&#x5149;&#x534E;&#x79D1;&#x6280;&#x3001;&#x5174;&#x53D1;&#x96C6;&#x56E2;</strong>&#x3002;</p><p>3.<strong>&#x5C01;&#x88C5;&#x6750;&#x6599;</strong>&#xFF0C;&#x4E5F;&#x53EF;&#x7EC6;&#x5206;&#x4E3A;6&#x7C7B;&#xFF1A;<strong>&#x82AF;&#x7247;&#x7C98;&#x7ED3;&#x6750;&#x6599;&#x3001;&#x952E;&#x5408;&#x4E1D;&#x3001;&#x9676;&#x74F7;&#x5C01;&#x88C5;&#x6750;&#x6599;&#x3001;&#x5F15;&#x7EBF;&#x6846;&#x67B6;&#x3001;&#x5C01;&#x88C5;&#x57FA;&#x677F;&#x3001;&#x5207;&#x5272;&#x6750;&#x6599;</strong>&#x3002;</p><p><strong>&#x82AF;&#x7247;&#x7C98;&#x7ED3;&#x6750;&#x6599;</strong>&#xFF0C;&#x662F;&#x91C7;&#x7528;&#x7C98;&#x7ED3;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x7BA1;&#x82AF;&#x4E0E;&#x5E95;&#x5EA7;&#x6216;&#x5C01;&#x88C5;&#x57FA;&#x677F;&#x8FDE;&#x63A5;&#x7684;&#x6750;&#x6599;&#x3002;&#x76F8;&#x5173;&#x4E0A;&#x5E02;&#x516C;&#x53F8;&#x4E3B;&#x8981;&#x6709;&#xFF1A;<strong>&#x98DE;&#x51EF;&#x6750;&#x6599;&#x3001;&#x8054;&#x745E;&#x65B0;&#x6750;&#x3001;&#x5B8F;&#x660C;&#x7535;&#x5B50;</strong>&#x3002;</p><p><strong>&#x9676;&#x74F7;&#x5C01;&#x88C5;&#x6750;&#x6599;</strong>&#xFF0C;&#x7535;&#x5B50;&#x5C01;&#x88C5;&#x6750;&#x6599;&#x7684;&#x4E00;&#x79CD;&#xFF0C;&#x7528;&#x4E8E;&#x627F;&#x8F7D;&#x7535;&#x5B50;&#x5143;&#x5668;&#x4EF6;&#x7684;&#x673A;&#x68B0;&#x652F;&#x6491;&#x3001;&#x73AF;&#x5883; &#x5BC6;&#x5C01;&#x548C;&#x6563;&#x70ED;&#x7B49;&#x529F;&#x80FD;&#x3002;&#x76F8;&#x5173;&#x4E0A;&#x5E02;&#x516C;&#x53F8;&#x4E3B;&#x8981;&#x6709;&#xFF1A;<strong>&#x4E09;&#x73AF;&#x96C6;&#x56E2;</strong>&#x3002;</p><p><strong>&#x5C01;&#x88C5;&#x57FA;&#x677F;</strong>&#xFF0C;&#x662F;&#x5C01;&#x88C5;&#x6750;&#x6599;&#x4E2D;&#x6210;&#x672C;&#x5360;&#x6BD4;&#x6700;&#x5927;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4E3B;&#x8981;&#x8D77;&#x5230;&#x627F;&#x8F7D;&#x4FDD;&#x62A4;&#x82AF;&#x7247;&#x4E0E;&#x8FDE;&#x63A5; &#x4E0A;&#x5C42;&#x82AF;&#x7247;&#x548C;&#x4E0B;&#x5C42;&#x7535;&#x8DEF;&#x677F;&#x7684;&#x4F5C;&#x7528;&#x3002;&#x76F8;&#x5173;&#x4E0A;&#x5E02;&#x516C;&#x53F8;&#x4E3B;&#x8981;&#x6709;&#xFF1A;<strong>&#x5174;&#x68EE;&#x79D1;&#x6280;&#x3001;&#x6DF1;&#x5357;&#x7535;&#x8DEF;</strong>&#x3002;</p><p><strong>&#x952E;&#x5408;&#x4E1D;</strong>&#xFF0C;&#x534A;&#x5BFC;&#x4F53;&#x7528;&#x952E;&#x5408;&#x4E1D;&#x662F;&#x7528;&#x6765;&#x710A;&#x63A5;&#x8FDE;&#x63A5;&#x82AF;&#x7247;&#x4E0E;&#x652F;&#x67B6;&#xFF0C;&#x627F;&#x62C5;&#x7740;&#x82AF;&#x7247;&#x4E0E;&#x5916;&#x754C;&#x4E4B;&#x95F4;&#x5173;&#x952E;&#x7684;&#x7535; &#x8FDE;&#x63A5;&#x529F;&#x80FD;&#x3002;&#x76F8;&#x5173;&#x4E0A;&#x5E02;&#x516C;&#x53F8;&#x4E3B;&#x8981;&#x6709;&#xFF1A;<strong>&#x5EB7;&#x5F3A;&#x7535;&#x5B50;</strong>&#x3002;</p><p><strong>&#x5F15;&#x7EBF;&#x6846;&#x67B6;&#xFF0C;</strong>&#x4F5C;&#x4E3A;&#x534A;&#x5BFC;&#x4F53;&#x7684;&#x82AF;&#x7247;&#x8F7D;&#x4F53;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x501F;&#x52A9;&#x4E8E;&#x952E;&#x5408;&#x4E1D;&#x5B9E;&#x73B0;&#x82AF;&#x7247;&#x5185;&#x90E8;&#x7535;&#x8DEF;&#x5F15;&#x51FA; &#x7AEF;&#x4E0E;&#x5916;&#x90E8;&#x7535;&#x8DEF;&#xFF08;PCB&#xFF09;&#x7684;&#x7535;&#x6C14;&#x8FDE;&#x63A5;&#xFF0C;&#x5F62;&#x6210;&#x7535;&#x6C14;&#x56DE;&#x8DEF;&#x7684;&#x5173;&#x952E;&#x7ED3;&#x6784;&#x4EF6;&#x3002;&#x76F8;&#x5173;&#x4E0A;&#x5E02;&#x516C;&#x53F8;&#x4E3B;&#x8981;&#x6709;&#xFF1A;<strong>&#x5EB7;&#x5F3A;&#x7535;&#x5B50;</strong>&#x3002;</p><p><strong>&#x5207;&#x5272;&#x6750;&#x6599;</strong>&#xFF0C;&#x76EE;&#x524D;&#x4E3B;&#x6D41;&#x7684;&#x5207;&#x5272;&#x65B9;&#x6CD5;&#x5206;&#x4E3A;&#x4E24;&#x7C7B;&#xFF0C;&#x4E00;&#x7C7B;&#x662F;&#x7528;&#x5212;&#x7247;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x5207;&#x5272;&#xFF0C;&#x53E6;&#x4E00;&#x79CD;&#x5229;&#x7528;&#x6FC0;&#x5149; &#x8FDB;&#x884C;&#x5207;&#x5272;&#x3002;&#x76F8;&#x5173;&#x4E0A;&#x5E02;&#x516C;&#x53F8;&#x4E3B;&#x8981;&#x6709;&#xFF1A;<strong>&#x5CB1;&#x52D2;&#x65B0;&#x6750;</strong>&#x3002;</p><p>2018&#x5E74;&#x5168;&#x7403;&#x534A;&#x5BFC;&#x4F53;&#x6750;&#x6599;&#x9500;&#x552E;&#x89C4;&#x6A21;&#x5728;519&#x4EBF;&#x7F8E;&#x5143;&#xFF0C;&#x5360;&#x6BD4;&#x60C5;&#x51B5;&#x4E3A;<strong>&#x57FA;&#x4F53;&#x6750;&#x6599;</strong>&#xFF08;23.4%&#xFF09;<strong>&#x3001;&#x5236;&#x9020;&#x6750;&#x6599;</strong>&#xFF08;38.7%&#xFF09;<strong>&#x3001;&#x5C01; &#x88C5;&#x6750;&#x6599;</strong>&#xFF08;28%&#xFF09;&#x3002;&#x518D;&#x770B;&#x7EC6;&#x5206;&#x6570;&#x636E;&#x7EDF;&#x8BA1;&#xFF0C;&#x5236;&#x9020;&#x6750;&#x6599;&#x4E2D;<strong>&#x7535;&#x5B50;&#x7279;&#x6C14;&#x3001;&#x63A9;&#x819C;&#x7248;&#x3001;&#x5149;&#x523B;&#x80F6;&#x7684;&#x5E02;&#x573A;&#x5360;&#x6BD4;&#x6700;&#x5927;</strong>&#xFF0C;&#x5408;&#x8BA1;&#x5360;&#x5230;&#x5236;&#x9020;&#x6750;&#x6599;&#x7684;61%&#x3002;</p><p><strong>&#x4EE5;&#x4E0A;&#x5185;&#x5BB9;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x5E02;&#x573A;&#x4E0A;&#x76EE;&#x524D;&#x6700;&#x5168;&#x9762;&#x7684;&#x4E00;&#x4EFD;&#x534A;&#x5BFC;&#x4F53;&#x6750;&#x6599;&#x603B;&#x7ED3;</strong>&#xFF0C;&#x867D;&#x7136;&#x770B;&#x4E0A;&#x53BB;&#x5185;&#x5BB9;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x6211;&#x5DF2;&#x7ECF;&#x5E2E;&#x5927;&#x5BB6;&#x505A;&#x4E86;&#x7B80;&#x5316;&#xFF0C;&#x800C;&#x4E14;<strong>&#x91CD;&#x70B9;&#x4E2A;&#x80A1;&#x548C;&#x65B9;&#x5411;&#x90FD;&#x5DF2;&#x7ECF;&#x52A0;&#x9ED1;&#x6CE8;&#x660E;&#x4E86;</strong>&#xFF0C;&#x90FD;&#x662F;&#x73B0;&#x6210;&#x7684;&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x8FD8;&#x559C;&#x6B22;&#xFF1F;</p>
 
 
-<h2 id="&#x601D;&#x8DEF;"><a href="#&#x601D;&#x8DEF;" class="headerlink" title="&#x601D;&#x8DEF;"></a>&#x601D;&#x8DEF;</h2><p>&#x7559;&#x4ED3;&#x4F4D;&#xFF0C;&#x4E0D;&#x80FD;&#x4E00;&#x628A;suo<br>&#x52FF;&#x8FFD;&#x6DA8;&#x6740;&#x8DCC;&#xFF0C;&#x8840;&#x6DCB;&#x6DCB;&#x7684;&#x6559;&#x8BAD;</p>
+<h2 id="&#x601D;&#x8DEF;"><a href="#&#x601D;&#x8DEF;" class="headerlink" title="&#x601D;&#x8DEF;"></a>&#x601D;&#x8DEF;</h2><p>&#x7559;&#x4ED3;&#x4F4D;&#xFF0C;&#x4E0D;&#x80FD;&#x4E00;&#x628A;&#x68AD;&#x54C8;<br>&#x52FF;&#x8FFD;&#x6DA8;&#x6740;&#x8DCC;&#xFF0C;&#x8840;&#x6DCB;&#x6DCB;&#x7684;&#x6559;&#x8BAD;</p>
 <h2 id="&#x4E70;"><a href="#&#x4E70;" class="headerlink" title="&#x4E70;"></a>&#x4E70;</h2><h3 id="0-&#x63A5;&#x529B;"><a href="#0&#x3001;&#x63A5;&#x529B;" class="headerlink" title="0&#x3001;&#x63A5;&#x529B;"></a>0&#x3001;&#x63A5;&#x529B;</h3><p>&#x8981;&#x6709;&#x677F;&#x5757;&#x6548;&#x5E94; &#x4E14;&#x677F;&#x5757;&#x6307;&#x6570;&#x9700;&#x8981;&#x548C;&#x5927;&#x76D8;&#x6307;&#x6570;&#x4F5C;&#x6BD4;&#x8F83;  &#x4F8B;&#x5982;&#x7279;&#x9AD8;&#x538B;&#x677F;&#x5757;</p>
 <p>&#x5E72;&#x9F99;&#x5934; &#x9F99;&#x4E8C;&#x90FD;&#x8981;&#x8C28;&#x614E;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x679C;&#x9F99;&#x5934;&#x81EA;&#x6740;&#xFF0C;&#x9F99;&#x4E8C;&#x76F4;&#x63A5;&#x81EA;&#x95ED;</p>
 <h3 id="1-&#x6F5C;&#x4F0F;"><a href="#1&#x3001;&#x6F5C;&#x4F0F;" class="headerlink" title="1&#x3001;&#x6F5C;&#x4F0F;"></a>1&#x3001;&#x6F5C;&#x4F0F;</h3><p>&#x9009;&#x62E9;&#x591A;&#x91CD;&#x5E95;&#x90E8;&#x7684;&#x4E2A;&#x80A1;&#x6F5C;&#x4F0F;&#xFF0C;&#x4F8B;&#x5982;2020.4.15 600438 &#x62E9;&#x673A;&#x4F4E;&#x5438;<br>2020.04.14 300750 &#x5B81;&#x5FB7;&#x65F6;&#x4EE3; &#x6E2F;&#x8D44;&#x5927;&#x4E70;&#x5C01;&#x677F;&#xFF0C;&#x76F4;&#x63A5;&#x4E70;&#x5165;&#x3002;</p>
@@ -501,7 +501,9 @@
 <li>&#x8D8B;&#x52BF;&#x7968;    &#x62E9;&#x673A;&#x4F4E;&#x5438;  </li>
 <li>&#x9F99;&#x5934;&#x4E8C;&#x6CE2;    &#x53EF;&#x4EE5;&#x5728;&#x5747;&#x7EBF;&#x9644;&#x8FD1;&#x4F4E;&#x5438;&#xFF0C;&#x4F46;&#x5F97;&#x5C0F;&#x5FC3;&#x53CC;&#x5934;<br>  &#x56FD;&#x7535;&#x5357;&#x81EA;&#xFF0C;&#x91D1;&#x5065;&#x7C73;&#x4E1A;&#xFF0C;&#x7701;&#x5E7F;&#x96C6;&#x56E2;&#xFF0C;&#x65B0;&#x7B51;&#x80A1;&#x4EFD;&#xFF0C;&#x519C;&#x4EA7;&#x54C1;  <h3 id="5-&#x8865;&#x6DA8;&#x903B;&#x8F91;"><a href="#5&#x3001;&#x8865;&#x6DA8;&#x903B;&#x8F91;" class="headerlink" title="5&#x3001;&#x8865;&#x6DA8;&#x903B;&#x8F91;"></a>5&#x3001;&#x8865;&#x6DA8;&#x903B;&#x8F91;</h3>  &#x7279;&#x9AD8;&#x538B; 2020.03.13 &#x901A;&#x5149;&#x7EBF;&#x7F06; &#x56DB;&#x8FDE;&#x677F; &#x5E26;&#x52A8;&#x901A;&#x8FBE;&#x80A1;&#x4EFD;&#x6DA8;&#x505C;</li>
 </ul>
-<h2 id="&#x5356;"><a href="#&#x5356;" class="headerlink" title="&#x5356;"></a>&#x5356;</h2><p>&#x8D8B;&#x52BF;&#x53EF;&#x4EE5;&#x505A;T&#xFF0C;&#x4E2A;&#x80A1;&#x53E0;&#x52A0;&#x884C;&#x4E1A;&#xFF0C;&#x6216;&#x8005;&#x5B81;&#x5FB7;&#x548C;tsla&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x53D1;&#x73B0;&#x8054;&#x52A8;&#x5173;&#x7CFB;</p>
+<h2 id="&#x5356;"><a href="#&#x5356;" class="headerlink" title="&#x5356;"></a>&#x5356;</h2><p>&#x8D8B;&#x52BF;&#x53EF;&#x4EE5;&#x505A;T&#xFF0C;&#x4E2A;&#x80A1;&#x53E0;&#x52A0;&#x884C;&#x4E1A;&#xFF0C;&#x6216;&#x8005;&#x5B81;&#x5FB7;&#x548C;tsla&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x53D1;&#x73B0;&#x8054;&#x52A8;&#x5173;&#x7CFB;  </p>
+<h2 id="2021"><a href="#2021" class="headerlink" title="2021"></a>2021</h2><p>&#x78B3;&#x4E2D;&#x548C;</p>
+<p>&#x6D77;&#x87BA;&#x6C34;&#x6CE5;</p>
 
         
       </div>

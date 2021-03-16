@@ -278,6 +278,50 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2019/11/30/MFCMessage/" >
+  MFC 消息
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/11/30/MFCMessage/"><span class="article-date">
+  2019-11-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2 id="mfc-&#x6D88;&#x606F;"><a href="#MFC-&#x6D88;&#x606F;" class="headerlink" title="MFC &#x6D88;&#x606F;"></a>MFC &#x6D88;&#x606F;</h2><h3 id="wm_xxx-&#x6D88;&#x606F;"><a href="#WM-XXX-&#x6D88;&#x606F;" class="headerlink" title="WM_XXX &#x6D88;&#x606F;"></a>WM_XXX &#x6D88;&#x606F;</h3><h3 id="wm_command-&#x547D;&#x4EE4;&#x6D88;&#x606F;"><a href="#WM-COMMAND-&#x547D;&#x4EE4;&#x6D88;&#x606F;" class="headerlink" title="WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;"></a>WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;</h3><h2 id="notification&#x6D88;&#x606F;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"><a href="#Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;" class="headerlink" title="Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"></a>Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;</h2><h2 id="&#x4E3B;&#x7EBF;&#x7A0B;id"><a href="#&#x4E3B;&#x7EBF;&#x7A0B;ID" class="headerlink" title="&#x4E3B;&#x7EBF;&#x7A0B;ID"></a>&#x4E3B;&#x7EBF;&#x7A0B;ID</h2><p>theApp.m_nThreadID</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2019/11/30/MFCMessageMap/" >
   MFC 消息映射
 </a>
@@ -368,50 +412,6 @@
 <p>&#x7C7B;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x7684;&#x8BFB;&#x5199;&#x64CD;&#x4F5C;&#xFF0C;&#x524D;&#x63D0;&#x662F;&#x62E5;&#x6709;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x80FD;&#x529B;&#xFF0C;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x4E0B;&#x4E24;&#x4E2A;&#x5B8F;</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DECLARE_SERIAL(class_name) \</span><br><span class="line">    DECLARE_DYNCREATE(class_name)\</span><br><span class="line">    friend CArchive&amp; AFXAPI operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb);</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IMPLEMENT_SERIAL(class_name, base_class_name, wSchema) \</span><br><span class="line">    CObject* PASCAL class_name::CreateObject() \</span><br><span class="line">        { return new class_name; } \</span><br><span class="line">    _IMPLEMENT_RUNTIMECLASS(class_name, base_class_name, wSchema, \</span><br><span class="line">        class_name::CreateObject) \</span><br><span class="line">    CArchive&amp; AfxApi operator&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb) \</span><br><span class="line">        { pOb = (class_name*) ar.ReadObject(RUNTIME_CLASS(class_name)); \</span><br><span class="line">            return ar; }</span></span><br></pre></td></tr></table></figure>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/11/30/MFCMessage/" >
-  MFC 消息
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/11/30/MFCMessage/"><span class="article-date">
-  2019-11-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="mfc-&#x6D88;&#x606F;"><a href="#MFC-&#x6D88;&#x606F;" class="headerlink" title="MFC &#x6D88;&#x606F;"></a>MFC &#x6D88;&#x606F;</h2><h3 id="wm_xxx-&#x6D88;&#x606F;"><a href="#WM-XXX-&#x6D88;&#x606F;" class="headerlink" title="WM_XXX &#x6D88;&#x606F;"></a>WM_XXX &#x6D88;&#x606F;</h3><h3 id="wm_command-&#x547D;&#x4EE4;&#x6D88;&#x606F;"><a href="#WM-COMMAND-&#x547D;&#x4EE4;&#x6D88;&#x606F;" class="headerlink" title="WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;"></a>WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;</h3><h2 id="notification&#x6D88;&#x606F;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"><a href="#Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;" class="headerlink" title="Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"></a>Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;</h2><h2 id="&#x4E3B;&#x7EBF;&#x7A0B;id"><a href="#&#x4E3B;&#x7EBF;&#x7A0B;ID" class="headerlink" title="&#x4E3B;&#x7EBF;&#x7A0B;ID"></a>&#x4E3B;&#x7EBF;&#x7A0B;ID</h2><p>theApp.m_nThreadID</p>
-
         
       </div>
     </div>

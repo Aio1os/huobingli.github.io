@@ -318,6 +318,50 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/04/GoWorkSpace/" >
+  Go 工作区
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/GoWorkSpace/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="go-&#x5DE5;&#x4F5C;&#x533A;"><a href="#GO-&#x5DE5;&#x4F5C;&#x533A;" class="headerlink" title="GO &#x5DE5;&#x4F5C;&#x533A;"></a>GO &#x5DE5;&#x4F5C;&#x533A;</h1><h2 id="gopath"><a href="#GOPATH" class="headerlink" title="GOPATH"></a>GOPATH</h2><p>Go &#x8BED;&#x8A00;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#xFF0C;&#x6BCF;&#x4E2A;&#x76EE;&#x5F55;&#x90FD;&#x4EE3;&#x8868; Go &#x8BED;&#x8A00;&#x7684;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x533A;&#xFF08;workspace&#xFF09;&#x3002;</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/04/GoRange/" >
   Go 键值循环
 </a>
@@ -351,50 +395,6 @@
 <p>&#x5B57;&#x7B26;&#x4E32;<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">&quot;hello world&quot;</span></span><br><span class="line"><span class="keyword">for</span> key, value := <span class="keyword">range</span> str {</span><br><span class="line">	fmt.Printf(<span class="string">&quot;key:%d value:0x%x\n&quot;</span>, key, value)</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <p>map<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>{</span><br><span class="line">    <span class="string">&quot;hello&quot;</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">&quot;world&quot;</span>: <span class="number">200</span>,</span><br><span class="line">}</span><br><span class="line"><span class="keyword">for</span> key, value := <span class="keyword">range</span> m {</span><br><span class="line">    fmt.Println(key, value)</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
 <p>channel<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line"><span class="keyword">go</span> <span class="keyword">func</span>() {</span><br><span class="line">	c &lt;- <span class="number">1</span></span><br><span class="line">	c &lt;- <span class="number">2</span></span><br><span class="line">	c &lt;- <span class="number">3</span></span><br><span class="line">	<span class="built_in">close</span>(c)</span><br><span class="line">}()</span><br><span class="line"><span class="keyword">for</span> v := <span class="keyword">range</span> c {</span><br><span class="line">	fmt.Println(v)</span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/GoTesting/" >
-  Go Testing包
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/GoTesting/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1 id="go-testing&#x5305;"><a href="#Go-Testing&#x5305;" class="headerlink" title="Go Testing&#x5305;"></a>Go Testing&#x5305;</h1><p>Go&#x8BED;&#x8A00;&#x7684; testing &#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x6D4B;&#x8BD5;&#x65B9;&#x5F0F;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x5355;&#x5143;&#xFF08;&#x529F;&#x80FD;&#xFF09;&#x6D4B;&#x8BD5;&#x3001;&#x6027;&#x80FD;&#xFF08;&#x538B;&#x529B;&#xFF09;&#x6D4B;&#x8BD5;&#x548C;&#x8986;&#x76D6;&#x7387;&#x6D4B;&#x8BD5;&#x3002;</p>
 
         
       </div>
@@ -726,6 +726,52 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/04/Gojson/" >
+  Go json解析
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/Gojson/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1 id="json&#x89E3;&#x6790;"><a href="#json&#x89E3;&#x6790;" class="headerlink" title="json&#x89E3;&#x6790;"></a>json&#x89E3;&#x6790;</h1><p>Json(Javascript Object Nanotation)&#x662F;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#xFF0C;&#x5E38;&#x7528;&#x4E8E;&#x524D;&#x540E;&#x7AEF;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;&#x4EFB;&#x610F;&#x4E00;&#x7AEF;&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x6210;json &#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x53E6;&#x4E00;&#x7AEF;&#x518D;&#x5C06;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x6790;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
+<h2 id="jsonmarshal"><a href="#json-Marshal" class="headerlink" title="json.Marshal"></a>json.Marshal</h2><p>&#x5C06;&#x6570;&#x636E;&#x7F16;&#x7801;&#x6210;json&#x5B57;&#x7B26;&#x4E32;</p>
+<h2 id="jsonunmarshal"><a href="#json-Unmarshal" class="headerlink" title="json.Unmarshal"></a>json.Unmarshal</h2><p>&#x5C06;json&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/04/Gocommand/" >
   Go 命令
 </a>
@@ -796,52 +842,6 @@
 </tbody>
 </table>
 <h2 id="go-clean"><a href="#go-clean" class="headerlink" title="go clean"></a>go clean</h2><p>&#x4F1A;&#x6E05;&#x9664;&#x6389;&#x7F16;&#x8BD1;&#x8FC7;&#x7A0B;&#x4E2D;&#x4EA7;&#x751F;&#x7684;&#x4E00;&#x4E9B;&#x6587;&#x4EF6;&#x3002;</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/Gojson/" >
-  Go json解析
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/Gojson/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1 id="json&#x89E3;&#x6790;"><a href="#json&#x89E3;&#x6790;" class="headerlink" title="json&#x89E3;&#x6790;"></a>json&#x89E3;&#x6790;</h1><p>Json(Javascript Object Nanotation)&#x662F;&#x4E00;&#x79CD;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#xFF0C;&#x5E38;&#x7528;&#x4E8E;&#x524D;&#x540E;&#x7AEF;&#x6570;&#x636E;&#x4F20;&#x8F93;&#x3002;&#x4EFB;&#x610F;&#x4E00;&#x7AEF;&#x5C06;&#x6570;&#x636E;&#x8F6C;&#x6362;&#x6210;json &#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x53E6;&#x4E00;&#x7AEF;&#x518D;&#x5C06;&#x8BE5;&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x6790;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
-<h2 id="jsonmarshal"><a href="#json-Marshal" class="headerlink" title="json.Marshal"></a>json.Marshal</h2><p>&#x5C06;&#x6570;&#x636E;&#x7F16;&#x7801;&#x6210;json&#x5B57;&#x7B26;&#x4E32;</p>
-<h2 id="jsonunmarshal"><a href="#json-Unmarshal" class="headerlink" title="json.Unmarshal"></a>json.Unmarshal</h2><p>&#x5C06;json&#x5B57;&#x7B26;&#x4E32;&#x89E3;&#x7801;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;</p>
 
         
       </div>

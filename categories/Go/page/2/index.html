@@ -155,15 +155,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/GoMakeNew/" >
-  Go make和new关键字
+        <a href="/2020/01/04/GoWorkSpace/" >
+  Go 工作区
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/GoMakeNew/"><span class="article-date">
+        <a href="/2020/01/04/GoWorkSpace/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -182,38 +182,7 @@
       </div>
       <div class="article-entry">
         
-          <h1 id="go-new&#x548C;make&#x7684;&#x533A;&#x522B;&#x4E0E;&#x5B9E;&#x73B0;"><a href="#Go-new&#x548C;make&#x7684;&#x533A;&#x522B;&#x4E0E;&#x5B9E;&#x73B0;" class="headerlink" title="Go new&#x548C;make&#x7684;&#x533A;&#x522B;&#x4E0E;&#x5B9E;&#x73B0;"></a>Go new&#x548C;make&#x7684;&#x533A;&#x522B;&#x4E0E;&#x5B9E;&#x73B0;</h1><h2 id="new-&#x7684;&#x5B9E;&#x73B0;"><a href="#new-&#x7684;&#x5B9E;&#x73B0;" class="headerlink" title="new &#x7684;&#x5B9E;&#x73B0;"></a>new &#x7684;&#x5B9E;&#x73B0;</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The new built-in function allocates memory. The first argument is a type,</span></span><br><span class="line"><span class="comment">// not a value, and the value returned is a pointer to a newly</span></span><br><span class="line"><span class="comment">// allocated zero value of that type.</span></span><br><span class="line"><span class="keyword">func</span> <span class="built_in">new</span>(Type) *Type</span><br></pre></td></tr></table></figure>
-<p>new &#x51FD;&#x6570;&#x53EA;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#xFF0C;&#x5E76;&#x4E14;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x8BE5;&#x7C7B;&#x578B;&#x5185;&#x5B58;&#x5730;&#x5740;&#x7684;&#x6307;&#x9488;&#x3002;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x7F6E;&#x4E3A;&#x96F6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x7C7B;&#x578B;&#x7684;&#x96F6;&#x503C;&#x3002;</p>
-<p>&#x4E3A;&#x57FA;&#x7840;&#x7C7B;&#x578B;&#x5206;&#x914D;&#x7A7A;&#x95F4;<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">func</span> main() {</span><br><span class="line">	<span class="keyword">var</span> sum *<span class="keyword">int</span></span><br><span class="line">	sum = <span class="built_in">new</span>(<span class="keyword">int</span>) <span class="comment">//&#x5206;&#x914D;&#x7A7A;&#x95F4;</span></span><br><span class="line">    fmt.Println(*sum) <span class="comment">// &#x8F93;&#x51FA;0 &#x4F1A;&#x9ED8;&#x8BA4;&#x7F6E;&#x96F6;</span></span><br><span class="line">    </span><br><span class="line">	*sum = <span class="number">100</span></span><br><span class="line">	fmt.Println(*sum) <span class="comment">// &#x8F93;&#x51FA;100</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure></p>
-<p>&#x4E3A;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x5206;&#x914D;&#x7A7A;&#x95F4;<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> {</span><br><span class="line">   name <span class="keyword">string</span></span><br><span class="line">   age <span class="keyword">int</span></span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s *Student</span><br><span class="line">s = <span class="built_in">new</span>(Student) <span class="comment">// &#x5206;&#x914D;&#x7A7A;&#x95F4;</span></span><br><span class="line">s.name =<span class="string">&quot;dequan&quot;</span> </span><br><span class="line">fmt.Println(s)   <span class="comment">// &#x8F93;&#x51FA;&amp;{dequan 0}</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="make-&#x7684;&#x5B9E;&#x73B0;"><a href="#make-&#x7684;&#x5B9E;&#x73B0;" class="headerlink" title="make &#x7684;&#x5B9E;&#x73B0;"></a>make &#x7684;&#x5B9E;&#x73B0;</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The make built-in function allocates and initializes an object of type</span></span><br><span class="line"><span class="comment">// slice, map, or chan (only). Like new, the first argument is a type, not a</span></span><br><span class="line"><span class="comment">// value. Unlike new, make&apos;s return type is the same as the type of its</span></span><br><span class="line"><span class="comment">// argument, not a pointer to it. The specification of the result depends on</span></span><br><span class="line"><span class="comment">// the type:</span></span><br><span class="line"><span class="comment">// Slice: The size specifies the length. The capacity of the slice is</span></span><br><span class="line"><span class="comment">// equal to its length. A second integer argument may be provided to</span></span><br><span class="line"><span class="comment">// specify a different capacity; it must be no smaller than the</span></span><br><span class="line"><span class="comment">// length, so make([]int, 0, 10) allocates a slice of length 0 and</span></span><br><span class="line"><span class="comment">// capacity 10.</span></span><br><span class="line"><span class="comment">// Map: An empty map is allocated with enough space to hold the</span></span><br><span class="line"><span class="comment">// specified number of elements. The size may be omitted, in which case</span></span><br><span class="line"><span class="comment">// a small starting size is allocated.</span></span><br><span class="line"><span class="comment">// Channel: The channel&apos;s buffer is initialized with the specified</span></span><br><span class="line"><span class="comment">// buffer capacity. If zero, or the size is omitted, the channel is</span></span><br><span class="line"><span class="comment">// unbuffered.</span></span><br><span class="line"><span class="keyword">func</span> <span class="built_in">make</span>(t Type, size ...IntegerType) Type</span><br></pre></td></tr></table></figure>
-<p>make &#x4E5F;&#x662F;&#x7528;&#x4E8E;&#x5185;&#x5B58;&#x5206;&#x914D;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x548C; new &#x4E0D;&#x540C;&#xFF0C;&#x5B83;&#x53EA;&#x7528;&#x4E8E; chan&#x3001;map &#x4EE5;&#x53CA; slice &#x7684;&#x5185;&#x5B58;&#x521B;&#x5EFA;&#xFF0C;&#x800C;&#x4E14;&#x5B83;&#x8FD4;&#x56DE;&#x7684;&#x7C7B;&#x578B;&#x5C31;&#x662F;&#x8FD9;&#x4E09;&#x4E2A;&#x7C7B;&#x578B;&#x672C;&#x8EAB;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4ED6;&#x4EEC;&#x7684;&#x6307;&#x9488;&#x7C7B;&#x578B;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x5C31;&#x662F;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x8FD4;&#x56DE;&#x4ED6;&#x4EEC;&#x7684;&#x6307;&#x9488;&#x4E86;&#x3002;</p>
-<h2 id="new-&#x548C;-make-&#x533A;&#x522B;"><a href="#new-&#x548C;-make-&#x533A;&#x522B;&#xFF1A;" class="headerlink" title="new &#x548C; make &#x533A;&#x522B;&#xFF1A;"></a>new &#x548C; make &#x533A;&#x522B;&#xFF1A;</h2><table>
-<thead>
-<tr>
-<th>&#x533A;&#x522B;</th>
-<th>new</th>
-<th>make </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&#x53EF;&#x5206;&#x914D;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;</td>
-<td>&#x4EFB;&#x610F;&#x7C7B;&#x578B;</td>
-<td>slice&#x3001;map&#x3001;chan</td>
-</tr>
-<tr>
-<td>&#x8FD4;&#x56DE;&#x503C;</td>
-<td>&#x8FD4;&#x56DE;&#x6307;&#x9488; *Type</td>
-<td>&#x8FD4;&#x56DE;&#x5F15;&#x7528; Type</td>
-</tr>
-<tr>
-<td>&#x521D;&#x59CB;&#x5316;</td>
-<td>&#x6E05;&#x96F6;</td>
-<td>&#x5206;&#x914D;&#x540E;&#x521D;&#x59CB;&#x5316;</td>
-</tr>
-</tbody>
-</table>
+          <h1 id="go-&#x5DE5;&#x4F5C;&#x533A;"><a href="#GO-&#x5DE5;&#x4F5C;&#x533A;" class="headerlink" title="GO &#x5DE5;&#x4F5C;&#x533A;"></a>GO &#x5DE5;&#x4F5C;&#x533A;</h1><h2 id="gopath"><a href="#GOPATH" class="headerlink" title="GOPATH"></a>GOPATH</h2><p>Go &#x8BED;&#x8A00;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;&#xFF0C;&#x5B83;&#x7684;&#x503C;&#x662F;&#x4E00;&#x4E2A;&#x76EE;&#x5F55;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x4E2A;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#xFF0C;&#x6BCF;&#x4E2A;&#x76EE;&#x5F55;&#x90FD;&#x4EE3;&#x8868; Go &#x8BED;&#x8A00;&#x7684;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x533A;&#xFF08;workspace&#xFF09;&#x3002;</p>
 
         
       </div>

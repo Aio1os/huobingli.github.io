@@ -201,6 +201,50 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2019/11/30/MFCMessage/" >
+  MFC 消息
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/11/30/MFCMessage/"><span class="article-date">
+  2019-11-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2 id="mfc-&#x6D88;&#x606F;"><a href="#MFC-&#x6D88;&#x606F;" class="headerlink" title="MFC &#x6D88;&#x606F;"></a>MFC &#x6D88;&#x606F;</h2><h3 id="wm_xxx-&#x6D88;&#x606F;"><a href="#WM-XXX-&#x6D88;&#x606F;" class="headerlink" title="WM_XXX &#x6D88;&#x606F;"></a>WM_XXX &#x6D88;&#x606F;</h3><h3 id="wm_command-&#x547D;&#x4EE4;&#x6D88;&#x606F;"><a href="#WM-COMMAND-&#x547D;&#x4EE4;&#x6D88;&#x606F;" class="headerlink" title="WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;"></a>WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;</h3><h2 id="notification&#x6D88;&#x606F;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"><a href="#Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;" class="headerlink" title="Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"></a>Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;</h2><h2 id="&#x4E3B;&#x7EBF;&#x7A0B;id"><a href="#&#x4E3B;&#x7EBF;&#x7A0B;ID" class="headerlink" title="&#x4E3B;&#x7EBF;&#x7A0B;ID"></a>&#x4E3B;&#x7EBF;&#x7A0B;ID</h2><p>theApp.m_nThreadID</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2019/11/30/MFCBegin/" >
   MFC start
 </a>
@@ -262,50 +306,6 @@
 <h4 id="cview-demo"><a href="#CView-demo" class="headerlink" title="CView demo"></a>CView demo</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5728;&#x5934;&#x6587;&#x4EF6;&#x4E2D; </span></span><br><span class="line"><span class="keyword">class</span> CView::<span class="keyword">public</span> CWnd</span><br><span class="line">{</span><br><span class="line">    DECLARE_DYNAMIC(CView)</span><br><span class="line">    ...</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5728;&#x6E90;&#x6587;&#x4EF6;&#x4E2D;</span></span><br><span class="line">IMPLEMENT_DYNCREATE(CView, CWnd)</span><br></pre></td></tr></table></figure>
 <p>&#x5B8F;&#x8FDB;&#x884C;&#x5C55;&#x5F00;&#x5F97;&#x5230;&#x5982;&#x4E0B;<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5934;&#x6587;&#x4EF6;&#x4E2D;</span></span><br><span class="line"><span class="keyword">class</span> CView : <span class="keyword">public</span> CWnd</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">static</span> CRuntimeClass classCView;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> CRuntimeClass* <span class="title">GetRuntimeClass</span><span class="params">()</span> <span class="keyword">const</span></span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">/// &#x6E90;&#x6587;&#x4EF6;&#x4E2D;</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">char</span> _lpszCView[] = <span class="string">&quot;CView&quot;</span>;</span><br><span class="line">CRuntimeClass CView::classCView = {</span><br><span class="line">    _lpszCView, <span class="keyword">sizeof</span>(CView), <span class="number">0xFFFF</span>, <span class="literal">NULL</span>&#xFF0C;</span><br><span class="line">        &amp;CWnd::classCWnd, <span class="literal">NULL</span>};</span><br><span class="line"></span><br><span class="line"><span class="keyword">static</span> AFX_CLASSINIT _init_CView(&amp;CView::classCView);</span><br><span class="line">CRuntimeClass* CView::GetRuntimeClass() <span class="keyword">const</span></span><br><span class="line">    { <span class="keyword">return</span> &amp;CView::classView; }</span><br></pre></td></tr></table></figure></p>
 <h3 id="&#x7C7B;&#x578B;&#x8BC6;&#x522B;-iskindof"><a href="#&#x7C7B;&#x578B;&#x8BC6;&#x522B;-IsKindOf" class="headerlink" title="&#x7C7B;&#x578B;&#x8BC6;&#x522B; (IsKindOf)"></a>&#x7C7B;&#x578B;&#x8BC6;&#x522B; (IsKindOf)</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &#x5934;&#x6587;&#x4EF6;</span></span><br><span class="line"><span class="keyword">class</span> CObject</span><br><span class="line">{</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="function">BOOL <span class="title">IsKindOf</span><span class="params">(<span class="keyword">const</span> CRuntimeClass* pClass)</span> <span class="keyword">const</span></span>;</span><br><span class="line">};</span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x6E90;&#x6587;&#x4EF6;</span></span><br><span class="line">BOOL CObject::IsKindOf(<span class="keyword">const</span> CRuntimeClass* pClass) <span class="keyword">const</span></span><br><span class="line">{</span><br><span class="line">    CRuntimeClass* pClassThis = GetRunTimeClass();</span><br><span class="line">    <span class="keyword">while</span> (pClassThis != <span class="literal">NULL</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (pClassThis == pClass)</span><br><span class="line">            <span class="keyword">return</span> TRUE;</span><br><span class="line">        </span><br><span class="line">        pClassThis = pClass-&gt;m_pBaseClass; <span class="comment">//  &#x5411;&#x4E0A;&#x627E;</span></span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> FALSE;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/11/30/MFCMessage/" >
-  MFC 消息
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/11/30/MFCMessage/"><span class="article-date">
-  2019-11-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2 id="mfc-&#x6D88;&#x606F;"><a href="#MFC-&#x6D88;&#x606F;" class="headerlink" title="MFC &#x6D88;&#x606F;"></a>MFC &#x6D88;&#x606F;</h2><h3 id="wm_xxx-&#x6D88;&#x606F;"><a href="#WM-XXX-&#x6D88;&#x606F;" class="headerlink" title="WM_XXX &#x6D88;&#x606F;"></a>WM_XXX &#x6D88;&#x606F;</h3><h3 id="wm_command-&#x547D;&#x4EE4;&#x6D88;&#x606F;"><a href="#WM-COMMAND-&#x547D;&#x4EE4;&#x6D88;&#x606F;" class="headerlink" title="WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;"></a>WM_COMMAND &#x547D;&#x4EE4;&#x6D88;&#x606F;</h3><h2 id="notification&#x6D88;&#x606F;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"><a href="#Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;" class="headerlink" title="Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;"></a>Notification&#x6D88;&#x606F;&#xFF0C;&#x63A7;&#x4EF6;&#x6D88;&#x606F;</h2><h2 id="&#x4E3B;&#x7EBF;&#x7A0B;id"><a href="#&#x4E3B;&#x7EBF;&#x7A0B;ID" class="headerlink" title="&#x4E3B;&#x7EBF;&#x7A0B;ID"></a>&#x4E3B;&#x7EBF;&#x7A0B;ID</h2><p>theApp.m_nThreadID</p>
 
         
       </div>

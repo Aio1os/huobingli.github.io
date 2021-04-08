@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -13,11 +13,13 @@
 </title>
 
 <meta name="description" content="C++">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="new和malloc的区别">
 <meta property="og:url" content="http://yoursite.com/2020/01/03/new&malloc/index.html">
 <meta property="og:site_name" content="Invoker">
 <meta property="og:description" content="C++">
+<meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/cplusplus_new.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/vcruntime_new.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/realloc.png">
@@ -41,11 +43,7 @@
 
 
 </head>
-<body
-  
-    class="monochrome"
-  
-  >
+<body class="monochrome">
   <div class="mobile-header">
   <button class="sidebar-toggle" type="button">
     <span class="icon-bar"></span>
@@ -74,9 +72,9 @@
       
     </div>
   </div>
-  <!-- <div class="clock">
-    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
-  </div> -->
+  <div class="clock">
+    <!-- <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> -->
+  </div>
 
   <div class="body">
     
@@ -86,21 +84,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Boost/">Boost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CENTOS/">CENTOS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JAVA/">JAVA</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MFC/">MFC</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/boost/">boost</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/memory/">memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell-program/">shell program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wait/">wait</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学/">学</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/性能优化/">性能优化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络协议/">网络协议</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载の/">转载の</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维管理/">运维管理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/进程间通讯/">进程间通讯</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题记录/">问题记录</a><span class="category-list-count">2</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Boost/">Boost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CENTOS/">CENTOS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI-CD/">CI/CD</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JAVA/">JAVA</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MFC/">MFC</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/boost/">boost</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/memory/">memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell-program/">shell program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wait/">wait</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学/">学</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/微服务/">微服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/性能优化/">性能优化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络协议/">网络协议</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载の/">转载の</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维管理/">运维管理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/进程间通讯/">进程间通讯</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题记录/">问题记录</a><span class="category-list-count">2</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boost/">Boost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CENTOS/">CENTOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mylsam/">Mylsam</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boost/">boost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/program/">program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-program/">shell program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wait/">wait</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学/">学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络协议/">网络协议</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载の/">转载の</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维管理/">运维管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进程间通讯/">进程间通讯</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a><span class="tag-list-count">2</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boost/">Boost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CENTOS/">CENTOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI-CD/">CI/CD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mylsam/">Mylsam</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boost/">boost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/program/">program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-program/">shell program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wait/">wait</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学/">学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务/">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络协议/">网络协议</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载の/">转载の</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维管理/">运维管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进程间通讯/">进程间通讯</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a><span class="tag-list-count">2</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2030/">2030</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">80</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">50</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2030/">2030</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">82</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">50</span></li></ul>
               </li>
             
           
@@ -111,13 +109,13 @@
           
             
               <li>
-                <a href="https://github.com/huobingli" title="Github" target="_blank" rel="external">Github</a>
+                <a href="https://github.com/huobingli" title="Github" target="_blank" rel="noopener">Github</a>
               </li>
             
           
             
               <li>
-                <a href="https://FaceBook.com/bingli.huo" title="FaceBook" target="_blank" rel="external">FaceBook</a>
+                <a href="https://FaceBook.com/bingli.huo" title="FaceBook" target="_blank" rel="noopener">FaceBook</a>
               </li>
             
           
@@ -177,10 +175,10 @@
 
   </div>
   <div class="article-entry">
-      <h1 id="new-&#x548C;-malloc&#x7684;&#x533A;&#x522B;"><a href="#new-&#x548C;-malloc&#x7684;&#x533A;&#x522B;" class="headerlink" title="new &#x548C; malloc&#x7684;&#x533A;&#x522B;"></a>new &#x548C; malloc&#x7684;&#x533A;&#x522B;</h1><table>
+      <h1><span id="new-和-malloc的区别">new 和 malloc的区别</span></h1><table>
 <thead>
 <tr>
-<th>&#x533A;&#x522B;</th>
+<th>区别</th>
 <th>new</th>
 <th>malloc </th>
 </tr>
@@ -188,78 +186,78 @@
 <tbody>
 <tr>
 <td>-</td>
-<td>&#x8FD0;&#x7B97;&#x7B26;</td>
-<td>&#x5E93;&#x51FD;&#x6570; </td>
+<td>运算符</td>
+<td>库函数 </td>
 </tr>
 <tr>
-<td>&#x5185;&#x5B58;&#x7533;&#x8BF7;&#x4F4D;&#x7F6E;</td>
-<td>&#x81EA;&#x7531;&#x5B58;&#x50A8;&#x533A;&#x52A8;&#x6001;&#x5206;&#x914D;(&#x5305;&#x62EC;&#x5806;)</td>
-<td>&#x5806;&#x4E0A;&#x52A8;&#x6001;&#x5206;&#x914D;&#x5185;&#x5B58;</td>
+<td>内存申请位置</td>
+<td>自由存储区动态分配(包括堆)</td>
+<td>堆上动态分配内存</td>
 <td></td>
 </tr>
 <tr>
-<td>&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x6027;</td>
-<td>&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x7C7B;&#x578B;&#x7684;&#x6307;&#x9488;(&#x7C7B;&#x578B;&#x5B89;&#x5168;)</td>
-<td>void*(&#x9700;&#x8981;&#x901A;&#x8FC7;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x6210;&#x5BF9;&#x5E94;&#x7C7B;&#x578B;) d</td>
+<td>返回类型安全性</td>
+<td>返回对象类型的指针(类型安全)</td>
+<td>void*(需要通过类型转换成对应类型) d</td>
 </tr>
 <tr>
-<td>&#x5206;&#x914D;&#x5931;&#x8D25;&#x8FD4;&#x56DE;&#x503C;</td>
-<td>&#x629B;&#x51FA;bad_alloc&#x5F02;&#x5E38;</td>
-<td>&#x8FD4;&#x56DE;NULL</td>
+<td>分配失败返回值</td>
+<td>抛出bad_alloc异常</td>
+<td>返回NULL</td>
 </tr>
 <tr>
-<td>&#x6307;&#x5B9A;&#x5185;&#x5B58;&#x5927;&#x5C0F;</td>
-<td>&#x4E0D;&#x9700;&#x8981;</td>
-<td>&#x9700;&#x8981;</td>
+<td>指定内存大小</td>
+<td>不需要</td>
+<td>需要</td>
 </tr>
 <tr>
-<td>&#x8C03;&#x7528;&#x6784;&#x9020;&#x548C;&#x6790;&#x6784;</td>
-<td>&#x8C03;&#x7528;, &#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;</td>
-<td>&#x4E0D;&#x8C03;&#x7528;, &#x4E0D;&#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;</td>
+<td>调用构造和析构</td>
+<td>调用, 初始化变量</td>
+<td>不调用, 不初始化变量</td>
 </tr>
 <tr>
-<td>&#x5904;&#x7406;&#x6570;&#x7EC4;</td>
+<td>处理数组</td>
 <td>int* a = new int[10]</td>
 <td>int<em> a = (int</em>)malloc(sizeof(int) * 10);</td>
 </tr>
 <tr>
-<td>&#x5DF2;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7684;&#x6269;&#x5145;</td>
-<td>&#x65E0;&#x6CD5;&#x76F4;&#x63A5;&#x5206;&#x914D;</td>
-<td>&#x8C03;&#x7528;realloc<u><b>&#x91CD;&#x65B0;&#x5206;&#x914D;</b></u>&#x5185;&#x5B58;, &#x9700;&#x8981;&#x5224;&#x65AD;&#x662F;&#x5426;&#x8FD8;&#x6709;&#x8FDE;&#x7EED;&#x5185;&#x5B58;</td>
+<td>已分配内存的扩充</td>
+<td>无法直接分配</td>
+<td>调用realloc<u><b>重新分配</b></u>内存, 需要判断是否还有连续内存</td>
 </tr>
 <tr>
-<td>&#x51FD;&#x6570;&#x91CD;&#x8F7D;</td>
-<td>&#x53EF;&#x4EE5;</td>
-<td>&#x4E0D;&#x53EF;&#x4EE5;</td>
+<td>函数重载</td>
+<td>可以</td>
+<td>不可以</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li><p>&#x5185;&#x5B58;&#x7533;&#x8BF7;&#x4F4D;&#x7F6E;<br>new&#x7533;&#x8BF7;&#x7684;&#x5185;&#x5B58;&#x4F4D;&#x7F6E;&#x53D6;&#x51B3;&#x4E8E;operate new</p>
+<li><p>内存申请位置<br>new申请的内存位置取决于operate new</p>
 </li>
-<li><p>&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x6027; </p>
-<p>  new &#x8FD4;&#x56DE;&#x7684;&#x662F;&#x5BF9;&#x5E94;&#x7C7B;&#x578B;&#x6307;&#x9488;, &#x7C7B;&#x578B;&#x4E25;&#x683C;&#x4E0E;&#x5BF9;&#x8C61;&#x5339;&#x914D;, &#x65E0;&#x987B;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x8F6C;&#x6362; </p>
-<p>  malloc&#x5185;&#x5B58;&#x5206;&#x914D;&#x6210;&#x529F;&#x5219;&#x662F;&#x8FD4;&#x56DE;void*, &#x9700;&#x8981;&#x901A;&#x8FC7;&#x7C7B;&#x578B;&#x8F6C;&#x6362;&#x6210;&#x5BF9;&#x5E94;&#x7C7B;&#x578B;  </p>
-<p>  &#x7C7B;&#x578B;&#x5B89;&#x5168;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x53EF;&#x4EE5;&#x7B49;&#x4EF7;&#x4E8E;&#x5185;&#x5B58;&#x5B89;&#x5168;, &#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x4F1A;&#x8BD5;&#x56FE;&#x65B9;&#x6CD5;&#x81EA;&#x5DF1;&#x6CA1;&#x88AB;&#x6388;&#x6743;&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;</p>
+<li><p>返回类型安全性 </p>
+<p>  new 返回的是对应类型指针, 类型严格与对象匹配, 无须进行类型转换 </p>
+<p>  malloc内存分配成功则是返回void*, 需要通过类型转换成对应类型  </p>
+<p>  类型安全很大程度上可以等价于内存安全, 类型安全的代码不会试图方法自己没被授权的内存区域</p>
 </li>
-<li><p>&#x5206;&#x914D;&#x5931;&#x8D25;&#x8FD4;&#x56DE;&#x503C;</p>
-<p>  new &#x4F1A;&#x629B;&#x51FA;bad_alloc&#x5F02;&#x5E38;, malloc &#x5219;&#x4F1A;&#x8FD4;&#x56DE;NULL;</p>
+<li><p>分配失败返回值</p>
+<p>  new 会抛出bad_alloc异常, malloc 则会返回NULL;</p>
 </li>
-<li><p>&#x6307;&#x5B9A;&#x5185;&#x5B58;&#x5927;&#x5C0F;</p>
-<p>  new&#x7684;&#x5BF9;&#x8C61;&#x6216;&#x8005;&#x6570;&#x7EC4;&#x7684;&#x5185;&#x5B58;&#x5927;&#x5C0F;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x81EA;&#x884C;&#x8BA1;&#x7B97;&#x5F97;&#x5230;, malloc &#x9700;&#x8981;&#x4F20;&#x5165;&#x9700;&#x8981;&#x5206;&#x914D;&#x7A7A;&#x95F4;&#x7684;&#x5927;&#x5C0F;</p>
+<li><p>指定内存大小</p>
+<p>  new的对象或者数组的内存大小编译器会自行计算得到, malloc 需要传入需要分配空间的大小</p>
 </li>
-<li><p>&#x8C03;&#x7528;&#x6784;&#x9020;&#x548C;&#x6790;&#x6784;</p>
-<p>  &#x6784;&#x9020;(new) 1&#x3001;&#x5148;&#x5206;&#x914D;&#x5185;&#x5B58;, 2&#x3001;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;, &#x5BF9;&#x8C61;&#x521D;&#x59CB;&#x5316;<br>  &#x6790;&#x6784;(delete) 1&#x3001;&#x8C03;&#x7528;&#x6790;&#x6784;&#x51FD;&#x6570;, 2&#x3001;&#x91CA;&#x653E;&#x5185;&#x5B58;</p>
-<p>  &#x5E76;&#x4E0D;&#x662F;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;, &#x5BF9;&#x4E8E;&#x7B80;&#x5355;&#x7C7B;&#x578B;(&#x5982;int)</p>
+<li><p>调用构造和析构</p>
+<p>  构造(new) 1、先分配内存, 2、调用构造函数, 对象初始化<br>  析构(delete) 1、调用析构函数, 2、释放内存</p>
+<p>  并不是都会调用构造函数, 对于简单类型(如int)</p>
 </li>
-<li><p>&#x5904;&#x7406;&#x6570;&#x7EC4; / &#x51FD;&#x6570;&#x91CD;&#x8F7D;</p>
-<p>  new &#x652F;&#x6301;&#x6570;&#x7EC4;&#x7684;&#x5904;&#x7406;<br>  <img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/cplusplus_new.png" alt=""><br>  <img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/vcruntime_new.png" alt=""></p>
+<li><p>处理数组 / 函数重载</p>
+<p>  new 支持数组的处理<br>  <img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/cplusplus_new.png" alt><br>  <img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/vcruntime_new.png" alt></p>
 </li>
-<li><p>&#x5DF2;&#x5206;&#x914D;&#x5185;&#x5B58;&#x7684;&#x6269;&#x5145;</p>
-<p>  realloc &#x91CD;&#x65B0;&#x5206;&#x914D;&#x9700;&#x8981;&#x7684;&#x5185;&#x5B58;<br>  <img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/realloc.png" alt=""></p>
+<li><p>已分配内存的扩充</p>
+<p>  realloc 重新分配需要的内存<br>  <img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/realloc.png" alt></p>
 </li>
 </ul>
-<h2 id="&#x4E3A;&#x5565;&#x6709;&#x4E86;mallocfree-&#x8FD8;&#x8981;newdelete"><a href="#&#x4E3A;&#x5565;&#x6709;&#x4E86;malloc-free-&#x8FD8;&#x8981;new-delete" class="headerlink" title="&#x4E3A;&#x5565;&#x6709;&#x4E86;malloc/free &#x8FD8;&#x8981;new/delete ?"></a>&#x4E3A;&#x5565;&#x6709;&#x4E86;malloc/free &#x8FD8;&#x8981;new/delete ?</h2><p>&#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;malloc &#x53EA;&#x80FD;&#x52A8;&#x6001;&#x5206;&#x914D;&#x5185;&#x5B58;&#xFF0C;&#x672A;&#x5BF9;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;new&#x5206;&#x914D;&#x5185;&#x5B58;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5728;delete&#x4E2D;&#x9500;&#x6BC1;&#x5E76;&#x91CA;&#x653E;&#x5185;&#x5B58;&#x3002;</p>
+<h2><span id="为啥有了mallocfree-还要newdelete">为啥有了malloc/free 还要new/delete ?</span></h2><p>对于复杂的数据类型，malloc 只能动态分配内存，未对分配的内存进行初始化，new分配内存并初始化复杂的数据类型，在delete中销毁并释放内存。</p>
 
   </div>
   <footer class="article-footer">
@@ -293,7 +291,7 @@
 
           <div class="main-footer">
   
-    © 2021 Invoker - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    © 2021 Invoker - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a> - Plugin <a href="https://github.com/xiazeyu/live2d-widget.js" target="_blank">xiazeyu</a>
   
 </div>
 
@@ -485,5 +483,5 @@
 </script>
 
 <!-- mod end by huobingli  -->
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":500},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

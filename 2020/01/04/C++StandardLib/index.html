@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
   <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -13,11 +13,13 @@
 </title>
 
 <meta name="description" content="C++">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++ 标准库算法整理">
 <meta property="og:url" content="http://yoursite.com/2020/01/04/C++StandardLib/index.html">
 <meta property="og:site_name" content="Invoker">
 <meta property="og:description" content="C++">
+<meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2020-02-27T07:09:49.558Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++ 标准库算法整理">
@@ -37,11 +39,7 @@
 
 
 </head>
-<body
-  
-    class="monochrome"
-  
-  >
+<body class="monochrome">
   <div class="mobile-header">
   <button class="sidebar-toggle" type="button">
     <span class="icon-bar"></span>
@@ -70,9 +68,9 @@
       
     </div>
   </div>
-  <!-- <div class="clock">
-    <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script>
-  </div> -->
+  <div class="clock">
+    <!-- <script charset="Shift_JIS" src="http://chabudai.sakura.ne.jp/blogparts/honehoneclock/honehone_clock_tr.js"></script> -->
+  </div>
 
   <div class="body">
     
@@ -82,21 +80,21 @@
             
               <li class="category-list-container">
                 <a href="javascript:;">Category</a>
-                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Boost/">Boost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CENTOS/">CENTOS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">11</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JAVA/">JAVA</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MFC/">MFC</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/boost/">boost</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/memory/">memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell-program/">shell program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wait/">wait</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学/">学</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/性能优化/">性能优化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络协议/">网络协议</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载の/">转载の</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维管理/">运维管理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/进程间通讯/">进程间通讯</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题记录/">问题记录</a><span class="category-list-count">2</span></li></ul>
+                <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Boost/">Boost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/C/">C++</a><span class="category-list-count">32</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CENTOS/">CENTOS</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/CI-CD/">CI/CD</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/File-Management/">File Management</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Go/">Go</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Interview/">Interview</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JAVA/">JAVA</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/MFC/">MFC</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NoSQL/">NoSQL</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node/">Node</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Note/">Note</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Oracle/">Oracle</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Redis/">Redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Socket编程/">Socket编程</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/boost/">boost</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/github-issue/">github issue</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/linux/">linux</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/memory/">memory</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/nginx/">nginx</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/program/">program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/shell-program/">shell program</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wait/">wait</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/多线程/">多线程</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/学/">学</a><span class="category-list-count">9</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/微服务/">微服务</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/性能优化/">性能优化</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/爬虫/">爬虫</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/算法/">算法</a><span class="category-list-count">12</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/网络协议/">网络协议</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/计算机网络/">计算机网络</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/转载の/">转载の</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/运维管理/">运维管理</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/进程间通讯/">进程间通讯</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/问题记录/">问题记录</a><span class="category-list-count">2</span></li></ul>
               </li>
             
           
             
               <li class="tag-list-container">
                 <a href="javascript:;">Tag</a>
-                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boost/">Boost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CENTOS/">CENTOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mylsam/">Mylsam</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boost/">boost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/program/">program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-program/">shell program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wait/">wait</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学/">学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络协议/">网络协议</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载の/">转载の</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维管理/">运维管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进程间通讯/">进程间通讯</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a><span class="tag-list-count">2</span></li></ul>
+                <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Boost/">Boost</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C++</a><span class="tag-list-count">32</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CENTOS/">CENTOS</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CI-CD/">CI/CD</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/File-Management/">File Management</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Go/">Go</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Interview/">Interview</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVA/">JAVA</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MFC/">MFC</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mylsam/">Mylsam</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NoSQL/">NoSQL</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node/">Node</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Note/">Note</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Oracle-Database/">Oracle Database</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Redis/">Redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SDNote/">SDNote</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-TCP-IP/">Socket TCP/IP</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Socket-Epoll/">Socket_Epoll</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/boost/">boost</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/docker/">docker</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/github-issue/">github issue</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memory/">memory</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/nginx/">nginx</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/program/">program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/">python</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shell-program/">shell program</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wait/">wait</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学/">学</a><span class="tag-list-count">9</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/微服务/">微服务</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/性能优化/">性能优化</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据库/">数据库</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/服务器/">服务器</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/算法/">算法</a><span class="tag-list-count">12</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络协议/">网络协议</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/计算机网络/">计算机网络</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/转载の/">转载の</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/运维管理/">运维管理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/进程间通讯/">进程间通讯</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/问题记录/">问题记录</a><span class="tag-list-count">2</span></li></ul>
               </li>
             
           
             
               <li class="archive-list-container">
                 <a href="javascript:;">Archive</a>
-                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2030/">2030</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">80</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">50</span></li></ul>
+                <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2030/">2030</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/">2024</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/">2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/">2020</a><span class="archive-list-count">82</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/">2019</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/">2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/">2017</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/">2016</a><span class="archive-list-count">50</span></li></ul>
               </li>
             
           
@@ -107,13 +105,13 @@
           
             
               <li>
-                <a href="https://github.com/huobingli" title="Github" target="_blank" rel="external">Github</a>
+                <a href="https://github.com/huobingli" title="Github" target="_blank" rel="noopener">Github</a>
               </li>
             
           
             
               <li>
-                <a href="https://FaceBook.com/bingli.huo" title="FaceBook" target="_blank" rel="external">FaceBook</a>
+                <a href="https://FaceBook.com/bingli.huo" title="FaceBook" target="_blank" rel="noopener">FaceBook</a>
               </li>
             
           
@@ -173,53 +171,53 @@
 
   </div>
   <div class="article-entry">
-      <h2 id="c-&#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;"><a href="#C-&#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;" class="headerlink" title="C++ &#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;"></a>C++ &#x6807;&#x51C6;&#x5E93;&#x7B97;&#x6CD5;&#x6574;&#x7406;</h2><h3 id="&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;"><a href="#&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;" class="headerlink" title="&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;"></a>&#x67E5;&#x627E;&#x5BF9;&#x8C61;&#x7B97;&#x6CD5;</h3><h4 id="1-&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;"><a href="#1&#x3001;&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;" class="headerlink" title="1&#x3001;&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;"></a>1&#x3001;&#x7B80;&#x5355;&#x67E5;&#x627E;&#x7B97;&#x6CD5;</h4><table>
+      <h2><span id="c-标准库算法整理">C++ 标准库算法整理</span></h2><h3><span id="查找对象算法">查找对象算法</span></h3><h4><span id="1-简单查找算法">1、简单查找算法</span></h4><table>
 <thead>
 <tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x7528;&#x6CD5;</th>
+<th>函数</th>
+<th>用法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>find(beg, end, val)</td>
-<td>&#x67E5;&#x627E;&#x7279;&#x5B9A;&#x5143;&#x7D20;&#xFF0C;&#x8FD4;&#x56DE;&#x5F15;&#x7528;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x5143;&#x7D20;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#xFF0C;&#x4E0D;&#x5B58;&#x5728;&#x8FD4;&#x56DE;end</td>
+<td>查找特定元素，返回引用第一个匹配元素的迭代器，不存在返回end</td>
 </tr>
 <tr>
 <td>count(beg, end, val)</td>
-<td>&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x51FA;&#x73B0;&#x6B21;&#x6570;</td>
+<td>返回元素出现次数</td>
 </tr>
 <tr>
 <td>find_if(beg, end, unaryPred)</td>
-<td>&#x5728;beg&#x5230;end&#x4E2D;&#x627E;&#x6EE1;&#x8DB3;unaryPred(&#x53C2;&#x6570;)&#x4E3A;&#x771F;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</td>
+<td>在beg到end中找满足unaryPred(参数)为真的第一个元素</td>
 </tr>
 <tr>
 <td>count_if(beg, end, unaryPred)</td>
-<td>&#x5728;beg&#x5230;end&#x4E2D;&#x627E;&#x6EE1;&#x8DB3;unaryPred(&#x53C2;&#x6570;)&#x4E3A;&#x771F;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x4E2A;&#x6570;</td>
+<td>在beg到end中找满足unaryPred(参数)为真的所有元素个数</td>
 </tr>
 </tbody>
 </table>
-<p>unaryPred &#x4E3A;&#x51FD;&#x6570;&#x9002;&#x914D;&#x5668;&#xFF0C;</p>
-<h4 id="2-&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;"><a href="#2&#x3001;&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;" class="headerlink" title="2&#x3001;&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;"></a>2&#x3001;&#x67E5;&#x627E;&#x8BB8;&#x591A;&#x503C;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x7B97;&#x6CD5;</h4><p>&#x8981;&#x6C42;beg1 end1&#x548C; beg2 end2 &#x7684;&#x7C7B;&#x578B;&#x5B8C;&#x5168;&#x5339;&#x914D;&#xFF0C;&#x4E0D;&#x8981;&#x6C42;beg1 &#x548C;beg2&#x7C7B;&#x578B;&#x5B8C;&#x5168;&#x5339;&#x914D;</p>
+<p>unaryPred 为函数适配器，</p>
+<h4><span id="2-查找许多值中的一个算法">2、查找许多值中的一个算法</span></h4><p>要求beg1 end1和 beg2 end2 的类型完全匹配，不要求beg1 和beg2类型完全匹配</p>
 <table>
 <thead>
 <tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x7528;&#x6CD5;</th>
+<th>函数</th>
+<th>用法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>find_first_of(beg1, end1, beg2, end2)</td>
-<td>&#x5728;(beg1,end1)&#x4E2D;&#x627E;(beg2,end2)&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x5143;&#x7D20;&#xFF0C;&#x672A;&#x627E;&#x5230;&#x8FD4;&#x56DE;end1</td>
+<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
 </tr>
 <tr>
 <td>find_first_of(beg1, end1, beg2, end2, binaryPred)</td>
-<td>&#x5728;(beg1,end1)&#x4E2D;&#x627E;(beg2,end2)&#x4E2D;&#x7684;&#x4EFB;&#x610F;&#x5143;&#x7D20;&#xFF0C;&#x672A;&#x627E;&#x5230;&#x8FD4;&#x56DE;end1</td>
+<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
 </tr>
 <tr>
 <td>find_end(beg1, end1, beg2, end2)</td>
-<td>&#x5728;(beg1,end1)&#x4E2D;&#x67E5;&#x627E;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x548C;(beg2,end2)&#x4E2D;&#x5339;&#x914D;&#x7684;&#x5339;&#x914D;&#x9879;</td>
+<td>在(beg1,end1)中查找最后一个和(beg2,end2)中匹配的匹配项</td>
 </tr>
 <tr>
 <td>find_end(beg1, end1, beg2, end2, binaryPred)</td>
@@ -227,45 +225,45 @@
 </tr>
 </tbody>
 </table>
-<h4 id="3-&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;"><a href="#3&#x3001;&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;" class="headerlink" title="3&#x3001;&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;"></a>3&#x3001;&#x67E5;&#x627E;&#x5B50;&#x5E8F;&#x5217;&#x7684;&#x7B97;&#x6CD5;</h4><table>
+<h4><span id="3-查找子序列的算法">3、查找子序列的算法</span></h4><table>
 <thead>
 <tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x7528;&#x6CD5;</th>
+<th>函数</th>
+<th>用法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>adjacent_find(beg, end)</td>
-<td>&#x641C;&#x7D22;&#x5E8F;&#x5217;&#x4E2D;&#x4E24;&#x4E2A;&#x8FDE;&#x7EED;&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;</td>
+<td>搜索序列中两个连续相等的元素</td>
 </tr>
 <tr>
 <td>adjacent_find(beg, end, binaryPred)</td>
-<td>&#x641C;&#x7D22;&#x5E8F;&#x5217;&#x4E2D;&#x4E24;&#x4E2A;&#x8FDE;&#x7EED;&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;</td>
+<td>搜索序列中两个连续相等的元素，满足binaryPred条件</td>
 </tr>
 <tr>
 <td>search(beg1, end1, beg2, end2)</td>
-<td>&#x627E;&#x7B2C;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x4E2D;&#x7B2C;&#x4E8C;&#x4E2A;&#x5B50;&#x5E8F;&#x5217;</td>
+<td>找第一个序列中第二个子序列</td>
 </tr>
 <tr>
 <td>search(beg1, end1, beg2, end2, binaryPred)</td>
-<td>&#x627E;&#x7B2C;&#x4E00;&#x4E2A;&#x5E8F;&#x5217;&#x4E2D;&#x7B2C;&#x4E8C;&#x4E2A;&#x5B50;&#x5E8F;&#x5217;, &#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;</td>
+<td>找第一个序列中第二个子序列, 满足binaryPred条件</td>
 </tr>
 <tr>
 <td>search_n(beg, end, count, val)</td>
-<td>&#x627E;&#x5E8F;&#x5217;&#x4E2D;&#x627E;&#x7ED9;&#x5B9A;val&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x9879;</td>
+<td>找序列中找给定val的出现次数，返回第一个匹配项</td>
 </tr>
 <tr>
 <td>search_n(beg, end, count, val, binaryPred)</td>
-<td>&#x627E;&#x5E8F;&#x5217;&#x4E2D;&#x627E;&#x7ED9;&#x5B9A;val&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x9879;, &#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;</td>
+<td>找序列中找给定val的出现次数，返回第一个匹配项, 满足binaryPred条件</td>
 </tr>
 </tbody>
 </table>
-<h3 id="&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;"><a href="#&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;"></a>&#x5176;&#x4ED6;&#x53EA;&#x8BFB;&#x7B97;&#x6CD5;</h3><table>
+<h3><span id="其他只读算法">其他只读算法</span></h3><table>
 <thead>
 <tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x7528;&#x6CD5;</th>
+<th>函数</th>
+<th>用法</th>
 </tr>
 </thead>
 <tbody>
@@ -275,122 +273,122 @@
 </tr>
 <tr>
 <td>mismatch(beg1, end1, beg2)</td>
-<td>&#x8FD4;&#x56DE;&#x4E0D;&#x5339;&#x914D;&#x7684;&#x8FED;&#x4EE3;&#x5668; &#x5168;&#x90E8;&#x5339;&#x914D;&#x8FD4;&#x56DE;end1</td>
+<td>返回不匹配的迭代器 全部匹配返回end1</td>
 </tr>
 <tr>
 <td>mismatch(beg1, end1, beg2, binaryPred)</td>
-<td>&#x8FD4;&#x56DE;&#x4E0D;&#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;&#x7684;&#x8FED;&#x4EE3;&#x5668; &#x5168;&#x90E8;&#x5339;&#x914D;&#x8FD4;&#x56DE;end1</td>
+<td>返回不满足binaryPred条件的迭代器 全部匹配返回end1</td>
 </tr>
 <tr>
 <td>equal(beg1, end1, beg2)</td>
-<td>&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF0C;&#x76F8;&#x7B49;&#x8FD4;&#x56DE;true</td>
+<td>判断两个序列是否相等，相等返回true</td>
 </tr>
 <tr>
 <td>equal(beg1, end1, beg2, binaryPred)</td>
-<td>&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x5E8F;&#x5217;&#x662F;&#x5426;&#x6EE1;&#x8DB3;binaryPred&#x6761;&#x4EF6;&#xFF0C;&#x76F8;&#x7B49;&#x8FD4;&#x56DE;true</td>
+<td>判断两个序列是否满足binaryPred条件，相等返回true</td>
 </tr>
 </tbody>
 </table>
-<h3 id="&#x4E8C;&#x5206;&#x67E5;&#x627E;"><a href="#&#x4E8C;&#x5206;&#x67E5;&#x627E;" class="headerlink" title="&#x4E8C;&#x5206;&#x67E5;&#x627E;"></a>&#x4E8C;&#x5206;&#x67E5;&#x627E;</h3><p>&#x5E8F;&#x5217;&#x6709;&#x5E8F;</p>
+<h3><span id="二分查找">二分查找</span></h3><p>序列有序</p>
 <table>
 <thead>
 <tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x7528;&#x6CD5;</th>
+<th>函数</th>
+<th>用法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>lower_bound(beg, end, val)</td>
-<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x4E0D;&#x5C0F;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</td>
+<td>在(beg,end)中查找不小于val的第一个元素</td>
 </tr>
 <tr>
 <td>lower_bound(beg, end, val, comp)</td>
-<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x4E0D;&#x5C0F;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;&#x3002;</td>
+<td>在(beg,end)中查找不小于val的第一个元素，comp用于指定序列排序所使用的比较。</td>
 </tr>
 <tr>
 <td>upper_bound(beg, end, val)</td>
-<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x5927;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</td>
+<td>在(beg,end)中查找大于val的第一个元素</td>
 </tr>
 <tr>
 <td>upper_bound(beg, end, val, comp)</td>
-<td>&#x5728;(beg,end)&#x4E2D;&#x67E5;&#x627E;&#x5927;&#x4E8E;val&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+<td>在(beg,end)中查找大于val的第一个元素，comp用于指定序列排序所使用的比较</td>
 </tr>
 <tr>
 <td>equal_range(beg, end, val)</td>
-<td>&#x627E;&#x51FA;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x4E2D;&#x6240;&#x6709;&#x548C;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;</td>
+<td>找出有序序列中所有和val相等的元素</td>
 </tr>
 <tr>
 <td>equal_range(beg, end, val, comp)</td>
-<td>&#x627E;&#x51FA;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x4E2D;&#x6240;&#x6709;&#x548C;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+<td>找出有序序列中所有和val相等的元素，comp用于指定序列排序所使用的比较</td>
 </tr>
 <tr>
 <td>binary_search(beg, end, val)</td>
-<td>&#x5E8F;&#x5217;&#x662F;&#x5426;&#x5305;&#x542B;&#x4E0E;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;</td>
+<td>序列是否包含与val相等的元素</td>
 </tr>
 <tr>
 <td>binary_search(beg, end, val, comp)</td>
-<td>&#x5E8F;&#x5217;&#x662F;&#x5426;&#x5305;&#x542B;&#x4E0E;val&#x76F8;&#x7B49;&#x7684;&#x5143;&#x7D20;&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+<td>序列是否包含与val相等的元素，comp用于指定序列排序所使用的比较</td>
 </tr>
 </tbody>
 </table>
-<h3 id="&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"><a href="#&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;" class="headerlink" title="&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"></a>&#x5BB9;&#x5668;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;</h3><h4 id="1-&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;"><a href="#1&#x3001;&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;" class="headerlink" title="1&#x3001;&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;"></a>1&#x3001;&#x53EA;&#x5199;&#x5143;&#x7D20;&#x4E0D;&#x8BFB;&#x5143;&#x7D20;&#x7B97;&#x6CD5;</h4><table>
+<h3><span id="容器元素的算法">容器元素的算法</span></h3><h4><span id="1-只写元素不读元素算法">1、只写元素不读元素算法</span></h4><table>
 <thead>
 <tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x7528;&#x6CD5;</th>
+<th>函数</th>
+<th>用法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>fill_n(dest, cnt, val)</td>
-<td>&#x4EE5;&#x7ED9;&#x5B9A;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E3A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E3A;cnt&#x4E2A;&#x6570;&#x7684;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x503C;val</td>
+<td>以给定的迭代器为起始位置，为cnt个数的元素设置值val</td>
 </tr>
 <tr>
 <td>generate_n(dest, cnt, Gen)</td>
-<td>&#x4EE5;&#x7ED9;&#x5B9A;&#x7684;&#x8FED;&#x4EE3;&#x5668;&#x4E3A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E3A;cnt&#x4E2A;&#x6570;&#x7684;&#x5143;&#x7D20;&#x8BBE;&#x7F6E;&#x7531;Gen&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;</td>
+<td>以给定的迭代器为起始位置，为cnt个数的元素设置由Gen函数的返回值</td>
 </tr>
 </tbody>
 </table>
-<h4 id="2-&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"><a href="#2&#x3001;&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;" class="headerlink" title="2&#x3001;&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;"></a>2&#x3001;&#x4F7F;&#x7528;&#x8F93;&#x5165;&#x8FED;&#x4EE3;&#x5668;&#x5199;&#x5165;&#x5143;&#x7D20;&#x7684;&#x7B97;&#x6CD5;</h4><table>
+<h4><span id="2-使用输入迭代器写入元素的算法">2、使用输入迭代器写入元素的算法</span></h4><table>
 <thead>
 <tr>
-<th>&#x51FD;&#x6570;</th>
-<th>&#x7528;&#x6CD5;</th>
+<th>函数</th>
+<th>用法</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>copy(beg, end, dest)</td>
-<td>(beg,end) &#x590D;&#x5236;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;</td>
+<td>(beg,end) 复制到迭代器dest开始的序列</td>
 </tr>
 <tr>
 <td>transfrom(beg, end, dest, unaryOp)</td>
-<td>(beg,end) &#x901A;&#x8FC7;unaryOp&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;</td>
+<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
 </tr>
 <tr>
 <td>transfrom(beg, end, beg2, dest, unaryOp)</td>
-<td>(beg,end) &#x901A;&#x8FC7;unaryOp&#x64CD;&#x4F5C;&#x540E;&#xFF0C;&#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;</td>
+<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
 </tr>
 <tr>
 <td>replace_copy(beg, end, dest, old_val, new_val)</td>
-<td>(beg,end) &#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;,oldval&#x66FF;&#x6362;&#x4E3A;new_val</td>
+<td>(beg,end) 输入到迭代器dest开始的序列,oldval替换为new_val</td>
 </tr>
 <tr>
 <td>replace_copy_if(beg, end, dest, unaryPred, new_val)</td>
-<td>(beg,end) &#x8F93;&#x5165;&#x5230;&#x8FED;&#x4EE3;&#x5668;dest&#x5F00;&#x59CB;&#x7684;&#x5E8F;&#x5217;,&#x7B26;&#x5408;unaryPred&#x6761;&#x4EF6;&#x7684;&#x5143;&#x7D20;&#x66FF;&#x6362;&#x4E3A;new_val</td>
+<td>(beg,end) 输入到迭代器dest开始的序列,符合unaryPred条件的元素替换为new_val</td>
 </tr>
 <tr>
 <td>merge(beg1, end1, beg2, end2, dest)</td>
-<td>&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x540E;&#x5199;&#x5165;&#x5230;dest</td>
+<td>合并两个有序序列后写入到dest</td>
 </tr>
 <tr>
 <td>merge(beg1, end1, beg2, end2, dest, comp)</td>
-<td>&#x5408;&#x5E76;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x540E;&#x5199;&#x5165;&#x5230;dest&#xFF0C;comp&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x5E8F;&#x5217;&#x6392;&#x5E8F;&#x6240;&#x4F7F;&#x7528;&#x7684;&#x6BD4;&#x8F83;</td>
+<td>合并两个有序序列后写入到dest，comp用于指定序列排序所使用的比较</td>
 </tr>
 </tbody>
 </table>
-<h4 id="3-&#x4F7F;&#x7528;&#x524D;"><a href="#3&#x3001;&#x4F7F;&#x7528;&#x524D;" class="headerlink" title="3&#x3001;&#x4F7F;&#x7528;&#x524D;"></a>3&#x3001;&#x4F7F;&#x7528;&#x524D;</h4>
+<h4><span id="3-使用前">3、使用前</span></h4>
   </div>
   <footer class="article-footer">
     
@@ -423,7 +421,7 @@
 
           <div class="main-footer">
   
-    © 2021 Invoker - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a>
+    © 2021 Invoker - Powered by <a href="http://hexo.io" target="_blank">Hexo</a> - Theme <a href="https://github.com/denjones/hexo-theme-chan" target="_blank">Chan</a> - Plugin <a href="https://github.com/xiazeyu/live2d-widget.js" target="_blank">xiazeyu</a>
   
 </div>
 
@@ -615,5 +613,5 @@
 </script>
 
 <!-- mod end by huobingli  -->
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":500},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
 </html>

@@ -148,15 +148,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/11/15/Install_Erlang/">
-  CENTOS7 安装erlang
+        <a href="/2016/11/15/make_boost/">
+  CENTOS7 安装编译Boost库
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2016/11/15/Install_Erlang/"><span class="article-date">
+        <a href="/2016/11/15/make_boost/"><span class="article-date">
   2016-11-15
 </span>
 </a>
@@ -175,16 +175,15 @@
       </div>
       <div class="article-entry">
         
-          <h3><span id="install-erlang">install erlang</span></h3><p>environment : CENTOS7</p>
-<p>首先下载 安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>解压安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>转到解压的文件夹下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
-<p>最好在root下运行，without-javac 不用javac编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/erlang   --without-javac</span><br></pre></td></tr></table></figure></p>
-<p>进行make<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
-<p>最后加一个软连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/erlang/bin/erl /usr/local/bin/erl</span><br></pre></td></tr></table></figure></p>
-<p>最后测试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">erl</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/installerlang.png" alt>   </p>
-<p>Done!!</p>
+          <h3><span id="linux-下编译boost库">linux 下编译Boost库</span></h3><p>1、下载Boost库</p>
+<p>2、解压压缩文件</p>
+<p>3、./bootstrap.sh; ./b2<br>./bootstrap.sh 是编译前的配置工作<br>./b2 开始编译</p>
+<p>4、/b2 –buildtype=complete stage<br>将对Boost库进行完整编译，生成所有调试版、发行版的静态库和动态库<br>buildtype选项是编译类型，如不指定就是release模式<br>stage选项指定Boost使用本地构建。如果使用install选项则编译后会把Boost安装到默认路径下（/usr/local）</p>
+<p>5、首先把Boost库的头文件存放到/usr/include/boost/路径下，再把Lib文件存放到/usr/local/lib/boost/路径下。</p>
+<p>6、修改/etc/profile文件，在此文件中增加如下2个环境变量：</p>
+<p>BOOST_INCLUDE=/usr/include/boost<br>export BOOST_INCLUDE</p>
+<p>BOOST_LIB=/usr/local/lib/boost<br>export BOOST_LIB</p>
+<p>Done!!!</p>
 
         
       </div>

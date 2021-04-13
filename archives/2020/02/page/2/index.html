@@ -156,15 +156,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/02/24/FiddlerError/">
-  fiddler 问题
+        <a href="/2020/02/24/dockerrun/">
+  docker 问题记录
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/02/24/FiddlerError/"><span class="article-date">
+        <a href="/2020/02/24/dockerrun/"><span class="article-date">
   2020-02-24
 </span>
 </a>
@@ -183,8 +183,47 @@
       </div>
       <div class="article-entry">
         
-          <h3><span id="fiddler-问题记录">fiddler 问题记录</span></h3><p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/SessionAborted.png" alt> 会话被客户端、Fiddler或者Server终止</p>
-<p>发生原因，从请求到接口返回，最长耗时1.7s,最短耗时0.003s, 可能存在慢查询，redis缓存丢失的问题，客户端可以适当增加超时时间</p>
+          <h1><span id="docker-问题记录">docker 问题记录</span></h1><h2><span id="问题来源">问题来源</span></h2><p>centos7.2 yum 安装docker，运行hello-world</p>
+<blockquote>
+<p>yum -y install docker<br>docker run hello-world</p>
+</blockquote>
+<p>发现docker有如下报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error response from daemon: oci runtime error: container_linux.go:247: starting container process caused &quot;write parent: broken pipe&quot;...</span><br></pre></td></tr></table></figure></p>
+<p>1、通过uname -r命令查看你当前的内核版本</p>
+<blockquote>
+<p>uname -r</p>
+</blockquote>
+<p>2、更新yum 包到最新</p>
+<blockquote>
+<p>sudo yum update</p>
+</blockquote>
+<p>3、安装过旧版本, 先卸载旧版本</p>
+<blockquote>
+<p>sudo yum remove docker  docker-common docker-selinux dockesr-engine</p>
+</blockquote>
+<p>4、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
+<blockquote>
+<p>sudo yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+</blockquote>
+<p>5、设置yum 源</p>
+<blockquote>
+<p>sudo yum-config-manager –add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
+</blockquote>
+<p>6、查看所有仓库中所有docker版本(可选)</p>
+<blockquote>
+<p>yum list docker-ce –showduplicates | sort -r</p>
+</blockquote>
+<p>7、安装docker</p>
+<blockquote>
+<p>sudo yum install docker-ce</p>
+</blockquote>
+<p>8、启动并加入开机启动</p>
+<blockquote>
+<p>sudo systemctl start docker<br>sudo systemctl enable docker</p>
+</blockquote>
+<p>9、验证安装是否成功</p>
+<blockquote>
+<p>docker version</p>
+</blockquote>
 
         
       </div>

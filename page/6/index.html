@@ -148,75 +148,38 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/02/24/dockerrun/">
-  docker 问题记录
+        <a href="/2020/02/24/Kibana/">
+  kibana
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/02/24/dockerrun/"><span class="article-date">
+        <a href="/2020/02/24/Kibana/"><span class="article-date">
   2020-02-24
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/问题记录/">问题记录</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学/">学</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学/">学</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h1><span id="docker-问题记录">docker 问题记录</span></h1><h2><span id="问题来源">问题来源</span></h2><p>centos7.2 yum 安装docker，运行hello-world</p>
-<blockquote>
-<p>yum -y install docker<br>docker run hello-world</p>
+          <h1><span id="kibana">kibana</span></h1><h3><span id="下载-解压">下载 解压</span></h3><blockquote>
+<p>wget <a href="https://artifacts.elastic.co/downloads/kibana/kibana-6.3.2-linux-x86_64.tar.gz" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/kibana/kibana-6.3.2-linux-x86_64.tar.gz</a></p>
 </blockquote>
-<p>发现docker有如下报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error response from daemon: oci runtime error: container_linux.go:247: starting container process caused &quot;write parent: broken pipe&quot;...</span><br></pre></td></tr></table></figure></p>
-<p>1、通过uname -r命令查看你当前的内核版本</p>
-<blockquote>
-<p>uname -r</p>
-</blockquote>
-<p>2、更新yum 包到最新</p>
-<blockquote>
-<p>sudo yum update</p>
-</blockquote>
-<p>3、安装过旧版本, 先卸载旧版本</p>
-<blockquote>
-<p>sudo yum remove docker  docker-common docker-selinux dockesr-engine</p>
-</blockquote>
-<p>4、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
-<blockquote>
-<p>sudo yum install -y yum-utils device-mapper-persistent-data lvm2</p>
-</blockquote>
-<p>5、设置yum 源</p>
-<blockquote>
-<p>sudo yum-config-manager –add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
-</blockquote>
-<p>6、查看所有仓库中所有docker版本(可选)</p>
-<blockquote>
-<p>yum list docker-ce –showduplicates | sort -r</p>
-</blockquote>
-<p>7、安装docker</p>
-<blockquote>
-<p>sudo yum install docker-ce</p>
-</blockquote>
-<p>8、启动并加入开机启动</p>
-<blockquote>
-<p>sudo systemctl start docker<br>sudo systemctl enable docker</p>
-</blockquote>
-<p>9、验证安装是否成功</p>
-<blockquote>
-<p>docker version</p>
-</blockquote>
-
+<h3><span id="修改配置">修改配置</span></h3><p>配置文件位置在config/kibana.yml</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 访问端口</span></span><br><span class="line"><span class="attr">server.port:</span> <span class="number">5601</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 远程访问</span></span><br><span class="line"><span class="attr">server.host:</span> <span class="string">"0.0.0.0"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使您能够指定如果您在代理后运行的 Kibana 的路径。这只影响 Kibana 生成的 URL，您的代理应该在转发请求到 Kibana 之前删除 basePath 值。此设置不能以斜杠（/）结尾。</span></span><br><span class="line"><span class="comment">#server.basePath: ""</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : 1048576 传入服务器请求的最大有效负载大小（以字节为单位）。</span></span><br><span class="line"><span class="comment">#server.maxPayloadBytes: 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># “your-hostname” 用于标识此 Kibana 实例的可读的显示名称。</span></span><br><span class="line"><span class="comment">#server.name: "your-hostname"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Elasticsearch实例地址</span></span><br><span class="line"><span class="comment">#elasticsearch.url: "http://localhost:9200"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : true 当此设置的值为 true 时，Kibana 使用 server.host 设置中指定的主机名。当此设置的值为 false 时，Kibana 使用连接到此 Kibana 实例的主机的主机名。</span></span><br><span class="line"><span class="comment">#elasticsearch.preserveHost: true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : “.kibana”Kibana 使用 Elasticsearch 中的索引来存储保存的搜索，可视化和仪表板。如果索引不存在，Kibana 将创建一个新索引。</span></span><br><span class="line"><span class="comment">#kibana.index: ".kibana"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 	默认值 : home 要加载的默认应用程序。</span></span><br><span class="line"><span class="comment">#kibana.defaultAppId: "home"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果您的 Elasticsearch 受基本认证保护，这些设置提供 Kibana 服务器用于在启动时对 Kibana 索引执行维护的用户名和密码。您的 Kibana 用户仍需要使用通过 Kibana 服务器代理的 Elasticsearch 进行身份验证。</span></span><br><span class="line"><span class="comment">#elasticsearch.username: "user"</span></span><br><span class="line"><span class="comment">#elasticsearch.password: "pass"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># server 的SSL设置</span></span><br><span class="line"><span class="comment">#server.ssl.enabled: false</span></span><br><span class="line"><span class="comment">#server.ssl.certificate: /path/to/your/server.crt</span></span><br><span class="line"><span class="comment">#server.ssl.key: /path/to/your/server.key</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Elasticsearch 的SSL设置</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.certificate: /path/to/your/client.crt</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.key: /path/to/your/client.key</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.certificateAuthorities: [ "/path/to/your/CA.pem" ]</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.verificationMode: full</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pingElasticsearch超时时间</span></span><br><span class="line"><span class="comment">#elasticsearch.pingTimeout: 1500</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取Elasticsearch数据超时时间</span></span><br><span class="line"><span class="comment">#elasticsearch.requestTimeout: 30000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : [ 'authorization' ] 要发送到 Elasticsearch 的 Kibana 客户端头标列表。要发送任何客户端头，请将此值设置为 []（一个空列表）。</span></span><br><span class="line"><span class="comment">#elasticsearch.requestHeadersWhitelist: [ authorization ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : &#123;&#125; 要发送到 Elasticsearch 的（header name）标题名称和值。不管如何配置 elasticsearch.requestHeadersWhitelist，任何自定义的 header 都不能被客户端头覆盖</span></span><br><span class="line"><span class="comment">#elasticsearch.customHeaders: &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Time in milliseconds for Elasticsearch to wait for responses from shards. Set to 0 to disable.</span></span><br><span class="line"><span class="comment">#elasticsearch.shardTimeout: 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Time in milliseconds to wait for Elasticsearch at Kibana startup before retrying.</span></span><br><span class="line"><span class="comment">#elasticsearch.startupTimeout: 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Specifies the path where Kibana creates the process ID file.</span></span><br><span class="line"><span class="comment">#pid.file: /var/run/kibana.pid</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enables you specify a file where Kibana stores log output.</span></span><br><span class="line"><span class="comment">#logging.dest: stdout</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the value of this setting to true to suppress all logging output.</span></span><br><span class="line"><span class="comment">#logging.silent: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the value of this setting to true to suppress all logging output other than error messages.</span></span><br><span class="line"><span class="comment">#logging.quiet: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the value of this setting to true to log all events, including system usage information</span></span><br><span class="line"><span class="comment"># and all requests.</span></span><br><span class="line"><span class="comment">#logging.verbose: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the interval in milliseconds to sample system and process performance</span></span><br><span class="line"><span class="comment"># metrics. Minimum is 100ms. Defaults to 5000.</span></span><br><span class="line"><span class="comment">#ops.interval: 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The default locale. This locale can be used in certain circumstances to substitute any missing</span></span><br><span class="line"><span class="comment"># translations.</span></span><br><span class="line"><span class="comment">#i18n.defaultLocale: "en"</span></span><br></pre></td></tr></table></figure>
         
       </div>
     </div>
@@ -324,6 +287,51 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/02/24/FiddlerError/">
+  fiddler 问题
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/02/24/FiddlerError/"><span class="article-date">
+  2020-02-24
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/问题记录/">问题记录</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/问题记录/">问题记录</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h3><span id="fiddler-问题记录">fiddler 问题记录</span></h3><p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/SessionAborted.png" alt> 会话被客户端、Fiddler或者Server终止</p>
+<p>发生原因，从请求到接口返回，最长耗时1.7s,最短耗时0.003s, 可能存在慢查询，redis缓存丢失的问题，客户端可以适当增加超时时间</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/02/24/mysqlforgetpwd/">
   mysql重置密码
 </a>
@@ -386,62 +394,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/02/24/Kibana/">
-  kibana
+        <a href="/2020/02/24/dockerrun/">
+  docker 问题记录
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/02/24/Kibana/"><span class="article-date">
-  2020-02-24
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学/">学</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学/">学</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="kibana">kibana</span></h1><h3><span id="下载-解压">下载 解压</span></h3><blockquote>
-<p>wget <a href="https://artifacts.elastic.co/downloads/kibana/kibana-6.3.2-linux-x86_64.tar.gz" target="_blank" rel="noopener">https://artifacts.elastic.co/downloads/kibana/kibana-6.3.2-linux-x86_64.tar.gz</a></p>
-</blockquote>
-<h3><span id="修改配置">修改配置</span></h3><p>配置文件位置在config/kibana.yml</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 访问端口</span></span><br><span class="line"><span class="attr">server.port:</span> <span class="number">5601</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 远程访问</span></span><br><span class="line"><span class="attr">server.host:</span> <span class="string">"0.0.0.0"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使您能够指定如果您在代理后运行的 Kibana 的路径。这只影响 Kibana 生成的 URL，您的代理应该在转发请求到 Kibana 之前删除 basePath 值。此设置不能以斜杠（/）结尾。</span></span><br><span class="line"><span class="comment">#server.basePath: ""</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : 1048576 传入服务器请求的最大有效负载大小（以字节为单位）。</span></span><br><span class="line"><span class="comment">#server.maxPayloadBytes: 1048576</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># “your-hostname” 用于标识此 Kibana 实例的可读的显示名称。</span></span><br><span class="line"><span class="comment">#server.name: "your-hostname"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Elasticsearch实例地址</span></span><br><span class="line"><span class="comment">#elasticsearch.url: "http://localhost:9200"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : true 当此设置的值为 true 时，Kibana 使用 server.host 设置中指定的主机名。当此设置的值为 false 时，Kibana 使用连接到此 Kibana 实例的主机的主机名。</span></span><br><span class="line"><span class="comment">#elasticsearch.preserveHost: true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : “.kibana”Kibana 使用 Elasticsearch 中的索引来存储保存的搜索，可视化和仪表板。如果索引不存在，Kibana 将创建一个新索引。</span></span><br><span class="line"><span class="comment">#kibana.index: ".kibana"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 	默认值 : home 要加载的默认应用程序。</span></span><br><span class="line"><span class="comment">#kibana.defaultAppId: "home"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果您的 Elasticsearch 受基本认证保护，这些设置提供 Kibana 服务器用于在启动时对 Kibana 索引执行维护的用户名和密码。您的 Kibana 用户仍需要使用通过 Kibana 服务器代理的 Elasticsearch 进行身份验证。</span></span><br><span class="line"><span class="comment">#elasticsearch.username: "user"</span></span><br><span class="line"><span class="comment">#elasticsearch.password: "pass"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># server 的SSL设置</span></span><br><span class="line"><span class="comment">#server.ssl.enabled: false</span></span><br><span class="line"><span class="comment">#server.ssl.certificate: /path/to/your/server.crt</span></span><br><span class="line"><span class="comment">#server.ssl.key: /path/to/your/server.key</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Elasticsearch 的SSL设置</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.certificate: /path/to/your/client.crt</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.key: /path/to/your/client.key</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.certificateAuthorities: [ "/path/to/your/CA.pem" ]</span></span><br><span class="line"><span class="comment">#elasticsearch.ssl.verificationMode: full</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># pingElasticsearch超时时间</span></span><br><span class="line"><span class="comment">#elasticsearch.pingTimeout: 1500</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取Elasticsearch数据超时时间</span></span><br><span class="line"><span class="comment">#elasticsearch.requestTimeout: 30000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : [ 'authorization' ] 要发送到 Elasticsearch 的 Kibana 客户端头标列表。要发送任何客户端头，请将此值设置为 []（一个空列表）。</span></span><br><span class="line"><span class="comment">#elasticsearch.requestHeadersWhitelist: [ authorization ]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 默认值 : &#123;&#125; 要发送到 Elasticsearch 的（header name）标题名称和值。不管如何配置 elasticsearch.requestHeadersWhitelist，任何自定义的 header 都不能被客户端头覆盖</span></span><br><span class="line"><span class="comment">#elasticsearch.customHeaders: &#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Time in milliseconds for Elasticsearch to wait for responses from shards. Set to 0 to disable.</span></span><br><span class="line"><span class="comment">#elasticsearch.shardTimeout: 0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Time in milliseconds to wait for Elasticsearch at Kibana startup before retrying.</span></span><br><span class="line"><span class="comment">#elasticsearch.startupTimeout: 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Specifies the path where Kibana creates the process ID file.</span></span><br><span class="line"><span class="comment">#pid.file: /var/run/kibana.pid</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Enables you specify a file where Kibana stores log output.</span></span><br><span class="line"><span class="comment">#logging.dest: stdout</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the value of this setting to true to suppress all logging output.</span></span><br><span class="line"><span class="comment">#logging.silent: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the value of this setting to true to suppress all logging output other than error messages.</span></span><br><span class="line"><span class="comment">#logging.quiet: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the value of this setting to true to log all events, including system usage information</span></span><br><span class="line"><span class="comment"># and all requests.</span></span><br><span class="line"><span class="comment">#logging.verbose: false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the interval in milliseconds to sample system and process performance</span></span><br><span class="line"><span class="comment"># metrics. Minimum is 100ms. Defaults to 5000.</span></span><br><span class="line"><span class="comment">#ops.interval: 5000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The default locale. This locale can be used in certain circumstances to substitute any missing</span></span><br><span class="line"><span class="comment"># translations.</span></span><br><span class="line"><span class="comment">#i18n.defaultLocale: "en"</span></span><br></pre></td></tr></table></figure>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/02/24/FiddlerError/">
-  fiddler 问题
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/02/24/FiddlerError/"><span class="article-date">
+        <a href="/2020/02/24/dockerrun/"><span class="article-date">
   2020-02-24
 </span>
 </a>
@@ -460,8 +421,47 @@
       </div>
       <div class="article-entry">
         
-          <h3><span id="fiddler-问题记录">fiddler 问题记录</span></h3><p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/SessionAborted.png" alt> 会话被客户端、Fiddler或者Server终止</p>
-<p>发生原因，从请求到接口返回，最长耗时1.7s,最短耗时0.003s, 可能存在慢查询，redis缓存丢失的问题，客户端可以适当增加超时时间</p>
+          <h1><span id="docker-问题记录">docker 问题记录</span></h1><h2><span id="问题来源">问题来源</span></h2><p>centos7.2 yum 安装docker，运行hello-world</p>
+<blockquote>
+<p>yum -y install docker<br>docker run hello-world</p>
+</blockquote>
+<p>发现docker有如下报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Error response from daemon: oci runtime error: container_linux.go:247: starting container process caused &quot;write parent: broken pipe&quot;...</span><br></pre></td></tr></table></figure></p>
+<p>1、通过uname -r命令查看你当前的内核版本</p>
+<blockquote>
+<p>uname -r</p>
+</blockquote>
+<p>2、更新yum 包到最新</p>
+<blockquote>
+<p>sudo yum update</p>
+</blockquote>
+<p>3、安装过旧版本, 先卸载旧版本</p>
+<blockquote>
+<p>sudo yum remove docker  docker-common docker-selinux dockesr-engine</p>
+</blockquote>
+<p>4、安装需要的软件包， yum-util 提供yum-config-manager功能，另外两个是devicemapper驱动依赖的</p>
+<blockquote>
+<p>sudo yum install -y yum-utils device-mapper-persistent-data lvm2</p>
+</blockquote>
+<p>5、设置yum 源</p>
+<blockquote>
+<p>sudo yum-config-manager –add-repo <a href="https://download.docker.com/linux/centos/docker-ce.repo" target="_blank" rel="noopener">https://download.docker.com/linux/centos/docker-ce.repo</a></p>
+</blockquote>
+<p>6、查看所有仓库中所有docker版本(可选)</p>
+<blockquote>
+<p>yum list docker-ce –showduplicates | sort -r</p>
+</blockquote>
+<p>7、安装docker</p>
+<blockquote>
+<p>sudo yum install docker-ce</p>
+</blockquote>
+<p>8、启动并加入开机启动</p>
+<blockquote>
+<p>sudo systemctl start docker<br>sudo systemctl enable docker</p>
+</blockquote>
+<p>9、验证安装是否成功</p>
+<blockquote>
+<p>docker version</p>
+</blockquote>
 
         
       </div>
@@ -601,6 +601,121 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/05/smartpointer/">
+  智能指针
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/05/smartpointer/"><span class="article-date">
+  2020-01-05
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="智能指针">智能指针</span></h1><h2><span id="为什么要用智能指针">为什么要用智能指针</span></h2><p>智能指针的作用是管理指针，为了防止内存泄漏的发生。使用智能指针可以很大程度上的避免这个问题，智能指针是一个类，当超出了其作用域，会<u><b>自动调用</b></u>析构函数，析构函数释放资源，不需要手动释放空间，防止了内存泄漏。需要包含头文件 \&lt;memory>，主要用于管理动态内存分配。</p>
+<h2><span id="auto_ptr">auto_ptr</span></h2><p>采用所有权模式.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p1</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test auto_ptr."</span>))</span></span>;</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; p2;</span><br><span class="line">p2 = p1; <span class="comment">//auto_ptr不会报错.  #1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p2-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p1-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure></p>
+<p>#1步之后，可以看p1、p2, 发现p1已经为NULL, 原来的p1已经转移到了p2<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/auto_ptr.png" alt></p>
+<p>查看错误信息，报错信息如下<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_STL_VERIFY(_Myptr, <span class="string">"auto_ptr not dereferencable"</span>); <span class="comment">// auto_ptr不可解引用</span></span><br></pre></td></tr></table></figure></p>
+<p>所以，p1所有权转移到p2的, <font color="#FF2222">运行时访问p1时会报错 </font></p>
+<h2><span id="unique_ptr">unique_ptr</span></h2><p>unique_ptr 用于替换auto_ptr.<br>独占式拥有: 保证同一时间内只有一个智能指针可以指向该对象<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = p3;  <span class="comment">// 编译时报错</span></span><br></pre></td></tr></table></figure></p>
+<p>避免出现 auto_ptr 的情况</p>
+<ul>
+<li>std::move函数可以将左值引用转换为右值引用<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = <span class="built_in">std</span>::move(p3); <span class="comment">// 这里可以正常赋值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p4-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p3-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/unique_ptr.png" alt></p>
+<p>虽然运行时还是会报错, 但相比auto_ptr 在编译时就直接会报错。</p>
+<h2><span id="shared_ptr">shared_ptr</span></h2><p>shared_ptr实现共享式拥有概念。多个智能指针可以指向相同对象，该对象和其相关资源会在”最后一个引用被销毁”时候释放。<br>从名字share就可以看出了资源可以被多个指针共享，它使用计数机制来表明资源被几个指针共享。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; p1 = <span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt;(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test shared_ptr."</span>));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p2</span><span class="params">(p1)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p2.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 不唯一，输出0</span></span><br><span class="line">	&#125; <span class="comment">// 离开 p2 作用域</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>use_count()<br>来查看引用个数。</p>
+</li>
+<li><p>unique()<br>返回是否是独占所有权( use_count 为 1)</p>
+</li>
+<li><p>swap()<br>交换两个 shared_ptr 对象(即交换所拥有的对象)</p>
+</li>
+<li><p>reset()<br>放弃内部对象的所有权或拥有对象的变更, 会引起原有对象的引用计数的减少</p>
+</li>
+<li><p>get()<br>返回内部对象(指针), 由于已经重载了()方法, 因此和直接使用对象是一样的.如 shared_ptr<int> sp(new int(1)); sp 与 sp.get()是等价的</int></p>
+</li>
+</ul>
+<h2><span id="weak_ptr">weak_ptr</span></h2><p>weak_ptr 是一种不控制对象生命周期的智能指针, 它指向一个 shared_ptr 管理的对象。 它只可以从一个 shared_ptr 或另一个 weak_ptr 对象构造, 它的构造和析构不会引起引用记数的增加或减少。</p>
+<p>weak_ptr是用来解决shared_ptr相互引用时的死锁问题,如果说两个shared_ptr相互引用,那么这两个指针的引用计数永远不可能下降为0,资源永远不会释放。</p>
+<p>它是对对象的一种弱引用，不会增加对象的引用计数，和shared_ptr之间可以相互转化，shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/05/Pipe/">
+  管道
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/05/Pipe/"><span class="article-date">
+  2020-01-05
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/进程间通讯/">进程间通讯</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程间通讯/">进程间通讯</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="匿名管道">匿名管道</span></h2><h2><span id="命名管道">命名管道</span></h2>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/05/typeconversion/">
   类型转换
 </a>
@@ -676,58 +791,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/05/Pipe/">
-  管道
+        <a href="/2020/01/05/C++basic_string/">
+  basic_string
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/05/Pipe/"><span class="article-date">
-  2020-01-05
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/进程间通讯/">进程间通讯</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程间通讯/">进程间通讯</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="匿名管道">匿名管道</span></h2><h2><span id="命名管道">命名管道</span></h2>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/05/smartpointer/">
-  智能指针
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/05/smartpointer/"><span class="article-date">
+        <a href="/2020/01/05/C++basic_string/"><span class="article-date">
   2020-01-05
 </span>
 </a>
@@ -746,84 +818,57 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="智能指针">智能指针</span></h1><h2><span id="为什么要用智能指针">为什么要用智能指针</span></h2><p>智能指针的作用是管理指针，为了防止内存泄漏的发生。使用智能指针可以很大程度上的避免这个问题，智能指针是一个类，当超出了其作用域，会<u><b>自动调用</b></u>析构函数，析构函数释放资源，不需要手动释放空间，防止了内存泄漏。需要包含头文件 \&lt;memory>，主要用于管理动态内存分配。</p>
-<h2><span id="auto_ptr">auto_ptr</span></h2><p>采用所有权模式.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p1</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test auto_ptr."</span>))</span></span>;</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; p2;</span><br><span class="line">p2 = p1; <span class="comment">//auto_ptr不会报错.  #1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p2-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p1-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure></p>
-<p>#1步之后，可以看p1、p2, 发现p1已经为NULL, 原来的p1已经转移到了p2<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/auto_ptr.png" alt></p>
-<p>查看错误信息，报错信息如下<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_STL_VERIFY(_Myptr, <span class="string">"auto_ptr not dereferencable"</span>); <span class="comment">// auto_ptr不可解引用</span></span><br></pre></td></tr></table></figure></p>
-<p>所以，p1所有权转移到p2的, <font color="#FF2222">运行时访问p1时会报错 </font></p>
-<h2><span id="unique_ptr">unique_ptr</span></h2><p>unique_ptr 用于替换auto_ptr.<br>独占式拥有: 保证同一时间内只有一个智能指针可以指向该对象<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = p3;  <span class="comment">// 编译时报错</span></span><br></pre></td></tr></table></figure></p>
-<p>避免出现 auto_ptr 的情况</p>
+          <h2><span id="basic_string">basic_string</span></h2><p>字符串类模板</p>
+<h2><span id="string获取字符串长度">string获取字符串长度</span></h2><p>string 类自身可以管理内存。string 类提供的各种操作函数大致分为八类：构造器和析构器、大小和容量、元素存取、字 符串比较、字符串修改、字符串接合、I/O 操作以及搜索和查找。</p>
+<p>String 类型对象包括三种求解字符串长度的函数：size() 和 length()、 maxsize() 和 capacity()：</p>
 <ul>
-<li>std::move函数可以将左值引用转换为右值引用<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = <span class="built_in">std</span>::move(p3); <span class="comment">// 这里可以正常赋值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p4-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p3-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>size() 和 length()：这两个函数会返回 string 类型对象中的字符个数，且它们的执行效果相同。</li>
+<li>max_size()：max_size() 函数返回 string 类型对象最多包含的字符数。一旦程序使用长度超过 max_size() 的 string 操作，编译器会拋出 length_error 异常。</li>
+<li>capacity()：该函数返回在重新分配内存之前，string 类型对象所能包含的最大字符数。</li>
 </ul>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/unique_ptr.png" alt></p>
-<p>虽然运行时还是会报错, 但相比auto_ptr 在编译时就直接会报错。</p>
-<h2><span id="shared_ptr">shared_ptr</span></h2><p>shared_ptr实现共享式拥有概念。多个智能指针可以指向相同对象，该对象和其相关资源会在”最后一个引用被销毁”时候释放。<br>从名字share就可以看出了资源可以被多个指针共享，它使用计数机制来表明资源被几个指针共享。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; p1 = <span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt;(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test shared_ptr."</span>));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p2</span><span class="params">(p1)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p2.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 不唯一，输出0</span></span><br><span class="line">	&#125; <span class="comment">// 离开 p2 作用域</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br></pre></td></tr></table></figure></p>
+<h2><span id="string获取字符串元素和at">string获取字符串元素：[]和at()</span></h2><ul>
+<li>下标操作符 []</li>
+<li>成员函数 at()</li>
+</ul>
+<p>这两种访问方法是有区别的：</p>
 <ul>
-<li><p>use_count()<br>来查看引用个数。</p>
-</li>
-<li><p>unique()<br>返回是否是独占所有权( use_count 为 1)</p>
-</li>
-<li><p>swap()<br>交换两个 shared_ptr 对象(即交换所拥有的对象)</p>
-</li>
-<li><p>reset()<br>放弃内部对象的所有权或拥有对象的变更, 会引起原有对象的引用计数的减少</p>
-</li>
-<li><p>get()<br>返回内部对象(指针), 由于已经重载了()方法, 因此和直接使用对象是一样的.如 shared_ptr<int> sp(new int(1)); sp 与 sp.get()是等价的</int></p>
+<li>下标操作符 [] 在使用时<b>不检查</b>索引的有效性，如果下标超出字符的长度范围，会示导致未定义行为。对于常量字符串，使用下标操作符时，字符串的最后字符（即 ‘\0’）是有效的。对应 string 类型对象（常量型）最后一个字符的下标是有效的，调用返回字符 ‘\0’。</li>
+<li>函数 at() 在使用时会检查下标是否有效。如果给定的下标超出字符的长度范围，系统会抛出 out_of_range 异常。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">const</span> <span class="built_in">std</span>::<span class="built_in">string</span> <span class="title">str</span><span class="params">(<span class="string">"teststring"</span>)</span></span>;</span><br><span class="line">	<span class="function"><span class="built_in">std</span>::<span class="built_in">string</span> <span class="title">sss</span><span class="params">(<span class="string">"invoker"</span>)</span></span>;</span><br><span class="line">	<span class="keyword">char</span> temp = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> temp_1 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> temp_2 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> temp_3 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> temp_4 = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">char</span> temp_5 = <span class="number">0</span>;</span><br><span class="line">	temp = sss[<span class="number">2</span>];					<span class="comment">//"获取字符 'v'</span></span><br><span class="line">	temp_1 = sss.at(<span class="number">2</span>);				<span class="comment">//获取字符 'v'</span></span><br><span class="line">	temp_2 = sss[sss.length()];		<span class="comment">//未定义行为，返回字符'\0'，但Visual 2017未报错</span></span><br><span class="line">	temp_3 = str[str.length()];		<span class="comment">//指向字符 '\0'</span></span><br><span class="line">	temp_4 = sss.at(sss.length());	<span class="comment">//程序异常  std::out_of_range</span></span><br><span class="line">	temp_5 = str.at(str.length());	<span class="comment">//程序异常  std::out_of_range</span></span><br><span class="line">	<span class="built_in">std</span>::<span class="built_in">cout</span> &lt;&lt; temp &lt;&lt; temp_1 &lt;&lt; temp_2 &lt;&lt; temp_3 &lt;&lt; temp_4 &lt;&lt; temp_5 &lt;&lt; <span class="built_in">std</span>::<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2><span id="weak_ptr">weak_ptr</span></h2><p>weak_ptr 是一种不控制对象生命周期的智能指针, 它指向一个 shared_ptr 管理的对象。 它只可以从一个 shared_ptr 或另一个 weak_ptr 对象构造, 它的构造和析构不会引起引用记数的增加或减少。</p>
-<p>weak_ptr是用来解决shared_ptr相互引用时的死锁问题,如果说两个shared_ptr相互引用,那么这两个指针的引用计数永远不可能下降为0,资源永远不会释放。</p>
-<p>它是对对象的一种弱引用，不会增加对象的引用计数，和shared_ptr之间可以相互转化，shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/05/ThreadSync/">
-  线程同步
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/05/ThreadSync/"><span class="article-date">
-  2020-01-05
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/进程间通讯/">进程间通讯</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程间通讯/">进程间通讯</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="线程死锁">线程死锁</span></h1><h1><span id="线程同步">线程同步</span></h1><p>防止死锁</p>
-<h1><span id="互斥量">互斥量</span></h1><h1><span id="临界区-关键代码段">临界区 （关键代码段）</span></h1><h1><span id="锁">锁</span></h1><h1><span id="事件">事件</span></h1><h1><span id="信号量">信号量</span></h1><ul>
-<li>互斥对象和事件对象属于内核对象，利用内核对象进行线程同步，速度较慢，但利用互斥对象和事件对象可以在多个进程中的各个线程间进行同步。</li>
-<li>关键代码段是工作在用户方式下，同步速度较快，但使用关键代码段时，容易进入死锁状态，当在等待进入关键代码段时无法设定超时值</li>
+<h2><span id="string字符串比较">string字符串比较</span></h2><p>比较的两个字符串，任一个字符串均不能为 NULL，否则程序会异常退出。</p>
+<h3><span id="compare">compare()</span></h3><p>使用 compare() 函数时，参数中出现了位置和大小，比较时只能用指定的子串<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.compare &#123;pos,n, s2);</span><br></pre></td></tr></table></figure></p>
+<p><b><u>区分大小写</u></b>，字符串相同返回0，串S 按字典顺序要先于串S2，返回负值；反之，返回正值</p>
+<h3><span id="比较运算符">比较运算符</span></h3><p>大于(&gt;) 、小于(&lt;) 、等于 、大于等于(&gt;=) 、小于等于(&lt;=&gt;) 、不等于(!=)</p>
+<h2><span id="string字符串修改和替换">string字符串修改和替换</span></h2><h3><span id="assign">assign()</span></h3><p>可以直接给字符串赋值。既可以将整个字符串赋值给新串，也可以将字符串的子串赋值给新串。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">basic_string&amp; <span class="title">assign</span> <span class="params">(<span class="keyword">const</span> E*s)</span></span>; <span class="comment">//直接使用字符串赋值</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">assign</span> <span class="params">(<span class="keyword">const</span> E*s, size_type n)</span></span>;</span><br><span class="line"><span class="function">basic_string&amp; <span class="title">assign</span> <span class="params">(<span class="keyword">const</span> basic_string &amp; str, size_type pos, size_type n)</span></span>;</span><br><span class="line"><span class="comment">//将str的子串赋值给调用串</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">assign</span> <span class="params">(<span class="keyword">const</span> basic_string&amp; str)</span></span>;    <span class="comment">//使用字符串的“引用”賦值</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">assign</span> <span class="params">(size_type n, E c)</span> </span>; <span class="comment">//使用 n个重复字符賦值</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">assign</span> <span class="params">(const_iterator first, const_iterator last)</span></span>;    <span class="comment">//使用迭代器赋值</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="operate">operate=</span></h3><p>赋值</p>
+<h3><span id="erase">erase()</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">terator <span class="title">erase</span> <span class="params">(iterator first, iterator last)</span></span>;</span><br><span class="line"><span class="function">iterator <span class="title">erase</span> <span class="params">(iterator it)</span></span>;</span><br><span class="line"><span class="function">basic_string&amp; <span class="title">erase</span> <span class="params">(size_type p0 = <span class="number">0</span>, size_type n = npos)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>示例<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"teststring"</span>)</span></span>;</span><br><span class="line">str1.erase(<span class="number">5</span>);  <span class="comment">//  str="tests"</span></span><br><span class="line">str2.erase(str2.begin(), str2.end()); <span class="comment">// str=""</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="swap">swap()</span></h3><p>交换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span> <span class="params">(basic_string&amp; str)</span></span>;</span><br></pre></td></tr></table></figure>
+<p>示例<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"teststring"</span>)</span></span>;</span><br><span class="line"><span class="built_in">string</span> str2;</span><br><span class="line">str2.swap(str1);        <span class="comment">// str2="teststring" str1=""</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="insert">insert()</span></h3><p>插入字符串</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">basic_string&amp; <span class="title">insert</span> <span class="params">(size_type p0 , <span class="keyword">const</span> E * s)</span></span>; <span class="comment">//插人 1 个字符至字符串 s 前面</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">insert</span> <span class="params">(size_type p0 , <span class="keyword">const</span> E * s, size_type n)</span></span>; <span class="comment">// 将 s 的前 3 个字符插入p0 位置</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">insert</span> <span class="params">(size_type p0, <span class="keyword">const</span> basic_string&amp; str)</span></span>;</span><br><span class="line"><span class="function">basic_string&amp; <span class="title">insert</span> <span class="params">(size_type p0, <span class="keyword">const</span> basic_string&amp; str,size_type pos, size_type n)</span></span>; <span class="comment">//选取 str 的子串</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">insert</span> <span class="params">(size_type p0, size_type n, E c)</span></span>; <span class="comment">//在下标 p0 位置插入  n 个字符 c</span></span><br><span class="line"><span class="function">iterator <span class="title">insert</span> <span class="params">(iterator it, E c)</span></span>; <span class="comment">//在 it 位置插入字符 c</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span> <span class="params">(iterator it, const_iterator first, const_iterator last)</span></span>; <span class="comment">//在字符串前插入字符</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span> <span class="params">(iterator it, size_type n, E c)</span> </span>; <span class="comment">//在 it 位置重复插入 n 个字符 c</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"ello"</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str2</span><span class="params">(<span class="string">"h"</span>)</span> </span>;</span><br><span class="line">str2.insert(<span class="number">1</span>,str1); <span class="comment">// str2="hello"</span></span><br></pre></td></tr></table></figure>
+<h3><span id="append">append()</span></h3><p>追加字符串<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">basic_string&amp; <span class="title">append</span> <span class="params">(<span class="keyword">const</span> E * s)</span></span>; <span class="comment">//在原始字符串后面追加字符串s</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">append</span> <span class="params">(<span class="keyword">const</span> E * s, size_type n)</span></span>;<span class="comment">//在原始字符串后面追加字符串 s 的前 n 个字符</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">append</span> <span class="params">(<span class="keyword">const</span> basic_string&amp; str, size_type pos,size_type n)</span></span>;<span class="comment">//在原始字符串后面追加字符串 s 的子串 s [ pos,…,pos +n -1]</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">append</span> <span class="params">(<span class="keyword">const</span> basic_string&amp; str)</span></span>;</span><br><span class="line"><span class="function">basic_string&amp; <span class="title">append</span> <span class="params">(size_type n, E c)</span></span>; <span class="comment">//追加 n 个重复字符</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">append</span> <span class="params">(const_iterator first, const_iterator last)</span></span>; <span class="comment">//使用迭代器追加</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str1</span><span class="params">(<span class="string">"ello"</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="built_in">string</span> <span class="title">str2</span><span class="params">(<span class="string">"h"</span>)</span> </span>;</span><br><span class="line">str2.append(str1); <span class="comment">// str2="hello"</span></span><br></pre></td></tr></table></figure>
+<h3><span id="replace">replace()</span></h3><p>字符串替换</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(size_type p0, size_type n0, <span class="keyword">const</span> E * s)</span></span>; <span class="comment">//使用字符串 s 中的 n 个字符，从源串的位置 P0 处开始替换</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(size_type p0, size_type n0, <span class="keyword">const</span> E *s, size_type n)</span></span>; <span class="comment">//使用字符串 s 中的 n 个字符，从源串的位置 P0 处开始替换 1 个字符</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(size_type p0, size_type n0, <span class="keyword">const</span> basic_string&amp; str)</span></span>; <span class="comment">//使用字符串 s 中的 n 个字符，从源串的位置 P0 处开始替换</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(size_type p0, size_type n0, <span class="keyword">const</span> basic_string&amp; str, size_type pos, size_type n)</span></span>; <span class="comment">//使用串 str 的子串 str [pos, pos + n-1] 替换源串中的内容，从位置 p0 处开始替换，替换字符 n0 个</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(size_type p0, size_type n0, size_type n, E c)</span></span>; <span class="comment">//使用 n 个字符 'c' 替换源串中位置 p0 处开始的 n0 个字符</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(iterator first0, iterator last0, <span class="keyword">const</span> E * s)</span></span>;<span class="comment">//使用迭代器替换，和 1) 用法类似</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(iterator first0, iterator last0, <span class="keyword">const</span> E * s, size_type n)</span></span>;<span class="comment">//和 2) 类似</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(iterator first0, iterator last0, <span class="keyword">const</span> basic_string&amp; str)</span></span>; <span class="comment">//和 3) 类似</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(iterator first0, iterator last0, size_type n, E c)</span></span>; <span class="comment">//和 5) 类似</span></span><br><span class="line"><span class="function">basic_string&amp; <span class="title">replace</span> <span class="params">(iterator first0, iterator last0, const_iterator first, const_iterator last)</span></span>; <span class="comment">//使用迭代器替换</span></span><br></pre></td></tr></table></figure>
+<h2><span id="string字符串输入输出">string字符串输入输出</span></h2><ul>
+<li>输入输出流>&gt; &lt;&lt; </li>
+<li>getline()</li>
 </ul>
-
+<h2><span id="string字符串查找">string字符串查找</span></h2><h3><span id="find和-rfind">find()和 rfind()</span></h3><h3><span id="find_first_of函数和-find_last_of函数">find_first_of()函数和 find_last_of()函数</span></h3><ul>
+<li><p>find_first_of() 函数可实现在源串中搜索某字符串的功能，该函数的返回值是被搜索字符串的第 1 个字符第 1 次出现的下标（位置）。若查找失败，则返回 npos。</p>
+</li>
+<li><p>find_last_of() 函数同样可实现在源串中搜索某字符串的功能。与 find_first_of() 函数所不同的是，该函数的返回值是被搜索字符串的最后 1 个字符的下标（位置）。若查找失败，则返回 npos。</p>
+</li>
+</ul>
+<h3><span id="find_first_not_of函数和-find_last_not_of函数">find_first_not_of()函数和 find_last_not_of()函数</span></h3><ul>
+<li>find_first_not_of() 函数可实现在源字符串中搜索与指定字符（串）不相等的第 1 个字符；</li>
+<li>find_last_not_of() 函数可实现在源字符串中搜索与指定字符（串）不相等的最后 1 个字符。</li>
+</ul>
+<h2><span id="string迭代器-配置器">string迭代器、配置器</span></h2>
         
       </div>
     </div>

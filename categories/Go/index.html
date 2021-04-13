@@ -149,55 +149,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2021/02/04/GoFunc/">
-  Go 函数
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2021/02/04/GoFunc/"><span class="article-date">
-  2021-02-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="函数类型">函数类型：</span></h2><ul>
-<li>普通函数</li>
-<li>匿名函数（闭包）</li>
-<li>类方法</li>
-</ul>
-<h2><span id="函数可见性">函数可见性</span></h2><p>首字母的大小写来区分可见性的<br>首字母小写的函数只能在同一个包中访问<br>首字母大写的函数才可以在其他包中调用<br>Go 文件中定义的全局变量也是如此。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2021/02/04/GoEvent/">
   Go 事件
 </a>
@@ -242,16 +193,16 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/03/31/pool/">
-  池化技术
+        <a href="/2021/02/04/GoFunc/">
+  Go 函数
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/03/31/pool/"><span class="article-date">
-  2020-03-31
+        <a href="/2021/02/04/GoFunc/"><span class="article-date">
+  2021-02-04
 </span>
 </a>
         
@@ -269,7 +220,12 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="池化技术">池化技术</span></h1><p>池化技术 (Pool) 是一种很常见的编程技巧，在请求量大时能明显优化应用性能，降低系统频繁建连的资源开销。我们日常工作中常见的有数据库连接池、线程池、对象池等，它们的特点都是将 “昂贵的”、“费时的” 的资源维护在一个特定的 “池子” 中，规定其最小连接数、最大连接数、阻塞队列等配置，方便进行统一管理和复用，通常还会附带一些探活机制、强制回收、监控一类的配套功能。</p>
+          <h2><span id="函数类型">函数类型：</span></h2><ul>
+<li>普通函数</li>
+<li>匿名函数（闭包）</li>
+<li>类方法</li>
+</ul>
+<h2><span id="函数可见性">函数可见性</span></h2><p>首字母的大小写来区分可见性的<br>首字母小写的函数只能在同一个包中访问<br>首字母大写的函数才可以在其他包中调用<br>Go 文件中定义的全局变量也是如此。</p>
 
         
       </div>
@@ -428,6 +384,50 @@
 </table>
 <h2><span id="运算符优先级">运算符优先级</span></h2><p>由上到下表示优先级从高到低，优先级越高</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">^（按位取反） !</span><br><span class="line">*  /  %  &lt;&lt;  &gt;&gt;  &amp;  &amp;^</span><br><span class="line">+  -  |  ^（按位异或）</span><br><span class="line">==  !=  &lt;  &lt;=  &gt;  &gt;=</span><br><span class="line">&amp;&amp;</span><br><span class="line">||</span><br></pre></td></tr></table></figure>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/03/31/pool/">
+  池化技术
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/03/31/pool/"><span class="article-date">
+  2020-03-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="池化技术">池化技术</span></h1><p>池化技术 (Pool) 是一种很常见的编程技巧，在请求量大时能明显优化应用性能，降低系统频繁建连的资源开销。我们日常工作中常见的有数据库连接池、线程池、对象池等，它们的特点都是将 “昂贵的”、“费时的” 的资源维护在一个特定的 “池子” 中，规定其最小连接数、最大连接数、阻塞队列等配置，方便进行统一管理和复用，通常还会附带一些探活机制、强制回收、监控一类的配套功能。</p>
+
         
       </div>
     </div>

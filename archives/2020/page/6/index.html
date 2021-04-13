@@ -156,6 +156,217 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/04/GoTesting/">
+  Go Testing包
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/GoTesting/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="go-testing包">Go Testing包</span></h1><p>Go语言的 testing 提供了三种测试方式，分别是单元（功能）测试、性能（压力）测试和覆盖率测试。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/GoError/">
+  Go 常见问题
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/GoError/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <ul>
+<li>go tool: no such tool compile</li>
+</ul>
+<blockquote>
+<p>go env  </p>
+</blockquote>
+<p>查看 GOROOT 是否为安装路径</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/static&const/">
+  static与const 关键字
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/static&const/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="static关键字">static关键字</span></h1><h2><span id="static-的作用">static 的作用</span></h2><pre><code>规定存储方式和作用域  
+</code></pre><h2><span id="static-关键字修饰变量函数">static 关键字修饰变量/函数</span></h2><ul>
+<li><p>static 全局变量<br>  全局静态变量, 保存在静态存储区, 不初始化自动初始化0, 作用域本文件   </p>
+</li>
+<li><p>static 局部变量<br>  局部静态变量, 保存在静态存储区, 不初始化自动初始化0, 作用域本文件  </p>
+</li>
+<li><p>static 函数<br>  1、在函数返回类型前加static，函数就定义为静态函数。函数的定义和声明在默认情况下都是extern的，但静态函数只是在声明他的文件当中可见，不能被其他文件所用<br>  2、函数的实现使用static修饰，那么这个函数只可在本cpp内使用，不会同其他cpp中的同名函数引起冲突   </p>
+</li>
+<li><p>static 类成员变量<br>  1、类静态成员可以实现多个对象之间的数据共享，静态成员是类的所有对象中共享的成员,而不是某个对象的成员。<br>  2、使用静态数据成员还不会破坏隐藏的原则，即保证了安全性。<br>  3、对多个对象来说，静态数据成员只存储一处，供所有对象共用。<br>  4、静态成员变量的生命期不依赖于任何对象，为程序的生命周期<br>  5、可以通过类名直接访问公有静态成员变量, 可以通过对象名访问公有静态成员变量<br>  6、静态成员变量在类外单独分配空间<br>  7、静态成员变量在程序内部位于全局数据区 </p>
+</li>
+<li><p>static 类成员函数<br>  1、属于类的静态成员，不是对象成员<br>  2、实现中不能直接引用类中说明的非静态成员，可以引用类中说明的静态成员(出现”对非静态成员的非法引用”)<br>  3、静态成员函数中要引用非静态成员时，可通过对象来引用</p>
+</li>
+</ul>
+<h1><span id="const-关键字">const 关键字</span></h1><p>不可为左值, 规定只读(不可更改)，在声明中使用</p>
+<ul>
+<li>const 常量<br>  定义时就必须进行初始化，以后不能更改。</li>
+<li>const 形参<br>  func(const int a){};该形参在函数里不能改变</li>
+<li>const 修饰类成员变量<br>  构造函数对该数据成员赋值，任何函数不能对该成员变量赋值，</li>
+<li>const 修饰类成员函数<br>  该函数对成员变量只能进行只读操作，不能更新值</li>
+<li>const 引用<br>  常引用所引用的对象不能被更新, 作为形参传入时，调用函数中不修改其值，如果是对象，减少调用构造函数。拷贝构造参数使用常引用</li>
+</ul>
+<h1><span id="常量指针与指针常量">常量指针与指针常量</span></h1><p>const char *p 和char const *p都表示 指向的内容不能改变。</p>
+<p>char * const p，就是将P声明为常指针，它的地址不能改变，是固定的，但是它的内容可以改变。</p>
+<p>主要看const 和”*“的位置<br>const在”*“左侧，修饰的是指针指向的内存数据，内存数据不能被改变<br>const在”*“右侧，修饰的是指针，指针不能被改变  </p>
+<pre><code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> na = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p1 = &amp;na;</span><br><span class="line">*p1 = <span class="number">1</span>; <span class="comment">// 编译报错 error C3892: “p1”: 不能给常量赋值</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">int</span> na = <span class="number">2</span>;</span><br><span class="line">   <span class="keyword">int</span> * <span class="keyword">const</span> p2 = &amp;na;</span><br><span class="line">*p2++; <span class="comment">// 编译报错 error C3892: “p2”: 不能给常量赋值</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> na = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p3 = &amp;na;</span><br><span class="line">*p3++;  <span class="comment">// 编译报错 error C3892: “p3”: 不能给常量赋值</span></span><br><span class="line">*p3 = <span class="number">1</span>; <span class="comment">// 编译报错 error C3892: “p3”: 不能给常量赋值</span></span><br></pre></td></tr></table></figure>
+</code></pre><h1><span id="const-和-static-一起用">const 和 static 一起用</span></h1><p>const static 和 static const 一样<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> a1 = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> * pa = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a1);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ++*pa &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 没问题</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">int</span> a2 = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> * paa = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a2);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ++*paa &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 编译可以过，但运行时引发了异常: 写入访问权限冲突。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>TODO 和static有关 查看了汇编，还是有点问题<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/static_cast.png" alt></p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/C++CopyControl/">
+  C++ 复制控制
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/C++CopyControl/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="复制构造函数">复制构造函数</span></h2><h3><span id="用途">用途</span></h3><ul>
+<li>根据一个同类型的对象显式或隐式初始化一个对象</li>
+<li>复制一个对象，将他作为实参传给一个函数</li>
+<li>从函数返回时复制一个对象</li>
+<li>初始化顺序容器中的元素</li>
+<li>根据元素初始化列表初始化数组元素</li>
+</ul>
+<h3><span id="禁止复制">禁止复制</span></h3><p>有些类需要完全禁止复制，可以将默认构造函数声明为private, 但是类的友元和成员仍可以进行复制，如果连友元和成员中的复制也禁止，可以声明一个private复制构造函数且不对其定义。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/04/Gopackage/">
   Go 包
 </a>
@@ -250,15 +461,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/GoError/">
-  Go 常见问题
+        <a href="/2020/01/04/Gocommand/">
+  Go 命令
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/GoError/"><span class="article-date">
+        <a href="/2020/01/04/Gocommand/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -277,361 +488,50 @@
       </div>
       <div class="article-entry">
         
-          <ul>
-<li>go tool: no such tool compile</li>
-</ul>
-<blockquote>
-<p>go env  </p>
-</blockquote>
-<p>查看 GOROOT 是否为安装路径</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/GoTesting/">
-  Go Testing包
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/GoTesting/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="go-testing包">Go Testing包</span></h1><p>Go语言的 testing 提供了三种测试方式，分别是单元（功能）测试、性能（压力）测试和覆盖率测试。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/C++Passby/">
-  C++ 值传递 引用传递
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/C++Passby/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="c-值传递-引用传递">C++ 值传递 引用传递</span></h1><h2><span id="pass-by-value值传递">pass-by-value(值传递)</span></h2><p>函数调用入口参数时，一般都会创建副本或者调用类对象的拷贝构造函数，所以操作结束后入参的值没有变化，变化的只是副本。<br>缺省情况C++以pass-by-value（继承C的方式）传递对象至（或来自）函数。函数参数都是以实际参数的复件为初值，调用端所获得的也是函数返回值的一个复件，复件由对象的拷贝构造函数产出，可能使pass-by-value成为<font color="red">耗时</font>的操作。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">1</span>,y=<span class="number">2</span>;</span><br><span class="line">    swap(x,y); <span class="comment">//x,y值作为拷贝副本传递a和b;</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span> &lt;&lt; x &lt;&lt;<span class="string">"y"</span>&lt;&lt; y; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="pass-by-reference引用传递">pass-by-reference(引用传递)</span></h2><p>则是直接操作原来的对象，不会建立副本，对该对象做的操作，会直接影响到原来传入的变量或者对象。<br>没有任何构造函数或析构函数被调用，因为没有任何对象被新建。参数声明中加上const，防止传入的对象被修改。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">5</span>,y=<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> &amp;i=x; <span class="comment">//表示i是x别名，也就是存贮在相同单元里</span></span><br><span class="line">    <span class="keyword">int</span> &amp;j=y; <span class="comment">//同理</span></span><br><span class="line">    swap(i,j);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span>&lt;&lt; x &lt;&lt;<span class="string">"y"</span>&lt;&lt; y;<span class="comment">//i和j的值变化会影响到x和y;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="pass-by-value-与-pass-by-reference-区别">pass-by-value 与 pass-by-reference 区别</span></h2><h3><span id="pass-by-value-比pass-by-reference-耗时">pass-by-value 比pass-by-reference 耗时：</span></h3><p>因为调用拷贝构造，若派生类，调用更多函数。</p>
-<p>类的对象作为函数参数时，如果使用值传递，要先拷贝一份实参的副本，需要调用类的拷贝构造函数，函数结束时副本被销毁，需要调用析构函数。如果该类是派生类，调用的函数更多，流程更多更复杂。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/C++StandardLib/">
-  C++ 标准库算法整理
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/C++StandardLib/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="c-标准库算法整理">C++ 标准库算法整理</span></h2><h3><span id="查找对象算法">查找对象算法</span></h3><h4><span id="1-简单查找算法">1、简单查找算法</span></h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>find(beg, end, val)</td>
-<td>查找特定元素，返回引用第一个匹配元素的迭代器，不存在返回end</td>
-</tr>
-<tr>
-<td>count(beg, end, val)</td>
-<td>返回元素出现次数</td>
-</tr>
-<tr>
-<td>find_if(beg, end, unaryPred)</td>
-<td>在beg到end中找满足unaryPred(参数)为真的第一个元素</td>
-</tr>
-<tr>
-<td>count_if(beg, end, unaryPred)</td>
-<td>在beg到end中找满足unaryPred(参数)为真的所有元素个数</td>
-</tr>
-</tbody>
-</table>
-<p>unaryPred 为函数适配器，</p>
-<h4><span id="2-查找许多值中的一个算法">2、查找许多值中的一个算法</span></h4><p>要求beg1 end1和 beg2 end2 的类型完全匹配，不要求beg1 和beg2类型完全匹配</p>
+          <h2><span id="go-build">go build</span></h2><p>1、go build 无参数<br>生成包名文件<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> build</span><br></pre></td></tr></table></figure></p>
+<p>2、go build +文件列表  </p>
+<pre><code class="go"><span class="keyword">go</span> build main.<span class="keyword">go</span> lib1.<span class="keyword">go</span>
+</code></pre>
+<p>使用”go build+文件列表”方式编译时，可执行文件默认选择文件列表中第一个源码文件作为可执行文件名输出。</p>
+<p>3、go build+包</p>
+<p>在设置 GOPATH 后，可以直接根据包名进行编译，即便包内文件被增（加）删（除）也不影响编译指令。</p>
+<p>go build 编译参数</p>
 <table>
 <thead>
 <tr>
-<th>函数</th>
-<th>用法</th>
+<th>参数</th>
+<th>效果</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>find_first_of(beg1, end1, beg2, end2)</td>
-<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
+<td>-v</td>
+<td>编译时显示包名</td>
 </tr>
 <tr>
-<td>find_first_of(beg1, end1, beg2, end2, binaryPred)</td>
-<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
+<td>-p n</td>
+<td>开启并发编译，默认情况下该值为 CPU 逻辑核数</td>
 </tr>
 <tr>
-<td>find_end(beg1, end1, beg2, end2)</td>
-<td>在(beg1,end1)中查找最后一个和(beg2,end2)中匹配的匹配项</td>
+<td>-a</td>
+<td>强制重新构建</td>
 </tr>
 <tr>
-<td>find_end(beg1, end1, beg2, end2, binaryPred)</td>
-<td></td>
+<td>-n</td>
+<td>打印编译时会用到的所有命令，但不真正执行</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>打印编译时会用到的所有命令</td>
+</tr>
+<tr>
+<td>-race</td>
+<td>开启竞态检测</td>
 </tr>
 </tbody>
 </table>
-<h4><span id="3-查找子序列的算法">3、查找子序列的算法</span></h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>adjacent_find(beg, end)</td>
-<td>搜索序列中两个连续相等的元素</td>
-</tr>
-<tr>
-<td>adjacent_find(beg, end, binaryPred)</td>
-<td>搜索序列中两个连续相等的元素，满足binaryPred条件</td>
-</tr>
-<tr>
-<td>search(beg1, end1, beg2, end2)</td>
-<td>找第一个序列中第二个子序列</td>
-</tr>
-<tr>
-<td>search(beg1, end1, beg2, end2, binaryPred)</td>
-<td>找第一个序列中第二个子序列, 满足binaryPred条件</td>
-</tr>
-<tr>
-<td>search_n(beg, end, count, val)</td>
-<td>找序列中找给定val的出现次数，返回第一个匹配项</td>
-</tr>
-<tr>
-<td>search_n(beg, end, count, val, binaryPred)</td>
-<td>找序列中找给定val的出现次数，返回第一个匹配项, 满足binaryPred条件</td>
-</tr>
-</tbody>
-</table>
-<h3><span id="其他只读算法">其他只读算法</span></h3><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>for_each(beg, end, f)</td>
-<td></td>
-</tr>
-<tr>
-<td>mismatch(beg1, end1, beg2)</td>
-<td>返回不匹配的迭代器 全部匹配返回end1</td>
-</tr>
-<tr>
-<td>mismatch(beg1, end1, beg2, binaryPred)</td>
-<td>返回不满足binaryPred条件的迭代器 全部匹配返回end1</td>
-</tr>
-<tr>
-<td>equal(beg1, end1, beg2)</td>
-<td>判断两个序列是否相等，相等返回true</td>
-</tr>
-<tr>
-<td>equal(beg1, end1, beg2, binaryPred)</td>
-<td>判断两个序列是否满足binaryPred条件，相等返回true</td>
-</tr>
-</tbody>
-</table>
-<h3><span id="二分查找">二分查找</span></h3><p>序列有序</p>
-<table>
-<thead>
-<tr>
-<th>函数</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>lower_bound(beg, end, val)</td>
-<td>在(beg,end)中查找不小于val的第一个元素</td>
-</tr>
-<tr>
-<td>lower_bound(beg, end, val, comp)</td>
-<td>在(beg,end)中查找不小于val的第一个元素，comp用于指定序列排序所使用的比较。</td>
-</tr>
-<tr>
-<td>upper_bound(beg, end, val)</td>
-<td>在(beg,end)中查找大于val的第一个元素</td>
-</tr>
-<tr>
-<td>upper_bound(beg, end, val, comp)</td>
-<td>在(beg,end)中查找大于val的第一个元素，comp用于指定序列排序所使用的比较</td>
-</tr>
-<tr>
-<td>equal_range(beg, end, val)</td>
-<td>找出有序序列中所有和val相等的元素</td>
-</tr>
-<tr>
-<td>equal_range(beg, end, val, comp)</td>
-<td>找出有序序列中所有和val相等的元素，comp用于指定序列排序所使用的比较</td>
-</tr>
-<tr>
-<td>binary_search(beg, end, val)</td>
-<td>序列是否包含与val相等的元素</td>
-</tr>
-<tr>
-<td>binary_search(beg, end, val, comp)</td>
-<td>序列是否包含与val相等的元素，comp用于指定序列排序所使用的比较</td>
-</tr>
-</tbody>
-</table>
-<h3><span id="容器元素的算法">容器元素的算法</span></h3><h4><span id="1-只写元素不读元素算法">1、只写元素不读元素算法</span></h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>fill_n(dest, cnt, val)</td>
-<td>以给定的迭代器为起始位置，为cnt个数的元素设置值val</td>
-</tr>
-<tr>
-<td>generate_n(dest, cnt, Gen)</td>
-<td>以给定的迭代器为起始位置，为cnt个数的元素设置由Gen函数的返回值</td>
-</tr>
-</tbody>
-</table>
-<h4><span id="2-使用输入迭代器写入元素的算法">2、使用输入迭代器写入元素的算法</span></h4><table>
-<thead>
-<tr>
-<th>函数</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>copy(beg, end, dest)</td>
-<td>(beg,end) 复制到迭代器dest开始的序列</td>
-</tr>
-<tr>
-<td>transfrom(beg, end, dest, unaryOp)</td>
-<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
-</tr>
-<tr>
-<td>transfrom(beg, end, beg2, dest, unaryOp)</td>
-<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
-</tr>
-<tr>
-<td>replace_copy(beg, end, dest, old_val, new_val)</td>
-<td>(beg,end) 输入到迭代器dest开始的序列,oldval替换为new_val</td>
-</tr>
-<tr>
-<td>replace_copy_if(beg, end, dest, unaryPred, new_val)</td>
-<td>(beg,end) 输入到迭代器dest开始的序列,符合unaryPred条件的元素替换为new_val</td>
-</tr>
-<tr>
-<td>merge(beg1, end1, beg2, end2, dest)</td>
-<td>合并两个有序序列后写入到dest</td>
-</tr>
-<tr>
-<td>merge(beg1, end1, beg2, end2, dest, comp)</td>
-<td>合并两个有序序列后写入到dest，comp用于指定序列排序所使用的比较</td>
-</tr>
-</tbody>
-</table>
-<h4><span id="3-使用前">3、使用前</span></h4>
+<h2><span id="go-clean">go clean</span></h2><p>会清除掉编译过程中产生的一些文件。</p>
+
         
       </div>
     </div>
@@ -645,15 +545,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/C++CopyControl/">
-  C++ 复制控制
+        <a href="/2020/01/04/C++11/">
+  C++ 关键字罗列
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/C++CopyControl/"><span class="article-date">
+        <a href="/2020/01/04/C++11/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -672,103 +572,13 @@
       </div>
       <div class="article-entry">
         
-          <h2><span id="复制构造函数">复制构造函数</span></h2><h3><span id="用途">用途</span></h3><ul>
-<li>根据一个同类型的对象显式或隐式初始化一个对象</li>
-<li>复制一个对象，将他作为实参传给一个函数</li>
-<li>从函数返回时复制一个对象</li>
-<li>初始化顺序容器中的元素</li>
-<li>根据元素初始化列表初始化数组元素</li>
+          <h1><span id="constexpr">constexpr</span></h1><p>constexpr是C++11中新增的关键字，其语义是“常量表达式”，也就是在编译期可求值的表达式。</p>
+<h2><span id="constexpr的好处">constexpr的好处：</span></h2><ul>
+<li>是一种很强的约束，更好地保证程序的正确语义不被破坏。</li>
+<li>编译器可以在编译期对constexpr的代码进行非常大的优化，比如将用到的constexpr表达式都直接替换成最终结果等。</li>
+<li>相比宏来说，没有额外的开销，但更安全可靠。</li>
 </ul>
-<h3><span id="禁止复制">禁止复制</span></h3><p>有些类需要完全禁止复制，可以将默认构造函数声明为private, 但是类的友元和成员仍可以进行复制，如果连友元和成员中的复制也禁止，可以声明一个private复制构造函数且不对其定义。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/GoRange/">
-  Go 键值循环
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/GoRange/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p>for range 可以遍历数组、切片、字符串、map 及通道（channel）</p>
-<p>数组<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = []<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line"><span class="keyword">for</span> key, value := <span class="keyword">range</span> m &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"key:%d  value:%d\n"</span>, key, value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>切片<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> m = []<span class="keyword">int</span>&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>&#125;</span><br><span class="line"><span class="keyword">for</span> key, value := <span class="keyword">range</span> m[<span class="number">1</span>:<span class="number">3</span>] &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"key:%d  value:%d\n"</span>, key, value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>字符串<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> str = <span class="string">"hello world"</span></span><br><span class="line"><span class="keyword">for</span> key, value := <span class="keyword">range</span> str &#123;</span><br><span class="line">	fmt.Printf(<span class="string">"key:%d value:0x%x\n"</span>, key, value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>map<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">m := <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">int</span>&#123;</span><br><span class="line">    <span class="string">"hello"</span>: <span class="number">100</span>,</span><br><span class="line">    <span class="string">"world"</span>: <span class="number">200</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> key, value := <span class="keyword">range</span> m &#123;</span><br><span class="line">    fmt.Println(key, value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>channel<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">c := <span class="built_in">make</span>(<span class="keyword">chan</span> <span class="keyword">int</span>)</span><br><span class="line"><span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">	c &lt;- <span class="number">1</span></span><br><span class="line">	c &lt;- <span class="number">2</span></span><br><span class="line">	c &lt;- <span class="number">3</span></span><br><span class="line">	<span class="built_in">close</span>(c)</span><br><span class="line">&#125;()</span><br><span class="line"><span class="keyword">for</span> v := <span class="keyword">range</span> c &#123;</span><br><span class="line">	fmt.Println(v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/GoWorkSpace/">
-  Go 工作区
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/GoWorkSpace/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="go-工作区">GO 工作区</span></h1><h2><span id="gopath">GOPATH</span></h2><p>Go 语言的工作目录，它的值是一个目录的路径，也可以是多个目录路径，每个目录都代表 Go 语言的一个工作区（workspace）。</p>
+<h1><span id="noreturn">[[noreturn]]</span></h1><p>指示函数不返回</p>
 
         
       </div>
@@ -847,15 +657,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/array&vector/">
-  数组替代品
+        <a href="/2020/01/04/C++Template/">
+  C++ 模板与泛型
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/array&vector/"><span class="article-date">
+        <a href="/2020/01/04/C++Template/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -874,7 +684,67 @@
       </div>
       <div class="article-entry">
         
-          
+          <h2><span id="模板">模板</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;Typename T&gt;</span><br></pre></td></tr></table></figure>
+<p>模板定义从template开始，后面接模板形参表，模板形参表使用尖括号括住的一个或多个模板形参的列表，中间用逗号分隔。</p>
+<p>泛型代码重要原则</p>
+<ul>
+<li>模板的形参是const引用</li>
+<li>函数体重的测试之用 &lt; 比较</li>
+</ul>
+<h3><span id="模板特化">模板特化</span></h3><p>一个或多个模板形参的实际类型或实际值是指定的</p>
+<h2><span id="template-functions">Template Functions</span></h2><p>实现一个数值幂次方的函数</p>
+<p>对于整数型<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Power</span><span class="params">(<span class="keyword">int</span> base, <span class="keyword">int</span> exponent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">int</span>)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">int</span>)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) <span class="keyword">return</span> *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于长整型<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">Power</span><span class="params">(<span class="keyword">long</span> base, <span class="keyword">long</span> exponent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">long</span>)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">long</span>)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) <span class="keyword">return</span> *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>两个函数除了类型不同，实现过程都是一样, 可以把 <font color="red">数据类型也变成参数</font></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">templage &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; </span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">Power</span>(<span class="title">T</span> <span class="title">base</span>, <span class="title">T</span> <span class="title">exponent</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    T result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (T)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (T)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) result *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="template-class">Template Class</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">CThree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CThree(T t1, T t2, T t3);</span><br><span class="line">    <span class="function">T <span class="title">Min</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">T <span class="title">Max</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T a, b, c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">CThree</span>&lt;T&gt;:</span>:CThree(T t1, T t2, T t3)</span><br><span class="line">    a(t1), b(t2), c(t3)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">CThree</span>&lt;T&gt;:</span>:Min()</span><br><span class="line">&#123;</span><br><span class="line">    T min = a &lt; b ? a : b;</span><br><span class="line">    <span class="keyword">return</span> min &lt; c ? min : c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">CThree</span>&lt;T&gt;:</span>:Max()</span><br><span class="line">&#123;</span><br><span class="line">    T max = a &gt; b ? a : b;</span><br><span class="line">    <span class="keyword">return</span> max &gt; c ? max : c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每个成员函数都要加上<b> templte \<class t></class></b></p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/C++KeyWord/">
+  explicit 关键字
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/C++KeyWord/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="explicit-关键字">explicit 关键字</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Test1(<span class="keyword">int</span> n)</span><br><span class="line">    &#123;</span><br><span class="line">        num=n;</span><br><span class="line">    &#125;<span class="comment">//普通构造函数</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Test2</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        num=n;</span><br><span class="line">    &#125;<span class="comment">//explicit(显式)构造函数</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Test1 t1=<span class="number">12</span>;<span class="comment">//隐式调用其构造函数,成功</span></span><br><span class="line">    Test2 t2=<span class="number">12</span>;<span class="comment">//编译错误,不能隐式调用其构造函数</span></span><br><span class="line">    <span class="function">Test2 <span class="title">t2</span><span class="params">(<span class="number">12</span>)</span></span>;<span class="comment">//显式调用成功</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Test1的构造函数带了一个int型的参数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Test1 t1 = <span class="number">12</span>;  <span class="comment">// 调用成功</span></span><br></pre></td></tr></table></figure>
+<p>Test2的构造函数被声明为explicit(显式), 表示不能通过隐式转换来调用这个构造函数<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Test2 t2 = <span class="number">12</span>;  <span class="comment">//调用失败</span></span><br></pre></td></tr></table></figure></p>
+
         
       </div>
     </div>

@@ -156,6 +156,49 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/02/Github_Deploy/">
+  Hexo Deploy
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/02/Github_Deploy/"><span class="article-date">
+  2020-01-02
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/github-issue/">github issue</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github-issue/">github issue</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="hexo-d-报错error-deploy-not-fountgit">hexo d 报错ERROR Deploy not fount:git</span></h1><p>报错信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo d</span><br><span class="line">ERROR Deployer not found: git</span><br></pre></td></tr></table></figure></p>
+<p>解决方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure></p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/02/C++IO/">
   C++ IO库
 </a>
@@ -295,15 +338,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/02/C++Variables/">
-  变量和基本类型
+        <a href="/2020/01/02/C++Generic/">
+  C++ 泛型
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/02/C++Variables/"><span class="article-date">
+        <a href="/2020/01/02/C++Generic/"><span class="article-date">
   2020-01-02
 </span>
 </a>
@@ -322,379 +365,19 @@
       </div>
       <div class="article-entry">
         
-          <h2><span id="c-基本内置类型">C++ 基本内置类型</span></h2><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>含义</th>
-<th>最小存储空间</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>bool</td>
-<td>布尔型</td>
-<td>-</td>
-</tr>
-<tr>
-<td>char</td>
-<td>字符型</td>
-<td>8位</td>
-</tr>
-<tr>
-<td>wchar_t</td>
-<td>宽字符型</td>
-<td>16位</td>
-</tr>
-<tr>
-<td>short</td>
-<td>短整型</td>
-<td>16位</td>
-</tr>
-<tr>
-<td>int</td>
-<td>整型</td>
-<td>16位</td>
-</tr>
-<tr>
-<td>long</td>
-<td>长整型</td>
-<td>32位</td>
-</tr>
-<tr>
-<td>float</td>
-<td>单精度浮点型</td>
-<td>6位有效数字</td>
-</tr>
-<tr>
-<td>double</td>
-<td>双精度浮点型</td>
-<td>10位有效数字</td>
-</tr>
-<tr>
-<td>long double</td>
-<td>扩展京都浮点型</td>
-<td>10为有效数字</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="整型">整型</span></h2><p>表示整数 字符和布尔值的算术类型合称为整型。</p>
-<p>字符类型 </p>
-<ul>
-<li>char 表示单个机器字节（byte）</li>
-<li>wchar_t 用于扩展字符集 比如汉字、日文 这类字符集中一些字符不能用单个char表示 前面加<font color="red"><b>“L” </b></font></li>
+          <h2><span id="泛型算法">泛型算法</span></h2><p>标准库操作不同容器的函数算法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;numeric&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>算法直接修改容器大小，需要增加或删除元素必须使用容器操作</p>
+<h3><span id="排序算法">排序算法</span></h3><p>全部排序<br>局部排序</p>
+<h2><span id="迭代器">迭代器</span></h2><ul>
+<li>插入迭代器: 与容器绑定，实现容器插入元素操作</li>
+<li>iostream迭代器: 与输入输出流绑定，用于迭代便利所关联的IO流</li>
+<li>反向迭代器: 反向遍历</li>
 </ul>
-<p>整型值</p>
-<ul>
-<li>short 类型为半个机器字长（word）</li>
-<li>int   为一个机器字长</li>
-<li>long  为一个或者两个机器字长（32位机器中int和long通常字长是相同）</li>
-</ul>
-<p>布尔类型</p>
-<ul>
-<li>bool true false </li>
-</ul>
-<p>带符号与无符号类型<br>除了bool类型，其他类型既可以又符号也可以是无符号。第一位为符号位，无符号型只能表示大于或等于0的数，带符号的可以表示正数也可以表示负数。</p>
-<p>int short long 默认是带符号型，前面加unsigned无符号型, unsigned int 可以简写为unsigned。</p>
-<h2><span id="变量">变量</span></h2><p>左值与右值</p>
-<ul>
-<li>左值：左值可以出现在赋值语句的左边或者右边. 比如：变量 int a = 0; int b = a</li>
-<li>右值：右值只能出现在赋值的右边，不能出现在赋值语句的左边. 比如 0 = 1 是错的</li>
-</ul>
-<p>定义与声明</p>
-<ul>
-<li>定义：用于为变量分配存储空间，为变量指定初始值。</li>
-<li>声明：向程序表明变量的类型和名字。 定义也是声明</li>
-</ul>
-<p>extern关键字<b><u>是声明变量而不是定义</u></b></p>
-<h2><span id="引用">引用</span></h2><p>对象的另一个名字 是一种<b><u>复合类型</u></b></p>
-<p>const 引用<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> a = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;refa = a;  <span class="comment">// 合法</span></span><br><span class="line"><span class="keyword">int</span> &amp;refb = a;          <span class="comment">// 不合法，普通的非const引用</span></span><br></pre></td></tr></table></figure></p>
-<h2><span id="预处理器">预处理器</span></h2><p>避免重复包含同文件<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> TESTDEFINE_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TESTDEFINE_H</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure></p>
+<p>插入迭代器</p>
+<p>back_inserter 创建爱你使用push_back实现插入的迭代器<br>front_inserter 使用push_front实现插入<br>inserter 使用insert实现插入操作</p>
+<p>iostream迭代器</p>
+<p>反向迭代器<br>一种反向遍历容器的迭代器，也就是从最后一个元素到第一个元素遍历容器。对于反向迭代器，++操作访问前一个元素，–访问下一个元素</p>
 
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/02/C++operate/">
-  C++ 操作符
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/02/C++operate/"><span class="article-date">
-  2020-01-02
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="一元操作符">一元操作符</span></h2><p>作用在一个操作数上的操作符 取地址操作符（&amp;）和解引用操作符（*）</p>
-<h2><span id="二元操作符">二元操作符</span></h2><p>作用在两个操作数上的操作符 加法操作符（+）和减法操作符（-）</p>
-<h2><span id="三元操作符">三元操作符</span></h2><p>作用在三个操作数上的操作符</p>
-<h2><span id="操作符的优先级">操作符的优先级</span></h2><h2><span id="位操作">位操作</span></h2><table>
-<thead>
-<tr>
-<th>操作符</th>
-<th>功能</th>
-<th>用法</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>~</td>
-<td>位求反</td>
-<td>~expr</td>
-</tr>
-<tr>
-<td>&lt;&lt;</td>
-<td>左移</td>
-<td>expr1 &lt;&lt; expr2</td>
-</tr>
-<tr>
-<td>&gt;&gt;</td>
-<td>右移</td>
-<td>expr1 &gt;&gt; expr2</td>
-</tr>
-<tr>
-<td>&amp;</td>
-<td>位与</td>
-<td>expr1 &amp; expr2</td>
-</tr>
-<tr>
-<td>^</td>
-<td>位异或</td>
-<td>expr1 ^ expr2</td>
-</tr>
-<tr>
-<td>\</td>
-<td></td>
-<td>位或</td>
-<td>expr1</td>
-<td>expr2</td>
-</tr>
-</tbody>
-</table>
-<p>后置操作符 前置操作符</p>
-<h2><span id="类型转换">类型转换</span></h2><h3><span id="隐式转换">隐式转换</span></h3><ul>
-<li><p>指针转换</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> na[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">int</span>* pi = na;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>任意数据类型的指针都可以转换为void* 类型</li>
-<li>整型数值常量0可以转换为任意指针类型</li>
-</ul>
-</li>
-<li><p>转换为bool类型</p>
-</li>
-<li><p>算术类型与bool类型的转换</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">bool</span> b = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">int</span> nval = b;  <span class="comment">// nval = 1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> dbval = <span class="number">3.14</span>;</span><br><span class="line"><span class="keyword">bool</span> b2 = pi; <span class="comment">// b2 = true;</span></span><br><span class="line">dbval = <span class="literal">false</span> <span class="comment">// dbval = 0</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>转换与枚举类型</p>
-</li>
-<li><p>转换为const对象</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> ni = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> &amp;j = i;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p = &amp;ni;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>由标准库类型定义的转换</p>
-</li>
-</ul>
-<h3><span id="显式转换">显式转换</span></h3><ul>
-<li>dynamic_cast</li>
-<li><p>const_cast<br>转换掉表达式的const性质</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* pc_str;</span><br><span class="line"><span class="keyword">char</span>* pc = string_copy(<span class="keyword">const_cast</span>&lt;<span class="keyword">char</span>*&gt;(pc_str));</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>static_cast<br>编译器隐式执行的任何类型转换都可以有static_cast显式完成</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> d = <span class="number">100.0</span>;</span><br><span class="line"><span class="keyword">char</span> ch = <span class="keyword">static_cast</span>&lt;<span class="keyword">char</span>&gt;(d);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>reinterpret_cast</p>
-</li>
-</ul>
-<h3><span id="四个调试时有用常量">四个调试时有用常量</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">__FILE__    <span class="comment">//  文件名</span></span><br><span class="line">__LINE__    <span class="comment">//  当前行号</span></span><br><span class="line">__TIME__    <span class="comment">//  文件被编译的时间</span></span><br><span class="line">__DATE__    <span class="comment">//  文件被编译的日期</span></span><br></pre></td></tr></table></figure>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/02/C++Container/">
-  C++ 容器
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/02/C++Container/"><span class="article-date">
-  2020-01-02
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="容器">容器</span></h2><table>
-<thead>
-<tr>
-<th>-</th>
-<th>类型</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>顺序容器</td>
-<td>-</td>
-</tr>
-<tr>
-<td>vector</td>
-<td>支持快速随机访问</td>
-</tr>
-<tr>
-<td>list</td>
-<td>支持快速插入/删除</td>
-</tr>
-<tr>
-<td>deque</td>
-<td>双端队列</td>
-</tr>
-<tr>
-<td>顺序容器适配器</td>
-<td>-</td>
-</tr>
-<tr>
-<td>stack</td>
-<td>后进先出（LIFO）栈</td>
-</tr>
-<tr>
-<td>queue</td>
-<td>先进先出（FIFO）队列</td>
-</tr>
-<tr>
-<td>priority_queue</td>
-<td>有优先级管理的队列</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="迭代器运算">迭代器运算</span></h2><p>所有容器都可以的运算</p>
-<table>
-<thead>
-<tr>
-<th>运算</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>*iter</td>
-<td>返回迭代器iter所指向的元素的引用</td>
-</tr>
-<tr>
-<td>iter-&gt;mem</td>
-<td>对iter进行解引用，获取名为mem的成员。等效于(*iter).mem</td>
-</tr>
-<tr>
-<td>++iter iter++</td>
-<td>iter加1，指向容器下一个元素</td>
-</tr>
-<tr>
-<td>–iter iter–</td>
-<td>iter减1，指向容器前一个元素</td>
-</tr>
-<tr>
-<td>iter1 == iter2</td>
-<td>比较两个迭代器是否相同</td>
-</tr>
-<tr>
-<td>iter1 != iter2</td>
-<td>比较两个迭代器是否不同</td>
-</tr>
-</tbody>
-</table>
-<p>vector 和deque 额外的运算</p>
-<table>
-<thead>
-<tr>
-<th>运算</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>iter + n</td>
-<td>迭代器上加整数值n，将产生指向容器中前面的第n个元素的迭代器</td>
-</tr>
-<tr>
-<td>iter - n</td>
-<td>迭代器上减整数值n，将产生指向容器中后面的第n个元素的迭代器</td>
-</tr>
-<tr>
-<td>iter1 += iter2</td>
-<td>加法复合赋值运算，结果赋值给iter1</td>
-</tr>
-<tr>
-<td>iter1 -= iter2</td>
-<td>减法复合赋值运算，结果赋值给iter1</td>
-</tr>
-<tr>
-<td>iter1 - iter2</td>
-<td>迭代器减法</td>
-</tr>
-<tr>
-<td>&gt;, &gt;=, &lt; , &lt;=</td>
-<td>迭代器关系操作符</td>
-</tr>
-</tbody>
-</table>
-<p>关系操作符（&lt;、&lt;=、 &gt; 、 &gt;=）只适用于vector 和deque容器，因为这有这两类容器为其元素提供快速、随机访问</p>
-<h2><span id="容器的选用">容器的选用</span></h2><ul>
-<li>插入删除的代价</li>
-<li>随机访问的代价</li>
-</ul>
-<h2><span id="容器适配器">容器适配器</span></h2><p>对容器的一种再封装,不同的容器适配器提供不同的函数，使容器的功能得到全新的特定的扩展。</p>
-<ul>
-<li>stack 栈</li>
-<li>queue 队列</li>
-<li>priority_queue 优先队列</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vc; <span class="comment">// vc : 1,2,3,4,5,6</span></span><br><span class="line"><span class="comment">// 顺序输出  1,2,3,4,5,6</span></span><br><span class="line"><span class="function"><span class="built_in">stack</span>&lt;<span class="keyword">int</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">svc</span><span class="params">(vc)</span></span>; </span><br><span class="line"><span class="comment">// 一个个pop弹出</span></span><br><span class="line"><span class="comment">// 输出 6,5,4,3,2,1</span></span><br></pre></td></tr></table></figure>
         
       </div>
     </div>
@@ -872,6 +555,219 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/02/C++Container/">
+  C++ 容器
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/02/C++Container/"><span class="article-date">
+  2020-01-02
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="容器">容器</span></h2><table>
+<thead>
+<tr>
+<th>-</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顺序容器</td>
+<td>-</td>
+</tr>
+<tr>
+<td>vector</td>
+<td>支持快速随机访问</td>
+</tr>
+<tr>
+<td>list</td>
+<td>支持快速插入/删除</td>
+</tr>
+<tr>
+<td>deque</td>
+<td>双端队列</td>
+</tr>
+<tr>
+<td>顺序容器适配器</td>
+<td>-</td>
+</tr>
+<tr>
+<td>stack</td>
+<td>后进先出（LIFO）栈</td>
+</tr>
+<tr>
+<td>queue</td>
+<td>先进先出（FIFO）队列</td>
+</tr>
+<tr>
+<td>priority_queue</td>
+<td>有优先级管理的队列</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="迭代器运算">迭代器运算</span></h2><p>所有容器都可以的运算</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>*iter</td>
+<td>返回迭代器iter所指向的元素的引用</td>
+</tr>
+<tr>
+<td>iter-&gt;mem</td>
+<td>对iter进行解引用，获取名为mem的成员。等效于(*iter).mem</td>
+</tr>
+<tr>
+<td>++iter iter++</td>
+<td>iter加1，指向容器下一个元素</td>
+</tr>
+<tr>
+<td>–iter iter–</td>
+<td>iter减1，指向容器前一个元素</td>
+</tr>
+<tr>
+<td>iter1 == iter2</td>
+<td>比较两个迭代器是否相同</td>
+</tr>
+<tr>
+<td>iter1 != iter2</td>
+<td>比较两个迭代器是否不同</td>
+</tr>
+</tbody>
+</table>
+<p>vector 和deque 额外的运算</p>
+<table>
+<thead>
+<tr>
+<th>运算</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>iter + n</td>
+<td>迭代器上加整数值n，将产生指向容器中前面的第n个元素的迭代器</td>
+</tr>
+<tr>
+<td>iter - n</td>
+<td>迭代器上减整数值n，将产生指向容器中后面的第n个元素的迭代器</td>
+</tr>
+<tr>
+<td>iter1 += iter2</td>
+<td>加法复合赋值运算，结果赋值给iter1</td>
+</tr>
+<tr>
+<td>iter1 -= iter2</td>
+<td>减法复合赋值运算，结果赋值给iter1</td>
+</tr>
+<tr>
+<td>iter1 - iter2</td>
+<td>迭代器减法</td>
+</tr>
+<tr>
+<td>&gt;, &gt;=, &lt; , &lt;=</td>
+<td>迭代器关系操作符</td>
+</tr>
+</tbody>
+</table>
+<p>关系操作符（&lt;、&lt;=、 &gt; 、 &gt;=）只适用于vector 和deque容器，因为这有这两类容器为其元素提供快速、随机访问</p>
+<h2><span id="容器的选用">容器的选用</span></h2><ul>
+<li>插入删除的代价</li>
+<li>随机访问的代价</li>
+</ul>
+<h2><span id="容器适配器">容器适配器</span></h2><p>对容器的一种再封装,不同的容器适配器提供不同的函数，使容器的功能得到全新的特定的扩展。</p>
+<ul>
+<li>stack 栈</li>
+<li>queue 队列</li>
+<li>priority_queue 优先队列</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; vc; <span class="comment">// vc : 1,2,3,4,5,6</span></span><br><span class="line"><span class="comment">// 顺序输出  1,2,3,4,5,6</span></span><br><span class="line"><span class="function"><span class="built_in">stack</span>&lt;<span class="keyword">int</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; <span class="title">svc</span><span class="params">(vc)</span></span>; </span><br><span class="line"><span class="comment">// 一个个pop弹出</span></span><br><span class="line"><span class="comment">// 输出 6,5,4,3,2,1</span></span><br></pre></td></tr></table></figure>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/01/windbg/">
+  windbg dump 分析
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/01/windbg/"><span class="article-date">
+  2020-01-01
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="windbg-分析">windbg 分析</span></h1><h2><span id="windbg-dump-分析">windbg dump 分析</span></h2><p>重新加载symbol文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.reload /f</span><br></pre></td></tr></table></figure></p>
+<p>显示加载的模块列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lm</span><br></pre></td></tr></table></figure></p>
+<p>命令定位当前异常的上下文信息，并显示指定记录中的重要寄存器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ecxr</span><br></pre></td></tr></table></figure></p>
+<p>使用断点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bl (Breakpoint List)命令列出当前存在的断点和他们的状态。</span><br><span class="line">bp (Set Breakpoint) 命令设置新断点。</span><br><span class="line">bu (Set Unresolved Breakpoint) 命令设置新断点。使用bu设置的断点和bp设置的断点特点不同，详细信息查看后面的内容。</span><br><span class="line">bm (Set Symbol Breakpoint) 在匹配指定格式的符号上设置断点。</span><br><span class="line">ba (Break on Access) 命令设置数据断点。这种断点在指定内存被访问时触发。(可以在写入、读取、执行或发生内核I/O时触发，但不是所有处理器都支持所有的内存访问断点。更多信息，查看ba (Break on Access)。)</span><br><span class="line">bc (Breakpoint Clear) 命令移除一个或多个断点。</span><br><span class="line">bd (Breakpoint Disable) 命令暂时禁用一个或多个断点。</span><br><span class="line">be (Breakpoint Enable) 命令重新启用一个或多个断点。</span><br><span class="line">br (Breakpoint Renumber) 命令修改一个已存在的断点的ID。</span><br><span class="line">bs (Update Breakpoint Command) 命令用于更改已存在的断点所关联的命令。</span><br><span class="line">bsc (Update Conditional Breakpoint) 命令用于更改已存在的断点的触发条件。</span><br></pre></td></tr></table></figure></p>
+<p>扩展显示某个模块的详细信息</p>
+<pre><code>lmi 
+
+lmvm ntdll
+</code></pre><h2><span id="windbg">windbg</span></h2>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/01/compiler/">
   编译器
 </a>
@@ -963,55 +859,6 @@
   
   
     
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/01/windbg/">
-  windbg dump 分析
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/01/windbg/"><span class="article-date">
-  2020-01-01
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="windbg-分析">windbg 分析</span></h1><h2><span id="windbg-dump-分析">windbg dump 分析</span></h2><p>重新加载symbol文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.reload /f</span><br></pre></td></tr></table></figure></p>
-<p>显示加载的模块列表<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lm</span><br></pre></td></tr></table></figure></p>
-<p>命令定位当前异常的上下文信息，并显示指定记录中的重要寄存器<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.ecxr</span><br></pre></td></tr></table></figure></p>
-<p>使用断点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bl (Breakpoint List)命令列出当前存在的断点和他们的状态。</span><br><span class="line">bp (Set Breakpoint) 命令设置新断点。</span><br><span class="line">bu (Set Unresolved Breakpoint) 命令设置新断点。使用bu设置的断点和bp设置的断点特点不同，详细信息查看后面的内容。</span><br><span class="line">bm (Set Symbol Breakpoint) 在匹配指定格式的符号上设置断点。</span><br><span class="line">ba (Break on Access) 命令设置数据断点。这种断点在指定内存被访问时触发。(可以在写入、读取、执行或发生内核I/O时触发，但不是所有处理器都支持所有的内存访问断点。更多信息，查看ba (Break on Access)。)</span><br><span class="line">bc (Breakpoint Clear) 命令移除一个或多个断点。</span><br><span class="line">bd (Breakpoint Disable) 命令暂时禁用一个或多个断点。</span><br><span class="line">be (Breakpoint Enable) 命令重新启用一个或多个断点。</span><br><span class="line">br (Breakpoint Renumber) 命令修改一个已存在的断点的ID。</span><br><span class="line">bs (Update Breakpoint Command) 命令用于更改已存在的断点所关联的命令。</span><br><span class="line">bsc (Update Conditional Breakpoint) 命令用于更改已存在的断点的触发条件。</span><br></pre></td></tr></table></figure></p>
-<p>扩展显示某个模块的详细信息</p>
-<pre><code>lmi 
-
-lmvm ntdll
-</code></pre><h2><span id="windbg">windbg</span></h2>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
       
         </div></section>
       
@@ -1068,48 +915,92 @@ lmvm ntdll
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/DivideAndCconquer/">
-  分治算法
+        <a href="/2019/12/31/HashTable/">
+  散列表
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/DivideAndCconquer/"><span class="article-date">
+        <a href="/2019/12/31/HashTable/"><span class="article-date">
   2019-12-31
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h1><span id="分治算法">分治算法</span></h1><p>核心思想 <font color="red">分而治之</font>，它是一种处理问题的思想。</p>
-<p>分成多个与原来结构相似的子问题，递归解决这些子问题</p>
-<h3><span id="分治算法一般都比较适合用递归来实现-分治算法的递归实现中每一层递归都会涉及这样三个操作">分治算法一般都比较适合用递归来实现。分治算法的递归实现中，每一层递归都会涉及这样三个操作：</span></h3><ul>
-<li>分解：将原问题分解成一系列子问题；</li>
-<li>解决：递归地求解各个子问题，若子问题足够小，则直接求解；</li>
-<li>合并：将子问题的结果合并成原问题。</li>
+          <h1><span id="散列表">散列表</span></h1><h2><span id="散列函数">散列函数</span></h2><p>三点散列函数设计的基本要求：</p>
+<ul>
+<li>散列函数计算得到的散列值是一个非负整数；</li>
+<li>如果 key1 = key2, 那 hash(key1) == hash(key2)；</li>
+<li>如果 key1 ≠ key2, 那 hash(key1) ≠ hash(key2)。</li>
 </ul>
-<h3><span id="分治算法能解决的问题一般需要满足下面这几个条件">分治算法能解决的问题，一般需要满足下面这几个条件：</span></h3><ul>
-<li>原问题与分解成的小问题具有相同的模式；</li>
-<li>原问题分解成的子问题可以独立求解，子问题之间没有相关性（这一点是分治算法跟动态规划的明显区别）</li>
-<li>具有分解终止条件，也就是说，当问题足够小时，可以直接求解；</li>
-<li>可以将子问题合并成原问题，而这个合并操作的复杂度不能太高，否则就起不到减小算法总体复杂度的效果了。</li>
+<p>由于第3点要求, 所以产生了几乎无法避免的散列冲突问题</p>
+<p>散列函数的设计, 我们要尽可能让散列后的值随机且均匀分布, 这样会尽可能地减少散列冲突, 即便冲突之后, 分配到每个槽内的数据也比较均匀。</p>
+<h2><span id="装载因子">装载因子</span></h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">散列表的装载因子=填入表中的元素个数/散列表的长度</span><br></pre></td></tr></table></figure>
+<p>装载因子越大, 说明散列表中的元素越多, 空闲位置越少, 散列冲突的概率就越大,性能会下降。</p>
+<p>装在因子过大, 可以进行动态扩容, 重新申请一个更大的散列表, 并且将原来散列表中的数据重新插入新的散列表中。</p>
+<p>装载因子阈值的设置要权衡时间、空间复杂度。如果内存空间不紧张, 对执行效率要求很高, 可以降低负载因子的阈值；相反, 如果内存空间紧张, 对执行效率要求又不高, 可以增加负载因子的值, 甚至可以大于 1。</p>
+<h2><span id="散列冲突哈希冲突">散列冲突(哈希冲突)</span></h2><p>在真实的情况下, 要想找到一个不同的 key 对应的散列值都不一样的散列函数, 几乎是不可能的。即便像业界著名的MD5、SHA、CRC等哈希算法, 也无法完全避免这种散列冲突。而且因为数组的存储空间有限, 也会加大散列冲突的概率。</p>
+<p>简单描述 ：哈希算法被计算的数据是无限的, 而计算后的结果范围有限, 会存在不同数据计算得到的结果相同。</p>
+<h2><span id="解决散列冲突">解决散列冲突</span></h2><p>开放寻址法（open addressing）和链表法（chaining）</p>
+<h3><span id="开放寻址法">开放寻址法</span></h3><p>往散列表中插入数据时, 如果某个数据经过散列函数散列之后, 存储位置已经被<font color="red">占用</font>了, 我们就从当前位置开始, 依次往后查找, 看是否有<font color="red">空闲位置</font>, 直到找到为止。<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/hashtable_findaddress.png" alt></p>
+<p>核心思想：如果出现散列冲突, 就重新探测一个空闲位置, 将其插入。</p>
+<ul>
+<li>线性探测法（Linear Probing）<br>  当散列表中插入的数据越来越多时, 散列冲突发生的可能性就会越来越大, 空闲位置会越来越少, 线性探测的时间就会<font color="red">越来越久。</font>极端情况下, 我们可能需要探测整个散列表。删除和查找也是同理</li>
+<li><p>二次探测（Quadratic probing）<br>跟线性探测很像, 线性探测每次探测的步长是 1, 那它探测的下标序列就是 hash(key)+0, hash(key)+1, hash(key)+2……而二次探测探测的步长就变成了原来的“二次方”, 也就是说, 它探测的下标序列就是 hash(key)+0, hash(key)+1^2, hash(key)+2^2……</p>
+</li>
+<li><p>双重散列（Double hashing）<br>不止使用一个散列函数, 使用一组散列函数 hash1(key), hash2(key), hash3(key)……先用第一个散列函数, 如果计算得到的存储位置已经被占用, 再用第二个散列函数, 依次类推, 直到找到空闲的存储位置。</p>
+</li>
 </ul>
-<h2><span id="举例">举例</span></h2><h3><span id="归并排序">归并排序</span></h3><p>将两个有序的小数组，合并成一个有序的数组</p>
-<h3><span id="mapredue">MapRedue</span></h3><p>处理海量数据</p>
+<h3><span id="开放寻址法优点与缺点">开放寻址法优点与缺点：</span></h3><p>开放寻址法适用于装在因子小于1的情况, 接近1的时候会存在大量的哈希冲突导致大量的探测、再散列等, 性能会下降很多。<br>优点：散列表中的数据都存储在数组中, 可以有效地利用 CPU 缓存加快查询速度, 且序列化简单。<br>缺点：删除数据的时候比较麻烦, 需要特殊标记已经删除掉的数据。解决哈希冲突代价较高, 开放寻址法解决冲突的散列表, 装载因子的上限不能太大。这也导致这种方法比链表法更浪费内存空间。</p>
+<h3><span id="链表法-更加常用">链表法 （更加常用）</span></h3><p>在散列表后跟一个链表, 所有散列值相同的元素我们都放到相同槽位对应的链表中。<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/hashtable_hashlink.png" alt></p>
+<h3><span id="链表法优点与缺点">链表法优点与缺点：</span></h3><p>优点：内存利用率比开放寻址法高, 链表节点可以按需申请, 不需要先申请好。对大装载因子的容忍度更高。<br>缺点：链表因为要存储指针, 所以对于比较小的对象的存储, 是比较消耗内存的, 还有可能会让内存的消耗翻倍。链表中的结点是零散分布在内存中的, 不是连续的, 所以对 CPU 缓存是不友好的, 这方面对于执行效率也有一定的影响。</p>
+<h3><span id="开放寻址和链表法的比较">开放寻址和链表法的比较</span></h3><p>基于链表的散列冲突处理方法比较适合存储大对象、大数据量的散列表, 而且, 比起开放寻址法, 它更加灵活, 支持更多的优化策略, 比如用红黑树代替链表</p>
+<h2><span id="如何设计工业级散列表">如何设计工业级散列表</span></h2><p>必要要求：</p>
+<ul>
+<li>支持快速的查询、插入、删除操作；</li>
+<li>内存占用合理, 不能浪费过多的内存空间；</li>
+<li>性能稳定, 极端情况下, 散列表的性能也不会退化到无法接受的情况。</li>
+</ul>
+<p>设计思路：</p>
+<ul>
+<li>设计一个合适的散列函数；</li>
+<li>定义装载因子阈值, 并且设计动态扩容策略；</li>
+<li>选择合适的散列冲突解决方法。</li>
+</ul>
+<p>并且需要结合具体的业务场景、具体的业务数据来具体分析。</p>
+<h3><span id="jdk18-红黑树退化成链表阈值-6">JDK1.8 红黑树退化成链表阈值 6</span></h3><p>Java 中的 HashMap 这样一个工业级的散列表。<br>HashMap 默认的初始大小是 16, 最大装载因子默认是 0.75, HashMap 底层采用链表法来解决冲突.</p>
+<h4><span id="计算hash值">计算hash值</span></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">hash</span><span class="params">(Object key)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> hash;</span><br><span class="line">    <span class="keyword">return</span> (key == <span class="keyword">null</span>) ? <span class="number">0</span> : (hash = key.hashCode()) ^ (hash &gt;&gt;&gt; <span class="number">16</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在 JDK1.8 版本中, 为了对 HashMap 做进一步优化, 我们引入了红黑树。而当链表长度太长（默认超过 8）时, 链表就转换为红黑树, 避免散列表时间复杂度退化成O(n)。我们可以利用红黑树快速增删改查的特点, 提高 HashMap 的性能。当红黑树结点个数少于 6 个的时候, 又会将红黑树转化为链表。因为在数据量较小的情况下, 红黑树要维护平衡, 比起链表来, 性能上的优势并不明显。</p>
+<h2><span id="使用场景">使用场景</span></h2><h3><span id="lru-缓存淘汰算法">LRU 缓存淘汰算法</span></h3><p>LRU 常用操作</p>
+<ul>
+<li>往缓存中添加一个数据</li>
+<li>从缓存中删除一个数据</li>
+<li>在缓存中查找一个数据</li>
+</ul>
+<h3><span id="redis有序集合">redis有序集合</span></h3><p>redis 常用操作</p>
+<ul>
+<li>添加一个成员对象</li>
+<li>按照键值来删除一个成员对象</li>
+<li>按照键值来查找一个成员对象</li>
+<li>按照分值区间查找数据, 比如查找积分在[100, 356]之间的成员对象</li>
+<li>按照分值从小到大排序成员变量</li>
+</ul>
+<h3><span id="java-linkedhashmap">Java LinkedHashMap</span></h3><p>与LRU类似, 最近访问过的会被移动到链表尾部。<br>LinkedHashMap 是通过双向链表和散列表这两种数据结构组合实现的。LinkedHashMap 中的“Linked”实际上是指的是双向链表, 并非指用链表法解决散列冲突。</p>
 
         
       </div>

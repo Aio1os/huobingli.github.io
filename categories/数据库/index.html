@@ -149,58 +149,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/07/30/innoDB/">
-  InnoDB
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/07/30/innoDB/"><span class="article-date">
-  2020-07-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="innodb">InnoDB</span></h1><p>InnoDB是一个事务型的存储引擎，有行级锁定和外键约束。</p>
-<p>Innodb引擎提供了对数据库ACID事务的支持，并且实现了SQL标准的四种隔离级别，关于数据库事务与其隔离级别的内容请见数据库事务与其隔离级别这类型的文章。该引擎还提供了行级锁和外键约束，它的设计目标是处理大容量数据库系统，它本身其实就是基于MySQL后台的完整数据库系统，MySQL运行时Innodb会在内存中建立缓冲池，用于缓冲数据和索引。但是该引擎不支持FULLTEXT类型的索引，而且它没有保存表的行数，当SELECT COUNT(*) FROM TABLE时需要扫描全表。当需要使用数据库事务时，该引擎当然是首选。由于锁的粒度更小，写操作不会锁定全表，所以在并发较高时，使用Innodb引擎会提升效率。但是使用行级锁也不是绝对的，如果在执行一个SQL语句时MySQL不能确定要扫描的范围，InnoDB表同样会锁全表。</p>
-<h2><span id="适用场景">适用场景：</span></h2><p>经常更新的表，适合处理多重并发的更新请求。</p>
-<p>支持事务。</p>
-<p>可以从灾难中恢复（通过bin-log日志等）。</p>
-<p>外键约束。只有他支持外键。</p>
-<p>支持自动增加列属性auto_increment。</p>
-<h2><span id="索引结构">索引结构：</span></h2><p>InnoDB也是B+Treee索引结构。Innodb的索引文件本身就是数据文件，即<b>B+Tree</b>的数据域存储的就是实际的数据，这种索引就是聚集索引。这个索引的key就是数据表的主键，因此InnoDB表数据文件本身就是主索引。</p>
-<p>InnoDB的辅助索引数据域存储的也是相应记录主键的值而不是地址，所以当以辅助索引查找时，会先根据辅助索引找到主键，再根据主键索引找到实际的数据。所以Innodb不建议使用过长的主键，否则会使辅助索引变得过大。建议使用自增的字段作为主键，这样B+Tree的每一个结点都会被顺序的填满，而不会频繁的分裂调整，会有效的提升插入数据的效率。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/07/30/innodb&myisam/">
   InnoDB和Mylsam区别
 </a>
@@ -238,6 +186,58 @@
 <p>MyISAM应对错误编码导致的数据恢复速度快。MyISAM的数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。</p>
 <p>InnoDB是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。</p>
 <h2><span id="锁的支持">锁的支持：</span></h2><p>MyISAM只支持表锁。InnoDB支持表锁、行锁 行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/07/30/innoDB/">
+  InnoDB
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/07/30/innoDB/"><span class="article-date">
+  2020-07-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="innodb">InnoDB</span></h1><p>InnoDB是一个事务型的存储引擎，有行级锁定和外键约束。</p>
+<p>Innodb引擎提供了对数据库ACID事务的支持，并且实现了SQL标准的四种隔离级别，关于数据库事务与其隔离级别的内容请见数据库事务与其隔离级别这类型的文章。该引擎还提供了行级锁和外键约束，它的设计目标是处理大容量数据库系统，它本身其实就是基于MySQL后台的完整数据库系统，MySQL运行时Innodb会在内存中建立缓冲池，用于缓冲数据和索引。但是该引擎不支持FULLTEXT类型的索引，而且它没有保存表的行数，当SELECT COUNT(*) FROM TABLE时需要扫描全表。当需要使用数据库事务时，该引擎当然是首选。由于锁的粒度更小，写操作不会锁定全表，所以在并发较高时，使用Innodb引擎会提升效率。但是使用行级锁也不是绝对的，如果在执行一个SQL语句时MySQL不能确定要扫描的范围，InnoDB表同样会锁全表。</p>
+<h2><span id="适用场景">适用场景：</span></h2><p>经常更新的表，适合处理多重并发的更新请求。</p>
+<p>支持事务。</p>
+<p>可以从灾难中恢复（通过bin-log日志等）。</p>
+<p>外键约束。只有他支持外键。</p>
+<p>支持自动增加列属性auto_increment。</p>
+<h2><span id="索引结构">索引结构：</span></h2><p>InnoDB也是B+Treee索引结构。Innodb的索引文件本身就是数据文件，即<b>B+Tree</b>的数据域存储的就是实际的数据，这种索引就是聚集索引。这个索引的key就是数据表的主键，因此InnoDB表数据文件本身就是主索引。</p>
+<p>InnoDB的辅助索引数据域存储的也是相应记录主键的值而不是地址，所以当以辅助索引查找时，会先根据辅助索引找到主键，再根据主键索引找到实际的数据。所以Innodb不建议使用过长的主键，否则会使辅助索引变得过大。建议使用自增的字段作为主键，这样B+Tree的每一个结点都会被顺序的填满，而不会频繁的分裂调整，会有效的提升插入数据的效率。</p>
 
         
       </div>

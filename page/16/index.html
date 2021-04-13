@@ -148,15 +148,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/12/31/GoInterview/">
-  GO Interview
+        <a href="/2016/12/31/interview/">
+  Interview Skill
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2016/12/31/GoInterview/"><span class="article-date">
+        <a href="/2016/12/31/interview/"><span class="article-date">
   2016-12-31
 </span>
 </a>
@@ -175,23 +175,9 @@
       </div>
       <div class="article-entry">
         
-          <p>程序怎么理解一个变量？ </p>
-<p>编码过程中为什么使用常量？  </p>
-<p>Go语言里有枚举类型么？        没有枚举  可以用 const iota</p>
-<p>Go语言引用类型和其他语言有什么不同？    go 中没有引用传递     <a href="https://www.jumtu.com/article/74815.html" target="_blank" rel="noopener">https://www.jumtu.com/article/74815.html</a></p>
-<p>同是流控制语句，switch 和 if 有什么不同？</p>
-<p>在编码过程中写过 goto 语句么？</p>
-<p>Go 支持支持尾递归优化么？</p>
-<p>如何判断两个函数变量相等？</p>
-<p>匿名函数有性能问题吗？</p>
-<p>使用闭包会导致什么性能问题？</p>
-<p>什么是错误？和异常有什么区别？</p>
-<p>是不是数组就一定能分配在栈上？</p>
-<p>字符串怎么性能优化？</p>
-<p>字典怎么性能优化？</p>
-<p>字段对齐对结构体有什么影响？</p>
-<p>Go 语言怎么实现 OOP 的方法和接口？</p>
-<p>接口调用有哪些性能问题？</p>
+          <h5><span id="数组指针和指针数组">数组指针和指针数组</span></h5><h5><span id="回调函数">回调函数</span></h5><h5><span id="sizeof函数">sizeof()函数</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">char a[100]在当作函数参数的时候退化成一个指针，只占四个字节</span><br></pre></td></tr></table></figure>
+<h5><span id="常见的ascii值转换">常见的ASCII值转换</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a -&gt; 97 A -&gt; 65</span><br></pre></td></tr></table></figure>
+<h5><span id="内存分配方式">内存分配方式</span></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">堆区 : 按需分配，动态分配 ，new/delete、malloc/free 的内存块，如果程序员没有释放掉，程序结束就会释放</span><br><span class="line">栈区 : 执行时自动分配 ， &lt;b&gt;局部变量&lt;/b&gt; 和 &lt;b&gt;函数参数&lt;/b&gt;</span><br><span class="line">全局/静态存储区 : 执行时自动分配 ， 存放静态变量，全局变量，一般不允许修改（当然可以通过非正常手段修改，方法也很多）</span><br></pre></td></tr></table></figure>
 
         
       </div>
@@ -581,49 +567,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/11/23/memory_learn/">
-  内存问题
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/11/23/memory_learn/"><span class="article-date">
-  2016-11-23
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/memory/">memory</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memory/">memory</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2016/11/23/thread_learn/">
   线程学习
 </a>
@@ -675,15 +618,58 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/11/15/make_boost/">
-  CENTOS7 安装编译Boost库
+        <a href="/2016/11/23/memory_learn/">
+  内存问题
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2016/11/15/make_boost/"><span class="article-date">
+        <a href="/2016/11/23/memory_learn/"><span class="article-date">
+  2016-11-23
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/memory/">memory</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memory/">memory</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/11/15/Install_Erlang/">
+  CENTOS7 安装erlang
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/15/Install_Erlang/"><span class="article-date">
   2016-11-15
 </span>
 </a>
@@ -702,15 +688,16 @@
       </div>
       <div class="article-entry">
         
-          <h3><span id="linux-下编译boost库">linux 下编译Boost库</span></h3><p>1、下载Boost库</p>
-<p>2、解压压缩文件</p>
-<p>3、./bootstrap.sh; ./b2<br>./bootstrap.sh 是编译前的配置工作<br>./b2 开始编译</p>
-<p>4、/b2 –buildtype=complete stage<br>将对Boost库进行完整编译，生成所有调试版、发行版的静态库和动态库<br>buildtype选项是编译类型，如不指定就是release模式<br>stage选项指定Boost使用本地构建。如果使用install选项则编译后会把Boost安装到默认路径下（/usr/local）</p>
-<p>5、首先把Boost库的头文件存放到/usr/include/boost/路径下，再把Lib文件存放到/usr/local/lib/boost/路径下。</p>
-<p>6、修改/etc/profile文件，在此文件中增加如下2个环境变量：</p>
-<p>BOOST_INCLUDE=/usr/include/boost<br>export BOOST_INCLUDE</p>
-<p>BOOST_LIB=/usr/local/lib/boost<br>export BOOST_LIB</p>
-<p>Done!!!</p>
+          <h3><span id="install-erlang">install erlang</span></h3><p>environment : CENTOS7</p>
+<p>首先下载 安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://erlang.org/download/otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>解压安装包<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf  otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>转到解压的文件夹下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd otp_src_R14B04.tar.gz</span><br></pre></td></tr></table></figure></p>
+<p>最好在root下运行，without-javac 不用javac编译<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/home/erlang   --without-javac</span><br></pre></td></tr></table></figure></p>
+<p>进行make<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure></p>
+<p>最后加一个软连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /home/erlang/bin/erl /usr/local/bin/erl</span><br></pre></td></tr></table></figure></p>
+<p>最后测试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">erl</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/installerlang.png" alt>   </p>
+<p>Done!!</p>
 
         
       </div>

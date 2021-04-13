@@ -149,92 +149,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/Gocommand/">
-  Go 命令
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/Gocommand/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="go-build">go build</span></h2><p>1、go build 无参数<br>生成包名文件<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> build</span><br></pre></td></tr></table></figure></p>
-<p>2、go build +文件列表  </p>
-<pre><code class="go"><span class="keyword">go</span> build main.<span class="keyword">go</span> lib1.<span class="keyword">go</span>
-</code></pre>
-<p>使用”go build+文件列表”方式编译时，可执行文件默认选择文件列表中第一个源码文件作为可执行文件名输出。</p>
-<p>3、go build+包</p>
-<p>在设置 GOPATH 后，可以直接根据包名进行编译，即便包内文件被增（加）删（除）也不影响编译指令。</p>
-<p>go build 编译参数</p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-v</td>
-<td>编译时显示包名</td>
-</tr>
-<tr>
-<td>-p n</td>
-<td>开启并发编译，默认情况下该值为 CPU 逻辑核数</td>
-</tr>
-<tr>
-<td>-a</td>
-<td>强制重新构建</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>打印编译时会用到的所有命令，但不真正执行</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>打印编译时会用到的所有命令</td>
-</tr>
-<tr>
-<td>-race</td>
-<td>开启竞态检测</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="go-clean">go clean</span></h2><p>会清除掉编译过程中产生的一些文件。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/01/04/Gobase/">
   Go 占位符
 </a>
@@ -484,6 +398,92 @@
 </tr>
 </tbody>
 </table>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/Gocommand/">
+  Go 命令
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/Gocommand/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="go-build">go build</span></h2><p>1、go build 无参数<br>生成包名文件<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> build</span><br></pre></td></tr></table></figure></p>
+<p>2、go build +文件列表  </p>
+<pre><code class="go"><span class="keyword">go</span> build main.<span class="keyword">go</span> lib1.<span class="keyword">go</span>
+</code></pre>
+<p>使用”go build+文件列表”方式编译时，可执行文件默认选择文件列表中第一个源码文件作为可执行文件名输出。</p>
+<p>3、go build+包</p>
+<p>在设置 GOPATH 后，可以直接根据包名进行编译，即便包内文件被增（加）删（除）也不影响编译指令。</p>
+<p>go build 编译参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>编译时显示包名</td>
+</tr>
+<tr>
+<td>-p n</td>
+<td>开启并发编译，默认情况下该值为 CPU 逻辑核数</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>强制重新构建</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>打印编译时会用到的所有命令，但不真正执行</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>打印编译时会用到的所有命令</td>
+</tr>
+<tr>
+<td>-race</td>
+<td>开启竞态检测</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="go-clean">go clean</span></h2><p>会清除掉编译过程中产生的一些文件。</p>
 
         
       </div>

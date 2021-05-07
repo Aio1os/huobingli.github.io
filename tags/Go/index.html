@@ -242,6 +242,50 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/03/31/pool/">
+  池化技术
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/03/31/pool/"><span class="article-date">
+  2020-03-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="池化技术">池化技术</span></h1><p>池化技术 (Pool) 是一种很常见的编程技巧，在请求量大时能明显优化应用性能，降低系统频繁建连的资源开销。我们日常工作中常见的有数据库连接池、线程池、对象池等，它们的特点都是将 “昂贵的”、“费时的” 的资源维护在一个特定的 “池子” 中，规定其最小连接数、最大连接数、阻塞队列等配置，方便进行统一管理和复用，通常还会附带一些探活机制、强制回收、监控一类的配套功能。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/03/31/GoDataType/">
   Go 数据类型
 </a>
@@ -399,50 +443,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/03/31/pool/">
-  池化技术
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/03/31/pool/"><span class="article-date">
-  2020-03-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="池化技术">池化技术</span></h1><p>池化技术 (Pool) 是一种很常见的编程技巧，在请求量大时能明显优化应用性能，降低系统频繁建连的资源开销。我们日常工作中常见的有数据库连接池、线程池、对象池等，它们的特点都是将 “昂贵的”、“费时的” 的资源维护在一个特定的 “池子” 中，规定其最小连接数、最大连接数、阻塞队列等配置，方便进行统一管理和复用，通常还会附带一些探活机制、强制回收、监控一类的配套功能。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/03/04/GoMPG/">
   Go MPG线程模型
 </a>
@@ -474,6 +474,50 @@
 <p>M，即 machine，相当于内核线程在 Go 进程中的映射，它与内核线程一一对应，代表真正执行计算的资源。在 M 的生命周期内，它只会与一个内核线程关联。</p>
 <p>P，即 processor，代表 Go 代码片段执行所需的上下文环境。M 和 P 的结合能够为 G 提供有效的运行环境，它们之间的结合关系不是固定的。P 的最大数量决定了 Go 程序的并发规模，由 runtime.GOMAXPROCS 变量决定。</p>
 <p>G，即 goroutine，是一种轻量级的用户线程，是对代码片段的封装，拥有执行时的栈、状态和代码片段等信息。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/GoTesting/">
+  Go Testing包
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/GoTesting/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="go-testing包">Go Testing包</span></h1><p>Go语言的 testing 提供了三种测试方式，分别是单元（功能）测试、性能（压力）测试和覆盖率测试。</p>
 
         
       </div>
@@ -549,50 +593,6 @@
 </tr>
 </tbody>
 </table>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/GoTesting/">
-  Go Testing包
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/GoTesting/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="go-testing包">Go Testing包</span></h1><p>Go语言的 testing 提供了三种测试方式，分别是单元（功能）测试、性能（压力）测试和覆盖率测试。</p>
 
         
       </div>

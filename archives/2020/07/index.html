@@ -203,56 +203,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/07/30/mylsam/">
-  Mylsam
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/07/30/mylsam/"><span class="article-date">
-  2020-07-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mylsam/">Mylsam</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="mylsam">Mylsam</span></h1><p>MyIASM是MySQL默认的引擎，但是它没有提供对数据库事务的支持，也不支持行级锁和外键，因此当INSERT或UPDATE数据时即写操作需要锁定整个表，效率便会低一些。MyIsam 存储引擎独立于操作系统，也就是可以在windows上使用，也可以比较简单的将数据转移到linux操作系统上去。</p>
-<h2><span id="适用场景">适用场景：</span></h2><p>不支持事务的设计，但是并不代表着有事务操作的项目不能用MyIsam存储引擎，可以在service层进行根据自己的业务需求进行相应的控制。</p>
-<p>不支持外键的表设计。</p>
-<p>查询速度很快，如果数据库insert和update的操作比较多的话比较适用。</p>
-<p>整天对表进行加锁的场景。</p>
-<p>MyISAM极度强调快速读取操作。</p>
-<p>MyIASM中存储了表的行数，于是SELECT COUNT(*) FROM TABLE时只需要直接读取已经保存好的值而不需要进行全表扫描。如果表的读操作远远多于写操作且不需要数据库事务的支持，那么MyIASM也是很好的选择。</p>
-<p>缺点：就是不能在表损坏后主动恢复数据。</p>
-<h2><span id="索引结构">索引结构：</span></h2><p>MyISAM索引结构：MyISAM索引用的B+ tree来储存数据，MyISAM索引的指针指向的是键值的地址，地址存储的是数据。B+Tree的数据域存储的内容为实际数据的地址，也就是说它的索引和实际的数据是分开的，只不过是用索引指向了实际的数据，这种索引就是所谓的非聚集索引。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/07/30/innodb&myisam/">
   InnoDB和Mylsam区别
 </a>
@@ -290,6 +240,56 @@
 <p>MyISAM应对错误编码导致的数据恢复速度快。MyISAM的数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。</p>
 <p>InnoDB是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。</p>
 <h2><span id="锁的支持">锁的支持：</span></h2><p>MyISAM只支持表锁。InnoDB支持表锁、行锁 行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/07/30/mylsam/">
+  Mylsam
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/07/30/mylsam/"><span class="article-date">
+  2020-07-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mylsam/">Mylsam</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="mylsam">Mylsam</span></h1><p>MyIASM是MySQL默认的引擎，但是它没有提供对数据库事务的支持，也不支持行级锁和外键，因此当INSERT或UPDATE数据时即写操作需要锁定整个表，效率便会低一些。MyIsam 存储引擎独立于操作系统，也就是可以在windows上使用，也可以比较简单的将数据转移到linux操作系统上去。</p>
+<h2><span id="适用场景">适用场景：</span></h2><p>不支持事务的设计，但是并不代表着有事务操作的项目不能用MyIsam存储引擎，可以在service层进行根据自己的业务需求进行相应的控制。</p>
+<p>不支持外键的表设计。</p>
+<p>查询速度很快，如果数据库insert和update的操作比较多的话比较适用。</p>
+<p>整天对表进行加锁的场景。</p>
+<p>MyISAM极度强调快速读取操作。</p>
+<p>MyIASM中存储了表的行数，于是SELECT COUNT(*) FROM TABLE时只需要直接读取已经保存好的值而不需要进行全表扫描。如果表的读操作远远多于写操作且不需要数据库事务的支持，那么MyIASM也是很好的选择。</p>
+<p>缺点：就是不能在表损坏后主动恢复数据。</p>
+<h2><span id="索引结构">索引结构：</span></h2><p>MyISAM索引结构：MyISAM索引用的B+ tree来储存数据，MyISAM索引的指针指向的是键值的地址，地址存储的是数据。B+Tree的数据域存储的内容为实际数据的地址，也就是说它的索引和实际的数据是分开的，只不过是用索引指向了实际的数据，这种索引就是所谓的非聚集索引。</p>
 
         
       </div>

@@ -274,61 +274,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/10/10/mysqlACID/">
-  MySQL 事务ACID
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/10/10/mysqlACID/"><span class="article-date">
-  2020-10-10
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/mysql/">mysql</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="事务的acid特性">事务的ACID特性</span></h2><h2><span id="1-原子性atomicity">1、原子性（atomicity)</span></h2><p>一个事务要么全部提交成功，要么全部失败回滚，不能只执行其中的一部分操作。</p>
-<h2><span id="2-一致性consistency">2、一致性（consistency)</span></h2><p>事务的执行不能破坏数据库数据的完整性和一致性，一个事务在执行之前和执行之后，数据库都必须处于一致性状态。</p>
-<p>如果数据库系统在运行过程中发生故障，有些事务尚未完成就被迫中断，这些未完成的事务对数据库所作的修改有一部分已写入物理数据库，这是数据库就处于一种不正确的状态，也就是不一致的状态。</p>
-<h2><span id="3-隔离性isolation">3、隔离性（isolation）</span></h2><p>事务的隔离性是指在<font color="#EE0000">并发环境</font>中，并发的事务时相互隔离的，一个事务的执行不能不被其他事务干扰。不同的事务并发操作相同的数据时，每个事务都有各自完成的数据空间，即一个事务内部的操作及使用的数据对其他并发事务时隔离的，并发执行的各个事务之间不能相互干扰。</p>
-<p>在标准SQL规范中，定义了4个事务隔离级别，不同的隔离级别对事务的处理不同，分别是：<font color="#EE0000">未授权读取，授权读取，可重复读取和串行化</font></p>
-<h3><span id="读未提交read-uncommited">读未提交（Read Uncommited）</span></h3><p>该隔离级别允许<font color="#EE0000">脏读取</font>，其隔离级别最低</p>
-<p>比如事务A和事务B同时进行，事务A在整个执行阶段，会将某数据的值从1开始一直加到10，然后进行事务提交，此时，事务B能够看到这个数据项在事务A操作过程中的所有中间值（如1变成2，2变成3等），而对这一系列的中间值的读取就是未授权读取</p>
-<h3><span id="授权读取已提交读read-commited">授权读取/已提交读（Read Commited），</span></h3><p>授权读取只允许获取已经提交的数据。</p>
-<p>比如事务A和事务B同时进行，事务A进行+1操作，此时，事务B无法看到这个数据项在事务A操作过程中的所有中间值，只能看到最终的10。另外，如果说有一个事务C，和事务A进行非常类似的操作，只是事务C是将数据项从10加到20，此时事务B也同样可以读取到20，即授权读取允许不可重复读取。</p>
-<h3><span id="可重复读repeatable-read">可重复读（Repeatable Read)</span></h3><p>就是保证在事务处理过程中，多次读取同一个数据时，其值都和事务开始时刻是一致的，因此该事务级别禁止不可重复读取和脏读取，但是有可能出现幻影数据。</p>
-<p>所谓幻影数据，就是指同样的事务操作，在前后两个时间段内执行对同一个数据项的读取，可能出现不一致的结果。</p>
-<p><del>在上面的例子中，可重复读取隔离级别能够保证事务B在第一次事务操作过程中，始终对数据项读取到1，但是在下一次事务操作中，即使事务B（注意，事务名字虽然相同，但是指的是另一个事务操作）采用同样的查询方式，就可能读取到10或20</del></p>
-<h3><span id="串行化">串行化</span></h3><p>是最严格的事务隔离级别，它要求所有事务被串行执行，即事务只能一个接一个的进行处理，不能并发执行。</p>
-<h2><span id="4-持久性durability">4、持久性（durability）</span></h2><p>一旦事务提交，那么它对数据库中的对应数据的状态的变更就会永久保存到数据库中。即使发生系统崩溃或机器宕机等故障，只要数据库能够重新启动，那么一定能够将其恢复到事务成功结束的状态。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/10/10/mysqlEngine/">
   MySQL 存储引擎
 </a>
@@ -419,6 +364,61 @@
 <p><u>MVCC只在<font color="#EE0000">REPEATABLE READ（可重复读）和READ COMMITTED（提交读）</font>两个隔离级别下工作，与其他两个隔离级别不兼容，<font color="#EE0000">READ UNCOMMITTED（未提交读）总是读取最新的数据行，而SERIALIZBLE（可串行化）则会对所有读取的行加锁。</font></u></p>
 <h3><span id="适合需要大型数据库的网站">适合需要大型数据库的网站</span></h3><p>InnoDB 被用在众多需要高性能的大型数据库网站上。</p>
 <p>InnoDB 是为处理巨大数据量时的最大性能设计，它的 CPU 效率可能是任何其他基于磁盘的关系数据库引擎所不能匹敌的。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/10/10/mysqlACID/">
+  MySQL 事务ACID
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/10/10/mysqlACID/"><span class="article-date">
+  2020-10-10
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/mysql/">mysql</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="事务的acid特性">事务的ACID特性</span></h2><h2><span id="1-原子性atomicity">1、原子性（atomicity)</span></h2><p>一个事务要么全部提交成功，要么全部失败回滚，不能只执行其中的一部分操作。</p>
+<h2><span id="2-一致性consistency">2、一致性（consistency)</span></h2><p>事务的执行不能破坏数据库数据的完整性和一致性，一个事务在执行之前和执行之后，数据库都必须处于一致性状态。</p>
+<p>如果数据库系统在运行过程中发生故障，有些事务尚未完成就被迫中断，这些未完成的事务对数据库所作的修改有一部分已写入物理数据库，这是数据库就处于一种不正确的状态，也就是不一致的状态。</p>
+<h2><span id="3-隔离性isolation">3、隔离性（isolation）</span></h2><p>事务的隔离性是指在<font color="#EE0000">并发环境</font>中，并发的事务时相互隔离的，一个事务的执行不能不被其他事务干扰。不同的事务并发操作相同的数据时，每个事务都有各自完成的数据空间，即一个事务内部的操作及使用的数据对其他并发事务时隔离的，并发执行的各个事务之间不能相互干扰。</p>
+<p>在标准SQL规范中，定义了4个事务隔离级别，不同的隔离级别对事务的处理不同，分别是：<font color="#EE0000">未授权读取，授权读取，可重复读取和串行化</font></p>
+<h3><span id="读未提交read-uncommited">读未提交（Read Uncommited）</span></h3><p>该隔离级别允许<font color="#EE0000">脏读取</font>，其隔离级别最低</p>
+<p>比如事务A和事务B同时进行，事务A在整个执行阶段，会将某数据的值从1开始一直加到10，然后进行事务提交，此时，事务B能够看到这个数据项在事务A操作过程中的所有中间值（如1变成2，2变成3等），而对这一系列的中间值的读取就是未授权读取</p>
+<h3><span id="授权读取已提交读read-commited">授权读取/已提交读（Read Commited），</span></h3><p>授权读取只允许获取已经提交的数据。</p>
+<p>比如事务A和事务B同时进行，事务A进行+1操作，此时，事务B无法看到这个数据项在事务A操作过程中的所有中间值，只能看到最终的10。另外，如果说有一个事务C，和事务A进行非常类似的操作，只是事务C是将数据项从10加到20，此时事务B也同样可以读取到20，即授权读取允许不可重复读取。</p>
+<h3><span id="可重复读repeatable-read">可重复读（Repeatable Read)</span></h3><p>就是保证在事务处理过程中，多次读取同一个数据时，其值都和事务开始时刻是一致的，因此该事务级别禁止不可重复读取和脏读取，但是有可能出现幻影数据。</p>
+<p>所谓幻影数据，就是指同样的事务操作，在前后两个时间段内执行对同一个数据项的读取，可能出现不一致的结果。</p>
+<p><del>在上面的例子中，可重复读取隔离级别能够保证事务B在第一次事务操作过程中，始终对数据项读取到1，但是在下一次事务操作中，即使事务B（注意，事务名字虽然相同，但是指的是另一个事务操作）采用同样的查询方式，就可能读取到10或20</del></p>
+<h3><span id="串行化">串行化</span></h3><p>是最严格的事务隔离级别，它要求所有事务被串行执行，即事务只能一个接一个的进行处理，不能并发执行。</p>
+<h2><span id="4-持久性durability">4、持久性（durability）</span></h2><p>一旦事务提交，那么它对数据库中的对应数据的状态的变更就会永久保存到数据库中。即使发生系统崩溃或机器宕机等故障，只要数据库能够重新启动，那么一定能够将其恢复到事务成功结束的状态。</p>
 
         
       </div>
@@ -593,56 +593,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/07/30/mylsam/">
-  Mylsam
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/07/30/mylsam/"><span class="article-date">
-  2020-07-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mylsam/">Mylsam</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="mylsam">Mylsam</span></h1><p>MyIASM是MySQL默认的引擎，但是它没有提供对数据库事务的支持，也不支持行级锁和外键，因此当INSERT或UPDATE数据时即写操作需要锁定整个表，效率便会低一些。MyIsam 存储引擎独立于操作系统，也就是可以在windows上使用，也可以比较简单的将数据转移到linux操作系统上去。</p>
-<h2><span id="适用场景">适用场景：</span></h2><p>不支持事务的设计，但是并不代表着有事务操作的项目不能用MyIsam存储引擎，可以在service层进行根据自己的业务需求进行相应的控制。</p>
-<p>不支持外键的表设计。</p>
-<p>查询速度很快，如果数据库insert和update的操作比较多的话比较适用。</p>
-<p>整天对表进行加锁的场景。</p>
-<p>MyISAM极度强调快速读取操作。</p>
-<p>MyIASM中存储了表的行数，于是SELECT COUNT(*) FROM TABLE时只需要直接读取已经保存好的值而不需要进行全表扫描。如果表的读操作远远多于写操作且不需要数据库事务的支持，那么MyIASM也是很好的选择。</p>
-<p>缺点：就是不能在表损坏后主动恢复数据。</p>
-<h2><span id="索引结构">索引结构：</span></h2><p>MyISAM索引结构：MyISAM索引用的B+ tree来储存数据，MyISAM索引的指针指向的是键值的地址，地址存储的是数据。B+Tree的数据域存储的内容为实际数据的地址，也就是说它的索引和实际的数据是分开的，只不过是用索引指向了实际的数据，这种索引就是所谓的非聚集索引。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/07/30/innodb&myisam/">
   InnoDB和Mylsam区别
 </a>
@@ -680,6 +630,56 @@
 <p>MyISAM应对错误编码导致的数据恢复速度快。MyISAM的数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。</p>
 <p>InnoDB是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。</p>
 <h2><span id="锁的支持">锁的支持：</span></h2><p>MyISAM只支持表锁。InnoDB支持表锁、行锁 行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/07/30/mylsam/">
+  Mylsam
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/07/30/mylsam/"><span class="article-date">
+  2020-07-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mylsam/">Mylsam</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="mylsam">Mylsam</span></h1><p>MyIASM是MySQL默认的引擎，但是它没有提供对数据库事务的支持，也不支持行级锁和外键，因此当INSERT或UPDATE数据时即写操作需要锁定整个表，效率便会低一些。MyIsam 存储引擎独立于操作系统，也就是可以在windows上使用，也可以比较简单的将数据转移到linux操作系统上去。</p>
+<h2><span id="适用场景">适用场景：</span></h2><p>不支持事务的设计，但是并不代表着有事务操作的项目不能用MyIsam存储引擎，可以在service层进行根据自己的业务需求进行相应的控制。</p>
+<p>不支持外键的表设计。</p>
+<p>查询速度很快，如果数据库insert和update的操作比较多的话比较适用。</p>
+<p>整天对表进行加锁的场景。</p>
+<p>MyISAM极度强调快速读取操作。</p>
+<p>MyIASM中存储了表的行数，于是SELECT COUNT(*) FROM TABLE时只需要直接读取已经保存好的值而不需要进行全表扫描。如果表的读操作远远多于写操作且不需要数据库事务的支持，那么MyIASM也是很好的选择。</p>
+<p>缺点：就是不能在表损坏后主动恢复数据。</p>
+<h2><span id="索引结构">索引结构：</span></h2><p>MyISAM索引结构：MyISAM索引用的B+ tree来储存数据，MyISAM索引的指针指向的是键值的地址，地址存储的是数据。B+Tree的数据域存储的内容为实际数据的地址，也就是说它的索引和实际的数据是分开的，只不过是用索引指向了实际的数据，这种索引就是所谓的非聚集索引。</p>
 
         
       </div>

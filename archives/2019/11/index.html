@@ -156,51 +156,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/11/30/MFCSeralize/">
-  MFC 序列化Serialize
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/11/30/MFCSeralize/"><span class="article-date">
-  2019-11-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="永久保存机制persistence-序列化">永久保存机制(Persistence) 序列化</span></h1><p>MFC有一套Serialize机制，目的是把文件名的选择、文件的开关、缓冲区的建立、数据的读写、提取运算符(&gt;&gt;)和插入运算符(&lt;&lt;)的重载、对象的动态创建等都包装起来。</p>
-<h2><span id="serialize数据读写">Serialize(数据读写)</span></h2><p>CArchive 对象提供了一个类型安全缓冲机制, 支持存储数据（即写入数据或将数据序列化）和加载数据（即读取数据或将数据反序列化）</p>
-<p>类可以进行文件的读写操作，前提是拥有动态创建能力，设计了一下两个宏</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DECLARE_SERIAL(class_name) \</span></span><br><span class="line">    DECLARE_DYNCREATE(class_name)\</span><br><span class="line">    <span class="keyword">friend</span> CArchive&amp; AFXAPI <span class="keyword">operator</span>&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb);</span><br></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IMPLEMENT_SERIAL(class_name, base_class_name, wSchema) \</span></span><br><span class="line">    CObject* PASCAL class_name::CreateObject() \</span><br><span class="line">        &#123; <span class="keyword">return</span> <span class="keyword">new</span> class_name; &#125; \</span><br><span class="line">    _IMPLEMENT_RUNTIMECLASS(class_name, base_class_name, wSchema, \</span><br><span class="line">        class_name::CreateObject) \</span><br><span class="line">    CArchive&amp; AfxApi <span class="keyword">operator</span>&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb) \</span><br><span class="line">        &#123; pOb = (class_name*) ar.ReadObject(RUNTIME_CLASS(class_name)); \</span><br><span class="line">            <span class="keyword">return</span> ar; &#125;</span><br></pre></td></tr></table></figure>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2019/11/30/MFCMessageMap/">
   MFC 消息映射
 </a>
@@ -361,6 +316,51 @@
         
           <h2><span id="mfc-消息">MFC 消息</span></h2><h3><span id="wm_xxx-消息">WM_XXX 消息</span></h3><h3><span id="wm_command-命令消息">WM_COMMAND 命令消息</span></h3><h2><span id="notification消息控件消息">Notification消息，控件消息</span></h2><h2><span id="主线程id">主线程ID</span></h2><p>theApp.m_nThreadID</p>
 
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/11/30/MFCSeralize/">
+  MFC 序列化Serialize
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/11/30/MFCSeralize/"><span class="article-date">
+  2019-11-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/MFC/">MFC</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MFC/">MFC</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="永久保存机制persistence-序列化">永久保存机制(Persistence) 序列化</span></h1><p>MFC有一套Serialize机制，目的是把文件名的选择、文件的开关、缓冲区的建立、数据的读写、提取运算符(&gt;&gt;)和插入运算符(&lt;&lt;)的重载、对象的动态创建等都包装起来。</p>
+<h2><span id="serialize数据读写">Serialize(数据读写)</span></h2><p>CArchive 对象提供了一个类型安全缓冲机制, 支持存储数据（即写入数据或将数据序列化）和加载数据（即读取数据或将数据反序列化）</p>
+<p>类可以进行文件的读写操作，前提是拥有动态创建能力，设计了一下两个宏</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> DECLARE_SERIAL(class_name) \</span></span><br><span class="line">    DECLARE_DYNCREATE(class_name)\</span><br><span class="line">    <span class="keyword">friend</span> CArchive&amp; AFXAPI <span class="keyword">operator</span>&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb);</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> IMPLEMENT_SERIAL(class_name, base_class_name, wSchema) \</span></span><br><span class="line">    CObject* PASCAL class_name::CreateObject() \</span><br><span class="line">        &#123; <span class="keyword">return</span> <span class="keyword">new</span> class_name; &#125; \</span><br><span class="line">    _IMPLEMENT_RUNTIMECLASS(class_name, base_class_name, wSchema, \</span><br><span class="line">        class_name::CreateObject) \</span><br><span class="line">    CArchive&amp; AfxApi <span class="keyword">operator</span>&gt;&gt;(CArchive&amp; ar, class_name* &amp;pOb) \</span><br><span class="line">        &#123; pOb = (class_name*) ar.ReadObject(RUNTIME_CLASS(class_name)); \</span><br><span class="line">            <span class="keyword">return</span> ar; &#125;</span><br></pre></td></tr></table></figure>
         
       </div>
     </div>

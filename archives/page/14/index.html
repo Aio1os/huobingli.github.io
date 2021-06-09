@@ -156,15 +156,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/Recall/">
-  回溯算法
+        <a href="/2019/12/31/ACAutoMachine/">
+  AC自动机
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/Recall/"><span class="article-date">
+        <a href="/2019/12/31/ACAutoMachine/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -183,10 +183,242 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="回溯算法">回溯算法</span></h1><p>复杂度较高, 指数级, 适合用递归来解决</p>
-<h3><span id="算法应用">算法应用</span></h3><p>深度优先搜索、八皇后、0-1 背包问题、图的着色、旅行商问题、数独、全排列、正则表达式匹配等。</p>
-<h3><span id="八皇后">八皇后</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//全局或成员变量,下标表示行,值表示queen存储在哪一列</span></span><br><span class="line"><span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cal8queens</span><span class="params">(<span class="keyword">int</span> row)</span> </span>&#123; </span><br><span class="line">    <span class="comment">// 8个棋子都放置好了, 打印结果</span></span><br><span class="line">    <span class="keyword">if</span> (row == <span class="number">8</span>) &#123; </span><br><span class="line">        printQueens(result);</span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">// 8行棋子都放好了, 结束</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 每一行都有8中放法</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; <span class="number">8</span>; ++column) &#123; </span><br><span class="line">        <span class="keyword">if</span> (isOk(row, column)) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="comment">// 有些放法不满足要求</span></span><br><span class="line">            <span class="comment">// 第row行的棋子放到了column列</span></span><br><span class="line">            result[row] = column; </span><br><span class="line">            <span class="comment">// 考察下一行</span></span><br><span class="line">            cal8queens(row+<span class="number">1</span>); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断row行column列放置是否合适</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isOk</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> column)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> leftup = column - <span class="number">1</span>, rightup = column + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 逐行往上考察每一行</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = row-<span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="comment">// 第i行的column列有棋子吗？</span></span><br><span class="line">        <span class="keyword">if</span> (result[i] == column) <span class="keyword">return</span> <span class="keyword">false</span>; </span><br><span class="line">        <span class="comment">// 考察左上对角线：第i行leftup列有棋子吗？</span></span><br><span class="line">        <span class="keyword">if</span> (leftup &gt;= <span class="number">0</span>) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (result[i] == leftup) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 考察右上对角线：第i行rightup列有棋子吗？</span></span><br><span class="line">        <span class="keyword">if</span> (rightup &lt; <span class="number">8</span>) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (result[i] == rightup) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        --leftup; ++rightup;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出二维矩阵</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printQueens</span><span class="params">(<span class="keyword">int</span>[] result)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; <span class="number">8</span>; ++row) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; <span class="number">8</span>; ++column) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (result[row] == column) </span><br><span class="line">                System.out.print(<span class="string">"Q "</span>);</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                System.out.print(<span class="string">"* "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>判断是否在一条斜线上还有更加简便的做法，就是如果行互减的绝对值等于列互减的绝对值，那么就是在一条斜线上的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Math.abs(row - i) == Math.abs(column - result[i])) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+          <h1><span id="ac自动机">AC自动机</span></h1><p>只需要扫描一遍主串，就能在主串中一次性查找多个模式串是否存在，从而大大提高匹配效率</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/ProtocolUDP/">
+  UCP 协议
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/ProtocolUDP/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/GreedyAlgorithm/">
+  贪心算法
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/GreedyAlgorithm/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="贪心算法">贪心算法</span></h1><p>对问题求解时，总是做出在当前看来是最好的选择。从整体最优上加以考虑，他所做出的仅是在某种意义上的局部最优解。</p>
+<h2><span id="贪心算法应用">贪心算法应用</span></h2><h3><span id="背包问题">背包问题</span></h3><p>选价值最高的</p>
+<h3><span id="哈夫曼编码">哈夫曼编码</span></h3>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/SkipList/">
+  跳表
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/SkipList/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="跳表">跳表</span></h1><p>链表 + 索引</p>
+<h2><span id="最差情况会变成链表">最差情况会变成链表</span></h2><h1><span id="使用案例-redis">使用案例 redis</span></h1>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/findAlgorithm/">
+  查找算法
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/findAlgorithm/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="查找算法">查找算法</span></h1><table>
+<thead>
+<tr>
+<th>-</th>
+<th>有序</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>顺序查找</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+<tr>
+<td>折半查找</td>
+<td>-</td>
+<td>-</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2><span id="二叉查找树">二叉查找树</span></h2>
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/LearnDuilib/">
+  DUILIB
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/LearnDuilib/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="duilib">DUILIB</span></h1><p>Duilib 是一款强大的界面开发工具，可以将用户界面和处理逻辑彻底分离，极大地提高用户界面的开发效率，遵循bsd协议。 ———— from 百度百科</p>
+<p>用xml配置界面控件布局</p>
+<p><a href="https://github.com/netease-im/NIM_Duilib_Framework" target="_blank" rel="noopener">网易云信的修改版</a></p>
 
         
       </div>
@@ -389,15 +621,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/polymorphism/">
-  多态
+        <a href="/2019/12/31/haffmantree/">
+  Huffman树与Huffman编码
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/polymorphism/"><span class="article-date">
+        <a href="/2019/12/31/haffmantree/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -416,11 +648,7 @@
       </div>
       <div class="article-entry">
         
-          <p>允许将子类类型的指针赋值给父类类型的指针, 多态性通过虚函数实现</p>
-<p>c++中实现多态有这几种方式: 虚函数，抽象类，覆盖，模板（重载和多态无关）</p>
-<h2><span id="运行时多态动态多态">运行时多态（动态多态）</span></h2><p>具体引用的对象在运行时才能确定, 绑定工作在程序运行阶段完成的情况称为动态绑定</p>
-<h2><span id="编译时多态静态多态">编译时多态（静态多态）</span></h2><p>在编译时就可以确定对象使用的形式, 绑定工作在编译链接阶段完成的情况称为静态绑定</p>
-
+          <h1><span id="huffman树-最优二叉树">Huffman树 最优二叉树</span></h1>
         
       </div>
     </div>
@@ -434,313 +662,83 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/queue/">
-  队列
+        <a href="/2019/12/31/redistransaction/">
+  Redis 事务
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/queue/"><span class="article-date">
+        <a href="/2019/12/31/redistransaction/"><span class="article-date">
   2019-12-31
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h1><span id="队列">队列</span></h1><p>具有先进先出的特性，支持在队尾插入元素，在队头删除元素。两个基本的操作：入队 enqueue()，放一个数据到队列尾部；出队 dequeue()，从队列头部取一个元素。</p>
-<h2><span id="顺序队列">顺序队列</span></h2><p>用数组实现的队列，需要记录队头和队尾的两个节点</p>
-<p><b>存在问题：</b><br>随着不停地进行入队、出队操作，head 和 tail 都会持续往后移动。当 tail 移动到最右边(即顺序队列分配空间的结尾)，即使数组中还有空闲空间，也无法继续往队列中添加数据了。</p>
-<h2><span id="链式队列">链式队列</span></h2><p>用链表实现的队列，需要记录队头和队尾的两个节点</p>
-<h2><span id="环形队列">环形队列</span></h2><h2><span id="阻塞队列">阻塞队列</span></h2><p>阻塞队列其实就是在队列基础上增加了阻塞操作</p>
-<h2><span id="并发队列">并发队列</span></h2><p>线程安全的队列</p>
-<h2><span id="队列应用">队列应用</span></h2><p>队列可以应用在任何有限资源池中，用于排队请求</p>
-<p>消息队列  Kafka、ActiveMQ、RabbitMQ</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/memory4part/">
-  内存四区
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/memory4part/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="静态区域与动态区域">静态区域与动态区域</span></h1><h2><span id="静态区域">静态区域</span></h2><p>text segment(代码段): 包括只读存储区和文本区，其中只读存储区存储字符串常量，文本区存储程序的机器代码。<br>在程序运行前就已经确定，并且内存区域通常属于只读, 某些架构也允许代码段为可写，即允许自修改程序。 在代码段中，也有可能包含一些只读的常数变量，例如字符串常量等。</p>
-<p>data segment(数据段): 存储程序中已初始化的全局变量和静态变量</p>
-<p>bss segment(BSS段)：存储未初始化的全局变量和静态变量（局部+全局），以及所有被初始化为0的全局变量和静态变量，对于未初始化的全局变量和静态变量，程序运行main之前时会统一清零。即未初始化的全局变量编译器会初始化为0</p>
-<h2><span id="动态区域">动态区域</span></h2><p>heap（堆区）： 当进程未调用malloc时是没有堆段的，只有调用malloc时采用分配一个堆，并且在程序运行过程中可以动态增加堆大小(移动break指针)，从低地址向高地址增长。分配小内存时使用该区域。  堆的起始地址由mm_struct 结构体中的start_brk标识，结束地址由brk标识。</p>
-<p>memory mapping segment(映射区):存储动态链接库等文件映射、申请大内存（malloc时调用mmap函数）</p>
-<p>stack（栈区）：使用栈空间存储函数的返回地址、参数、局部变量、返回值，从高地址向低地址增长。在创建进程时会有一个最大栈大小，Linux可以通过ulimit命令指定。</p>
-<h1><span id="内存四区">内存四区</span></h1><h3><span id="栈区stack">栈区(stack)</span></h3><p>就是那些由编译器在需要的时候分配，在不需要的时候自动清除的变量的存储区。里面的变量通常是函数的返回地址、参数、局部变量、返回值等，从高地址向低地址增长。在一个进程中，位于用户虚拟地址空间顶部的是用户栈，编译器用它来实现函数的调用。其操作方式类似于数据结构中的栈。</p>
-<h3><span id="堆区heap">堆区(heap)</span></h3><p>一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表，在程序运行过程中可以动态增加堆大小(移动break指针)，从低地址向高地址增长。</p>
+          <h1><span id="redis事务">Redis事务</span></h1><p>在 Redis 中，也存在多个客户端同时向 Redis 系统发送命令的并发可能性，因此同一个数据，可能在不同的时刻被不同的线程所操纵，这样就出现了并发下的数据一致的问题。为了保证异性数据的安全性，Redis 为提供了事务方案。而 Redis 的事务是使用 MULTI-EXEC 的命令组合，使用它可以提供两个重要的保证：</p>
 <ul>
-<li><p>堆：是操作系统所维护的一块特殊内存，它提供了动态分配的功能，当运行程序调用malloc()时就会从中分配，稍后调用free()可把内存交还。</p>
-</li>
-<li><p>自由存储区：自由存储是C++中通过new和delete动态分配和释放对象的抽象概念，通过new来申请的内存区域可称为自由存储区。基本上，所有的C++编译器默认使用堆来实现自由存储，也即是缺省的全局运算符new和delete也许会按照malloc和free的方式来被实现，这时藉由new运算符分配的对象，说它在堆上也对，说它在自由存储区上也正确。但程序员也可以通过重载操作符，改用其他内存来实现自由存储，例如全局变量做的对象池，这时自由存储区和堆区就有区别了。</p>
-</li>
+<li>事务是一个被隔离的操作，事务中的方法都会被 Redis 进行序列化并按顺序执行，事务在执行的过程中不会被其他客户端发生的命令所打断。</li>
+<li>事务是一个原子性的操作，它要么全部执行，要么就什么都不执行。</li>
 </ul>
-<h3><span id="数据区">数据区</span></h3><p>主要包括静态全局区和静态区，如果要站在汇编角度细分的话还可以分为很多小的区。</p>
+<p>在 Redis 中使用事务会经过 3 个过程：</p>
 <ul>
-<li><p>全局区&amp;静态区：全局变量和静态变量被分配到同一块内存中，在以前的 C 语言中，全局变量和静态变量又分为</p>
-</li>
-<li><p>全局初始化区(DATA段) ：存储程序中已初始化的全局变量和静态变量</p>
-</li>
-<li><p>未初始化段(BSS段) ：存储<u><b>未初始化</b></u>的全局变量和静态变量（局部+全局）。BSS段在DATA段的相邻的另一块区域。</p>
-<p>  BBS段特点：在程序执行前BBS段自动清零，所以未初始化的全局变量和静态变量在程序执行前已经成为0。</p>
-</li>
+<li>开启事务。</li>
+<li>命令进入队列。</li>
+<li>执行事务。</li>
 </ul>
-<p>　　在 C++ 里面没有这个区分了，他们共同占用同一块内存区。</p>
-<h3><span id="代码区">代码区</span></h3><p>包括只读存储区和文本区，其中只读存储区存储字符串常量，就是常量区，文本区存储程序的机器代码</p>
-<h2><span id="可执行程序包括">可执行程序包括</span></h2><p>可执行程序包括BSS段、数据段、代码段（也称文本段）</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/vptr/">
-  虚函数表
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/vptr/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="虚函数表">虚函数表</span></h1>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/findAlgorithm/">
-  查找算法
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/findAlgorithm/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="查找算法">查找算法</span></h1><table>
+<h2><span id="redis事务命令">Redis事务命令</span></h2><table>
 <thead>
 <tr>
-<th>-</th>
-<th>有序</th>
-<th>时间复杂度</th>
-<th>空间复杂度</th>
+<th>命令</th>
+<th>说明</th>
+<th>备注</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>顺序查找</td>
-<td>-</td>
-<td>-</td>
-<td></td>
+<td>multi</td>
+<td>开启事务命令，之后的命令就进入队列，而不会马上被执行</td>
+<td>在事务生存期间，所有的 Redis 关于数据结构的命令都会入队</td>
 </tr>
 <tr>
-<td>折半查找</td>
-<td>-</td>
-<td>-</td>
-<td></td>
+<td>watch key1 [key2……]</td>
+<td>监听某些键，当被监听的键在事务执行前被修改，则事务会被回滚</td>
+<td>使用乐观锁</td>
+</tr>
+<tr>
+<td>unwatch key1 [key2……]</td>
+<td>取消监听某些键</td>
+<td>——</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>执行事务，如果被监听的键没有被修改，则采用执行命令，否则就回滚命令</td>
+<td>在执行事务队列存储的命令前，Redis 会检测被监听的键值对有没有发生变化，如果没有则执行命令, 否则就回滚事务</td>
+</tr>
+<tr>
+<td>discard</td>
+<td>回滚事务</td>
+<td>回滚进入队列的事务命令，之后就不能再用 exec 命令提交了</td>
 </tr>
 </tbody>
 </table>
-<h2><span id="二叉查找树">二叉查找树</span></h2>
-        
-      </div>
-    </div>
+<h2><span id="redis事务回滚">Redis事务回滚</span></h2><p>执行事务命令的时，当命令入队，Redis 就会检测事务的命令是否正确，如果不正确则会产生错误。无论之前和之后的命令都会被事务所回滚，就变为什么都没有执行。</p>
+<h2><span id="redis监控事务">Redis监控事务</span></h2><p>使用 watch 命令可以决定事务是执行还是回滚</p>
 
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/BinaryTree/">
-  二叉树
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/BinaryTree/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="树">树</span></h1><ul>
-<li>高度：节点到叶子节点的最长路径（边数）</li>
-<li>深度：根节点到这个节点所经历的边数</li>
-<li>层：节点高度 + 1</li>
-<li>树的高度：根节点高度</li>
-</ul>
-<h1><span id="二叉树">二叉树</span></h1><h2><span id="完全二叉树">完全二叉树</span></h2><p>最后一层子节点都靠左</p>
-<h2><span id="满二叉树">满二叉树</span></h2><p>叶子节点全都在最底层，除了叶子节点之外，每个节点都有左右两个子节点</p>
-<h2><span id="存储方式">存储方式</span></h2><h3><span id="链式存储法">链式存储法</span></h3><p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/binarytree_linked.png" alt></p>
-<h3><span id="基于数组的顺序存储法">基于数组的<b>顺序存储法</b></span></h3><p>数组顺序存储的方式比较适合<u><b>完全二叉树</b></u>，<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/binarytree_array_2.png" alt></p>
-<p>其他类型的二叉树用数组存储会比较浪费存储空间<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/binarytree_array_1.png" alt></p>
-<h2><span id="二叉树遍历">二叉树遍历</span></h2><p>每个节点最多会被访问两次，所以遍历操作的时间复杂度，跟节点的个数 n 成正比，也就是说二叉树遍历的时间复杂度是 O(n)。</p>
-<h3><span id="前序遍历-中左右">前序遍历 （中左右）</span></h3><h4><span id="前序递归算法">前序递归算法</span></h4><p>递归退出 当pNode为叶节点<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrder</span><span class="params">(TNode* pNode)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pNode != <span class="literal">NULL</span>)  <span class="comment">// 递归退出条件</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>, pNode-&gt;data);  <span class="comment">// 访问根节点</span></span><br><span class="line">        PreOrder(pNode-&gt;lChild);    <span class="comment">// 访问左子树</span></span><br><span class="line">        PreOrder(pNode-&gt;rChild);    <span class="comment">// 访问右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h3><span id="中序遍历-左中右">中序遍历 （左中右）</span></h3><h4><span id="中序递归算法">中序递归算法</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrder</span><span class="params">(TNode* pNode)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pNode != <span class="literal">NULL</span>)  <span class="comment">// 递归退出条件</span></span><br><span class="line">    &#123;</span><br><span class="line">        InOrder(pNode-&gt;lChild);     <span class="comment">// 访问左子树</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>, pNode-&gt;data);  <span class="comment">// 访问根节点</span></span><br><span class="line">        InOrder(pNode-&gt;rChild);     <span class="comment">// 访问右子树</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="后序遍历-左右中">后序遍历 （左右中）</span></h3><h4><span id="后序递归算法">后序递归算法</span></h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrder</span><span class="params">(TNode* pNode)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (pNode != <span class="literal">NULL</span>)  <span class="comment">// 递归退出条件</span></span><br><span class="line">    &#123;</span><br><span class="line">        PostOrder(pNode-&gt;lChild);   <span class="comment">// 访问左子树</span></span><br><span class="line">        PostOrder(pNode-&gt;rChild);   <span class="comment">// 访问右子树</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%c"</span>, pNode-&gt;data);  <span class="comment">// 访问根节点</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3><span id="层序遍历-bfs-广度优先算法">层序遍历 （BFS 广度优先算法）</span></h3>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/DynamicProgram/">
-  动态规划
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/DynamicProgram/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="动态规划">动态规划</span></h1>
         
       </div>
     </div>

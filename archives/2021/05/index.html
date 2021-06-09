@@ -240,48 +240,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2021/05/24/BTNetwork/">
-  NetWork
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2021/05/24/BTNetwork/"><span class="article-date">
-  2021-05-24
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/BT/">BT</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BT/">BT</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p><a href="https://www.cnblogs.com/aspirant/p/9166944.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspirant/p/9166944.html</a><br><a href="https://www.jianshu.com/p/587ab13eb564" target="_blank" rel="noopener">https://www.jianshu.com/p/587ab13eb564</a><br><a href="https://www.jianshu.com/p/37d132327724?utm_campaign" target="_blank" rel="noopener">https://www.jianshu.com/p/37d132327724?utm_campaign</a></p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2021/05/24/BTRedis/">
   Redis
 </a>
@@ -313,7 +271,68 @@
 <h3><span id="底层存储结构">底层存储结构</span></h3><h3><span id="sds结构">sds结构</span></h3><p><a href="https://blog.csdn.net/qq_33361976/article/details/109014012" target="_blank" rel="noopener">https://blog.csdn.net/qq_33361976/article/details/109014012</a></p>
 <h3><span id="数据类型">数据类型</span></h3><h3><span id="go操作redis">go操作redis</span></h3><p><a href="https://www.cnblogs.com/you-men/p/13412880.html" target="_blank" rel="noopener">https://www.cnblogs.com/you-men/p/13412880.html</a></p>
 <h3><span id="info命令">info命令</span></h3><p>通过redis-cli 调用 查看信息</p>
-<h3><span id="rdb和aof">RDB和AOF</span></h3><p><a href="https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc</a></p>
+<h3><span id="rdb和aof">RDB和AOF</span></h3><p><a href="https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">https://baijiahao.baidu.com/s?id=1654694618189745916&amp;wfr=spider&amp;for=pc</a>  </p>
+<h3><span id="订阅发布">订阅发布</span></h3><p>1、SUBSCRIBE   订阅 chat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SUBSCRIBE chat</span><br></pre></td></tr></table></figure></p>
+<p>2、PUBLISH  发布chat<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PUBLISH chat &quot;Redis PUBLISH test&quot;</span><br></pre></td></tr></table></figure></p>
+<p>3、PSUBSCRIBE  模式匹配订阅频道，订阅一个或多个符合给定模式的频道。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PSUBSCRIBE chat*</span><br></pre></td></tr></table></figure></p>
+<p>订阅所有”chat”开头的频道</p>
+<h3><span id="应用场景">应用场景</span></h3><p>redis的使用场景：</p>
+<ol>
+<li><p>抢购<br>抢购10件，redis key qty=10<br>lua decr qty </p>
+</li>
+<li><p>缓存<br>set key value ttl</p>
+</li>
+<li><p>分布式锁(redis、zookeeper……)<br>set key value nx px ttl</p>
+</li>
+</ol>
+<p>redis的常见数据结构</p>
+<p>String</p>
+<p>List：<br>[1,2,3,4,5,4,3,2,1]<br>存一个列表</p>
+<p>Set<br>[1,2,4,5,3,4.4]<br>存一个不重复的列表</p>
+<p>Hash<br>key field value<br> f1   v1<br>k1  f2   v2<br> f3   v3</p>
+<p>Zset<br>[1,2,3,4,4.4,5]</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2021/05/24/BTNetwork/">
+  NetWork
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2021/05/24/BTNetwork/"><span class="article-date">
+  2021-05-24
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/BT/">BT</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BT/">BT</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p><a href="https://www.cnblogs.com/aspirant/p/9166944.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspirant/p/9166944.html</a><br><a href="https://www.jianshu.com/p/587ab13eb564" target="_blank" rel="noopener">https://www.jianshu.com/p/587ab13eb564</a><br><a href="https://www.jianshu.com/p/37d132327724?utm_campaign" target="_blank" rel="noopener">https://www.jianshu.com/p/37d132327724?utm_campaign</a></p>
 
         
       </div>

@@ -156,57 +156,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/ACAutoMachine/">
-  AC自动机
+        <a href="/2019/12/31/RBtree/">
+  红黑树
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/ACAutoMachine/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="ac自动机">AC自动机</span></h1><p>只需要扫描一遍主串，就能在主串中一次性查找多个模式串是否存在，从而大大提高匹配效率</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/SkipList/">
-  跳表
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/SkipList/"><span class="article-date">
+        <a href="/2019/12/31/RBtree/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -225,8 +183,163 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="跳表">跳表</span></h1><p>链表 + 索引</p>
-<h2><span id="最差情况会变成链表">最差情况会变成链表</span></h2><h1><span id="使用案例-redis">使用案例 redis</span></h1>
+          <h2><span id="平衡二叉查找树的初衷">平衡二叉查找树的初衷</span></h2><p>解决普通二叉查找树在频繁的插入、删除等动态更新的情况下, 出现时间复杂度<font color="red">退化</font>的问题。</p>
+<h2><span id="平衡二叉树avl树">平衡二叉树(AVL树)</span></h2><p>平衡因子：平衡二叉树中每个节点有一个平衡因子, 每个节点的平衡因子是该节点左子树的高度减去右子树的高度, 平衡因子的绝对值小于等于1, 所以平衡因子取值为(-1, 0, 1)</p>
+<h2><span id="红黑树">红黑树</span></h2><ul>
+<li>根节点是黑色的 </li>
+<li>每个叶子节点都是黑色的空节点（NIL）, 也就是说, 叶子节点不存储数据</li>
+<li>任何相邻的节点都不能同时为红色, 也就是说, 红色节点是被黑色节点隔开的</li>
+<li>每个节点, 从该节点到达其可达叶子节点的所有路径, 都包含相同数目的黑色节点<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/RBtree_1.png" alt></li>
+</ul>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/redisUseCase/">
+  Redis 使用场景
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/redisUseCase/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="redis-使用场景">Redis 使用场景</span></h1><h3><span id="1-热点数据的缓存">1、热点数据的缓存</span></h3><p>由于redis访问速度块、支持的数据类型比较丰富，所以redis很适合用来存储热点数据，另外结合expire，我们可以设置过期时间然后再进行缓存更新操作，这个功能最为常见，我们几乎所有的项目都有所运用。</p>
+<h3><span id="2-限时业务的运用">2、限时业务的运用</span></h3><p>redis中可以使用expire命令设置一个键的生存时间，到时间后redis会删除它。利用这一特性可以运用在限时的优惠活动信息、手机验证码等业务场景。</p>
+<h3><span id="3-计数器相关问题">3、计数器相关问题</span></h3><p>redis由于incrby命令可以实现原子性的递增，所以可以运用于高并发的秒杀活动、分布式序列号的生成、具体业务还体现在比如限制一个手机号发多少条短信、一个接口一分钟限制多少请求、一个接口一天限制调用多少次等等。</p>
+<h3><span id="4-排行榜相关问题">4、排行榜相关问题</span></h3><p>关系型数据库在排行榜方面查询速度普遍偏慢，所以可以借助redis的SortedSet进行热点数据的排序。</p>
+<p>在奶茶活动中，我们需要展示各个部门的点赞排行榜， 所以我针对每个部门做了一个SortedSet,然后以用户的openid作为上面的username,以用户的点赞数作为上面的score, 然后针对每个用户做一个hash,通过zrangebyscore就可以按照点赞数获取排行榜，然后再根据username获取用户的hash信息，这个当时在实际运用中性能体验也蛮不错的。</p>
+<h3><span id="5-分布式锁">5、分布式锁</span></h3><p>这个主要利用redis的setnx命令进行，setnx：”set if not exists”就是如果不存在则成功设置缓存同时返回1，否则返回0 ，这个特性在俞你奔远方的后台中有所运用，因为我们服务器是集群的，定时任务可能在两台机器上都会运行，所以在定时任务中首先 通过setnx设置一个lock，如果成功设置则执行，如果没有成功设置，则表明该定时任务已执行。 当然结合具体业务，我们可以给这个lock加一个过期时间，比如说30分钟执行一次的定时任务，那么这个过期时间设置为小于30分钟的一个时间 就可以，这个与定时任务的周期以及定时任务执行消耗时间相关。</p>
+<p>当然我们可以将这个特性运用于其他需要分布式锁的场景中，结合过期时间主要是防止死锁的出现。</p>
+<h3><span id="6-延时操作">6、延时操作</span></h3><p>这个目前我做过相关测试，但是还没有运用到我们的实际项目中，下面我举个该特性的应用场景。 比如在订单生产后我们占用了库存，10分钟后去检验用户是够真正购买，如果没有购买将该单据设置无效，同时还原库存。 由于redis自2.8.0之后版本提供Keyspace Notifications功能，允许客户订阅Pub/Sub频道，以便以某种方式接收影响Redis数据集的事件。 所以我们对于上面的需求就可以用以下解决方案，我们在订单生产时，设置一个key，同时设置10分钟后过期， 我们在后台实现一个监听器，监听key的实效，监听到key失效时将后续逻辑加上。 当然我们也可以利用rabbitmq、activemq等消息中间件的延迟队列服务实现该需求。</p>
+<h3><span id="7-分页-模糊搜索">7、分页、模糊搜索</span></h3><p>redis的set集合中提供了一个zrangebylex方法，语法如下：</p>
+<p>ZRANGEBYLEX key min max [LIMIT offset count]</p>
+<p>通过ZRANGEBYLEX zset - + LIMIT 0 10 可以进行分页数据查询，其中- +表示获取全部数据</p>
+<p>zrangebylex key min max 这个就可以返回字典区间的数据，利用这个特性可以进行模糊查询功能，这个也是目前我在redis中发现的唯一一个支持对存储内容进行模糊查询的特性。</p>
+<p>前几天我通过这个特性，对学校数据进行了模拟测试，学校数据60万左右，响应时间在700ms左右，比mysql的like查询稍微快一点，但是由于它可以避免大量的数据库io操作，所以总体还是比直接mysql查询更利于系统的性能保障。</p>
+<h3><span id="8-点赞-好友等相互关系的存储">8、点赞、好友等相互关系的存储</span></h3><p>Redis set对外提供的功能与list类似是一个列表的功能，特殊之处在于set是可以自动排重的，当你需要存储一个列表数据，又不希望出现重复数据时，set是一个很好的选择，并且set提供了判断某个成员是否在一个set集合内的重要接口，这个也是list所不能提供的。 又或者在微博应用中，每个用户关注的人存在一个集合中，就很容易实现求两个人的共同好友功能。</p>
+<p>这个在奶茶活动中有运用，就是利用set存储用户之间的点赞关联的，另外在点赞前判断是否点赞过就利用了sismember方法，当时这个接口的响应时间控制在10毫秒内，十分高效。</p>
+<h3><span id="9-队列">9、队列</span></h3><p>由于redis有list push和list pop这样的命令，所以能够很方便的执行队列操作。</p>
+<p>转载自<br><a href="https://www.jianshu.com/p/40dbc78711c8" target="_blank" rel="noopener">redis常见应用场景</a></p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/queue/">
+  队列
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/queue/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="队列">队列</span></h1><p>具有先进先出的特性，支持在队尾插入元素，在队头删除元素。两个基本的操作：入队 enqueue()，放一个数据到队列尾部；出队 dequeue()，从队列头部取一个元素。</p>
+<h2><span id="顺序队列">顺序队列</span></h2><p>用数组实现的队列，需要记录队头和队尾的两个节点</p>
+<p><b>存在问题：</b><br>随着不停地进行入队、出队操作，head 和 tail 都会持续往后移动。当 tail 移动到最右边(即顺序队列分配空间的结尾)，即使数组中还有空闲空间，也无法继续往队列中添加数据了。</p>
+<h2><span id="链式队列">链式队列</span></h2><p>用链表实现的队列，需要记录队头和队尾的两个节点</p>
+<h2><span id="环形队列">环形队列</span></h2><h2><span id="阻塞队列">阻塞队列</span></h2><p>阻塞队列其实就是在队列基础上增加了阻塞操作</p>
+<h2><span id="并发队列">并发队列</span></h2><p>线程安全的队列</p>
+<h2><span id="队列应用">队列应用</span></h2><p>队列可以应用在任何有限资源池中，用于排队请求</p>
+<p>消息队列  Kafka、ActiveMQ、RabbitMQ</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/ProtocalHttps/">
+  HTTPS 协议
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/ProtocalHttps/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          
         
       </div>
     </div>
@@ -426,27 +539,27 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/BucketSort/">
-  桶排序
+        <a href="/2019/12/31/stlcontainer/">
+  STL容器分析
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/BucketSort/"><span class="article-date">
+        <a href="/2019/12/31/stlcontainer/"><span class="article-date">
   2019-12-31
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
 	</span>
 
 
@@ -454,96 +567,6 @@
       <div class="article-entry">
         
           
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/redistransaction/">
-  Redis 事务
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/redistransaction/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="redis事务">Redis事务</span></h1><p>在 Redis 中，也存在多个客户端同时向 Redis 系统发送命令的并发可能性，因此同一个数据，可能在不同的时刻被不同的线程所操纵，这样就出现了并发下的数据一致的问题。为了保证异性数据的安全性，Redis 为提供了事务方案。而 Redis 的事务是使用 MULTI-EXEC 的命令组合，使用它可以提供两个重要的保证：</p>
-<ul>
-<li>事务是一个被隔离的操作，事务中的方法都会被 Redis 进行序列化并按顺序执行，事务在执行的过程中不会被其他客户端发生的命令所打断。</li>
-<li>事务是一个原子性的操作，它要么全部执行，要么就什么都不执行。</li>
-</ul>
-<p>在 Redis 中使用事务会经过 3 个过程：</p>
-<ul>
-<li>开启事务。</li>
-<li>命令进入队列。</li>
-<li>执行事务。</li>
-</ul>
-<h2><span id="redis事务命令">Redis事务命令</span></h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>multi</td>
-<td>开启事务命令，之后的命令就进入队列，而不会马上被执行</td>
-<td>在事务生存期间，所有的 Redis 关于数据结构的命令都会入队</td>
-</tr>
-<tr>
-<td>watch key1 [key2……]</td>
-<td>监听某些键，当被监听的键在事务执行前被修改，则事务会被回滚</td>
-<td>使用乐观锁</td>
-</tr>
-<tr>
-<td>unwatch key1 [key2……]</td>
-<td>取消监听某些键</td>
-<td>——</td>
-</tr>
-<tr>
-<td>exec</td>
-<td>执行事务，如果被监听的键没有被修改，则采用执行命令，否则就回滚命令</td>
-<td>在执行事务队列存储的命令前，Redis 会检测被监听的键值对有没有发生变化，如果没有则执行命令, 否则就回滚事务</td>
-</tr>
-<tr>
-<td>discard</td>
-<td>回滚事务</td>
-<td>回滚进入队列的事务命令，之后就不能再用 exec 命令提交了</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="redis事务回滚">Redis事务回滚</span></h2><p>执行事务命令的时，当命令入队，Redis 就会检测事务的命令是否正确，如果不正确则会产生错误。无论之前和之后的命令都会被事务所回滚，就变为什么都没有执行。</p>
-<h2><span id="redis监控事务">Redis监控事务</span></h2><p>使用 watch 命令可以决定事务是执行还是回滚</p>
-
         
       </div>
     </div>
@@ -601,27 +624,27 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/stlcontainer/">
-  STL容器分析
+        <a href="/2019/12/31/BucketSort/">
+  桶排序
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/stlcontainer/"><span class="article-date">
+        <a href="/2019/12/31/BucketSort/"><span class="article-date">
   2019-12-31
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
 	</span>
 
 
@@ -642,65 +665,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/lua/">
-  Lua
+        <a href="/2019/12/31/DynamicProgram/">
+  动态规划
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/lua/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="lua-脚本学习">lua 脚本学习</span></h1><p>Lua 是一个小巧的脚本语言。该语言的设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。Lua脚本可以很容易的被C/C++代码调用，也可以反过来调用C/C++的函数，这使得Lua在应用程序中可以被广泛应用。不仅仅作为扩展脚本，也可以作为普通的配置文件，代替XML,Ini等文件格式，并且更容易理解和维护。</p>
-<p>Lua由标准C编写而成，代码简洁优美，几乎在所有操作系统和平台上都可以编译，运行。一个完整的Lua解释器不过200k，在目前所有脚本引擎中，Lua的速度是最快的。这一切都决定了Lua是作为嵌入式脚本的最佳选择。</p>
-<h2><span id="lua-应用场景">Lua 应用场景</span></h2><ul>
-<li>游戏开发</li>
-<li>独立应用脚本</li>
-<li>Web 应用脚本</li>
-<li>扩展和数据库插件如：MySQL Proxy 和 MySQL WorkBench</li>
-<li>安全系统，如入侵检测系统</li>
-</ul>
-<h2><span id="使用lua51dll">使用lua5.1.dll</span></h2>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/StringMatch/">
-  字符串匹配算法
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/StringMatch/"><span class="article-date">
+        <a href="/2019/12/31/DynamicProgram/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -719,11 +692,7 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="bf-算法暴力匹配算法朴素匹配算法">BF 算法（暴力匹配算法，朴素匹配算法）</span></h1><p>我们在主串中，检查起始位置分别是 0、1、2…n-m 且长度为 m 的 n-m+1 个子串，看有没有跟模式串匹配的</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BF</span><span class="params">(<span class="built_in">string</span> strMain, <span class="built_in">string</span> strTarget)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; strMain.length() &amp;&amp; j &lt; strTarget.length())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (strMain[i] == strTarget[j])</span><br><span class="line">		&#123;</span><br><span class="line">			i++; j++;	<span class="comment">// 正常匹配</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			i = i - j + <span class="number">1</span>;</span><br><span class="line">			j = <span class="number">0</span>;		<span class="comment">// 子串重新开始</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (j &gt;= strTarget.length())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> (i - strTarget.length());	<span class="comment">// 匹配成功，返回第一个字符下标</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;	<span class="comment">// 表示未匹配成功</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1><span id="rk-算法">RK 算法</span></h1><p>redis的布隆过滤器 RK算法</p>
-<h1><span id="bm-算法">BM 算法</span></h1><p>grep</p>
-<h1><span id="kmp-算法">KMP 算法</span></h1>
+          <h1><span id="动态规划">动态规划</span></h1>
         
       </div>
     </div>

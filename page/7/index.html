@@ -195,53 +195,83 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/02/24/mysqlforgetpwd/">
-  mysql重置密码
+        <a href="/2020/02/24/dockercommand/">
+  docker 使用
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/02/24/mysqlforgetpwd/"><span class="article-date">
+        <a href="/2020/02/24/dockercommand/"><span class="article-date">
   2020-02-24
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学/">学</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学/">学</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h1><span id="mysql重置密码">mysql重置密码</span></h1><h2><span id="1-检查mysql服务是否启动如果启动关闭mysql服务">1、检查mysql服务是否启动，如果启动，关闭mysql服务</span></h2><blockquote>
-<p>ps -ef | grep -i mysql</p>
+          <h1><span id="docker-容器使用">docker 容器使用</span></h1><h3><span id="查看正在运行的容器">查看正在运行的容器</span></h3><blockquote>
+<p>docker ps</p>
 </blockquote>
-<h2><span id="2-修改mysql的配置文件myconf">2、修改mysql的配置文件my.conf</span></h2><blockquote>
-<p>vi /etc/my.cnf</p>
+<h3><span id="查看对应容器id或容器名称的端口映射-参数容器id名">查看对应容器ID或容器名称的端口映射 参数容器ID/名</span></h3><blockquote>
+<p>docker port (container ID / container name)</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">datadir=/var/lib/mysql</span><br><span class="line">socket=/var/lib/mysql/mysql.sock</span><br><span class="line"></span><br><span class="line">skip-grant-tables       # 新增语句</span><br></pre></td></tr></table></figure>
-<h2><span id="3-重启数据库">3、重启数据库</span></h2><blockquote>
-<p>service mysqld start</p>
+<h3><span id="查看容器进程">查看容器进程</span></h3><blockquote>
+<p>docker top </p>
 </blockquote>
-<h2><span id="4-进入数据库修改密码">4、进入数据库修改密码</span></h2><blockquote>
-<p>mysql -u root </p>
+<h3><span id="查看容器日志">查看容器日志</span></h3><blockquote>
+<p>docker logs -f (container ID)</p>
 </blockquote>
+<p>-f:让 dokcer logs 像使用 tail -f 一样来输出容器内部的标准输出。</p>
+<h3><span id="删除容器-参数容器名">删除容器 参数容器名</span></h3><blockquote>
+<p>docker rm (container ID / container name)</p>
+</blockquote>
+<h3><span id="查看所有镜像">查看所有镜像</span></h3><blockquote>
+<p>docker images</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">REPOSITORY | TAG | IMAGE ID | CREATED | SIZE</span><br></pre></td></tr></table></figure>
+<p>NAME: 表示镜像的仓库源</p>
+<p>TAG: 镜像的标签</p>
+<p>IMAGE ID: 镜像ID</p>
+<p>CREATED: 镜像创建时间</p>
+<p>SIZE: 镜像大小</p>
+<h3><span id="查找镜像">查找镜像</span></h3><p>可以从 Docker Hub 网站来搜索镜像，Docker Hub 网址为： <a href="https://hub.docker.com/" target="_blank" rel="noopener">https://hub.docker.com/</a></p>
 <blockquote>
-<p>use mysql;</p>
+<p>docker search jenkins</p>
 </blockquote>
-<blockquote>
-<p>update mysql.user set authentication_string=password(‘root_password’) where user=’root’;  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NAME | DESCRIPTION | STARS | OFFICIAL | AUTOMATED</span><br></pre></td></tr></table></figure>
+<p>NAME: 镜像仓库源的名称</p>
+<p>DESCRIPTION: 镜像的描述</p>
+<p>OFFICIAL: 是否 docker 官方发布</p>
+<p>stars: 类似 Github 里面的 star，表示点赞、喜欢的意思。</p>
+<p>AUTOMATED: 自动构建。</p>
+<h3><span id="拉取镜像">拉取镜像</span></h3><blockquote>
+<p>docker pull</p>
 </blockquote>
-<h2><span id="5-删除第二步中增加语句">5、删除第二步中增加语句</span></h2>
+<h3><span id="运行镜像">运行镜像</span></h3><blockquote>
+<p>docker run</p>
+</blockquote>
+<h3><span id="创建镜像">创建镜像</span></h3><p>当我们从docker镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。</p>
+<ul>
+<li>1.从已经创建的容器中更新镜像，并且提交这个镜像</li>
+</ul>
+<ul>
+<li>2.使用 Dockerfile 指令来创建一个新的镜像</li>
+</ul>
+<h3><span id="更新镜像">更新镜像</span></h3><p>更新镜像之前，我们需要使用镜像来创建一个容器。</p>
+
         
       </div>
     </div>
@@ -365,6 +395,196 @@
 </li>
 </ul>
 <h2><span id="noexcept修饰符与noexcept操作符">noexcept修饰符与noexcept操作符</span></h2>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/05/Pipe/">
+  管道
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/05/Pipe/"><span class="article-date">
+  2020-01-05
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/进程间通讯/">进程间通讯</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程间通讯/">进程间通讯</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="匿名管道">匿名管道</span></h2><h2><span id="命名管道">命名管道</span></h2>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/05/typeconversion/">
+  类型转换
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/05/typeconversion/"><span class="article-date">
+  2020-01-05
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="隐式转换和显式转换">隐式转换和显式转换</span></h1><ul>
+<li><p>隐式转换<br>  指不需要用户干预，编译器默认进行的类型转换行为<br>  低精度向高精度转换<br>  1、多种类型计算</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> nValue = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">double</span> dValue = <span class="number">10.01</span>;</span><br><span class="line"><span class="keyword">double</span> dSum = nValue + dValue; <span class="comment">// 16.01 nValue 会转换成double, 在和dValue相加</span></span><br></pre></td></tr></table></figure>
+<p>  2、不同类型赋值</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> nValue = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">double</span> dValue = nValue; <span class="comment">// 隐式转换成double</span></span><br></pre></td></tr></table></figure>
+<p>  3、函数传参和返回值</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">double</span> dValue)</span></span>; <span class="comment">//隐式转换成double</span></span><br><span class="line">fun(<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;       <span class="comment">// 隐式转换成double</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  高精度向低精度转换  出现强制类型转换</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> dValue = <span class="number">6.01</span>;</span><br><span class="line"><span class="keyword">int</span> nValue = dValue <span class="comment">// nValue = 6  有警告 丢失精度</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> dValue = <span class="number">6.01</span>;</span><br><span class="line"><span class="keyword">int</span> nValue = (<span class="keyword">int</span>)dValue; <span class="comment">// nValue = 6 无警告 强制转换类型</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>显示转换<br>  强制转换<br>  1、 const_cast<br>  2、 dynamic_cast<br>  3、 reinterpret_cast<br>  4、 static_cast  </p>
+</li>
+</ul>
+<h1><span id="上行转换和下行转换">上行转换和下行转换</span></h1><p>当进行上行转换，也就是把<b><u>子类</u></b>的指针或引用转换成<b><u>父类</u></b>表示，这种转换是<b><u>安全</u></b>的<br>当进行下行转换，也就是把<b><u>父类</u></b>的指针或引用转换成<b><u>子类</u></b>表示，这种转换是<b><u>不安全</u></b>的，也需要程序员来保证  </p>
+<h1><span id="c中四种cast转换">C++中四种cast转换</span></h1><ul>
+<li><p>const_cast<br>  强制消除对象的常量性, 用于将const变量转为非const</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const int n = 5;</span><br><span class="line">const int *cpn = &amp;n;</span><br><span class="line">int* pn = const_cast&lt;int*&gt;(cpn);</span><br><span class="line">++*pn;  //n的值被修改为了6</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>dynamic_cast<br>  特点：可以在<u><b>执行期</b></u>决定真正的类型，可以检测继承关系<br>  <u><b>安全</b></u>的向下转型(父类转子类), 用于动态类型转换, 用于类层次间的向上和向下转化。向上转换时只能用于含有<u><b>虚函数</b></u>的类。<br>  为什么要有虚函数：就说明它有想要让基类指针或引用指向派生类对象的必要，此时转换才有意义。</p>
+<p>  在类层次间进行上行转换时，dynamic_cast和static_cast的效果是一样的<br>  在进行下行转换时，dynamic_cast具有类型检查的功能，比static_cast更安全  </p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dynamci_cast&lt;a&gt;(p)</span><br></pre></td></tr></table></figure>
+<p>  只有在指针p指向a或者a的派生类时才不会返回空值，注意是指向，而不是指针的类型</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A() &#123; a = <span class="number">10</span>; &#125;</span><br><span class="line">    ~A()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B() &#123; b = <span class="number">11</span>; &#125;</span><br><span class="line">    ~B() &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上行转换没有问题</span></span><br><span class="line">B* Bb = <span class="keyword">new</span> B;</span><br><span class="line">Bb-&gt;get();</span><br><span class="line">A* Aa = <span class="keyword">dynamic_cast</span>&lt;A*&gt;(Bb);</span><br><span class="line">Aa-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下行转换 get()不是虚函数，存在问题 Aa "运行时dynmic_cast的操作数必须包含多态类型"</span></span><br><span class="line">A* Aa = <span class="keyword">new</span> A;</span><br><span class="line">Aa-&gt;get();</span><br><span class="line">B* Bb = <span class="keyword">dynamic_cast</span>&lt;B*&gt;(Aa);   <span class="comment">// 运行时这里报错，Bb = nullptr</span></span><br><span class="line">Bb-&gt;get();</span><br></pre></td></tr></table></figure>
+<p>  A中的get改成虚函数</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A() &#123; a = <span class="number">10</span>; &#125;</span><br><span class="line">    ~A()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; &#125; <span class="comment">// 加上virtual</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reinterpret_cast<br>  几乎什么都可以转，比如将int转指针，很不靠谱，可能会出问题，尽量少用。</p>
+</li>
+<li><p>static_cast<br>  用于各种隐式转换，比如非const转const，void*转指针等, static_cast能用于多态向上转化(子类都父类)，如果向下转(父类到子类)能成功但是不安全，结果未知</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f1"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> :</span> <span class="keyword">public</span> Base</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">k</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::k"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> z;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//但是如果pB不是真的指向Derived，则用dynamic_cast则返回NULL，能够更早的禁止error的发生，</span></span><br><span class="line"><span class="comment">//如果用static_cast虽然返回的不为NULL，但是运行时可能抛出exception。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Base* pB = <span class="keyword">new</span> Base();</span><br><span class="line">    <span class="comment">// 基类转子类 向下转换 能成功，结果未知</span></span><br><span class="line">    Derived* pD3 = <span class="keyword">static_cast</span>&lt;Derived*&gt;(pB); <span class="comment">// 这里转成功，但下面报错</span></span><br><span class="line">    pD3-&gt;f();       <span class="comment">// 这里没问题</span></span><br><span class="line">    pD3-&gt;k();       <span class="comment">// 这里报错</span></span><br><span class="line">    pD3-&gt;f1();</span><br><span class="line">    <span class="comment">// 基类转子类 向下转换 检查类型，返回NULL</span></span><br><span class="line">    Derived* pD4 = <span class="keyword">dynamic_cast</span>&lt;Derived*&gt;(pB); <span class="comment">// 这里pD4 = nullptr</span></span><br><span class="line">    pD4-&gt;f();       <span class="comment">// 这里需要判断if(pD4 == NULL)</span></span><br><span class="line">    pD4-&gt;k();</span><br><span class="line">    pD4-&gt;f1();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/05/smartpointer/">
+  智能指针
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/05/smartpointer/"><span class="article-date">
+  2020-01-05
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="智能指针">智能指针</span></h1><h2><span id="为什么要用智能指针">为什么要用智能指针</span></h2><p>智能指针的作用是管理指针，为了防止内存泄漏的发生。使用智能指针可以很大程度上的避免这个问题，智能指针是一个类，当超出了其作用域，会<u><b>自动调用</b></u>析构函数，析构函数释放资源，不需要手动释放空间，防止了内存泄漏。需要包含头文件 \&lt;memory>，主要用于管理动态内存分配。</p>
+<h2><span id="auto_ptr">auto_ptr</span></h2><p>采用所有权模式.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p1</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test auto_ptr."</span>))</span></span>;</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; p2;</span><br><span class="line">p2 = p1; <span class="comment">//auto_ptr不会报错.  #1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p2-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p1-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure></p>
+<p>#1步之后，可以看p1、p2, 发现p1已经为NULL, 原来的p1已经转移到了p2<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/auto_ptr.png" alt></p>
+<p>查看错误信息，报错信息如下<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_STL_VERIFY(_Myptr, <span class="string">"auto_ptr not dereferencable"</span>); <span class="comment">// auto_ptr不可解引用</span></span><br></pre></td></tr></table></figure></p>
+<p>所以，p1所有权转移到p2的, <font color="#FF2222">运行时访问p1时会报错 </font></p>
+<h2><span id="unique_ptr">unique_ptr</span></h2><p>unique_ptr 用于替换auto_ptr.<br>独占式拥有: 保证同一时间内只有一个智能指针可以指向该对象<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = p3;  <span class="comment">// 编译时报错</span></span><br></pre></td></tr></table></figure></p>
+<p>避免出现 auto_ptr 的情况</p>
+<ul>
+<li>std::move函数可以将左值引用转换为右值引用<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = <span class="built_in">std</span>::move(p3); <span class="comment">// 这里可以正常赋值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p4-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p3-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/unique_ptr.png" alt></p>
+<p>虽然运行时还是会报错, 但相比auto_ptr 在编译时就直接会报错。</p>
+<h2><span id="shared_ptr">shared_ptr</span></h2><p>shared_ptr实现共享式拥有概念。多个智能指针可以指向相同对象，该对象和其相关资源会在”最后一个引用被销毁”时候释放。<br>从名字share就可以看出了资源可以被多个指针共享，它使用计数机制来表明资源被几个指针共享。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; p1 = <span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt;(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test shared_ptr."</span>));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p2</span><span class="params">(p1)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p2.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 不唯一，输出0</span></span><br><span class="line">	&#125; <span class="comment">// 离开 p2 作用域</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>use_count()<br>来查看引用个数。</p>
+</li>
+<li><p>unique()<br>返回是否是独占所有权( use_count 为 1)</p>
+</li>
+<li><p>swap()<br>交换两个 shared_ptr 对象(即交换所拥有的对象)</p>
+</li>
+<li><p>reset()<br>放弃内部对象的所有权或拥有对象的变更, 会引起原有对象的引用计数的减少</p>
+</li>
+<li><p>get()<br>返回内部对象(指针), 由于已经重载了()方法, 因此和直接使用对象是一样的.如 shared_ptr<int> sp(new int(1)); sp 与 sp.get()是等价的</int></p>
+</li>
+</ul>
+<h2><span id="weak_ptr">weak_ptr</span></h2><p>weak_ptr 是一种不控制对象生命周期的智能指针, 它指向一个 shared_ptr 管理的对象。 它只可以从一个 shared_ptr 或另一个 weak_ptr 对象构造, 它的构造和析构不会引起引用记数的增加或减少。</p>
+<p>weak_ptr是用来解决shared_ptr相互引用时的死锁问题,如果说两个shared_ptr相互引用,那么这两个指针的引用计数永远不可能下降为0,资源永远不会释放。</p>
+<p>它是对对象的一种弱引用，不会增加对象的引用计数，和shared_ptr之间可以相互转化，shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。</p>
+
         
       </div>
     </div>
@@ -521,196 +741,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/05/typeconversion/">
-  类型转换
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/05/typeconversion/"><span class="article-date">
-  2020-01-05
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="隐式转换和显式转换">隐式转换和显式转换</span></h1><ul>
-<li><p>隐式转换<br>  指不需要用户干预，编译器默认进行的类型转换行为<br>  低精度向高精度转换<br>  1、多种类型计算</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> nValue = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">double</span> dValue = <span class="number">10.01</span>;</span><br><span class="line"><span class="keyword">double</span> dSum = nValue + dValue; <span class="comment">// 16.01 nValue 会转换成double, 在和dValue相加</span></span><br></pre></td></tr></table></figure>
-<p>  2、不同类型赋值</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> nValue = <span class="number">6</span>;</span><br><span class="line"><span class="keyword">double</span> dValue = nValue; <span class="comment">// 隐式转换成double</span></span><br></pre></td></tr></table></figure>
-<p>  3、函数传参和返回值</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fun</span><span class="params">(<span class="keyword">double</span> dValue)</span></span>; <span class="comment">//隐式转换成double</span></span><br><span class="line">fun(<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;       <span class="comment">// 隐式转换成double</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  高精度向低精度转换  出现强制类型转换</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> dValue = <span class="number">6.01</span>;</span><br><span class="line"><span class="keyword">int</span> nValue = dValue <span class="comment">// nValue = 6  有警告 丢失精度</span></span><br></pre></td></tr></table></figure>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> dValue = <span class="number">6.01</span>;</span><br><span class="line"><span class="keyword">int</span> nValue = (<span class="keyword">int</span>)dValue; <span class="comment">// nValue = 6 无警告 强制转换类型</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>显示转换<br>  强制转换<br>  1、 const_cast<br>  2、 dynamic_cast<br>  3、 reinterpret_cast<br>  4、 static_cast  </p>
-</li>
-</ul>
-<h1><span id="上行转换和下行转换">上行转换和下行转换</span></h1><p>当进行上行转换，也就是把<b><u>子类</u></b>的指针或引用转换成<b><u>父类</u></b>表示，这种转换是<b><u>安全</u></b>的<br>当进行下行转换，也就是把<b><u>父类</u></b>的指针或引用转换成<b><u>子类</u></b>表示，这种转换是<b><u>不安全</u></b>的，也需要程序员来保证  </p>
-<h1><span id="c中四种cast转换">C++中四种cast转换</span></h1><ul>
-<li><p>const_cast<br>  强制消除对象的常量性, 用于将const变量转为非const</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const int n = 5;</span><br><span class="line">const int *cpn = &amp;n;</span><br><span class="line">int* pn = const_cast&lt;int*&gt;(cpn);</span><br><span class="line">++*pn;  //n的值被修改为了6</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>dynamic_cast<br>  特点：可以在<u><b>执行期</b></u>决定真正的类型，可以检测继承关系<br>  <u><b>安全</b></u>的向下转型(父类转子类), 用于动态类型转换, 用于类层次间的向上和向下转化。向上转换时只能用于含有<u><b>虚函数</b></u>的类。<br>  为什么要有虚函数：就说明它有想要让基类指针或引用指向派生类对象的必要，此时转换才有意义。</p>
-<p>  在类层次间进行上行转换时，dynamic_cast和static_cast的效果是一样的<br>  在进行下行转换时，dynamic_cast具有类型检查的功能，比static_cast更安全  </p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dynamci_cast&lt;a&gt;(p)</span><br></pre></td></tr></table></figure>
-<p>  只有在指针p指向a或者a的派生类时才不会返回空值，注意是指向，而不是指针的类型</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A() &#123; a = <span class="number">10</span>; &#125;</span><br><span class="line">    ~A()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> :</span> <span class="keyword">public</span> A</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    B() &#123; b = <span class="number">11</span>; &#125;</span><br><span class="line">    ~B() &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; b &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上行转换没有问题</span></span><br><span class="line">B* Bb = <span class="keyword">new</span> B;</span><br><span class="line">Bb-&gt;get();</span><br><span class="line">A* Aa = <span class="keyword">dynamic_cast</span>&lt;A*&gt;(Bb);</span><br><span class="line">Aa-&gt;get();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 下行转换 get()不是虚函数，存在问题 Aa "运行时dynmic_cast的操作数必须包含多态类型"</span></span><br><span class="line">A* Aa = <span class="keyword">new</span> A;</span><br><span class="line">Aa-&gt;get();</span><br><span class="line">B* Bb = <span class="keyword">dynamic_cast</span>&lt;B*&gt;(Aa);   <span class="comment">// 运行时这里报错，Bb = nullptr</span></span><br><span class="line">Bb-&gt;get();</span><br></pre></td></tr></table></figure>
-<p>  A中的get改成虚函数</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    A() &#123; a = <span class="number">10</span>; &#125;</span><br><span class="line">    ~A()&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">get</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>; &#125; <span class="comment">// 加上virtual</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>reinterpret_cast<br>  几乎什么都可以转，比如将int转指针，很不靠谱，可能会出问题，尽量少用。</p>
-</li>
-<li><p>static_cast<br>  用于各种隐式转换，比如非const转const，void*转指针等, static_cast能用于多态向上转化(子类都父类)，如果向下转(父类到子类)能成功但是不安全，结果未知</p>
-  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">f1</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Base::f1"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> x;</span><br><span class="line">    <span class="keyword">double</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Derived</span> :</span> <span class="keyword">public</span> Base</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::f"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">k</span><span class="params">()</span> </span>&#123; <span class="built_in">cout</span> &lt;&lt; <span class="string">"Derived::k"</span> &lt;&lt; <span class="built_in">endl</span>; &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">double</span> z;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//但是如果pB不是真的指向Derived，则用dynamic_cast则返回NULL，能够更早的禁止error的发生，</span></span><br><span class="line"><span class="comment">//如果用static_cast虽然返回的不为NULL，但是运行时可能抛出exception。</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Base* pB = <span class="keyword">new</span> Base();</span><br><span class="line">    <span class="comment">// 基类转子类 向下转换 能成功，结果未知</span></span><br><span class="line">    Derived* pD3 = <span class="keyword">static_cast</span>&lt;Derived*&gt;(pB); <span class="comment">// 这里转成功，但下面报错</span></span><br><span class="line">    pD3-&gt;f();       <span class="comment">// 这里没问题</span></span><br><span class="line">    pD3-&gt;k();       <span class="comment">// 这里报错</span></span><br><span class="line">    pD3-&gt;f1();</span><br><span class="line">    <span class="comment">// 基类转子类 向下转换 检查类型，返回NULL</span></span><br><span class="line">    Derived* pD4 = <span class="keyword">dynamic_cast</span>&lt;Derived*&gt;(pB); <span class="comment">// 这里pD4 = nullptr</span></span><br><span class="line">    pD4-&gt;f();       <span class="comment">// 这里需要判断if(pD4 == NULL)</span></span><br><span class="line">    pD4-&gt;k();</span><br><span class="line">    pD4-&gt;f1();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/05/Pipe/">
-  管道
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/05/Pipe/"><span class="article-date">
-  2020-01-05
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/进程间通讯/">进程间通讯</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/进程间通讯/">进程间通讯</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="匿名管道">匿名管道</span></h2><h2><span id="命名管道">命名管道</span></h2>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/05/smartpointer/">
-  智能指针
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/05/smartpointer/"><span class="article-date">
-  2020-01-05
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="智能指针">智能指针</span></h1><h2><span id="为什么要用智能指针">为什么要用智能指针</span></h2><p>智能指针的作用是管理指针，为了防止内存泄漏的发生。使用智能指针可以很大程度上的避免这个问题，智能指针是一个类，当超出了其作用域，会<u><b>自动调用</b></u>析构函数，析构函数释放资源，不需要手动释放空间，防止了内存泄漏。需要包含头文件 \&lt;memory>，主要用于管理动态内存分配。</p>
-<h2><span id="auto_ptr">auto_ptr</span></h2><p>采用所有权模式.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p1</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test auto_ptr."</span>))</span></span>;</span><br><span class="line"><span class="built_in">auto_ptr</span>&lt;<span class="built_in">string</span>&gt; p2;</span><br><span class="line">p2 = p1; <span class="comment">//auto_ptr不会报错.  #1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p2-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p1-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure></p>
-<p>#1步之后，可以看p1、p2, 发现p1已经为NULL, 原来的p1已经转移到了p2<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/auto_ptr.png" alt></p>
-<p>查看错误信息，报错信息如下<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_STL_VERIFY(_Myptr, <span class="string">"auto_ptr not dereferencable"</span>); <span class="comment">// auto_ptr不可解引用</span></span><br></pre></td></tr></table></figure></p>
-<p>所以，p1所有权转移到p2的, <font color="#FF2222">运行时访问p1时会报错 </font></p>
-<h2><span id="unique_ptr">unique_ptr</span></h2><p>unique_ptr 用于替换auto_ptr.<br>独占式拥有: 保证同一时间内只有一个智能指针可以指向该对象<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = p3;  <span class="comment">// 编译时报错</span></span><br></pre></td></tr></table></figure></p>
-<p>避免出现 auto_ptr 的情况</p>
-<ul>
-<li>std::move函数可以将左值引用转换为右值引用<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p3</span><span class="params">(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test unique_ptr"</span>))</span></span>;</span><br><span class="line"><span class="built_in">unique_ptr</span>&lt;<span class="built_in">string</span>&gt; p4;</span><br><span class="line">p4 = <span class="built_in">std</span>::move(p3); <span class="comment">// 这里可以正常赋值</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p4-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 正常输出</span></span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; p3-&gt;c_str() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 运行时报错</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/unique_ptr.png" alt></p>
-<p>虽然运行时还是会报错, 但相比auto_ptr 在编译时就直接会报错。</p>
-<h2><span id="shared_ptr">shared_ptr</span></h2><p>shared_ptr实现共享式拥有概念。多个智能指针可以指向相同对象，该对象和其相关资源会在”最后一个引用被销毁”时候释放。<br>从名字share就可以看出了资源可以被多个指针共享，它使用计数机制来表明资源被几个指针共享。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; p1 = <span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt;(<span class="keyword">new</span> <span class="built_in">string</span>(<span class="string">"test shared_ptr."</span>));</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="function"><span class="built_in">shared_ptr</span>&lt;<span class="built_in">string</span>&gt; <span class="title">p2</span><span class="params">(p1)</span></span>;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; p2.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 2</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 不唯一，输出0</span></span><br><span class="line">	&#125; <span class="comment">// 离开 p2 作用域</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; p1.use_count() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 输出 1</span></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; p1.unique() &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 唯一，输出1</span></span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>use_count()<br>来查看引用个数。</p>
-</li>
-<li><p>unique()<br>返回是否是独占所有权( use_count 为 1)</p>
-</li>
-<li><p>swap()<br>交换两个 shared_ptr 对象(即交换所拥有的对象)</p>
-</li>
-<li><p>reset()<br>放弃内部对象的所有权或拥有对象的变更, 会引起原有对象的引用计数的减少</p>
-</li>
-<li><p>get()<br>返回内部对象(指针), 由于已经重载了()方法, 因此和直接使用对象是一样的.如 shared_ptr<int> sp(new int(1)); sp 与 sp.get()是等价的</int></p>
-</li>
-</ul>
-<h2><span id="weak_ptr">weak_ptr</span></h2><p>weak_ptr 是一种不控制对象生命周期的智能指针, 它指向一个 shared_ptr 管理的对象。 它只可以从一个 shared_ptr 或另一个 weak_ptr 对象构造, 它的构造和析构不会引起引用记数的增加或减少。</p>
-<p>weak_ptr是用来解决shared_ptr相互引用时的死锁问题,如果说两个shared_ptr相互引用,那么这两个指针的引用计数永远不可能下降为0,资源永远不会释放。</p>
-<p>它是对对象的一种弱引用，不会增加对象的引用计数，和shared_ptr之间可以相互转化，shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/01/04/GoRange/">
   Go 键值循环
 </a>
@@ -760,15 +790,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/Gobase/">
-  Go 占位符
+        <a href="/2020/01/04/GoError/">
+  Go 常见问题
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/Gobase/"><span class="article-date">
+        <a href="/2020/01/04/GoError/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -787,228 +817,13 @@
       </div>
       <div class="article-entry">
         
-          <h2><span id="普通占位符">普通占位符</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%v</td>
-<td>相应值的默认格式</td>
-<td>Printf(“%v”, people)</td>
-<td>{zhangsan}</td>
-</tr>
-<tr>
-<td>%+v</td>
-<td>打印结构体时，会添加字段名</td>
-<td>Printf(“%+v”, people)</td>
-<td>{Name:zhangsan}</td>
-</tr>
-<tr>
-<td>%#v</td>
-<td>相应值的Go语法表示</td>
-<td>Printf(“#v”, people)</td>
-<td>main.Human{Name:”zhangsan”}</td>
-</tr>
-<tr>
-<td>%T</td>
-<td>相应值的类型的Go语法表示</td>
-<td>Printf(“%T”, people)</td>
-<td>main.Human</td>
-</tr>
-<tr>
-<td>%%</td>
-<td>字面上的百分号，并非值的占位符</td>
-<td>Printf(“%%”)</td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="布尔占位符">布尔占位符</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%t</td>
-<td>true 或 false</td>
-<td>Printf(“%t”, true)</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="整数占位符">整数占位符</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%b</td>
-<td>二进制表示</td>
-<td>Printf(“%b”, 5)</td>
-<td>101</td>
-</tr>
-<tr>
-<td>%c</td>
-<td>相应Unicode码点所表示的字符</td>
-<td>Printf(“%c”, 0x4E2D)</td>
-<td>中</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>十进制表示</td>
-<td>Printf(“%d”, 0x12)</td>
-<td>18</td>
-</tr>
-<tr>
-<td>%o</td>
-<td>八进制表示</td>
-<td>Printf(“%d”, 10)</td>
-<td>12</td>
-</tr>
-<tr>
-<td>%q</td>
-<td>单引号围绕的字符字面值，由Go语法安全地转义</td>
-<td>Printf(“%q”, 0x4E2D)</td>
-<td>‘中’</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>十六进制表示，字母形式为小写 a-f</td>
-<td>Printf(“%x”, 13)</td>
-<td>d</td>
-</tr>
-<tr>
-<td>%X</td>
-<td>十六进制表示，字母形式为大写 A-F</td>
-<td>Printf(“%x”, 13)</td>
-<td>D</td>
-</tr>
-<tr>
-<td>%U</td>
-<td>Unicode格式：U+1234，等同于 “U+%04X”</td>
-<td>Printf(“%U”, 0x4E2D)</td>
-<td>U+4E2D</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="浮点数和复数的组成部分实部和虚部">浮点数和复数的组成部分（实部和虚部）</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%b</td>
-<td>无小数部分的，指数为二的幂的科学计数法</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>%e</td>
-<td>科学计数法，例如 -1234.456e+78</td>
-<td>Printf(“%e”, 10.2)</td>
-<td>1.020000e+01</td>
-</tr>
-<tr>
-<td>%E</td>
-<td>科学计数法，例如 -1234.456E+78</td>
-<td>Printf(“%e”, 10.2)</td>
-<td>1.020000E+01</td>
-</tr>
-<tr>
-<td>%f</td>
-<td>有小数点而无指数，例如 123.456</td>
-<td>Printf(“%f”, 10.2)</td>
-<td>10.200000</td>
-</tr>
-<tr>
-<td>%g</td>
-<td>根据情况选择 %e 或 %f 以产生更紧凑的（无末尾的0）输出</td>
-<td>Printf(“%g”, 10.20)</td>
-<td>10.2</td>
-</tr>
-<tr>
-<td>%G</td>
-<td>根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0）输出</td>
-<td>Printf(“%G”, 10.20+2i)</td>
-<td>(10.2+2i)</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="字符串与字节切片">字符串与字节切片</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%s</td>
-<td>输出字符串表示（string类型或[]byte)</td>
-<td>Printf(“%s”, []byte(“Go语言”))</td>
-<td>Go语言</td>
-</tr>
-<tr>
-<td>%q</td>
-<td>双引号围绕的字符串，由Go语法安全地转义</td>
-<td>Printf(“%q”, “Go语言”)</td>
-<td>“Go语言”</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>十六进制，小写字母，每字节两个字符</td>
-<td>Printf(“%x”, “golang”)</td>
-<td>676f6c616e67</td>
-</tr>
-<tr>
-<td>%X</td>
-<td>十六进制，大写字母，每字节两个字符</td>
-<td>Printf(“%X”, “golang”)</td>
-<td>676F6C616E67</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="指针">指针</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%p</td>
-<td>十六进制表示，前缀 0x</td>
-<td>Printf(“%p”, &amp;people)</td>
-<td>0x4f57f0</td>
-</tr>
-</tbody>
-</table>
+          <ul>
+<li>go tool: no such tool compile</li>
+</ul>
+<blockquote>
+<p>go env  </p>
+</blockquote>
+<p>查看 GOROOT 是否为安装路径</p>
 
         
       </div>

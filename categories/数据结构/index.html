@@ -149,15 +149,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/binarysearchtree/">
-  二叉查找树
+        <a href="/2019/12/31/array/">
+  数组
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/binarysearchtree/"><span class="article-date">
+        <a href="/2019/12/31/array/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -176,22 +176,21 @@
       </div>
       <div class="article-entry">
         
-          <table>
-<thead>
-<tr>
-<th>-</th>
-<th>散列表</th>
-<th>二叉查找树</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>快速插入、删除、查找操作</td>
-<td>支持</td>
-<td>支持 复杂度与高度成正比</td>
-</tr>
-</tbody>
-</table>
+          <h1><span id="数组">数组</span></h1><p>数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
+<h3><span id="有以下限制">有以下限制:</span></h3><ul>
+<li>1、线性表  </li>
+<li>2、连续的内存空间和相同类型的数据  </li>
+</ul>
+<p>有了这些限制就可以做到 =&gt; <u><b>随机访问</b></u></p>
+<h3><span id="特点">特点</span></h3><ul>
+<li>支持随机访问</li>
+<li>插入、删除操作低效，平均时间复杂度O(n)</li>
+</ul>
+<h3><span id="为什么大多数编程语言中数组要从-0-开始编号而不是从-1-开始呢">为什么大多数编程语言中，数组要从 0 开始编号，而不是从 1 开始呢？</span></h3><p>从数组存储的内存模型上来看，“下标”最确切的定义应该是“偏移（offset）”。前面也讲到，如果用 a 来表示数组的首地址，a[0]就是偏移为 0 的位置，也就是首地址，a[k]就表示偏移 k 个 type_size 的位置，所以计算 a[k]的内存地址只需要用这个公式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + k * type_size</span><br></pre></td></tr></table></figure></p>
+<p>但是，如果数组从 1 开始计数，那我们计算数组元素 a[k]的内存地址就会变为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + (k-1)*type_size</span><br></pre></td></tr></table></figure></p>
+<p>对比两个公式，我们不难发现，从 1 开始编号，每次随机访问数组元素都多了一次减法运算，对于 CPU 来说，就是多了一次减法指令。</p>
+<h3><span id="数组越界情况">数组越界情况</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> arr[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(; i&lt;=<span class="number">3</span>; i++)&#123;</span><br><span class="line">        arr[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"hello world\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>win10 debug</p>
 
         
       </div>
@@ -556,15 +555,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/array/">
-  数组
+        <a href="/2019/12/31/binarysearchtree/">
+  二叉查找树
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/array/"><span class="article-date">
+        <a href="/2019/12/31/binarysearchtree/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -583,21 +582,22 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="数组">数组</span></h1><p>数组（Array）是一种线性表数据结构。它用一组连续的内存空间，来存储一组具有相同类型的数据。</p>
-<h3><span id="有以下限制">有以下限制:</span></h3><ul>
-<li>1、线性表  </li>
-<li>2、连续的内存空间和相同类型的数据  </li>
-</ul>
-<p>有了这些限制就可以做到 =&gt; <u><b>随机访问</b></u></p>
-<h3><span id="特点">特点</span></h3><ul>
-<li>支持随机访问</li>
-<li>插入、删除操作低效，平均时间复杂度O(n)</li>
-</ul>
-<h3><span id="为什么大多数编程语言中数组要从-0-开始编号而不是从-1-开始呢">为什么大多数编程语言中，数组要从 0 开始编号，而不是从 1 开始呢？</span></h3><p>从数组存储的内存模型上来看，“下标”最确切的定义应该是“偏移（offset）”。前面也讲到，如果用 a 来表示数组的首地址，a[0]就是偏移为 0 的位置，也就是首地址，a[k]就表示偏移 k 个 type_size 的位置，所以计算 a[k]的内存地址只需要用这个公式：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + k * type_size</span><br></pre></td></tr></table></figure></p>
-<p>但是，如果数组从 1 开始计数，那我们计算数组元素 a[k]的内存地址就会变为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a[k]_address = base_address + (k-1)*type_size</span><br></pre></td></tr></table></figure></p>
-<p>对比两个公式，我们不难发现，从 1 开始编号，每次随机访问数组元素都多了一次减法运算，对于 CPU 来说，就是多了一次减法指令。</p>
-<h3><span id="数组越界情况">数组越界情况</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> arr[<span class="number">3</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(; i&lt;=<span class="number">3</span>; i++)&#123;</span><br><span class="line">        arr[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"hello world\n"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>win10 debug</p>
+          <table>
+<thead>
+<tr>
+<th>-</th>
+<th>散列表</th>
+<th>二叉查找树</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>快速插入、删除、查找操作</td>
+<td>支持</td>
+<td>支持 复杂度与高度成正比</td>
+</tr>
+</tbody>
+</table>
 
         
       </div>

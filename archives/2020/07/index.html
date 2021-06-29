@@ -203,6 +203,57 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/07/30/innodb&myisam/">
+  InnoDB和Mylsam区别
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/07/30/innodb&myisam/"><span class="article-date">
+  2020-07-30
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="innodb和mylsam的区别">InnoDB和Mylsam的区别</span></h1><h2><span id="事务">事务：</span></h2><p>MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持，提供事务支持已经外部键等高级数据库功能。</p>
+<h2><span id="性能">性能：</span></h2><p>MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快。</p>
+<h2><span id="行数保存">行数保存：</span></h2><p>InnoDB 中不保存表的具体行数，也就是说，执行select count() fromtable时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count()语句包含where条件时，两种表的操作是一样的。</p>
+<h2><span id="索引存储">索引存储：</span></h2><p>对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引。MyISAM支持全文索引（FULLTEXT）、压缩索引，InnoDB不支持。</p>
+<p>MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率就对应提高了不少。能加载更多索引，而Innodb是索引和数据是紧密捆绑的，没有使用压缩从而会造成Innodb比MyISAM体积庞大不小。</p>
+<p>InnoDB存储引擎被完全与MySQL服务器整合，InnoDB存储引擎为在主内存中缓存数据和索引而维持它自己的缓冲池。InnoDB存储它的表＆索引在一个表空间中，表空间可以包含数个文件（或原始磁盘分区）。这与MyISAM表不同，比如在MyISAM表中每个表被存在分离的文件中。InnoDB 表可以是任何尺寸，即使在文件尺寸被限制为2GB的操作系统上。</p>
+<h2><span id="服务器数据备份">服务器数据备份：</span></h2><p>InnoDB必须导出SQL来备份，LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性(例如外键)的表不适用。</p>
+<p>MyISAM应对错误编码导致的数据恢复速度快。MyISAM的数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。</p>
+<p>InnoDB是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。</p>
+<h2><span id="锁的支持">锁的支持：</span></h2><p>MyISAM只支持表锁。InnoDB支持表锁、行锁 行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/07/30/innoDB/">
   InnoDB
 </a>
@@ -289,57 +340,6 @@
 <p>MyIASM中存储了表的行数，于是SELECT COUNT(*) FROM TABLE时只需要直接读取已经保存好的值而不需要进行全表扫描。如果表的读操作远远多于写操作且不需要数据库事务的支持，那么MyIASM也是很好的选择。</p>
 <p>缺点：就是不能在表损坏后主动恢复数据。</p>
 <h2><span id="索引结构">索引结构：</span></h2><p>MyISAM索引结构：MyISAM索引用的B+ tree来储存数据，MyISAM索引的指针指向的是键值的地址，地址存储的是数据。B+Tree的数据域存储的内容为实际数据的地址，也就是说它的索引和实际的数据是分开的，只不过是用索引指向了实际的数据，这种索引就是所谓的非聚集索引。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/07/30/innodb&myisam/">
-  InnoDB和Mylsam区别
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/07/30/innodb&myisam/"><span class="article-date">
-  2020-07-30
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据库/">数据库</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据库/">数据库</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="innodb和mylsam的区别">InnoDB和Mylsam的区别</span></h1><h2><span id="事务">事务：</span></h2><p>MyISAM类型不支持事务处理等高级处理，而InnoDB类型支持，提供事务支持已经外部键等高级数据库功能。</p>
-<h2><span id="性能">性能：</span></h2><p>MyISAM类型的表强调的是性能，其执行数度比InnoDB类型更快。</p>
-<h2><span id="行数保存">行数保存：</span></h2><p>InnoDB 中不保存表的具体行数，也就是说，执行select count() fromtable时，InnoDB要扫描一遍整个表来计算有多少行，但是MyISAM只要简单的读出保存好的行数即可。注意的是，当count()语句包含where条件时，两种表的操作是一样的。</p>
-<h2><span id="索引存储">索引存储：</span></h2><p>对于AUTO_INCREMENT类型的字段，InnoDB中必须包含只有该字段的索引，但是在MyISAM表中，可以和其他字段一起建立联合索引。MyISAM支持全文索引（FULLTEXT）、压缩索引，InnoDB不支持。</p>
-<p>MyISAM的索引和数据是分开的，并且索引是有压缩的，内存使用率就对应提高了不少。能加载更多索引，而Innodb是索引和数据是紧密捆绑的，没有使用压缩从而会造成Innodb比MyISAM体积庞大不小。</p>
-<p>InnoDB存储引擎被完全与MySQL服务器整合，InnoDB存储引擎为在主内存中缓存数据和索引而维持它自己的缓冲池。InnoDB存储它的表＆索引在一个表空间中，表空间可以包含数个文件（或原始磁盘分区）。这与MyISAM表不同，比如在MyISAM表中每个表被存在分离的文件中。InnoDB 表可以是任何尺寸，即使在文件尺寸被限制为2GB的操作系统上。</p>
-<h2><span id="服务器数据备份">服务器数据备份：</span></h2><p>InnoDB必须导出SQL来备份，LOAD TABLE FROM MASTER操作对InnoDB是不起作用的，解决方法是首先把InnoDB表改成MyISAM表，导入数据后再改成InnoDB表，但是对于使用的额外的InnoDB特性(例如外键)的表不适用。</p>
-<p>MyISAM应对错误编码导致的数据恢复速度快。MyISAM的数据是以文件的形式存储，所以在跨平台的数据转移中会很方便。在备份和恢复时可单独针对某个表进行操作。</p>
-<p>InnoDB是拷贝数据文件、备份 binlog，或者用 mysqldump，在数据量达到几十G的时候就相对痛苦了。</p>
-<h2><span id="锁的支持">锁的支持：</span></h2><p>MyISAM只支持表锁。InnoDB支持表锁、行锁 行锁大幅度提高了多用户并发操作的新能。但是InnoDB的行锁，只是在WHERE的主键是有效的，非主键的WHERE都会锁全表的。</p>
 
         
       </div>

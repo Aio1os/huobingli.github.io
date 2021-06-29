@@ -149,15 +149,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/C++Passby/">
-  C++ 值传递 引用传递
+        <a href="/2020/01/04/C++Template/">
+  C++ 模板与泛型
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/C++Passby/"><span class="article-date">
+        <a href="/2020/01/04/C++Template/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -176,105 +176,87 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="c-值传递-引用传递">C++ 值传递 引用传递</span></h1><h2><span id="pass-by-value值传递">pass-by-value(值传递)</span></h2><p>函数调用入口参数时，一般都会创建副本或者调用类对象的拷贝构造函数，所以操作结束后入参的值没有变化，变化的只是副本。<br>缺省情况C++以pass-by-value（继承C的方式）传递对象至（或来自）函数。函数参数都是以实际参数的复件为初值，调用端所获得的也是函数返回值的一个复件，复件由对象的拷贝构造函数产出，可能使pass-by-value成为<font color="red">耗时</font>的操作。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">1</span>,y=<span class="number">2</span>;</span><br><span class="line">    swap(x,y); <span class="comment">//x,y值作为拷贝副本传递a和b;</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span> &lt;&lt; x &lt;&lt;<span class="string">"y"</span>&lt;&lt; y; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="pass-by-reference引用传递">pass-by-reference(引用传递)</span></h2><p>则是直接操作原来的对象，不会建立副本，对该对象做的操作，会直接影响到原来传入的变量或者对象。<br>没有任何构造函数或析构函数被调用，因为没有任何对象被新建。参数声明中加上const，防止传入的对象被修改。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">5</span>,y=<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> &amp;i=x; <span class="comment">//表示i是x别名，也就是存贮在相同单元里</span></span><br><span class="line">    <span class="keyword">int</span> &amp;j=y; <span class="comment">//同理</span></span><br><span class="line">    swap(i,j);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span>&lt;&lt; x &lt;&lt;<span class="string">"y"</span>&lt;&lt; y;<span class="comment">//i和j的值变化会影响到x和y;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="pass-by-value-与-pass-by-reference-区别">pass-by-value 与 pass-by-reference 区别</span></h2><h3><span id="pass-by-value-比pass-by-reference-耗时">pass-by-value 比pass-by-reference 耗时：</span></h3><p>因为调用拷贝构造，若派生类，调用更多函数。</p>
-<p>类的对象作为函数参数时，如果使用值传递，要先拷贝一份实参的副本，需要调用类的拷贝构造函数，函数结束时副本被销毁，需要调用析构函数。如果该类是派生类，调用的函数更多，流程更多更复杂。</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/array&vector/">
-  数组替代品
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/array&vector/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/C++11/">
-  C++ 关键字罗列
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/C++11/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="constexpr">constexpr</span></h1><p>constexpr是C++11中新增的关键字，其语义是“常量表达式”，也就是在编译期可求值的表达式。</p>
-<h2><span id="constexpr的好处">constexpr的好处：</span></h2><ul>
-<li>是一种很强的约束，更好地保证程序的正确语义不被破坏。</li>
-<li>编译器可以在编译期对constexpr的代码进行非常大的优化，比如将用到的constexpr表达式都直接替换成最终结果等。</li>
-<li>相比宏来说，没有额外的开销，但更安全可靠。</li>
+          <h2><span id="模板">模板</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;Typename T&gt;</span><br></pre></td></tr></table></figure>
+<p>模板定义从template开始，后面接模板形参表，模板形参表使用尖括号括住的一个或多个模板形参的列表，中间用逗号分隔。</p>
+<p>泛型代码重要原则</p>
+<ul>
+<li>模板的形参是const引用</li>
+<li>函数体重的测试之用 &lt; 比较</li>
 </ul>
-<h1><span id="noreturn">[[noreturn]]</span></h1><p>指示函数不返回</p>
+<h3><span id="模板特化">模板特化</span></h3><p>一个或多个模板形参的实际类型或实际值是指定的</p>
+<h2><span id="template-functions">Template Functions</span></h2><p>实现一个数值幂次方的函数</p>
+<p>对于整数型<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Power</span><span class="params">(<span class="keyword">int</span> base, <span class="keyword">int</span> exponent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">int</span>)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">int</span>)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) <span class="keyword">return</span> *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于长整型<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">Power</span><span class="params">(<span class="keyword">long</span> base, <span class="keyword">long</span> exponent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">long</span>)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">long</span>)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) <span class="keyword">return</span> *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>两个函数除了类型不同，实现过程都是一样, 可以把 <font color="red">数据类型也变成参数</font></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">templage &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; </span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">Power</span>(<span class="title">T</span> <span class="title">base</span>, <span class="title">T</span> <span class="title">exponent</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    T result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (T)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (T)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) result *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="template-class">Template Class</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">CThree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CThree(T t1, T t2, T t3);</span><br><span class="line">    <span class="function">T <span class="title">Min</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">T <span class="title">Max</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T a, b, c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">CThree</span>&lt;T&gt;:</span>:CThree(T t1, T t2, T t3)</span><br><span class="line">    a(t1), b(t2), c(t3)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">CThree</span>&lt;T&gt;:</span>:Min()</span><br><span class="line">&#123;</span><br><span class="line">    T min = a &lt; b ? a : b;</span><br><span class="line">    <span class="keyword">return</span> min &lt; c ? min : c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">CThree</span>&lt;T&gt;:</span>:Max()</span><br><span class="line">&#123;</span><br><span class="line">    T max = a &gt; b ? a : b;</span><br><span class="line">    <span class="keyword">return</span> max &gt; c ? max : c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每个成员函数都要加上<b> templte \<class t></class></b></p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/C++auto/">
+  C++ 11 auto
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/C++auto/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="auto-类型推导">auto 类型推导</span></h1><p>自动推导类型, <font color="red">必须初始化</font></p>
+<p>使用auto，编译器会在<font color="red">编译期间</font>自动推导出变量的类型，不用我们手动指明变量的数据类型.<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">auto</span> name = value;</span><br></pre></td></tr></table></figure></p>
+<p>auto 仅仅是一个占位符，在编译器期间它会被真正的类型所替代。</p>
+<h2><span id="高级用法">高级用法</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>  x = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">const</span>  <span class="keyword">auto</span> n = x;  <span class="comment">//n 为 const int ，auto 被推导为 int</span></span><br><span class="line"><span class="keyword">auto</span> f = n;      <span class="comment">//f 为 const int，auto 被推导为 int（const 属性被抛弃）</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">auto</span> &amp;r1 = x;  <span class="comment">//r1 为 const int&amp; 类型，auto 被推导为 int</span></span><br><span class="line"><span class="keyword">auto</span> &amp;r2 = r1;  <span class="comment">//r1 为 const int&amp; 类型，auto 被推导为 const int 类型</span></span><br></pre></td></tr></table></figure>
+<p>总结 auto 和 const</p>
+<ul>
+<li>当类型不为引用时，auto 的推导结果将不保留表达式的 const 属性</li>
+<li>当类型为引用时，auto 的推导结果将保留表达式的 const 属性。</li>
+</ul>
+<h2><span id="auto-的限制">auto 的限制</span></h2><ul>
+<li>auto 不能在函数的参数中使用 (参数只是声明，没有定义，无法自动推导类型)</li>
+<li>auto 不能作用于类的非静态成员变量（也就是没有 static 关键字修饰的成员变量）中</li>
+<li><p>auto 关键字不能定义数组</p>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> str[] = <span class="string">"testauto"</span>;</span><br><span class="line"><span class="keyword">auto</span> str1[] = str;  <span class="comment">//arr 为数组，所以不能使用 auto</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>auto 不能作用于模板参数</p>
+</li>
+</ul>
+<h2><span id="auto-的引用场景">auto 的引用场景</span></h2><p>主要用了auto自动推导类型的特点</p>
+<ul>
+<li>auto 定义迭代器 简化复杂迭代器的书写</li>
+<li>泛型编程</li>
+</ul>
 
         
       </div>
@@ -365,15 +347,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/C++Template/">
-  C++ 模板与泛型
+        <a href="/2020/01/04/C++KeyWord/">
+  explicit 关键字
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/C++Template/"><span class="article-date">
+        <a href="/2020/01/04/C++KeyWord/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -392,22 +374,314 @@
       </div>
       <div class="article-entry">
         
-          <h2><span id="模板">模板</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;Typename T&gt;</span><br></pre></td></tr></table></figure>
-<p>模板定义从template开始，后面接模板形参表，模板形参表使用尖括号括住的一个或多个模板形参的列表，中间用逗号分隔。</p>
-<p>泛型代码重要原则</p>
-<ul>
-<li>模板的形参是const引用</li>
-<li>函数体重的测试之用 &lt; 比较</li>
-</ul>
-<h3><span id="模板特化">模板特化</span></h3><p>一个或多个模板形参的实际类型或实际值是指定的</p>
-<h2><span id="template-functions">Template Functions</span></h2><p>实现一个数值幂次方的函数</p>
-<p>对于整数型<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Power</span><span class="params">(<span class="keyword">int</span> base, <span class="keyword">int</span> exponent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">int</span>)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">int</span>)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) <span class="keyword">return</span> *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>对于长整型<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">Power</span><span class="params">(<span class="keyword">long</span> base, <span class="keyword">long</span> exponent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">long</span>)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (<span class="keyword">long</span>)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) <span class="keyword">return</span> *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>两个函数除了类型不同，实现过程都是一样, 可以把 <font color="red">数据类型也变成参数</font></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">templage &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; </span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">Power</span>(<span class="title">T</span> <span class="title">base</span>, <span class="title">T</span> <span class="title">exponent</span>)</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    T result = base;</span><br><span class="line">    <span class="keyword">if</span> (exponent == <span class="number">0</span>) <span class="keyword">return</span> (T)<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (exponent &lt; <span class="number">0</span>) <span class="keyword">return</span> (T)<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (--exponent) result *= base;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2><span id="template-class">Template Class</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">CThree</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    CThree(T t1, T t2, T t3);</span><br><span class="line">    <span class="function">T <span class="title">Min</span><span class="params">()</span></span>;</span><br><span class="line">    <span class="function">T <span class="title">Max</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    T a, b, c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">CThree</span>&lt;T&gt;:</span>:CThree(T t1, T t2, T t3)</span><br><span class="line">    a(t1), b(t2), c(t3)</span><br><span class="line">&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">CThree</span>&lt;T&gt;:</span>:Min()</span><br><span class="line">&#123;</span><br><span class="line">    T min = a &lt; b ? a : b;</span><br><span class="line">    <span class="keyword">return</span> min &lt; c ? min : c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">templte &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">T</span> <span class="title">CThree</span>&lt;T&gt;:</span>:Max()</span><br><span class="line">&#123;</span><br><span class="line">    T max = a &gt; b ? a : b;</span><br><span class="line">    <span class="keyword">return</span> max &gt; c ? max : c;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>每个成员函数都要加上<b> templte \<class t></class></b></p>
+          <h2><span id="explicit-关键字">explicit 关键字</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test1</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    Test1(<span class="keyword">int</span> n)</span><br><span class="line">    &#123;</span><br><span class="line">        num=n;</span><br><span class="line">    &#125;<span class="comment">//普通构造函数</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test2</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">explicit</span> <span class="title">Test2</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        num=n;</span><br><span class="line">    &#125;<span class="comment">//explicit(显式)构造函数</span></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> num;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Test1 t1=<span class="number">12</span>;<span class="comment">//隐式调用其构造函数,成功</span></span><br><span class="line">    Test2 t2=<span class="number">12</span>;<span class="comment">//编译错误,不能隐式调用其构造函数</span></span><br><span class="line">    <span class="function">Test2 <span class="title">t2</span><span class="params">(<span class="number">12</span>)</span></span>;<span class="comment">//显式调用成功</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Test1的构造函数带了一个int型的参数</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Test1 t1 = <span class="number">12</span>;  <span class="comment">// 调用成功</span></span><br></pre></td></tr></table></figure>
+<p>Test2的构造函数被声明为explicit(显式), 表示不能通过隐式转换来调用这个构造函数<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Test2 t2 = <span class="number">12</span>;  <span class="comment">//调用失败</span></span><br></pre></td></tr></table></figure></p>
 
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/C++StandardLib/">
+  C++ 标准库算法整理
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/C++StandardLib/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="c-标准库算法整理">C++ 标准库算法整理</span></h2><h3><span id="查找对象算法">查找对象算法</span></h3><h4><span id="1-简单查找算法">1、简单查找算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find(beg, end, val)</td>
+<td>查找特定元素，返回引用第一个匹配元素的迭代器，不存在返回end</td>
+</tr>
+<tr>
+<td>count(beg, end, val)</td>
+<td>返回元素出现次数</td>
+</tr>
+<tr>
+<td>find_if(beg, end, unaryPred)</td>
+<td>在beg到end中找满足unaryPred(参数)为真的第一个元素</td>
+</tr>
+<tr>
+<td>count_if(beg, end, unaryPred)</td>
+<td>在beg到end中找满足unaryPred(参数)为真的所有元素个数</td>
+</tr>
+</tbody>
+</table>
+<p>unaryPred 为函数适配器，</p>
+<h4><span id="2-查找许多值中的一个算法">2、查找许多值中的一个算法</span></h4><p>要求beg1 end1和 beg2 end2 的类型完全匹配，不要求beg1 和beg2类型完全匹配</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find_first_of(beg1, end1, beg2, end2)</td>
+<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
+</tr>
+<tr>
+<td>find_first_of(beg1, end1, beg2, end2, binaryPred)</td>
+<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
+</tr>
+<tr>
+<td>find_end(beg1, end1, beg2, end2)</td>
+<td>在(beg1,end1)中查找最后一个和(beg2,end2)中匹配的匹配项</td>
+</tr>
+<tr>
+<td>find_end(beg1, end1, beg2, end2, binaryPred)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4><span id="3-查找子序列的算法">3、查找子序列的算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adjacent_find(beg, end)</td>
+<td>搜索序列中两个连续相等的元素</td>
+</tr>
+<tr>
+<td>adjacent_find(beg, end, binaryPred)</td>
+<td>搜索序列中两个连续相等的元素，满足binaryPred条件</td>
+</tr>
+<tr>
+<td>search(beg1, end1, beg2, end2)</td>
+<td>找第一个序列中第二个子序列</td>
+</tr>
+<tr>
+<td>search(beg1, end1, beg2, end2, binaryPred)</td>
+<td>找第一个序列中第二个子序列, 满足binaryPred条件</td>
+</tr>
+<tr>
+<td>search_n(beg, end, count, val)</td>
+<td>找序列中找给定val的出现次数，返回第一个匹配项</td>
+</tr>
+<tr>
+<td>search_n(beg, end, count, val, binaryPred)</td>
+<td>找序列中找给定val的出现次数，返回第一个匹配项, 满足binaryPred条件</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="其他只读算法">其他只读算法</span></h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>for_each(beg, end, f)</td>
+<td></td>
+</tr>
+<tr>
+<td>mismatch(beg1, end1, beg2)</td>
+<td>返回不匹配的迭代器 全部匹配返回end1</td>
+</tr>
+<tr>
+<td>mismatch(beg1, end1, beg2, binaryPred)</td>
+<td>返回不满足binaryPred条件的迭代器 全部匹配返回end1</td>
+</tr>
+<tr>
+<td>equal(beg1, end1, beg2)</td>
+<td>判断两个序列是否相等，相等返回true</td>
+</tr>
+<tr>
+<td>equal(beg1, end1, beg2, binaryPred)</td>
+<td>判断两个序列是否满足binaryPred条件，相等返回true</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="二分查找">二分查找</span></h3><p>序列有序</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lower_bound(beg, end, val)</td>
+<td>在(beg,end)中查找不小于val的第一个元素</td>
+</tr>
+<tr>
+<td>lower_bound(beg, end, val, comp)</td>
+<td>在(beg,end)中查找不小于val的第一个元素，comp用于指定序列排序所使用的比较。</td>
+</tr>
+<tr>
+<td>upper_bound(beg, end, val)</td>
+<td>在(beg,end)中查找大于val的第一个元素</td>
+</tr>
+<tr>
+<td>upper_bound(beg, end, val, comp)</td>
+<td>在(beg,end)中查找大于val的第一个元素，comp用于指定序列排序所使用的比较</td>
+</tr>
+<tr>
+<td>equal_range(beg, end, val)</td>
+<td>找出有序序列中所有和val相等的元素</td>
+</tr>
+<tr>
+<td>equal_range(beg, end, val, comp)</td>
+<td>找出有序序列中所有和val相等的元素，comp用于指定序列排序所使用的比较</td>
+</tr>
+<tr>
+<td>binary_search(beg, end, val)</td>
+<td>序列是否包含与val相等的元素</td>
+</tr>
+<tr>
+<td>binary_search(beg, end, val, comp)</td>
+<td>序列是否包含与val相等的元素，comp用于指定序列排序所使用的比较</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="容器元素的算法">容器元素的算法</span></h3><h4><span id="1-只写元素不读元素算法">1、只写元素不读元素算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fill_n(dest, cnt, val)</td>
+<td>以给定的迭代器为起始位置，为cnt个数的元素设置值val</td>
+</tr>
+<tr>
+<td>generate_n(dest, cnt, Gen)</td>
+<td>以给定的迭代器为起始位置，为cnt个数的元素设置由Gen函数的返回值</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="2-使用输入迭代器写入元素的算法">2、使用输入迭代器写入元素的算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>copy(beg, end, dest)</td>
+<td>(beg,end) 复制到迭代器dest开始的序列</td>
+</tr>
+<tr>
+<td>transfrom(beg, end, dest, unaryOp)</td>
+<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
+</tr>
+<tr>
+<td>transfrom(beg, end, beg2, dest, unaryOp)</td>
+<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
+</tr>
+<tr>
+<td>replace_copy(beg, end, dest, old_val, new_val)</td>
+<td>(beg,end) 输入到迭代器dest开始的序列,oldval替换为new_val</td>
+</tr>
+<tr>
+<td>replace_copy_if(beg, end, dest, unaryPred, new_val)</td>
+<td>(beg,end) 输入到迭代器dest开始的序列,符合unaryPred条件的元素替换为new_val</td>
+</tr>
+<tr>
+<td>merge(beg1, end1, beg2, end2, dest)</td>
+<td>合并两个有序序列后写入到dest</td>
+</tr>
+<tr>
+<td>merge(beg1, end1, beg2, end2, dest, comp)</td>
+<td>合并两个有序序列后写入到dest，comp用于指定序列排序所使用的比较</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="3-使用前">3、使用前</span></h4>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/array&vector/">
+  数组替代品
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/array&vector/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          
         
       </div>
     </div>
@@ -459,57 +733,6 @@
 </li>
 </ul>
 <p>debug跟release在初始化变量时所做的操作是不同的，debug是将每个字节位都赋成0xcc，而release的赋值近似于随机(我想是直接从内存中分配的，没有初始化过)。这样就明确了，如果你的程序中的某个变量没被初始化就被引用，就很有可能出现异常：用作控制变量将导致流程导向不一致；用作数组下标将会使程序崩溃；更加可能是造成其他变量的不准确而引起其他的错误。所以在声明变量后马上对其初始化一个默认的值是最简单有效的办法，否则项目大了你找都没地方找。代码存在错误在debug方式下可能会忽略而不被察觉到，如debug方式下数组越界也大多不会出错，在 release中就暴露出来了，这个找起来就比较难了</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/C++CopyControl/">
-  C++ 复制控制
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/C++CopyControl/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="复制构造函数">复制构造函数</span></h2><h3><span id="用途">用途</span></h3><ul>
-<li>根据一个同类型的对象显式或隐式初始化一个对象</li>
-<li>复制一个对象，将他作为实参传给一个函数</li>
-<li>从函数返回时复制一个对象</li>
-<li>初始化顺序容器中的元素</li>
-<li>根据元素初始化列表初始化数组元素</li>
-</ul>
-<h3><span id="禁止复制">禁止复制</span></h3><p>有些类需要完全禁止复制，可以将默认构造函数声明为private, 但是类的友元和成员仍可以进行复制，如果连友元和成员中的复制也禁止，可以声明一个private复制构造函数且不对其定义。</p>
 
         
       </div>
@@ -652,6 +875,112 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/02/cctype/">
+  字符处理库
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/02/cctype/"><span class="article-date">
+  2020-01-02
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="字符处理库">字符处理库</span></h1><p>cctype 字符串处理函数</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>isalnum()</td>
+<td>判断参数是字母数字</td>
+</tr>
+<tr>
+<td>isalpha()</td>
+<td>判断参数是字母</td>
+</tr>
+<tr>
+<td>iscntrl()</td>
+<td>判断参数是控制字符</td>
+</tr>
+<tr>
+<td>isdigit()</td>
+<td>判断参数是数字(0~9)</td>
+</tr>
+<tr>
+<td>isgraph()</td>
+<td>判断参数是除空格之外的打印字符</td>
+</tr>
+<tr>
+<td>islower()</td>
+<td>判断参数是小写字母</td>
+</tr>
+<tr>
+<td>isprint()</td>
+<td>判断参数是打印字符(包括空格)</td>
+</tr>
+<tr>
+<td>ispunct()</td>
+<td>判断参数是标点符号</td>
+</tr>
+<tr>
+<td>isspace()</td>
+<td>判断参数是标准空白字符，如空格、换行、回车、水平制表符、垂直制表符</td>
+</tr>
+<tr>
+<td>isupper()</td>
+<td>判断参数是大写字母</td>
+</tr>
+<tr>
+<td>isxdigit()</td>
+<td>判断参数是十六进制数字</td>
+</tr>
+<tr>
+<td>tolower()</td>
+<td>判断参数是大写字母，返回小写，否则返回参数</td>
+</tr>
+<tr>
+<td>toupper()</td>
+<td>判断参数是小写字母，返回大写，否则返回参数</td>
+</tr>
+</tbody>
+</table>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/02/lib&dll/">
   windows静态库和动态库
 </a>
@@ -714,52 +1043,6 @@
 <h3><span id="freelibrary">FreeLibrary</span></h3><p>释放动态链接库<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HINSTANCE hInst;</span><br><span class="line">hInst = LoadLibrary(_T(<span class="string">"Dlltest.dll"</span>));</span><br><span class="line">FreeLibrary(hInst);</span><br></pre></td></tr></table></figure></p>
 <h3><span id="def文件">def文件</span></h3><p>此文件可以修改到处函数名字<br>需要在DLL编译前，添加到 “链接器-&gt;输入-&gt;模块定义文件” 中.</p>
 <h3><span id="makeintresource">MAKEINTRESOURCE()</span></h3><h2><span id="加载过多动态库会导致浪费">加载过多动态库会导致浪费</span></h2>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/02/Hook/">
-  Hook 钩子
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/02/Hook/"><span class="article-date">
-  2020-01-02
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="hook-钩子技术">HOOK 钩子技术</span></h1><p>Windows系统建立在事件驱动机制上的，说白了就是整个系统都是通过消息传递实现的。hook（钩子）是一种特殊的消息处理机制，它可以监视系统或者进程中的各种事件消息，截获发往目标窗口的消息并进行处理。</p>
-<h2><span id="劫持鼠标和键盘消息">劫持鼠标和键盘消息</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">HHOOK g_hMouse = <span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">nCode  hook code</span></span><br><span class="line"><span class="comment">wParam message identifer</span></span><br><span class="line"><span class="comment">lParam mouse coordinates</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">LRESULT CALLBACK <span class="title">MouseProc</span><span class="params">(<span class="keyword">int</span> nCode, WPARAM wParam, LPARAM lParam)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 返回非0 鼠标消息不再进行传递，达到屏蔽鼠标消息的效果</span></span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 若要继续执行</span></span><br><span class="line">	<span class="comment">//return CallNextHookEx(g_hMouse, nCode, wParam, lParam);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HHOOK g_hKeyboard = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">nCode  hook code</span></span><br><span class="line"><span class="comment">wParam virtual-key code</span></span><br><span class="line"><span class="comment">lParam keystroke-message information</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">LRESULT CALLBACK <span class="title">KeyboardProc</span><span class="params">(<span class="keyword">int</span> nCode, WPARAM wParam, LPARAM lParam)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 屏蔽了空格键和回车键</span></span><br><span class="line">	<span class="keyword">if</span> (VK_SPACE == wParam || VK_RETURN == wParam)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 返回非0 屏蔽按键</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 若要继续执行</span></span><br><span class="line">        <span class="keyword">return</span> CallNextHookEx(g_hKeyboard, nCode, wParam, lParam);         </span><br><span class="line">    &#125;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g_hMouse = SetWindowsHookEx(WH_MOUSE, MouseProc, <span class="literal">NULL</span>, GetCurrentThreadId());</span><br><span class="line">g_hKeyboard = SetWindowsHookEx(WH_KEYBOARD, KeyboardProc, <span class="literal">NULL</span>, GetCurrentThreadId());</span><br></pre></td></tr></table></figure>
-<p>可以拦截消息，也可以hook特定函数来执行其他的函数。</p>
-<h2><span id="detour">detour</span></h2>
         
       </div>
     </div>

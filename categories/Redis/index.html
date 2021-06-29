@@ -209,6 +209,188 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2019/12/31/redis/">
+  Redis 数据库
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/redis/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="redis">Redis</span></h1><p>Redis 是一种键值（Key-Value）数据库。相对于关系型数据库（比如 MySQL），Redis 也被叫作非关系型数据库。</p>
+<p>Redis 中只包含“键”和“值”两部分，只能通过“键”来查询“值”。正是因为这样简单的存储结构，也让 Redis 的读写效率非常高。</p>
+<p>Redis 中，键的数据类型是字符串，但是为了丰富数据存储的方式，方便开发者使用，值的数据类型有很多，常用的数据类型有这样几种，它们分别是字符串、列表、字典、集合、有序集合。</p>
+<h2><span id="六种类型比较">六种类型比较</span></h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>数据类型存储的值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> STRING（字符串）</td>
+<td>可以是保存字符串、整数和浮点数</td>
+<td>可以对字符串进行操作，比如增加字符或者求子串：如果是整数或者浮点数，可以实现计算，比如自增等</td>
+</tr>
+<tr>
+<td>LIST（列表）</td>
+<td>它是一个链表，它的每一个节点都包含一个字符串</td>
+<td>Redis 支持从链表的两端插入或者弹出节点，或者通过偏移对它进行裁剪；还可以读取一个或者多个节点，根据条件删除或者查找节点等</td>
+</tr>
+<tr>
+<td>SET（集合）</td>
+<td>它是一个收集器，但是是无序的，在它里而每一个元素都是一个字符串，而且是独一无二，各不相同的</td>
+<td>可以新增、读取、删除单个元素：检测一个元素是否在集合中；计算它和其他集合的交集、并集和差集等；随机从集合中读取元素</td>
+</tr>
+<tr>
+<td>HASH（哈希散列表）</td>
+<td>它类似于 Java 语言中的 Map，是一个键值对应的无序列表</td>
+<td>可以増、删、査、改单个键值对，也可以获取所有的键值对</td>
+</tr>
+<tr>
+<td>ZSET（有序集合）</td>
+<td>它是一个有序的集合，可以包含字符 串、整数、浮点数、分值（score），元素 的排序是依据分值的大小来决定的</td>
+<td>可以增、删、査、改元素，根据分值的范围或者成员 來获取对应的元索</td>
+</tr>
+<tr>
+<td>HyperLogLog（基数）</td>
+<td>它的作用是计算重复的值，以确定存储的数量</td>
+<td>只提供基数的运算，不提供返回的功能</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="优势">优势</span></h2><p>使用 Redis 作为缓存数据，就可以明显提升系统的性能</p>
+<h2><span id="劣势">劣势</span></h2><p>NoSQL 并不完全安全稳定，由于它基于内存，一旦停电或者机器故障数据就很容易丢失数据，其持久化能力也是有限的，而基于磁盘的数据库则不会出现这样的问题。以及其数据完整性、事务能力、安全性、可靠性及可扩展性都远不及数据库。</p>
+<h3><span id="字符串">字符串</span></h3><h3><span id="列表">列表</span></h3><p>支持存储一组数据，有两种实现方法，一种是压缩列表（ziplist），另一种是双向循环链表。</p>
+<h3><span id="字典">字典</span></h3><h3><span id="集合">集合</span></h3><h3><span id="有序集合">有序集合</span></h3><h3><span id="基数">基数</span></h3>
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/redistransaction/">
+  Redis 事务
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/redistransaction/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="redis事务">Redis事务</span></h1><p>在 Redis 中，也存在多个客户端同时向 Redis 系统发送命令的并发可能性，因此同一个数据，可能在不同的时刻被不同的线程所操纵，这样就出现了并发下的数据一致的问题。为了保证异性数据的安全性，Redis 为提供了事务方案。而 Redis 的事务是使用 MULTI-EXEC 的命令组合，使用它可以提供两个重要的保证：</p>
+<ul>
+<li>事务是一个被隔离的操作，事务中的方法都会被 Redis 进行序列化并按顺序执行，事务在执行的过程中不会被其他客户端发生的命令所打断。</li>
+<li>事务是一个原子性的操作，它要么全部执行，要么就什么都不执行。</li>
+</ul>
+<p>在 Redis 中使用事务会经过 3 个过程：</p>
+<ul>
+<li>开启事务。</li>
+<li>命令进入队列。</li>
+<li>执行事务。</li>
+</ul>
+<h2><span id="redis事务命令">Redis事务命令</span></h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multi</td>
+<td>开启事务命令，之后的命令就进入队列，而不会马上被执行</td>
+<td>在事务生存期间，所有的 Redis 关于数据结构的命令都会入队</td>
+</tr>
+<tr>
+<td>watch key1 [key2……]</td>
+<td>监听某些键，当被监听的键在事务执行前被修改，则事务会被回滚</td>
+<td>使用乐观锁</td>
+</tr>
+<tr>
+<td>unwatch key1 [key2……]</td>
+<td>取消监听某些键</td>
+<td>——</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>执行事务，如果被监听的键没有被修改，则采用执行命令，否则就回滚命令</td>
+<td>在执行事务队列存储的命令前，Redis 会检测被监听的键值对有没有发生变化，如果没有则执行命令, 否则就回滚事务</td>
+</tr>
+<tr>
+<td>discard</td>
+<td>回滚事务</td>
+<td>回滚进入队列的事务命令，之后就不能再用 exec 命令提交了</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="redis事务回滚">Redis事务回滚</span></h2><p>执行事务命令的时，当命令入队，Redis 就会检测事务的命令是否正确，如果不正确则会产生错误。无论之前和之后的命令都会被事务所回滚，就变为什么都没有执行。</p>
+<h2><span id="redis监控事务">Redis监控事务</span></h2><p>使用 watch 命令可以决定事务是执行还是回滚</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2019/12/31/redisoperate/">
   Redis 常用操作
 </a>
@@ -679,188 +861,6 @@
 </tr>
 </tbody>
 </table>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/redis/">
-  Redis 数据库
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/redis/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="redis">Redis</span></h1><p>Redis 是一种键值（Key-Value）数据库。相对于关系型数据库（比如 MySQL），Redis 也被叫作非关系型数据库。</p>
-<p>Redis 中只包含“键”和“值”两部分，只能通过“键”来查询“值”。正是因为这样简单的存储结构，也让 Redis 的读写效率非常高。</p>
-<p>Redis 中，键的数据类型是字符串，但是为了丰富数据存储的方式，方便开发者使用，值的数据类型有很多，常用的数据类型有这样几种，它们分别是字符串、列表、字典、集合、有序集合。</p>
-<h2><span id="六种类型比较">六种类型比较</span></h2><table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>数据类型存储的值</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> STRING（字符串）</td>
-<td>可以是保存字符串、整数和浮点数</td>
-<td>可以对字符串进行操作，比如增加字符或者求子串：如果是整数或者浮点数，可以实现计算，比如自增等</td>
-</tr>
-<tr>
-<td>LIST（列表）</td>
-<td>它是一个链表，它的每一个节点都包含一个字符串</td>
-<td>Redis 支持从链表的两端插入或者弹出节点，或者通过偏移对它进行裁剪；还可以读取一个或者多个节点，根据条件删除或者查找节点等</td>
-</tr>
-<tr>
-<td>SET（集合）</td>
-<td>它是一个收集器，但是是无序的，在它里而每一个元素都是一个字符串，而且是独一无二，各不相同的</td>
-<td>可以新增、读取、删除单个元素：检测一个元素是否在集合中；计算它和其他集合的交集、并集和差集等；随机从集合中读取元素</td>
-</tr>
-<tr>
-<td>HASH（哈希散列表）</td>
-<td>它类似于 Java 语言中的 Map，是一个键值对应的无序列表</td>
-<td>可以増、删、査、改单个键值对，也可以获取所有的键值对</td>
-</tr>
-<tr>
-<td>ZSET（有序集合）</td>
-<td>它是一个有序的集合，可以包含字符 串、整数、浮点数、分值（score），元素 的排序是依据分值的大小来决定的</td>
-<td>可以增、删、査、改元素，根据分值的范围或者成员 來获取对应的元索</td>
-</tr>
-<tr>
-<td>HyperLogLog（基数）</td>
-<td>它的作用是计算重复的值，以确定存储的数量</td>
-<td>只提供基数的运算，不提供返回的功能</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="优势">优势</span></h2><p>使用 Redis 作为缓存数据，就可以明显提升系统的性能</p>
-<h2><span id="劣势">劣势</span></h2><p>NoSQL 并不完全安全稳定，由于它基于内存，一旦停电或者机器故障数据就很容易丢失数据，其持久化能力也是有限的，而基于磁盘的数据库则不会出现这样的问题。以及其数据完整性、事务能力、安全性、可靠性及可扩展性都远不及数据库。</p>
-<h3><span id="字符串">字符串</span></h3><h3><span id="列表">列表</span></h3><p>支持存储一组数据，有两种实现方法，一种是压缩列表（ziplist），另一种是双向循环链表。</p>
-<h3><span id="字典">字典</span></h3><h3><span id="集合">集合</span></h3><h3><span id="有序集合">有序集合</span></h3><h3><span id="基数">基数</span></h3>
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/redistransaction/">
-  Redis 事务
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/redistransaction/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="redis事务">Redis事务</span></h1><p>在 Redis 中，也存在多个客户端同时向 Redis 系统发送命令的并发可能性，因此同一个数据，可能在不同的时刻被不同的线程所操纵，这样就出现了并发下的数据一致的问题。为了保证异性数据的安全性，Redis 为提供了事务方案。而 Redis 的事务是使用 MULTI-EXEC 的命令组合，使用它可以提供两个重要的保证：</p>
-<ul>
-<li>事务是一个被隔离的操作，事务中的方法都会被 Redis 进行序列化并按顺序执行，事务在执行的过程中不会被其他客户端发生的命令所打断。</li>
-<li>事务是一个原子性的操作，它要么全部执行，要么就什么都不执行。</li>
-</ul>
-<p>在 Redis 中使用事务会经过 3 个过程：</p>
-<ul>
-<li>开启事务。</li>
-<li>命令进入队列。</li>
-<li>执行事务。</li>
-</ul>
-<h2><span id="redis事务命令">Redis事务命令</span></h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>multi</td>
-<td>开启事务命令，之后的命令就进入队列，而不会马上被执行</td>
-<td>在事务生存期间，所有的 Redis 关于数据结构的命令都会入队</td>
-</tr>
-<tr>
-<td>watch key1 [key2……]</td>
-<td>监听某些键，当被监听的键在事务执行前被修改，则事务会被回滚</td>
-<td>使用乐观锁</td>
-</tr>
-<tr>
-<td>unwatch key1 [key2……]</td>
-<td>取消监听某些键</td>
-<td>——</td>
-</tr>
-<tr>
-<td>exec</td>
-<td>执行事务，如果被监听的键没有被修改，则采用执行命令，否则就回滚命令</td>
-<td>在执行事务队列存储的命令前，Redis 会检测被监听的键值对有没有发生变化，如果没有则执行命令, 否则就回滚事务</td>
-</tr>
-<tr>
-<td>discard</td>
-<td>回滚事务</td>
-<td>回滚进入队列的事务命令，之后就不能再用 exec 命令提交了</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="redis事务回滚">Redis事务回滚</span></h2><p>执行事务命令的时，当命令入队，Redis 就会检测事务的命令是否正确，如果不正确则会产生错误。无论之前和之后的命令都会被事务所回滚，就变为什么都没有执行。</p>
-<h2><span id="redis监控事务">Redis监控事务</span></h2><p>使用 watch 命令可以决定事务是执行还是回滚</p>
 
         
       </div>

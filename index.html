@@ -334,6 +334,12 @@
 <h3><span id="202161">2021.6.1</span></h3><p>蒙特卡洛伪随机算法</p>
 <h3><span id="202165">2021.6.5</span></h3><p>Skywalking 、Zipkin 、Pinpoint 、CAT（美团）</p>
 <h3><span id="202169">2021.6.9</span></h3><p>ELK<br>elasticsearch     分布式搜索分析引擎<br>apache Lucene     全文检索引擎<br>kibana            可视化</p>
+<h3><span id="2021612">2021.6.12</span></h3><p><a href="https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/comments/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/er-jin-zhi-zhong-1de-ge-shu-lcof/comments/</a><br>stl bitset<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cout &lt;&lt; foo.count() &lt;&lt; endl;　　//5　　（count函数用来求bitset中1的位数，foo中共有5个1</span><br><span class="line">cout &lt;&lt; foo.size() &lt;&lt; endl;　　 //8　　（size函数用来求bitset的大小，一共有８位</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; foo.test(0) &lt;&lt; endl;　　//true　　（test函数用来查下标处的元素是0还是1，并返回false或true，此处foo[0]为1，返回true</span><br><span class="line">cout &lt;&lt; foo.test(2) &lt;&lt; endl;　　//false　　（同理，foo[2]为0，返回false</span><br><span class="line"></span><br><span class="line">cout &lt;&lt; foo.any() &lt;&lt; endl;　　//true　　（any函数检查bitset中是否有1</span><br><span class="line">cout &lt;&lt; foo.none() &lt;&lt; endl;　　//false　　（none函数检查bitset中是否没有1</span><br><span class="line">cout &lt;&lt; foo.all() &lt;&lt; endl;　　//false　　（all函数检查bitset中是全部为1</span><br></pre></td></tr></table></figure></p>
+<h3><span id="2021613">2021.6.13</span></h3><p>套接字优化<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /sbin/sysctl -a|grep <span class="string">"^net."</span>|grep <span class="string">"[r|w|_]mem[_| ]"</span></span><br></pre></td></tr></table></figure></p>
+<p>快速降幂</p>
+<h3><span id="2021614">2021.6.14</span></h3><p>DP<br><a href="https://zhuanlan.zhihu.com/p/104520421" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/104520421</a></p>
+<h3><span id="2021615">2021.6.15</span></h3><p>GIN<br><a href="https://laravelacademy.org/books/gin-tutorial" target="_blank" rel="noopener">https://laravelacademy.org/books/gin-tutorial</a></p>
+<h3><span id="2021629">2021.6.29</span></h3><p>windbg 64位dump转换成32位的模式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!wow64exts.sw</span><br></pre></td></tr></table></figure></p>
 
         
       </div>
@@ -481,6 +487,50 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2021/05/24/BTNetwork/">
+  NetWork
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2021/05/24/BTNetwork/"><span class="article-date">
+  2021-05-24
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/BT/">BT</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BT/">BT</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <p><a href="https://www.cnblogs.com/aspirant/p/9166944.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspirant/p/9166944.html</a><br><a href="https://www.jianshu.com/p/587ab13eb564" target="_blank" rel="noopener">https://www.jianshu.com/p/587ab13eb564</a><br><a href="https://www.jianshu.com/p/37d132327724?utm_campaign" target="_blank" rel="noopener">https://www.jianshu.com/p/37d132327724?utm_campaign</a></p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2021/05/24/BTRedis/">
   Redis
 </a>
@@ -532,50 +582,6 @@
 <p>Set<br>[1,2,4,5,3,4.4]<br>存一个不重复的列表</p>
 <p>Hash<br>key field value<br> f1   v1<br>k1  f2   v2<br> f3   v3</p>
 <p>Zset<br>[1,2,3,4,4.4,5]</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2021/05/24/BTNetwork/">
-  NetWork
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2021/05/24/BTNetwork/"><span class="article-date">
-  2021-05-24
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/BT/">BT</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BT/">BT</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <p><a href="https://www.cnblogs.com/aspirant/p/9166944.html" target="_blank" rel="noopener">https://www.cnblogs.com/aspirant/p/9166944.html</a><br><a href="https://www.jianshu.com/p/587ab13eb564" target="_blank" rel="noopener">https://www.jianshu.com/p/587ab13eb564</a><br><a href="https://www.jianshu.com/p/37d132327724?utm_campaign" target="_blank" rel="noopener">https://www.jianshu.com/p/37d132327724?utm_campaign</a></p>
 
         
       </div>

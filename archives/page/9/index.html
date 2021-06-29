@@ -156,6 +156,90 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
+        <a href="/2020/01/04/Gocommand/">
+  Go 命令
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/Gocommand/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="go-build">go build</span></h2><p>1、go build 无参数<br>生成包名文件<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">go</span> build</span><br></pre></td></tr></table></figure></p>
+<p>2、go build +文件列表  </p>
+<pre><code class="go"><span class="keyword">go</span> build main.<span class="keyword">go</span> lib1.<span class="keyword">go</span>
+</code></pre>
+<p>使用”go build+文件列表”方式编译时，可执行文件默认选择文件列表中第一个源码文件作为可执行文件名输出。</p>
+<p>3、go build+包</p>
+<p>在设置 GOPATH 后，可以直接根据包名进行编译，即便包内文件被增（加）删（除）也不影响编译指令。</p>
+<p>go build 编译参数</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>效果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-v</td>
+<td>编译时显示包名</td>
+</tr>
+<tr>
+<td>-p n</td>
+<td>开启并发编译，默认情况下该值为 CPU 逻辑核数</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>强制重新构建</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>打印编译时会用到的所有命令，但不真正执行</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>打印编译时会用到的所有命令</td>
+</tr>
+<tr>
+<td>-race</td>
+<td>开启竞态检测</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="go-clean">go clean</span></h2><p>会清除掉编译过程中产生的一些文件。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
         <a href="/2020/01/04/C++Error/">
   C++ 常见错误
 </a>
@@ -192,78 +276,6 @@
 </li>
 </ul>
 <p>debug跟release在初始化变量时所做的操作是不同的，debug是将每个字节位都赋成0xcc，而release的赋值近似于随机(我想是直接从内存中分配的，没有初始化过)。这样就明确了，如果你的程序中的某个变量没被初始化就被引用，就很有可能出现异常：用作控制变量将导致流程导向不一致；用作数组下标将会使程序崩溃；更加可能是造成其他变量的不准确而引起其他的错误。所以在声明变量后马上对其初始化一个默认的值是最简单有效的办法，否则项目大了你找都没地方找。代码存在错误在debug方式下可能会忽略而不被察觉到，如debug方式下数组越界也大多不会出错，在 release中就暴露出来了，这个找起来就比较难了</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/static&const/">
-  static与const 关键字
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/static&const/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="static关键字">static关键字</span></h1><h2><span id="static-的作用">static 的作用</span></h2><pre><code>规定存储方式和作用域  
-</code></pre><h2><span id="static-关键字修饰变量函数">static 关键字修饰变量/函数</span></h2><ul>
-<li><p>static 全局变量<br>  全局静态变量, 保存在静态存储区, 不初始化自动初始化0, 作用域本文件   </p>
-</li>
-<li><p>static 局部变量<br>  局部静态变量, 保存在静态存储区, 不初始化自动初始化0, 作用域本文件  </p>
-</li>
-<li><p>static 函数<br>  1、在函数返回类型前加static，函数就定义为静态函数。函数的定义和声明在默认情况下都是extern的，但静态函数只是在声明他的文件当中可见，不能被其他文件所用<br>  2、函数的实现使用static修饰，那么这个函数只可在本cpp内使用，不会同其他cpp中的同名函数引起冲突   </p>
-</li>
-<li><p>static 类成员变量<br>  1、类静态成员可以实现多个对象之间的数据共享，静态成员是类的所有对象中共享的成员,而不是某个对象的成员。<br>  2、使用静态数据成员还不会破坏隐藏的原则，即保证了安全性。<br>  3、对多个对象来说，静态数据成员只存储一处，供所有对象共用。<br>  4、静态成员变量的生命期不依赖于任何对象，为程序的生命周期<br>  5、可以通过类名直接访问公有静态成员变量, 可以通过对象名访问公有静态成员变量<br>  6、静态成员变量在类外单独分配空间<br>  7、静态成员变量在程序内部位于全局数据区 </p>
-</li>
-<li><p>static 类成员函数<br>  1、属于类的静态成员，不是对象成员<br>  2、实现中不能直接引用类中说明的非静态成员，可以引用类中说明的静态成员(出现”对非静态成员的非法引用”)<br>  3、静态成员函数中要引用非静态成员时，可通过对象来引用</p>
-</li>
-</ul>
-<h1><span id="const-关键字">const 关键字</span></h1><p>不可为左值, 规定只读(不可更改)，在声明中使用</p>
-<ul>
-<li>const 常量<br>  定义时就必须进行初始化，以后不能更改。</li>
-<li>const 形参<br>  func(const int a){};该形参在函数里不能改变</li>
-<li>const 修饰类成员变量<br>  构造函数对该数据成员赋值，任何函数不能对该成员变量赋值，</li>
-<li>const 修饰类成员函数<br>  该函数对成员变量只能进行只读操作，不能更新值</li>
-<li>const 引用<br>  常引用所引用的对象不能被更新, 作为形参传入时，调用函数中不修改其值，如果是对象，减少调用构造函数。拷贝构造参数使用常引用</li>
-</ul>
-<h1><span id="常量指针与指针常量">常量指针与指针常量</span></h1><p>const char *p 和char const *p都表示 指向的内容不能改变。</p>
-<p>char * const p，就是将P声明为常指针，它的地址不能改变，是固定的，但是它的内容可以改变。</p>
-<p>主要看const 和”*“的位置<br>const在”*“左侧，修饰的是指针指向的内存数据，内存数据不能被改变<br>const在”*“右侧，修饰的是指针，指针不能被改变  </p>
-<pre><code><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> na = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> *p1 = &amp;na;</span><br><span class="line">*p1 = <span class="number">1</span>; <span class="comment">// 编译报错 error C3892: “p1”: 不能给常量赋值</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">   <span class="keyword">int</span> na = <span class="number">2</span>;</span><br><span class="line">   <span class="keyword">int</span> * <span class="keyword">const</span> p2 = &amp;na;</span><br><span class="line">*p2++; <span class="comment">// 编译报错 error C3892: “p2”: 不能给常量赋值</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> na = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * <span class="keyword">const</span> p3 = &amp;na;</span><br><span class="line">*p3++;  <span class="comment">// 编译报错 error C3892: “p3”: 不能给常量赋值</span></span><br><span class="line">*p3 = <span class="number">1</span>; <span class="comment">// 编译报错 error C3892: “p3”: 不能给常量赋值</span></span><br></pre></td></tr></table></figure>
-</code></pre><h1><span id="const-和-static-一起用">const 和 static 一起用</span></h1><p>const static 和 static const 一样<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func1</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> a1 = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> * pa = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a1);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ++*pa &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 没问题</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func2</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">static</span> <span class="keyword">int</span> a2 = <span class="number">6</span>;</span><br><span class="line">    <span class="keyword">int</span> * paa = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;a2);</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; ++*paa &lt;&lt; <span class="built_in">endl</span>; <span class="comment">// 编译可以过，但运行时引发了异常: 写入访问权限冲突。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>TODO 和static有关 查看了汇编，还是有点问题<br><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/static_cast.png" alt></p>
 
         
       </div>
@@ -334,15 +346,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/GoError/">
-  Go 常见问题
+        <a href="/2020/01/04/GoMakeNew/">
+  Go make和new关键字
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/GoError/"><span class="article-date">
+        <a href="/2020/01/04/GoMakeNew/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -361,13 +373,38 @@
       </div>
       <div class="article-entry">
         
-          <ul>
-<li>go tool: no such tool compile</li>
-</ul>
-<blockquote>
-<p>go env  </p>
-</blockquote>
-<p>查看 GOROOT 是否为安装路径</p>
+          <h1><span id="go-new和make的区别与实现">Go new和make的区别与实现</span></h1><h2><span id="new-的实现">new 的实现</span></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The new built-in function allocates memory. The first argument is a type,</span></span><br><span class="line"><span class="comment">// not a value, and the value returned is a pointer to a newly</span></span><br><span class="line"><span class="comment">// allocated zero value of that type.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">new</span><span class="params">(Type)</span> *<span class="title">Type</span></span></span><br></pre></td></tr></table></figure>
+<p>new 函数只接受一个参数，这个参数是一个类型，并且返回一个指向该类型内存地址的指针。分配的内存置为零，也就是类型的零值。</p>
+<p>为基础类型分配空间<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="keyword">var</span> sum *<span class="keyword">int</span></span><br><span class="line">	sum = <span class="built_in">new</span>(<span class="keyword">int</span>) <span class="comment">//分配空间</span></span><br><span class="line">    fmt.Println(*sum) <span class="comment">// 输出0 会默认置零</span></span><br><span class="line">    </span><br><span class="line">	*sum = <span class="number">100</span></span><br><span class="line">	fmt.Println(*sum) <span class="comment">// 输出100</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为自定义类型分配空间<br><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> Student <span class="keyword">struct</span> &#123;</span><br><span class="line">   name <span class="keyword">string</span></span><br><span class="line">   age <span class="keyword">int</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> s *Student</span><br><span class="line">s = <span class="built_in">new</span>(Student) <span class="comment">// 分配空间</span></span><br><span class="line">s.name =<span class="string">"dequan"</span> </span><br><span class="line">fmt.Println(s)   <span class="comment">// 输出&amp;&#123;dequan 0&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h2><span id="make-的实现">make 的实现</span></h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// The make built-in function allocates and initializes an object of type</span></span><br><span class="line"><span class="comment">// slice, map, or chan (only). Like new, the first argument is a type, not a</span></span><br><span class="line"><span class="comment">// value. Unlike new, make's return type is the same as the type of its</span></span><br><span class="line"><span class="comment">// argument, not a pointer to it. The specification of the result depends on</span></span><br><span class="line"><span class="comment">// the type:</span></span><br><span class="line"><span class="comment">// Slice: The size specifies the length. The capacity of the slice is</span></span><br><span class="line"><span class="comment">// equal to its length. A second integer argument may be provided to</span></span><br><span class="line"><span class="comment">// specify a different capacity; it must be no smaller than the</span></span><br><span class="line"><span class="comment">// length, so make([]int, 0, 10) allocates a slice of length 0 and</span></span><br><span class="line"><span class="comment">// capacity 10.</span></span><br><span class="line"><span class="comment">// Map: An empty map is allocated with enough space to hold the</span></span><br><span class="line"><span class="comment">// specified number of elements. The size may be omitted, in which case</span></span><br><span class="line"><span class="comment">// a small starting size is allocated.</span></span><br><span class="line"><span class="comment">// Channel: The channel's buffer is initialized with the specified</span></span><br><span class="line"><span class="comment">// buffer capacity. If zero, or the size is omitted, the channel is</span></span><br><span class="line"><span class="comment">// unbuffered.</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">make</span><span class="params">(t Type, size ...IntegerType)</span> <span class="title">Type</span></span></span><br></pre></td></tr></table></figure>
+<p>make 也是用于内存分配的，但是和 new 不同，它只用于 chan、map 以及 slice 的内存创建，而且它返回的类型就是这三个类型本身，而不是他们的指针类型，因为这三种类型就是引用类型，所以就没有必要返回他们的指针了。</p>
+<h2><span id="new-和-make-区别">new 和 make 区别：</span></h2><table>
+<thead>
+<tr>
+<th>区别</th>
+<th>new</th>
+<th>make </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可分配的数据类型</td>
+<td>任意类型</td>
+<td>slice、map、chan</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>返回指针 *Type</td>
+<td>返回引用 Type</td>
+</tr>
+<tr>
+<td>初始化</td>
+<td>清零</td>
+<td>分配后初始化</td>
+</tr>
+</tbody>
+</table>
 
         
       </div>
@@ -431,57 +468,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/GoTesting/">
-  Go Testing包
+        <a href="/2020/01/04/C++Passby/">
+  C++ 值传递 引用传递
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/GoTesting/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="go-testing包">Go Testing包</span></h1><p>Go语言的 testing 提供了三种测试方式，分别是单元（功能）测试、性能（压力）测试和覆盖率测试。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2020/01/04/C++11/">
-  C++ 关键字罗列
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/C++11/"><span class="article-date">
+        <a href="/2020/01/04/C++Passby/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -500,14 +495,271 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="constexpr">constexpr</span></h1><p>constexpr是C++11中新增的关键字，其语义是“常量表达式”，也就是在编译期可求值的表达式。</p>
-<h2><span id="constexpr的好处">constexpr的好处：</span></h2><ul>
-<li>是一种很强的约束，更好地保证程序的正确语义不被破坏。</li>
-<li>编译器可以在编译期对constexpr的代码进行非常大的优化，比如将用到的constexpr表达式都直接替换成最终结果等。</li>
-<li>相比宏来说，没有额外的开销，但更安全可靠。</li>
-</ul>
-<h1><span id="noreturn">[[noreturn]]</span></h1><p>指示函数不返回</p>
+          <h1><span id="c-值传递-引用传递">C++ 值传递 引用传递</span></h1><h2><span id="pass-by-value值传递">pass-by-value(值传递)</span></h2><p>函数调用入口参数时，一般都会创建副本或者调用类对象的拷贝构造函数，所以操作结束后入参的值没有变化，变化的只是副本。<br>缺省情况C++以pass-by-value（继承C的方式）传递对象至（或来自）函数。函数参数都是以实际参数的复件为初值，调用端所获得的也是函数返回值的一个复件，复件由对象的拷贝构造函数产出，可能使pass-by-value成为<font color="red">耗时</font>的操作。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">1</span>,y=<span class="number">2</span>;</span><br><span class="line">    swap(x,y); <span class="comment">//x,y值作为拷贝副本传递a和b;</span></span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span> &lt;&lt; x &lt;&lt;<span class="string">"y"</span>&lt;&lt; y; </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="pass-by-reference引用传递">pass-by-reference(引用传递)</span></h2><p>则是直接操作原来的对象，不会建立副本，对该对象做的操作，会直接影响到原来传入的变量或者对象。<br>没有任何构造函数或析构函数被调用，因为没有任何对象被新建。参数声明中加上const，防止传入的对象被修改。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> &amp;a,<span class="keyword">int</span> &amp;b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c = a;</span><br><span class="line">    a = b;</span><br><span class="line">    b = c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    <span class="keyword">int</span> x=<span class="number">5</span>,y=<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> &amp;i=x; <span class="comment">//表示i是x别名，也就是存贮在相同单元里</span></span><br><span class="line">    <span class="keyword">int</span> &amp;j=y; <span class="comment">//同理</span></span><br><span class="line">    swap(i,j);</span><br><span class="line">    <span class="built_in">std</span>::<span class="built_in">cout</span>&lt;&lt;<span class="string">"x"</span>&lt;&lt; x &lt;&lt;<span class="string">"y"</span>&lt;&lt; y;<span class="comment">//i和j的值变化会影响到x和y;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="pass-by-value-与-pass-by-reference-区别">pass-by-value 与 pass-by-reference 区别</span></h2><h3><span id="pass-by-value-比pass-by-reference-耗时">pass-by-value 比pass-by-reference 耗时：</span></h3><p>因为调用拷贝构造，若派生类，调用更多函数。</p>
+<p>类的对象作为函数参数时，如果使用值传递，要先拷贝一份实参的副本，需要调用类的拷贝构造函数，函数结束时副本被销毁，需要调用析构函数。如果该类是派生类，调用的函数更多，流程更多更复杂。</p>
 
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/C++StandardLib/">
+  C++ 标准库算法整理
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/C++StandardLib/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/C/">C++</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/C/">C++</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="c-标准库算法整理">C++ 标准库算法整理</span></h2><h3><span id="查找对象算法">查找对象算法</span></h3><h4><span id="1-简单查找算法">1、简单查找算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find(beg, end, val)</td>
+<td>查找特定元素，返回引用第一个匹配元素的迭代器，不存在返回end</td>
+</tr>
+<tr>
+<td>count(beg, end, val)</td>
+<td>返回元素出现次数</td>
+</tr>
+<tr>
+<td>find_if(beg, end, unaryPred)</td>
+<td>在beg到end中找满足unaryPred(参数)为真的第一个元素</td>
+</tr>
+<tr>
+<td>count_if(beg, end, unaryPred)</td>
+<td>在beg到end中找满足unaryPred(参数)为真的所有元素个数</td>
+</tr>
+</tbody>
+</table>
+<p>unaryPred 为函数适配器，</p>
+<h4><span id="2-查找许多值中的一个算法">2、查找许多值中的一个算法</span></h4><p>要求beg1 end1和 beg2 end2 的类型完全匹配，不要求beg1 和beg2类型完全匹配</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find_first_of(beg1, end1, beg2, end2)</td>
+<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
+</tr>
+<tr>
+<td>find_first_of(beg1, end1, beg2, end2, binaryPred)</td>
+<td>在(beg1,end1)中找(beg2,end2)中的任意元素，未找到返回end1</td>
+</tr>
+<tr>
+<td>find_end(beg1, end1, beg2, end2)</td>
+<td>在(beg1,end1)中查找最后一个和(beg2,end2)中匹配的匹配项</td>
+</tr>
+<tr>
+<td>find_end(beg1, end1, beg2, end2, binaryPred)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4><span id="3-查找子序列的算法">3、查找子序列的算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adjacent_find(beg, end)</td>
+<td>搜索序列中两个连续相等的元素</td>
+</tr>
+<tr>
+<td>adjacent_find(beg, end, binaryPred)</td>
+<td>搜索序列中两个连续相等的元素，满足binaryPred条件</td>
+</tr>
+<tr>
+<td>search(beg1, end1, beg2, end2)</td>
+<td>找第一个序列中第二个子序列</td>
+</tr>
+<tr>
+<td>search(beg1, end1, beg2, end2, binaryPred)</td>
+<td>找第一个序列中第二个子序列, 满足binaryPred条件</td>
+</tr>
+<tr>
+<td>search_n(beg, end, count, val)</td>
+<td>找序列中找给定val的出现次数，返回第一个匹配项</td>
+</tr>
+<tr>
+<td>search_n(beg, end, count, val, binaryPred)</td>
+<td>找序列中找给定val的出现次数，返回第一个匹配项, 满足binaryPred条件</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="其他只读算法">其他只读算法</span></h3><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>for_each(beg, end, f)</td>
+<td></td>
+</tr>
+<tr>
+<td>mismatch(beg1, end1, beg2)</td>
+<td>返回不匹配的迭代器 全部匹配返回end1</td>
+</tr>
+<tr>
+<td>mismatch(beg1, end1, beg2, binaryPred)</td>
+<td>返回不满足binaryPred条件的迭代器 全部匹配返回end1</td>
+</tr>
+<tr>
+<td>equal(beg1, end1, beg2)</td>
+<td>判断两个序列是否相等，相等返回true</td>
+</tr>
+<tr>
+<td>equal(beg1, end1, beg2, binaryPred)</td>
+<td>判断两个序列是否满足binaryPred条件，相等返回true</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="二分查找">二分查找</span></h3><p>序列有序</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lower_bound(beg, end, val)</td>
+<td>在(beg,end)中查找不小于val的第一个元素</td>
+</tr>
+<tr>
+<td>lower_bound(beg, end, val, comp)</td>
+<td>在(beg,end)中查找不小于val的第一个元素，comp用于指定序列排序所使用的比较。</td>
+</tr>
+<tr>
+<td>upper_bound(beg, end, val)</td>
+<td>在(beg,end)中查找大于val的第一个元素</td>
+</tr>
+<tr>
+<td>upper_bound(beg, end, val, comp)</td>
+<td>在(beg,end)中查找大于val的第一个元素，comp用于指定序列排序所使用的比较</td>
+</tr>
+<tr>
+<td>equal_range(beg, end, val)</td>
+<td>找出有序序列中所有和val相等的元素</td>
+</tr>
+<tr>
+<td>equal_range(beg, end, val, comp)</td>
+<td>找出有序序列中所有和val相等的元素，comp用于指定序列排序所使用的比较</td>
+</tr>
+<tr>
+<td>binary_search(beg, end, val)</td>
+<td>序列是否包含与val相等的元素</td>
+</tr>
+<tr>
+<td>binary_search(beg, end, val, comp)</td>
+<td>序列是否包含与val相等的元素，comp用于指定序列排序所使用的比较</td>
+</tr>
+</tbody>
+</table>
+<h3><span id="容器元素的算法">容器元素的算法</span></h3><h4><span id="1-只写元素不读元素算法">1、只写元素不读元素算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fill_n(dest, cnt, val)</td>
+<td>以给定的迭代器为起始位置，为cnt个数的元素设置值val</td>
+</tr>
+<tr>
+<td>generate_n(dest, cnt, Gen)</td>
+<td>以给定的迭代器为起始位置，为cnt个数的元素设置由Gen函数的返回值</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="2-使用输入迭代器写入元素的算法">2、使用输入迭代器写入元素的算法</span></h4><table>
+<thead>
+<tr>
+<th>函数</th>
+<th>用法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>copy(beg, end, dest)</td>
+<td>(beg,end) 复制到迭代器dest开始的序列</td>
+</tr>
+<tr>
+<td>transfrom(beg, end, dest, unaryOp)</td>
+<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
+</tr>
+<tr>
+<td>transfrom(beg, end, beg2, dest, unaryOp)</td>
+<td>(beg,end) 通过unaryOp操作后，输入到迭代器dest开始的序列</td>
+</tr>
+<tr>
+<td>replace_copy(beg, end, dest, old_val, new_val)</td>
+<td>(beg,end) 输入到迭代器dest开始的序列,oldval替换为new_val</td>
+</tr>
+<tr>
+<td>replace_copy_if(beg, end, dest, unaryPred, new_val)</td>
+<td>(beg,end) 输入到迭代器dest开始的序列,符合unaryPred条件的元素替换为new_val</td>
+</tr>
+<tr>
+<td>merge(beg1, end1, beg2, end2, dest)</td>
+<td>合并两个有序序列后写入到dest</td>
+</tr>
+<tr>
+<td>merge(beg1, end1, beg2, end2, dest, comp)</td>
+<td>合并两个有序序列后写入到dest，comp用于指定序列排序所使用的比较</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="3-使用前">3、使用前</span></h4>
         
       </div>
     </div>
@@ -743,15 +995,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/02/lib&dll/">
-  windows静态库和动态库
+        <a href="/2020/01/02/Hook/">
+  Hook 钩子
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/02/lib&dll/"><span class="article-date">
+        <a href="/2020/01/02/Hook/"><span class="article-date">
   2020-01-02
 </span>
 </a>
@@ -770,41 +1022,10 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="动态链接库">动态链接库</span></h1><p>动态链接库通常都不能直接运行，也不能接受消息。是一些独立的文件，其中包含能被可执行程序或者其他DLL调用来完成某项工作的函数。只有在其他模块调用动态链接库中的函数时，它才发挥作用。</p>
-<p>windows API中的所有函数都包含在DLL中。其中有3个最重要的DLL，</p>
-<ul>
-<li>Kernel32.dll 包含用于管理内存、进程和线程的各个函数；</li>
-<li>User32.dll 包含用于执行用户界面任务的各个函数（比如窗口创建和消息传递）</li>
-<li>GDI32.dll 包含用于画图和显示文本的各个函数</li>
-</ul>
-<p>静态库<br>函数和数据被编译进一个二进制文件（lib）。在使用静态库的情况下，在编译链接可执行文件时，链接器从库中复制这些函数和数据并把它们和应用程序的其他模块组合起来创建最终的可执行文件（exe）</p>
-<p>在使用动态库的时候，往往提供两个文件，一个引入库（lib）和一个dll。引入库包含被DLL导出的函数和变量的符号名，DLL包含实际的函数和数据。在编译链接可执行文件时，只需要链接引入库，DLL中的函数代码和数据并不复制到可执行文件中，在运行的时候，再去加载DLL,访问DLL中导出的函数。</p>
-<h2><span id="使用好处">使用好处</span></h2><ul>
-<li>可以采用多种变成语言编写</li>
-<li>增强产品功能</li>
-<li>二次开发</li>
-<li>简化项目</li>
-<li>节省磁盘空间内存</li>
-<li>有助于资源共享</li>
-<li>有助于实现应用程序本地化</li>
-</ul>
-<h2><span id="加载方式">加载方式</span></h2><ul>
-<li>隐式连接</li>
-<li>显示加载</li>
-</ul>
-<h2><span id="dumpbin">dumpbin</span></h2><p>看dll文件中定义的函数</p>
-<h2><span id="隐式连接">隐式连接</span></h2><h3><span id="extern-和-_declspecdllimport-导入函数的区别">extern 和 _declspec(dllimport) 导入函数的区别</span></h3><p>告诉编译器我们从动态链接库上加载的 运行效率更高<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// extern int add(int a, int b);</span></span><br><span class="line"><span class="comment">// extern int subtract(int a, int b);</span></span><br><span class="line"></span><br><span class="line">_declspec(dllimport) <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line">_declspec(dllimport) <span class="function"><span class="keyword">int</span> <span class="title">subtract</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<h3><span id="导出动态库函数">导出动态库函数</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line">_declspec(dllexport) <span class="function"><span class="keyword">int</span> <span class="title">subtract</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/libdll_1.png" alt></p>
-<h3><span id="extern-c-的作用">extern “C” 的作用</span></h3><p>兼容C的风格, 导出函数名与原函数名相同, 不加这个会被编译器修改</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extern int add(int a, int b);</span></span><br><span class="line"><span class="comment">// extern int subtract(int a, int b);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function"><span class="keyword">int</span> <span class="title">subtract</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/libdll_2.png" alt></p>
-<p>加_stdcall 又会导致导出函数名不同<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// extern int add(int a, int b);</span></span><br><span class="line"><span class="comment">// extern int subtract(int a, int b);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function"><span class="keyword">int</span> _stdcall <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br><span class="line"><span class="keyword">extern</span> <span class="string">"C"</span> _declspec(dllexport) <span class="function"><span class="keyword">int</span> _stdcall <span class="title">subtract</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>;</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/libdll_3.png" alt></p>
-<h2><span id="动态加载">动态加载</span></h2><h3><span id="loadlibrary">LoadLibrary</span></h3><p>用于导入动态链接库<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HINSTANCE hInst;</span><br><span class="line">hInst = LoadLibrary(_T(<span class="string">"Dlltest.dll"</span>));</span><br></pre></td></tr></table></figure></p>
-<h3><span id="freelibrary">FreeLibrary</span></h3><p>释放动态链接库<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">HINSTANCE hInst;</span><br><span class="line">hInst = LoadLibrary(_T(<span class="string">"Dlltest.dll"</span>));</span><br><span class="line">FreeLibrary(hInst);</span><br></pre></td></tr></table></figure></p>
-<h3><span id="def文件">def文件</span></h3><p>此文件可以修改到处函数名字<br>需要在DLL编译前，添加到 “链接器-&gt;输入-&gt;模块定义文件” 中.</p>
-<h3><span id="makeintresource">MAKEINTRESOURCE()</span></h3><h2><span id="加载过多动态库会导致浪费">加载过多动态库会导致浪费</span></h2>
+          <h1><span id="hook-钩子技术">HOOK 钩子技术</span></h1><p>Windows系统建立在事件驱动机制上的，说白了就是整个系统都是通过消息传递实现的。hook（钩子）是一种特殊的消息处理机制，它可以监视系统或者进程中的各种事件消息，截获发往目标窗口的消息并进行处理。</p>
+<h2><span id="劫持鼠标和键盘消息">劫持鼠标和键盘消息</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">HHOOK g_hMouse = <span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">nCode  hook code</span></span><br><span class="line"><span class="comment">wParam message identifer</span></span><br><span class="line"><span class="comment">lParam mouse coordinates</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">LRESULT CALLBACK <span class="title">MouseProc</span><span class="params">(<span class="keyword">int</span> nCode, WPARAM wParam, LPARAM lParam)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 返回非0 鼠标消息不再进行传递，达到屏蔽鼠标消息的效果</span></span><br><span class="line">	</span><br><span class="line">    <span class="comment">// 若要继续执行</span></span><br><span class="line">	<span class="comment">//return CallNextHookEx(g_hMouse, nCode, wParam, lParam);</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HHOOK g_hKeyboard = <span class="literal">NULL</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">nCode  hook code</span></span><br><span class="line"><span class="comment">wParam virtual-key code</span></span><br><span class="line"><span class="comment">lParam keystroke-message information</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">LRESULT CALLBACK <span class="title">KeyboardProc</span><span class="params">(<span class="keyword">int</span> nCode, WPARAM wParam, LPARAM lParam)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 屏蔽了空格键和回车键</span></span><br><span class="line">	<span class="keyword">if</span> (VK_SPACE == wParam || VK_RETURN == wParam)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>;  <span class="comment">// 返回非0 屏蔽按键</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 若要继续执行</span></span><br><span class="line">        <span class="keyword">return</span> CallNextHookEx(g_hKeyboard, nCode, wParam, lParam);         </span><br><span class="line">    &#125;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g_hMouse = SetWindowsHookEx(WH_MOUSE, MouseProc, <span class="literal">NULL</span>, GetCurrentThreadId());</span><br><span class="line">g_hKeyboard = SetWindowsHookEx(WH_KEYBOARD, KeyboardProc, <span class="literal">NULL</span>, GetCurrentThreadId());</span><br></pre></td></tr></table></figure>
+<p>可以拦截消息，也可以hook特定函数来执行其他的函数。</p>
+<h2><span id="detour">detour</span></h2>
         
       </div>
     </div>

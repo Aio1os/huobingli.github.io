@@ -156,93 +156,81 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/Recursion/">
-  递归
+        <a href="/2019/12/31/redis/">
+  Redis 数据库
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/Recursion/"><span class="article-date">
+        <a href="/2019/12/31/redis/"><span class="article-date">
   2019-12-31
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
 	</span>
 
 
       </div>
       <div class="article-entry">
         
-          <h1><span id="递归">递归</span></h1><h3><span id="递归思想">递归思想</span></h3><p>将大问题分解为小问题来求解，然后再将小问题分解为小小问题。这样一层一层地分解，直到问题的数据规模被分解得足够小，不用继续递归分解为止。</p>
-<h3><span id="需要满足下列三个条件">需要满足下列三个条件</span></h3><ul>
-<li>一个问题的解可以分解为几个子问题的解</li>
-</ul>
-<p>何为子问题？子问题就是数据规模更小的问题。比如，前面讲的电影院的例子，你要知道，“自己在哪一排”的问题，可以分解为“前一排的人在哪一排”这样一个子问题。</p>
-<ul>
-<li>这个问题与分解之后的子问题，除了数据规模不同，求解思路完全一样</li>
-</ul>
-<p>比如电影院那个例子，你求解“自己在哪一排”的思路，和前面一排人求解“自己在哪一排”的思路，是一模一样的。</p>
-<ul>
-<li>存在递归终止条件</li>
-</ul>
-<p>写递归代码的关键就是找到如何将大问题分解为小问题的规律，并且基于此写出递推公式，然后再推敲终止条件，最后将递推公式和终止条件翻译成代码</p>
-<h3><span id="递归要警惕堆栈溢出">递归要警惕堆栈溢出。</span></h3><p>为了递归过深而堆栈过小，导致堆栈溢出，我们有两种解决办法：第一种是限制递归深度。一旦递归过深，超过了我们事先设定的阈值，就停止递归。第二种是通过在堆上模拟实现一个函数调用栈，手动模拟递归压栈、出栈的过程，这样就没有了系统栈大小的限制。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/list/">
-  链表
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/list/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="缓存使用">缓存使用</span></h1><p>缓存是一种提高数据读取性能的技术，在硬件设计、软件开发中都有着非常广泛的应用，比如常见的 CPU 缓存、数据库缓存、浏览器缓存等等。缓存的大小有限，当缓存被用满时，哪些数据应该被清理出去，哪些数据应该被保留？<br>这就需要缓存淘汰策略来决定。常见的策略有三种：先进先出策略 FIFO（First In，First Out）、最少使用策略 LFU（Least Frequently Used）、最近最少使用策略 LRU（Least Recently Used）。</p>
-<h1><span id="链表">链表</span></h1><p>单链表 双链表 循环链表</p>
-<h2><span id="单链表">单链表</span></h2><h3><span id="判断链表是否有环">判断链表是否有环</span></h3><p>采用快慢指针来判定<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fast = fast.Next.Next;</span><br><span class="line">slow = slow.Next;</span><br></pre></td></tr></table></figure></p>
-<p>slow每次向前走一步，fast向前追了两步,遇到环fast会跑到slow后面，这样会出现slow==fast的情况，出现这种情况表示链表中存在环。</p>
-<h2><span id="双链表">双链表</span></h2><h2><span id="循环链表">循环链表</span></h2>
+          <h1><span id="redis">Redis</span></h1><p>Redis 是一种键值（Key-Value）数据库。相对于关系型数据库（比如 MySQL），Redis 也被叫作非关系型数据库。</p>
+<p>Redis 中只包含“键”和“值”两部分，只能通过“键”来查询“值”。正是因为这样简单的存储结构，也让 Redis 的读写效率非常高。</p>
+<p>Redis 中，键的数据类型是字符串，但是为了丰富数据存储的方式，方便开发者使用，值的数据类型有很多，常用的数据类型有这样几种，它们分别是字符串、列表、字典、集合、有序集合。</p>
+<h2><span id="六种类型比较">六种类型比较</span></h2><table>
+<thead>
+<tr>
+<th>数据类型</th>
+<th>数据类型存储的值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> STRING（字符串）</td>
+<td>可以是保存字符串、整数和浮点数</td>
+<td>可以对字符串进行操作，比如增加字符或者求子串：如果是整数或者浮点数，可以实现计算，比如自增等</td>
+</tr>
+<tr>
+<td>LIST（列表）</td>
+<td>它是一个链表，它的每一个节点都包含一个字符串</td>
+<td>Redis 支持从链表的两端插入或者弹出节点，或者通过偏移对它进行裁剪；还可以读取一个或者多个节点，根据条件删除或者查找节点等</td>
+</tr>
+<tr>
+<td>SET（集合）</td>
+<td>它是一个收集器，但是是无序的，在它里而每一个元素都是一个字符串，而且是独一无二，各不相同的</td>
+<td>可以新增、读取、删除单个元素：检测一个元素是否在集合中；计算它和其他集合的交集、并集和差集等；随机从集合中读取元素</td>
+</tr>
+<tr>
+<td>HASH（哈希散列表）</td>
+<td>它类似于 Java 语言中的 Map，是一个键值对应的无序列表</td>
+<td>可以増、删、査、改单个键值对，也可以获取所有的键值对</td>
+</tr>
+<tr>
+<td>ZSET（有序集合）</td>
+<td>它是一个有序的集合，可以包含字符 串、整数、浮点数、分值（score），元素 的排序是依据分值的大小来决定的</td>
+<td>可以增、删、査、改元素，根据分值的范围或者成员 來获取对应的元索</td>
+</tr>
+<tr>
+<td>HyperLogLog（基数）</td>
+<td>它的作用是计算重复的值，以确定存储的数量</td>
+<td>只提供基数的运算，不提供返回的功能</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="优势">优势</span></h2><p>使用 Redis 作为缓存数据，就可以明显提升系统的性能</p>
+<h2><span id="劣势">劣势</span></h2><p>NoSQL 并不完全安全稳定，由于它基于内存，一旦停电或者机器故障数据就很容易丢失数据，其持久化能力也是有限的，而基于磁盘的数据库则不会出现这样的问题。以及其数据完整性、事务能力、安全性、可靠性及可扩展性都远不及数据库。</p>
+<h3><span id="字符串">字符串</span></h3><h3><span id="列表">列表</span></h3><p>支持存储一组数据，有两种实现方法，一种是压缩列表（ziplist），另一种是双向循环链表。</p>
+<h3><span id="字典">字典</span></h3><h3><span id="集合">集合</span></h3><h3><span id="有序集合">有序集合</span></h3><h3><span id="基数">基数</span></h3>
         
       </div>
     </div>
@@ -304,15 +292,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/StringMatch/">
-  字符串匹配算法
+        <a href="/2019/12/31/DynamicProgram/">
+  动态规划
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/StringMatch/"><span class="article-date">
+        <a href="/2019/12/31/DynamicProgram/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -331,11 +319,7 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="bf-算法暴力匹配算法朴素匹配算法">BF 算法（暴力匹配算法，朴素匹配算法）</span></h1><p>我们在主串中，检查起始位置分别是 0、1、2…n-m 且长度为 m 的 n-m+1 个子串，看有没有跟模式串匹配的</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BF</span><span class="params">(<span class="built_in">string</span> strMain, <span class="built_in">string</span> strTarget)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span> (i &lt; strMain.length() &amp;&amp; j &lt; strTarget.length())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (strMain[i] == strTarget[j])</span><br><span class="line">		&#123;</span><br><span class="line">			i++; j++;	<span class="comment">// 正常匹配</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			i = i - j + <span class="number">1</span>;</span><br><span class="line">			j = <span class="number">0</span>;		<span class="comment">// 子串重新开始</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (j &gt;= strTarget.length())</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> (i - strTarget.length());	<span class="comment">// 匹配成功，返回第一个字符下标</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">-1</span>;	<span class="comment">// 表示未匹配成功</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1><span id="rk-算法">RK 算法</span></h1><p>redis的布隆过滤器 RK算法</p>
-<h1><span id="bm-算法">BM 算法</span></h1><p>grep</p>
-<h1><span id="kmp-算法">KMP 算法</span></h1>
+          <h1><span id="动态规划">动态规划</span></h1>
         
       </div>
     </div>
@@ -349,27 +333,27 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/Graph/">
-  图
+        <a href="/2019/12/31/ProtocalHttps/">
+  HTTPS 协议
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/Graph/"><span class="article-date">
+        <a href="/2019/12/31/ProtocalHttps/"><span class="article-date">
   2019-12-31
 </span>
 </a>
         
 	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络协议/">网络协议</a></li></ul>
 	</span>
 
 
         
 	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络协议/">网络协议</a></li></ul>
 	</span>
 
 
@@ -390,15 +374,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/lua/">
-  Lua
+        <a href="/2019/12/31/LearnDuilib/">
+  DUILIB
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2019/12/31/lua/"><span class="article-date">
+        <a href="/2019/12/31/LearnDuilib/"><span class="article-date">
   2019-12-31
 </span>
 </a>
@@ -417,185 +401,9 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="lua-脚本学习">lua 脚本学习</span></h1><p>Lua 是一个小巧的脚本语言。该语言的设计目的是为了嵌入应用程序中，从而为应用程序提供灵活的扩展和定制功能。Lua脚本可以很容易的被C/C++代码调用，也可以反过来调用C/C++的函数，这使得Lua在应用程序中可以被广泛应用。不仅仅作为扩展脚本，也可以作为普通的配置文件，代替XML,Ini等文件格式，并且更容易理解和维护。</p>
-<p>Lua由标准C编写而成，代码简洁优美，几乎在所有操作系统和平台上都可以编译，运行。一个完整的Lua解释器不过200k，在目前所有脚本引擎中，Lua的速度是最快的。这一切都决定了Lua是作为嵌入式脚本的最佳选择。</p>
-<h2><span id="lua-应用场景">Lua 应用场景</span></h2><ul>
-<li>游戏开发</li>
-<li>独立应用脚本</li>
-<li>Web 应用脚本</li>
-<li>扩展和数据库插件如：MySQL Proxy 和 MySQL WorkBench</li>
-<li>安全系统，如入侵检测系统</li>
-</ul>
-<h2><span id="使用lua51dll">使用lua5.1.dll</span></h2>
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/Recall/">
-  回溯算法
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/Recall/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="回溯算法">回溯算法</span></h1><p>复杂度较高, 指数级, 适合用递归来解决</p>
-<h3><span id="算法应用">算法应用</span></h3><p>深度优先搜索、八皇后、0-1 背包问题、图的着色、旅行商问题、数独、全排列、正则表达式匹配等。</p>
-<h3><span id="八皇后">八皇后</span></h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//全局或成员变量,下标表示行,值表示queen存储在哪一列</span></span><br><span class="line"><span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">8</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cal8queens</span><span class="params">(<span class="keyword">int</span> row)</span> </span>&#123; </span><br><span class="line">    <span class="comment">// 8个棋子都放置好了, 打印结果</span></span><br><span class="line">    <span class="keyword">if</span> (row == <span class="number">8</span>) &#123; </span><br><span class="line">        printQueens(result);</span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">// 8行棋子都放好了, 结束</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 每一行都有8中放法</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; <span class="number">8</span>; ++column) &#123; </span><br><span class="line">        <span class="keyword">if</span> (isOk(row, column)) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="comment">// 有些放法不满足要求</span></span><br><span class="line">            <span class="comment">// 第row行的棋子放到了column列</span></span><br><span class="line">            result[row] = column; </span><br><span class="line">            <span class="comment">// 考察下一行</span></span><br><span class="line">            cal8queens(row+<span class="number">1</span>); </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断row行column列放置是否合适</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">boolean</span> <span class="title">isOk</span><span class="params">(<span class="keyword">int</span> row, <span class="keyword">int</span> column)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> leftup = column - <span class="number">1</span>, rightup = column + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 逐行往上考察每一行</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = row-<span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="comment">// 第i行的column列有棋子吗？</span></span><br><span class="line">        <span class="keyword">if</span> (result[i] == column) <span class="keyword">return</span> <span class="keyword">false</span>; </span><br><span class="line">        <span class="comment">// 考察左上对角线：第i行leftup列有棋子吗？</span></span><br><span class="line">        <span class="keyword">if</span> (leftup &gt;= <span class="number">0</span>) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (result[i] == leftup) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 考察右上对角线：第i行rightup列有棋子吗？</span></span><br><span class="line">        <span class="keyword">if</span> (rightup &lt; <span class="number">8</span>) </span><br><span class="line">        &#123; </span><br><span class="line">            <span class="keyword">if</span> (result[i] == rightup) <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        --leftup; ++rightup;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 输出二维矩阵</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">printQueens</span><span class="params">(<span class="keyword">int</span>[] result)</span> </span>&#123; </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> row = <span class="number">0</span>; row &lt; <span class="number">8</span>; ++row) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> column = <span class="number">0</span>; column &lt; <span class="number">8</span>; ++column) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (result[row] == column) </span><br><span class="line">                System.out.print(<span class="string">"Q "</span>);</span><br><span class="line">            <span class="keyword">else</span> </span><br><span class="line">                System.out.print(<span class="string">"* "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>判断是否在一条斜线上还有更加简便的做法，就是如果行互减的绝对值等于列互减的绝对值，那么就是在一条斜线上的。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (Math.abs(row - i) == Math.abs(column - result[i])) </span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/memory4part/">
-  内存四区
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/memory4part/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/wait/">wait</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/wait/">wait</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="静态区域与动态区域">静态区域与动态区域</span></h1><h2><span id="静态区域">静态区域</span></h2><p>text segment(代码段): 包括只读存储区和文本区，其中只读存储区存储字符串常量，文本区存储程序的机器代码。<br>在程序运行前就已经确定，并且内存区域通常属于只读, 某些架构也允许代码段为可写，即允许自修改程序。 在代码段中，也有可能包含一些只读的常数变量，例如字符串常量等。</p>
-<p>data segment(数据段): 存储程序中已初始化的全局变量和静态变量</p>
-<p>bss segment(BSS段)：存储未初始化的全局变量和静态变量（局部+全局），以及所有被初始化为0的全局变量和静态变量，对于未初始化的全局变量和静态变量，程序运行main之前时会统一清零。即未初始化的全局变量编译器会初始化为0</p>
-<h2><span id="动态区域">动态区域</span></h2><p>heap（堆区）： 当进程未调用malloc时是没有堆段的，只有调用malloc时采用分配一个堆，并且在程序运行过程中可以动态增加堆大小(移动break指针)，从低地址向高地址增长。分配小内存时使用该区域。  堆的起始地址由mm_struct 结构体中的start_brk标识，结束地址由brk标识。</p>
-<p>memory mapping segment(映射区):存储动态链接库等文件映射、申请大内存（malloc时调用mmap函数）</p>
-<p>stack（栈区）：使用栈空间存储函数的返回地址、参数、局部变量、返回值，从高地址向低地址增长。在创建进程时会有一个最大栈大小，Linux可以通过ulimit命令指定。</p>
-<h1><span id="内存四区">内存四区</span></h1><h3><span id="栈区stack">栈区(stack)</span></h3><p>就是那些由编译器在需要的时候分配，在不需要的时候自动清除的变量的存储区。里面的变量通常是函数的返回地址、参数、局部变量、返回值等，从高地址向低地址增长。在一个进程中，位于用户虚拟地址空间顶部的是用户栈，编译器用它来实现函数的调用。其操作方式类似于数据结构中的栈。</p>
-<h3><span id="堆区heap">堆区(heap)</span></h3><p>一般由程序员分配释放， 若程序员不释放，程序结束时可能由OS回收 。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表，在程序运行过程中可以动态增加堆大小(移动break指针)，从低地址向高地址增长。</p>
-<ul>
-<li><p>堆：是操作系统所维护的一块特殊内存，它提供了动态分配的功能，当运行程序调用malloc()时就会从中分配，稍后调用free()可把内存交还。</p>
-</li>
-<li><p>自由存储区：自由存储是C++中通过new和delete动态分配和释放对象的抽象概念，通过new来申请的内存区域可称为自由存储区。基本上，所有的C++编译器默认使用堆来实现自由存储，也即是缺省的全局运算符new和delete也许会按照malloc和free的方式来被实现，这时藉由new运算符分配的对象，说它在堆上也对，说它在自由存储区上也正确。但程序员也可以通过重载操作符，改用其他内存来实现自由存储，例如全局变量做的对象池，这时自由存储区和堆区就有区别了。</p>
-</li>
-</ul>
-<h3><span id="数据区">数据区</span></h3><p>主要包括静态全局区和静态区，如果要站在汇编角度细分的话还可以分为很多小的区。</p>
-<ul>
-<li><p>全局区&amp;静态区：全局变量和静态变量被分配到同一块内存中，在以前的 C 语言中，全局变量和静态变量又分为</p>
-</li>
-<li><p>全局初始化区(DATA段) ：存储程序中已初始化的全局变量和静态变量</p>
-</li>
-<li><p>未初始化段(BSS段) ：存储<u><b>未初始化</b></u>的全局变量和静态变量（局部+全局）。BSS段在DATA段的相邻的另一块区域。</p>
-<p>  BBS段特点：在程序执行前BBS段自动清零，所以未初始化的全局变量和静态变量在程序执行前已经成为0。</p>
-</li>
-</ul>
-<p>　　在 C++ 里面没有这个区分了，他们共同占用同一块内存区。</p>
-<h3><span id="代码区">代码区</span></h3><p>包括只读存储区和文本区，其中只读存储区存储字符串常量，就是常量区，文本区存储程序的机器代码</p>
-<h2><span id="可执行程序包括">可执行程序包括</span></h2><p>可执行程序包括BSS段、数据段、代码段（也称文本段）</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
-        <a href="/2019/12/31/binarysearchtree/">
-  二叉查找树
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/binarysearchtree/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <table>
-<thead>
-<tr>
-<th>-</th>
-<th>散列表</th>
-<th>二叉查找树</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>快速插入、删除、查找操作</td>
-<td>支持</td>
-<td>支持 复杂度与高度成正比</td>
-</tr>
-</tbody>
-</table>
+          <h1><span id="duilib">DUILIB</span></h1><p>Duilib 是一款强大的界面开发工具，可以将用户界面和处理逻辑彻底分离，极大地提高用户界面的开发效率，遵循bsd协议。 ———— from 百度百科</p>
+<p>用xml配置界面控件布局</p>
+<p><a href="https://github.com/netease-im/NIM_Duilib_Framework" target="_blank" rel="noopener">网易云信的修改版</a></p>
 
         
       </div>
@@ -638,6 +446,263 @@
       <div class="article-entry">
         
           
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/ProtocolUDP/">
+  UCP 协议
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/ProtocolUDP/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/ProtocolTcp/">
+  TCP 协议
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/ProtocolTcp/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络协议/">网络协议</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/sortAlgorithm/">
+  排序算法
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/sortAlgorithm/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="排序算法">排序算法</span></h1><h2><span id="内排序">内排序</span></h2><p>待排序记录存放在计算机随机存储器中（比如内存）进行的排序过程。</p>
+<h2><span id="外排序">外排序</span></h2><p>待排序记录的数量很大，以致于内存不能一次容纳全部记录，所以在排序过程中需要对外存进行访问的排序过程。这些数据存储在外部磁盘中，数据量比较大，内存有限，无法将数据全部加载到内存中。</p>
+<h2><span id="衡量效率的方法">衡量效率的方法</span></h2><p>内部排序：比较次数，也就是<u><b>时间复杂度</b></u><br>外部排序：IO次数，也就是<u><b>读写外存的次数</b></u>  </p>
+<table>
+<thead>
+<tr>
+<th>-</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+<th>复杂性 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>插入排序</td>
+<td>平均O(n^2) 最坏O(n^2) 最好 O(n)</td>
+<td>O(1)</td>
+<td>稳定</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>平均O(n^1.3)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>较复杂</td>
+</tr>
+<tr>
+<td>冒泡排序</td>
+<td>平均O(n^2) 最坏O(n^2) 最好 O(n)</td>
+<td>O(1)</td>
+<td>稳定</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>平均O(nlog2n) 最坏O(n^2) 最好 O(nlog2n)</td>
+<td>O(nlog2n)</td>
+<td>不稳定</td>
+<td>较复杂</td>
+</tr>
+<tr>
+<td>直接选择排序</td>
+<td>平均O(n^2) 最坏O(n^2) 最好 O(n^2)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>简单</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>平均O(nlog2n) 最坏O(nlog2n) 最好 O(nlog2n)</td>
+<td>O(1)</td>
+<td>不稳定</td>
+<td>较复杂</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>平均O(nlog2n) 最坏O(nlog2n) 最好 O(nlog2n)</td>
+<td>O(n)</td>
+<td>稳定</td>
+<td>较复杂</td>
+</tr>
+</tbody>
+</table>
+<p>简单排序 时间复杂度为O(n^2) 插入排序，冒泡排序，直接选择排序</p>
+<h2><span id="排序的稳定性">排序的稳定性</span></h2><p>判断排序算法是否稳定, 排序之后相同关键字的元素之间的相对次序是否保持不变。<br>保持不变则说明该算法稳定, 反之则是不稳定的。</p>
+<p>确定是否为稳定算法还需要根据具体算法确定</p>
+<h2><span id="插入排序">插入排序</span></h2><p>插入排序算法的核心思想是取未排序区间中的元素，在已排序区间中找到合适的插入位置将其插入，并保证已排序区间数据一直有序</p>
+<h3><span id="直接插入排序">直接插入排序</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">	<span class="keyword">int</span> tmp;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		tmp = R[i]; <span class="comment">// 从第二个开始排</span></span><br><span class="line">		j = i - <span class="number">1</span>;  </span><br><span class="line">		<span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; R[j] &gt; tmp) <span class="comment">// 循环向前比较</span></span><br><span class="line">		&#123;</span><br><span class="line">			R[j + <span class="number">1</span>] = R[j];</span><br><span class="line">			j--;</span><br><span class="line">		&#125;</span><br><span class="line">		R[j + <span class="number">1</span>] = tmp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="分析-时间复杂度">分析 时间复杂度</span></h4><p>最优情况 正序(1,2,3,4,5) 只需要进行for循环 循环了n-1次<br>最坏情况 倒序(5,4,3,2,1) 外循环需要执行 n-1 次，内循环需要执行 n次</p>
+<h4><span id="分析-空间复杂度">分析 空间复杂度</span></h4><p>O(1)</p>
+<h4><span id="分析-稳定性">分析 稳定性</span></h4><p>上述算法为稳定算法，做如下修改即为不稳定算法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//while (j &gt;= 0 &amp;&amp; R[j] &gt; tmp) </span></span><br><span class="line"><span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; R[j] &gt;= tmp)</span><br></pre></td></tr></table></figure></p>
+<p>若while结束前的序列…,A1,A2,…. 且A1 == A2, 遇到这个情况，会继续交换一次, 结束的序列…,A2,A1,….所以变成不稳定</p>
+<h3><span id="折半插入排序">折半插入排序</span></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InsertSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, low, high, mid;</span><br><span class="line">	<span class="keyword">int</span> tmp;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		tmp = R[i]; <span class="comment">// 从第二个开始排</span></span><br><span class="line">		low = <span class="number">0</span>; high = i - <span class="number">1</span>;  </span><br><span class="line">		<span class="keyword">while</span> (high &gt;= low) <span class="comment">// 在R[low, high]中折半查找有序插入的位置</span></span><br><span class="line">		&#123;</span><br><span class="line">			mid = (low + high) / <span class="number">2</span>;     <span class="comment">// 取中间位置</span></span><br><span class="line">            <span class="keyword">if</span> (R[mid] &gt; tmp)       <span class="comment">// 寻找tmp插入的位置</span></span><br><span class="line">                high = mid - <span class="number">1</span>;     <span class="comment">// 插入点在左半区</span></span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                low = mid + <span class="number">1</span>;  <span class="comment">// 插入点在右半区</span></span><br><span class="line">		&#125;</span><br><span class="line">        <span class="keyword">for</span> (j = i - <span class="number">1</span>; j &gt;= high + <span class="number">1</span>; j--)</span><br><span class="line">            R[j + <span class="number">1</span>] = R[j];</span><br><span class="line">		R[high + <span class="number">1</span>] = tmp;      <span class="comment">// 插入</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次while循环就会出现一个<u><b>局部有序的区域</b></u>，之后的每个数据在这个局部有序区中插入</p>
+<h4><span id="分析-时间复杂度">分析 时间复杂度</span></h4><h4><span id="分析-空间复杂度">分析 空间复杂度</span></h4><p>O(1)</p>
+<h4><span id="分析-稳定性">分析 稳定性</span></h4><p>上述算法为稳定算法，做如下修改即为不稳定算法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//if (R[mid] &gt; tmp)       // 寻找tmp插入的位置</span></span><br><span class="line"><span class="keyword">if</span> (R[mid] &gt;= tmp)       <span class="comment">// 寻找tmp插入的位置</span></span><br></pre></td></tr></table></figure></p>
+<h3><span id="两种插入排序的比较">两种插入排序的比较</span></h3><p>折半插入排序主要是用二分法加快了找插入点的效率</p>
+<h2><span id="希尔排序">希尔排序</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">ShellSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, gap;</span><br><span class="line">	<span class="keyword">int</span> tmp;</span><br><span class="line">	gap = n / <span class="number">2</span>;	<span class="comment">//增量初值</span></span><br><span class="line">	<span class="keyword">while</span> (gap &gt; <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (i = gap; i &lt; n; i++)	<span class="comment">//对所有像个gap位置的元素组采用直接插入排序</span></span><br><span class="line">		&#123;</span><br><span class="line">			tmp = R[i];</span><br><span class="line">			j = i - gap;</span><br><span class="line">			<span class="keyword">while</span>(j &gt;= <span class="number">0</span> &amp;&amp; tmp &lt; R[j])	<span class="comment">// 对相隔gap位置的元素组进行排序</span></span><br><span class="line">			&#123; </span><br><span class="line">				R[j + gap] = R[j];</span><br><span class="line">				j = j - gap;</span><br><span class="line">			&#125;</span><br><span class="line">			R[j + gap] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">		gap = gap / <span class="number">2</span>;	<span class="comment">// 减下增量</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="冒泡排序">冒泡排序</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j;</span><br><span class="line">	<span class="keyword">int</span> tmp;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (j = n - <span class="number">1</span>; j &gt; i; j--)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (R[j <span class="number">-1</span>] &gt; R[j])	<span class="comment">// 比较，找出本趟关键词的最小元素</span></span><br><span class="line">			&#123;</span><br><span class="line">				tmp = R[j];		<span class="comment">// R[j]与R[j-1]进行交换，将关键词最小的元素前移</span></span><br><span class="line">				R[j] = R[j - <span class="number">1</span>];</span><br><span class="line">				R[j - <span class="number">1</span>] = tmp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>冒泡排序只会操作相邻的两个数据。每次冒泡操作都会对相邻的两个元素进行比较，看是否满足大小关系要求。如果不满足就让它俩互换。一次冒泡会让至少一个元素移动到它应该在的位置，重复 n 次，就完成了 n 个数据的排序工作。</p>
+<h4><span id="分析-时间复杂度">分析 时间复杂度</span></h4><h4><span id="分析-空间复杂度">分析 空间复杂度</span></h4><p>O(1)</p>
+<h4><span id="分析-稳定性">分析 稳定性</span></h4><p>上述算法为稳定算法，做如下修改即为不稳定算法<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// if (R[j- 1] &gt; R[j])      // 比较，找出本趟关键词的最小元素</span></span><br><span class="line"><span class="keyword">if</span> (R[j- <span class="number">1</span>] &gt;= R[j])      <span class="comment">// 比较，找出本趟关键词的最小元素</span></span><br></pre></td></tr></table></figure></p>
+<h2><span id="快速排序">快速排序</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> s, <span class="keyword">int</span> t)</span> <span class="comment">// 对 R[s] 到R[t]的元素进行排序</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i = s, j = t;</span><br><span class="line">	<span class="keyword">int</span> tmp;</span><br><span class="line">	<span class="keyword">if</span> (s &lt; t)</span><br><span class="line">	&#123;</span><br><span class="line">		tmp = R[s];</span><br><span class="line">		<span class="keyword">while</span> (i != j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">while</span> (j &gt; i &amp;&amp; R[j] &gt;= tmp)    <span class="comment">// 尾部的数据和当前需要归位的元素比较</span></span><br><span class="line">			&#123;</span><br><span class="line">				j -- ;</span><br><span class="line">			&#125;</span><br><span class="line">			R[i] = R[j];</span><br><span class="line"></span><br><span class="line">			<span class="keyword">while</span> (i &lt; j &amp;&amp; tmp &gt;= R[i])    <span class="comment">// 头部的数据和当前需要归为的元素比较</span></span><br><span class="line">			&#123;</span><br><span class="line">				i ++;</span><br><span class="line">			&#125;</span><br><span class="line">			R[j] = R[i];</span><br><span class="line">		&#125;</span><br><span class="line">		R[i] = tmp;</span><br><span class="line"></span><br><span class="line">		QuickSort(R, s, i - <span class="number">1</span>);			<span class="comment">// 对左区间递归排序</span></span><br><span class="line">		QuickSort(R, i + <span class="number">1</span>, t);			<span class="comment">// 对右区间递归排序</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="直接选择排序">直接选择排序</span></h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">SelectSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i, j, k;</span><br><span class="line">	<span class="keyword">int</span> tmp;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)			<span class="comment">// 做第i趟排序</span></span><br><span class="line">	&#123;</span><br><span class="line">		k = i;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; n; j++)		<span class="comment">// 在当前无序区R[i, ... ，n-1]中选最小的R[k]</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (R[j] &lt; R[k])</span><br><span class="line">			&#123;</span><br><span class="line">				k = j;  <span class="comment">// K记录目前找到的最小关键字所在的位置</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (k != i)	    <span class="comment">// 交换R[i]和R[K]</span></span><br><span class="line">		&#123;</span><br><span class="line">			tmp = R[i];</span><br><span class="line">			R[i] = R[k];</span><br><span class="line">			R[k] = tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2><span id="堆排序">堆排序</span></h2><h2><span id="归并排序">归并排序</span></h2><ul>
+<li>哨兵简化编程的处理技巧</li>
+</ul>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/list/">
+  链表
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/list/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="缓存使用">缓存使用</span></h1><p>缓存是一种提高数据读取性能的技术，在硬件设计、软件开发中都有着非常广泛的应用，比如常见的 CPU 缓存、数据库缓存、浏览器缓存等等。缓存的大小有限，当缓存被用满时，哪些数据应该被清理出去，哪些数据应该被保留？<br>这就需要缓存淘汰策略来决定。常见的策略有三种：先进先出策略 FIFO（First In，First Out）、最少使用策略 LFU（Least Frequently Used）、最近最少使用策略 LRU（Least Recently Used）。</p>
+<h1><span id="链表">链表</span></h1><p>单链表 双链表 循环链表</p>
+<h2><span id="单链表">单链表</span></h2><h3><span id="判断链表是否有环">判断链表是否有环</span></h3><p>采用快慢指针来判定<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fast = fast.Next.Next;</span><br><span class="line">slow = slow.Next;</span><br></pre></td></tr></table></figure></p>
+<p>slow每次向前走一步，fast向前追了两步,遇到环fast会跑到slow后面，这样会出现slow==fast的情况，出现这种情况表示链表中存在环。</p>
+<h2><span id="双链表">双链表</span></h2><h2><span id="循环链表">循环链表</span></h2>
         
       </div>
     </div>

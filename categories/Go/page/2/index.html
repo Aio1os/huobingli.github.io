@@ -149,271 +149,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/Gobase/">
-  Go 占位符
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/01/04/Gobase/"><span class="article-date">
-  2020-01-04
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="普通占位符">普通占位符</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%v</td>
-<td>相应值的默认格式</td>
-<td>Printf(“%v”, people)</td>
-<td>{zhangsan}</td>
-</tr>
-<tr>
-<td>%+v</td>
-<td>打印结构体时，会添加字段名</td>
-<td>Printf(“%+v”, people)</td>
-<td>{Name:zhangsan}</td>
-</tr>
-<tr>
-<td>%#v</td>
-<td>相应值的Go语法表示</td>
-<td>Printf(“#v”, people)</td>
-<td>main.Human{Name:”zhangsan”}</td>
-</tr>
-<tr>
-<td>%T</td>
-<td>相应值的类型的Go语法表示</td>
-<td>Printf(“%T”, people)</td>
-<td>main.Human</td>
-</tr>
-<tr>
-<td>%%</td>
-<td>字面上的百分号，并非值的占位符</td>
-<td>Printf(“%%”)</td>
-<td>%</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="布尔占位符">布尔占位符</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%t</td>
-<td>true 或 false</td>
-<td>Printf(“%t”, true)</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="整数占位符">整数占位符</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%b</td>
-<td>二进制表示</td>
-<td>Printf(“%b”, 5)</td>
-<td>101</td>
-</tr>
-<tr>
-<td>%c</td>
-<td>相应Unicode码点所表示的字符</td>
-<td>Printf(“%c”, 0x4E2D)</td>
-<td>中</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>十进制表示</td>
-<td>Printf(“%d”, 0x12)</td>
-<td>18</td>
-</tr>
-<tr>
-<td>%o</td>
-<td>八进制表示</td>
-<td>Printf(“%d”, 10)</td>
-<td>12</td>
-</tr>
-<tr>
-<td>%q</td>
-<td>单引号围绕的字符字面值，由Go语法安全地转义</td>
-<td>Printf(“%q”, 0x4E2D)</td>
-<td>‘中’</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>十六进制表示，字母形式为小写 a-f</td>
-<td>Printf(“%x”, 13)</td>
-<td>d</td>
-</tr>
-<tr>
-<td>%X</td>
-<td>十六进制表示，字母形式为大写 A-F</td>
-<td>Printf(“%x”, 13)</td>
-<td>D</td>
-</tr>
-<tr>
-<td>%U</td>
-<td>Unicode格式：U+1234，等同于 “U+%04X”</td>
-<td>Printf(“%U”, 0x4E2D)</td>
-<td>U+4E2D</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="浮点数和复数的组成部分实部和虚部">浮点数和复数的组成部分（实部和虚部）</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%b</td>
-<td>无小数部分的，指数为二的幂的科学计数法</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr>
-<td>%e</td>
-<td>科学计数法，例如 -1234.456e+78</td>
-<td>Printf(“%e”, 10.2)</td>
-<td>1.020000e+01</td>
-</tr>
-<tr>
-<td>%E</td>
-<td>科学计数法，例如 -1234.456E+78</td>
-<td>Printf(“%e”, 10.2)</td>
-<td>1.020000E+01</td>
-</tr>
-<tr>
-<td>%f</td>
-<td>有小数点而无指数，例如 123.456</td>
-<td>Printf(“%f”, 10.2)</td>
-<td>10.200000</td>
-</tr>
-<tr>
-<td>%g</td>
-<td>根据情况选择 %e 或 %f 以产生更紧凑的（无末尾的0）输出</td>
-<td>Printf(“%g”, 10.20)</td>
-<td>10.2</td>
-</tr>
-<tr>
-<td>%G</td>
-<td>根据情况选择 %E 或 %f 以产生更紧凑的（无末尾的0）输出</td>
-<td>Printf(“%G”, 10.20+2i)</td>
-<td>(10.2+2i)</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="字符串与字节切片">字符串与字节切片</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%s</td>
-<td>输出字符串表示（string类型或[]byte)</td>
-<td>Printf(“%s”, []byte(“Go语言”))</td>
-<td>Go语言</td>
-</tr>
-<tr>
-<td>%q</td>
-<td>双引号围绕的字符串，由Go语法安全地转义</td>
-<td>Printf(“%q”, “Go语言”)</td>
-<td>“Go语言”</td>
-</tr>
-<tr>
-<td>%x</td>
-<td>十六进制，小写字母，每字节两个字符</td>
-<td>Printf(“%x”, “golang”)</td>
-<td>676f6c616e67</td>
-</tr>
-<tr>
-<td>%X</td>
-<td>十六进制，大写字母，每字节两个字符</td>
-<td>Printf(“%X”, “golang”)</td>
-<td>676F6C616E67</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="指针">指针</span></h2><table>
-<thead>
-<tr>
-<th>占位符</th>
-<th>说明</th>
-<th>举例</th>
-<th>输出</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>%p</td>
-<td>十六进制表示，前缀 0x</td>
-<td>Printf(“%p”, &amp;people)</td>
-<td>0x4f57f0</td>
-</tr>
-</tbody>
-</table>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/01/04/Gocommand/">
   Go 命令
 </a>
@@ -484,6 +219,52 @@
 </tbody>
 </table>
 <h2><span id="go-clean">go clean</span></h2><p>会清除掉编译过程中产生的一些文件。</p>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/01/04/Gojson/">
+  Go json解析
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/01/04/Gojson/"><span class="article-date">
+  2020-01-04
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="json解析">json解析</span></h1><p>Json(Javascript Object Nanotation)是一种数据交换格式，常用于前后端数据传输。任意一端将数据转换成json 字符串，另一端再将该字符串解析成相应的数据结构。</p>
+<h2><span id="jsonmarshal">json.Marshal</span></h2><p>将数据编码成json字符串</p>
+<h2><span id="jsonunmarshal">json.Unmarshal</span></h2><p>将json字符串解码到相应的数据结构</p>
 
         
       </div>
@@ -596,15 +377,15 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/01/04/GoWorkSpace/">
-  Go 工作区
+        <a href="/2020/01/04/GoTesting/">
+  Go Testing包
 </a>
 
       </h3>
       
 
       <div class="article-info">
-        <a href="/2020/01/04/GoWorkSpace/"><span class="article-date">
+        <a href="/2020/01/04/GoTesting/"><span class="article-date">
   2020-01-04
 </span>
 </a>
@@ -623,7 +404,7 @@
       </div>
       <div class="article-entry">
         
-          <h1><span id="go-工作区">GO 工作区</span></h1><h2><span id="gopath">GOPATH</span></h2><p>Go 语言的工作目录，它的值是一个目录的路径，也可以是多个目录路径，每个目录都代表 Go 语言的一个工作区（workspace）。</p>
+          <h1><span id="go-testing包">Go Testing包</span></h1><p>Go语言的 testing 提供了三种测试方式，分别是单元（功能）测试、性能（压力）测试和覆盖率测试。</p>
 
         
       </div>

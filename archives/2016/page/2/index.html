@@ -156,56 +156,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/11/15/make_boost/">
-  CENTOS7 安装编译Boost库
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/11/15/make_boost/"><span class="article-date">
-  2016-11-15
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CENTOS/">CENTOS</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CENTOS/">CENTOS</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h3><span id="linux-下编译boost库">linux 下编译Boost库</span></h3><p>1、下载Boost库</p>
-<p>2、解压压缩文件</p>
-<p>3、./bootstrap.sh; ./b2<br>./bootstrap.sh 是编译前的配置工作<br>./b2 开始编译</p>
-<p>4、/b2 –buildtype=complete stage<br>将对Boost库进行完整编译，生成所有调试版、发行版的静态库和动态库<br>buildtype选项是编译类型，如不指定就是release模式<br>stage选项指定Boost使用本地构建。如果使用install选项则编译后会把Boost安装到默认路径下（/usr/local）</p>
-<p>5、首先把Boost库的头文件存放到/usr/include/boost/路径下，再把Lib文件存放到/usr/local/lib/boost/路径下。</p>
-<p>6、修改/etc/profile文件，在此文件中增加如下2个环境变量：</p>
-<p>BOOST_INCLUDE=/usr/include/boost<br>export BOOST_INCLUDE</p>
-<p>BOOST_LIB=/usr/local/lib/boost<br>export BOOST_LIB</p>
-<p>Done!!!</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2016/11/15/Install_Erlang/">
   CENTOS7 安装erlang
 </a>
@@ -243,6 +193,56 @@
 <p>最后测试一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">erl</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://raw.githubusercontent.com/huobingli/huobingli.github.io/master/img/installerlang.png" alt>   </p>
 <p>Done!!</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/11/15/make_boost/">
+  CENTOS7 安装编译Boost库
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/11/15/make_boost/"><span class="article-date">
+  2016-11-15
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/CENTOS/">CENTOS</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CENTOS/">CENTOS</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h3><span id="linux-下编译boost库">linux 下编译Boost库</span></h3><p>1、下载Boost库</p>
+<p>2、解压压缩文件</p>
+<p>3、./bootstrap.sh; ./b2<br>./bootstrap.sh 是编译前的配置工作<br>./b2 开始编译</p>
+<p>4、/b2 –buildtype=complete stage<br>将对Boost库进行完整编译，生成所有调试版、发行版的静态库和动态库<br>buildtype选项是编译类型，如不指定就是release模式<br>stage选项指定Boost使用本地构建。如果使用install选项则编译后会把Boost安装到默认路径下（/usr/local）</p>
+<p>5、首先把Boost库的头文件存放到/usr/include/boost/路径下，再把Lib文件存放到/usr/local/lib/boost/路径下。</p>
+<p>6、修改/etc/profile文件，在此文件中增加如下2个环境变量：</p>
+<p>BOOST_INCLUDE=/usr/include/boost<br>export BOOST_INCLUDE</p>
+<p>BOOST_LIB=/usr/local/lib/boost<br>export BOOST_LIB</p>
+<p>Done!!!</p>
 
         
       </div>
@@ -363,47 +363,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2016/10/11/boost_shared_ptr/">
-  Boost shared_ptr
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2016/10/11/boost_shared_ptr/"><span class="article-date">
-  2016-10-11
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Boost/">Boost</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Boost/">Boost</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2016/10/11/WindowsProgram/">
   Windows编程
 </a>
@@ -442,6 +401,47 @@
 <p>3、然后依次用va_arg宏使arg_ptr返回可变参数的地址,得到这个地址之后，结合参数的类型，就可以得到参数的值。</p>
 <p>4、设定结束条件，这里的条件就是判断参数值是否为-1。注意被调的函数在调用时是不知道可变参数的正确数目的，程序员必须自己在代码中指明结束条件。至于为什么它不会知道参数的数目，在看完这几个宏的内部实现机制后，自然就会明白。</p>
 
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2016/10/11/boost_shared_ptr/">
+  Boost shared_ptr
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2016/10/11/boost_shared_ptr/"><span class="article-date">
+  2016-10-11
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Boost/">Boost</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Boost/">Boost</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          
         
       </div>
     </div>

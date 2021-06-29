@@ -156,48 +156,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/03/31/pool/">
-  池化技术
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/03/31/pool/"><span class="article-date">
-  2020-03-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="池化技术">池化技术</span></h1><p>池化技术 (Pool) 是一种很常见的编程技巧，在请求量大时能明显优化应用性能，降低系统频繁建连的资源开销。我们日常工作中常见的有数据库连接池、线程池、对象池等，它们的特点都是将 “昂贵的”、“费时的” 的资源维护在一个特定的 “池子” 中，规定其最小连接数、最大连接数、阻塞队列等配置，方便进行统一管理和复用，通常还会附带一些探活机制、强制回收、监控一类的配套功能。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/03/31/GoDataType/">
   Go 数据类型
 </a>
@@ -403,63 +361,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2020/03/31/Sync&Asyn/">
-  同步&amp;异步 阻塞&amp;非阻塞
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2020/03/31/Sync&Asyn/"><span class="article-date">
-  2020-03-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学/">学</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学/">学</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h2><span id="阻塞-非阻塞">阻塞 非阻塞</span></h2><h3><span id="阻塞">阻塞</span></h3><p>阻塞状态指程序未得到所需计算资源时被挂起的状态。程序在等待某个操作完成期间，自身无法继续处理其他的事情，则称该程序在该操作上是阻塞的。</p>
-<p>常见的阻塞形式有：网络 I/O 阻塞、磁盘 I/O 阻塞、用户输入阻塞等。阻塞是无处不在的，包括 CPU 切换上下文时，所有的进程都无法真正处理事情，它们也会被阻塞。如果是多核 CPU 则正在执行上下文切换操作的核不可被利用。</p>
-<h3><span id="非阻塞">非阻塞</span></h3><p>程序在等待某操作过程中，自身不被阻塞，可以继续处理其他的事情，则称该程序在该操作上是非阻塞的。</p>
-<p>非阻塞并不是在任何程序级别、任何情况下都可以存在的。仅当程序封装的级别可以囊括独立的子程序单元时，它才可能存在非阻塞状态。</p>
-<p>非阻塞的存在是因为阻塞存在，正因为某个操作阻塞导致的耗时与效率低下，我们才要把它变成非阻塞的。</p>
-<h2><span id="同步-异步">同步 异步</span></h2><h3><span id="同步">同步</span></h3><p>不同程序单元为了完成某个任务，在执行过程中需靠某种通信方式以协调一致，我们称这些程序单元是同步执行的。</p>
-<p>例如购物系统中更新商品库存，需要用“行锁”作为通信信号，让不同的更新请求强制排队顺序执行，那更新库存的操作是同步的。</p>
-<p>同步意味着有序。</p>
-<h3><span id="异步">异步</span></h3><p>为完成某个任务，不同程序单元之间过程中无需通信协调，也能完成任务的方式，不相关的程序单元之间可以是异步的。</p>
-<p>例如，爬虫下载网页。调度程序调用下载程序后，即可调度其他任务，而无需与该下载任务保持通信以协调行为。不同网页的下载、保存等操作都是无关的，也无需相互通知协调。这些异步操作的完成时刻并不确定。</p>
-<p>异步意味着无序。</p>
-<h2><span id="进程-协程">进程 协程</span></h2><h3><span id="多进程">多进程</span></h3><p>多进程就是利用 CPU 的多核优势，在同一时间并行地执行多个任务，可以大大提高执行效率。</p>
-<h3><span id="协程"></span></h3><p>协程，英文叫作 Coroutine，又称微线程、纤程，协程是一种用户态的轻量级线程。</p>
-<p>协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈。因此协程能保留上一次调用时的状态，即所有局部状态的一个特定组合，每次过程重入时，就相当于进入上一次调用的状态。</p>
-<p>协程本质上是个单进程，协程相对于多进程来说，无需线程上下文切换的开销，无需原子操作锁定及同步的开销，编程模型也非常简单。</p>
-<p>我们可以使用协程来实现异步操作，比如在网络爬虫场景下，我们发出一个请求之后，需要等待一定的时间才能得到响应，但其实在这个等待过程中，程序可以干许多其他的事情，等到响应得到之后才切换回来继续处理，这样可以充分利用 CPU 和其他资源，这就是协程的优势。</p>
-
-        
-      </div>
-    </div>
-
-  
-
-  
-  
-    
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2020/03/31/mongopy/">
   Python 使用 Mongodb
 </a>
@@ -543,6 +444,105 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找一个名字为Jordan 区分大小写</span></span><br><span class="line">result = collection.find_one(&#123;<span class="string">'name'</span>: <span class="string">'Jordan'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 通过'_id'查找对应对象 不存在返回None</span></span><br><span class="line">result = collection.find_one(&#123;<span class="string">'_id'</span>: ObjectId(<span class="string">'5ea42a423387444c6680695f'</span>)&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查找年龄为20的</span></span><br><span class="line">results = collection.find(&#123;<span class="string">'age'</span>: <span class="number">20</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据符号条件查找</span></span><br><span class="line">results = collection.find(&#123;<span class="string">'age'</span>: &#123;<span class="string">'$gt'</span>: <span class="number">20</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据正则匹配式</span></span><br><span class="line">results = collection.find(&#123;<span class="string">'name'</span>: &#123;<span class="string">'$regex'</span>: <span class="string">'^J.*'</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
 <h3><span id="删除">删除</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除所有 name 为Kevin</span></span><br><span class="line">result = collection.remove(&#123;<span class="string">'name'</span>: <span class="string">'Kevin'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除一条 name 为Kevin</span></span><br><span class="line">result = collection.delete_one(&#123;<span class="string">'name'</span>: <span class="string">'Kevin'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 删除age 大于40的</span></span><br><span class="line">result = collection.delete_many(&#123;<span class="string">'age'</span>: &#123;<span class="string">'$gt'</span>: <span class="number">40</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
 <h3><span id="修改">修改</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">condition = &#123;<span class="string">'name'</span>: <span class="string">'Kevin'</span>&#125;</span><br><span class="line">result = collection.update(condition, &#123;<span class="string">'age'</span>: <span class="number">30</span>&#125;)</span><br><span class="line"></span><br><span class="line">result = collection.update_one(condition, &#123;<span class="string">'$inc'</span>: &#123;<span class="string">'age'</span>: <span class="number">11</span>&#125;&#125;)</span><br><span class="line"></span><br><span class="line">result = collection.update_many(condition, &#123;<span class="string">'$inc'</span>: &#123;<span class="string">'age'</span>: <span class="number">11</span>&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/03/31/pool/">
+  池化技术
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/03/31/pool/"><span class="article-date">
+  2020-03-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Go/">Go</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Go/">Go</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="池化技术">池化技术</span></h1><p>池化技术 (Pool) 是一种很常见的编程技巧，在请求量大时能明显优化应用性能，降低系统频繁建连的资源开销。我们日常工作中常见的有数据库连接池、线程池、对象池等，它们的特点都是将 “昂贵的”、“费时的” 的资源维护在一个特定的 “池子” 中，规定其最小连接数、最大连接数、阻塞队列等配置，方便进行统一管理和复用，通常还会附带一些探活机制、强制回收、监控一类的配套功能。</p>
+
+        
+      </div>
+    </div>
+
+  
+
+  
+  
+    
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2020/03/31/Sync&Asyn/">
+  同步&amp;异步 阻塞&amp;非阻塞
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2020/03/31/Sync&Asyn/"><span class="article-date">
+  2020-03-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学/">学</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学/">学</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h2><span id="阻塞-非阻塞">阻塞 非阻塞</span></h2><h3><span id="阻塞">阻塞</span></h3><p>阻塞状态指程序未得到所需计算资源时被挂起的状态。程序在等待某个操作完成期间，自身无法继续处理其他的事情，则称该程序在该操作上是阻塞的。</p>
+<p>常见的阻塞形式有：网络 I/O 阻塞、磁盘 I/O 阻塞、用户输入阻塞等。阻塞是无处不在的，包括 CPU 切换上下文时，所有的进程都无法真正处理事情，它们也会被阻塞。如果是多核 CPU 则正在执行上下文切换操作的核不可被利用。</p>
+<h3><span id="非阻塞">非阻塞</span></h3><p>程序在等待某操作过程中，自身不被阻塞，可以继续处理其他的事情，则称该程序在该操作上是非阻塞的。</p>
+<p>非阻塞并不是在任何程序级别、任何情况下都可以存在的。仅当程序封装的级别可以囊括独立的子程序单元时，它才可能存在非阻塞状态。</p>
+<p>非阻塞的存在是因为阻塞存在，正因为某个操作阻塞导致的耗时与效率低下，我们才要把它变成非阻塞的。</p>
+<h2><span id="同步-异步">同步 异步</span></h2><h3><span id="同步">同步</span></h3><p>不同程序单元为了完成某个任务，在执行过程中需靠某种通信方式以协调一致，我们称这些程序单元是同步执行的。</p>
+<p>例如购物系统中更新商品库存，需要用“行锁”作为通信信号，让不同的更新请求强制排队顺序执行，那更新库存的操作是同步的。</p>
+<p>同步意味着有序。</p>
+<h3><span id="异步">异步</span></h3><p>为完成某个任务，不同程序单元之间过程中无需通信协调，也能完成任务的方式，不相关的程序单元之间可以是异步的。</p>
+<p>例如，爬虫下载网页。调度程序调用下载程序后，即可调度其他任务，而无需与该下载任务保持通信以协调行为。不同网页的下载、保存等操作都是无关的，也无需相互通知协调。这些异步操作的完成时刻并不确定。</p>
+<p>异步意味着无序。</p>
+<h2><span id="进程-协程">进程 协程</span></h2><h3><span id="多进程">多进程</span></h3><p>多进程就是利用 CPU 的多核优势，在同一时间并行地执行多个任务，可以大大提高执行效率。</p>
+<h3><span id="协程"></span></h3><p>协程，英文叫作 Coroutine，又称微线程、纤程，协程是一种用户态的轻量级线程。</p>
+<p>协程拥有自己的寄存器上下文和栈。协程调度切换时，将寄存器上下文和栈保存到其他地方，在切回来的时候，恢复先前保存的寄存器上下文和栈。因此协程能保留上一次调用时的状态，即所有局部状态的一个特定组合，每次过程重入时，就相当于进入上一次调用的状态。</p>
+<p>协程本质上是个单进程，协程相对于多进程来说，无需线程上下文切换的开销，无需原子操作锁定及同步的开销，编程模型也非常简单。</p>
+<p>我们可以使用协程来实现异步操作，比如在网络爬虫场景下，我们发出一个请求之后，需要等待一定的时间才能得到响应，但其实在这个等待过程中，程序可以干许多其他的事情，等到响应得到之后才切换回来继续处理，这样可以充分利用 CPU 和其他资源，这就是协程的优势。</p>
 
         
       </div>

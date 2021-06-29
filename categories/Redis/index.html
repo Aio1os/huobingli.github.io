@@ -299,98 +299,6 @@
 
     <div class="post-list-item article">
       <h3 class="article-header">
-        <a href="/2019/12/31/redistransaction/">
-  Redis 事务
-</a>
-
-      </h3>
-      
-
-      <div class="article-info">
-        <a href="/2019/12/31/redistransaction/"><span class="article-date">
-  2019-12-31
-</span>
-</a>
-        
-	<span class="article-category tagcloud">
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
-	</span>
-
-
-        
-	<span class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
-	</span>
-
-
-      </div>
-      <div class="article-entry">
-        
-          <h1><span id="redis事务">Redis事务</span></h1><p>在 Redis 中，也存在多个客户端同时向 Redis 系统发送命令的并发可能性，因此同一个数据，可能在不同的时刻被不同的线程所操纵，这样就出现了并发下的数据一致的问题。为了保证异性数据的安全性，Redis 为提供了事务方案。而 Redis 的事务是使用 MULTI-EXEC 的命令组合，使用它可以提供两个重要的保证：</p>
-<ul>
-<li>事务是一个被隔离的操作，事务中的方法都会被 Redis 进行序列化并按顺序执行，事务在执行的过程中不会被其他客户端发生的命令所打断。</li>
-<li>事务是一个原子性的操作，它要么全部执行，要么就什么都不执行。</li>
-</ul>
-<p>在 Redis 中使用事务会经过 3 个过程：</p>
-<ul>
-<li>开启事务。</li>
-<li>命令进入队列。</li>
-<li>执行事务。</li>
-</ul>
-<h2><span id="redis事务命令">Redis事务命令</span></h2><table>
-<thead>
-<tr>
-<th>命令</th>
-<th>说明</th>
-<th>备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>multi</td>
-<td>开启事务命令，之后的命令就进入队列，而不会马上被执行</td>
-<td>在事务生存期间，所有的 Redis 关于数据结构的命令都会入队</td>
-</tr>
-<tr>
-<td>watch key1 [key2……]</td>
-<td>监听某些键，当被监听的键在事务执行前被修改，则事务会被回滚</td>
-<td>使用乐观锁</td>
-</tr>
-<tr>
-<td>unwatch key1 [key2……]</td>
-<td>取消监听某些键</td>
-<td>——</td>
-</tr>
-<tr>
-<td>exec</td>
-<td>执行事务，如果被监听的键没有被修改，则采用执行命令，否则就回滚命令</td>
-<td>在执行事务队列存储的命令前，Redis 会检测被监听的键值对有没有发生变化，如果没有则执行命令, 否则就回滚事务</td>
-</tr>
-<tr>
-<td>discard</td>
-<td>回滚事务</td>
-<td>回滚进入队列的事务命令，之后就不能再用 exec 命令提交了</td>
-</tr>
-</tbody>
-</table>
-<h2><span id="redis事务回滚">Redis事务回滚</span></h2><p>执行事务命令的时，当命令入队，Redis 就会检测事务的命令是否正确，如果不正确则会产生错误。无论之前和之后的命令都会被事务所回滚，就变为什么都没有执行。</p>
-<h2><span id="redis监控事务">Redis监控事务</span></h2><p>使用 watch 命令可以决定事务是执行还是回滚</p>
-
-        
-      </div>
-    </div>
-
-  
-    </div>
-  
-
-  
-  
-    <div class="post-list">
-  
-
-    <div class="post-list-item article">
-      <h3 class="article-header">
         <a href="/2019/12/31/redisoperate/">
   Redis 常用操作
 </a>
@@ -861,6 +769,98 @@
 </tr>
 </tbody>
 </table>
+
+        
+      </div>
+    </div>
+
+  
+    </div>
+  
+
+  
+  
+    <div class="post-list">
+  
+
+    <div class="post-list-item article">
+      <h3 class="article-header">
+        <a href="/2019/12/31/redistransaction/">
+  Redis 事务
+</a>
+
+      </h3>
+      
+
+      <div class="article-info">
+        <a href="/2019/12/31/redistransaction/"><span class="article-date">
+  2019-12-31
+</span>
+</a>
+        
+	<span class="article-category tagcloud">
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Redis/">Redis</a></li></ul>
+	</span>
+
+
+        
+	<span class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Redis/">Redis</a></li></ul>
+	</span>
+
+
+      </div>
+      <div class="article-entry">
+        
+          <h1><span id="redis事务">Redis事务</span></h1><p>在 Redis 中，也存在多个客户端同时向 Redis 系统发送命令的并发可能性，因此同一个数据，可能在不同的时刻被不同的线程所操纵，这样就出现了并发下的数据一致的问题。为了保证异性数据的安全性，Redis 为提供了事务方案。而 Redis 的事务是使用 MULTI-EXEC 的命令组合，使用它可以提供两个重要的保证：</p>
+<ul>
+<li>事务是一个被隔离的操作，事务中的方法都会被 Redis 进行序列化并按顺序执行，事务在执行的过程中不会被其他客户端发生的命令所打断。</li>
+<li>事务是一个原子性的操作，它要么全部执行，要么就什么都不执行。</li>
+</ul>
+<p>在 Redis 中使用事务会经过 3 个过程：</p>
+<ul>
+<li>开启事务。</li>
+<li>命令进入队列。</li>
+<li>执行事务。</li>
+</ul>
+<h2><span id="redis事务命令">Redis事务命令</span></h2><table>
+<thead>
+<tr>
+<th>命令</th>
+<th>说明</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>multi</td>
+<td>开启事务命令，之后的命令就进入队列，而不会马上被执行</td>
+<td>在事务生存期间，所有的 Redis 关于数据结构的命令都会入队</td>
+</tr>
+<tr>
+<td>watch key1 [key2……]</td>
+<td>监听某些键，当被监听的键在事务执行前被修改，则事务会被回滚</td>
+<td>使用乐观锁</td>
+</tr>
+<tr>
+<td>unwatch key1 [key2……]</td>
+<td>取消监听某些键</td>
+<td>——</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>执行事务，如果被监听的键没有被修改，则采用执行命令，否则就回滚命令</td>
+<td>在执行事务队列存储的命令前，Redis 会检测被监听的键值对有没有发生变化，如果没有则执行命令, 否则就回滚事务</td>
+</tr>
+<tr>
+<td>discard</td>
+<td>回滚事务</td>
+<td>回滚进入队列的事务命令，之后就不能再用 exec 命令提交了</td>
+</tr>
+</tbody>
+</table>
+<h2><span id="redis事务回滚">Redis事务回滚</span></h2><p>执行事务命令的时，当命令入队，Redis 就会检测事务的命令是否正确，如果不正确则会产生错误。无论之前和之后的命令都会被事务所回滚，就变为什么都没有执行。</p>
+<h2><span id="redis监控事务">Redis监控事务</span></h2><p>使用 watch 命令可以决定事务是执行还是回滚</p>
 
         
       </div>
